@@ -1,26 +1,30 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
 
-# Permalinks
-permalink:        pretty
-relative_permalinks: true
+##
+# RLStevenson Theme Options
+####
 
-# Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+# For baseurl:
+# Use '' for / or '/your-dir' for another directory
+
+title:		RLStevenson
+description:	'A Bootstrap based clone of the Hyde theme by mdo.'
+freetext:	'Released under an MIT license - feel free to make pull requests.'
+baseurl:	'/'
+paginate:	3
+version:	0.1.0
+colorscheme:	scheme-gulfracing
+
+ga:		'UA-123-456'
+piwikSiteID:	''
+piwikURL:	''
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
-
-paginate:         5
-
-# Custom vars
-version:          2.1.0
+ url:		https://www.exchangerate-api.com
+ name:		'ExchangeRate-API'
 
 github:
-  repo:           https://github.com/poole/hyde
+ repo:		https://github.com/ExchangeRate-API/rlstevenson-jekyll-theme
+
+gems:		[jekyll-paginate]
+
+exclude:	['README.md', 'Gemfile.lock', 'Gemfile', '*.gemspec', '*.gem']
