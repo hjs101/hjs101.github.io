@@ -1,124 +1,168 @@
-# 星合の空
+# Hydeout
 
-欢迎访问我的主页！下面向你介绍一下我吧\~
+Hydeout updates the original [Hyde](https://github.com/poole/hyde)
+theme for [Jekyll](http://jekyllrb.com) 3.x and 4.x and adds new functionality.
 
-<!-- .slide -->
+![Desktop](/_screenshots/1.png?raw=true)
+<img alt="Mobile home page" src="/_screenshots/2.png?raw=true" width="300px" />
+<img alt="Mobile post page" src="/_screenshots/3.png?raw=true" width="300px" />
 
-## Contact
+### Usage
 
-- Address
-  - **Sun Yat-sen University - 132 Waihuan East Rd. - Guangzhou, China**
-- Site
-  - **<https://wu-kan.cn>**
-- [Resume](https://wu-kan.github.io/resume/resume.pdf)
+Hydeout is available as the `jekyll-theme-hydeout` Ruby Gem.
+Add `gem "jekyll-theme-hydeout", "~> 4.1"` to your Gemfile and run
+`bundle install`.
 
-<!-- .slide vertical=true -->
+If you're installing on Github pages, you may also have to add
+`remote_theme: fongandrew/hydeout` to your `_config.yml`. [See the Github
+instructions for more details.](https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site/)
 
-- Phone
-  - **+86 18756280097**
-- WeChat
-  - **Wu-\_-Kan**
-- E-mail:
-  - **[i[at]wu-kan.cn](mailto:i@wu-kan.cn)**
-  - **[wukan3[at]mail2.sysu.edu.cn](mailto:wukan3@mail2.sysu.edu.cn)**
+Hydeout uses pagination, so if you have an `index.md`, you'll need to swap
+it with an `index.html` that uses the `index` layout:
 
-<!-- .slide -->
+```
+---
+layout: index
+title: Home
+---
+```
 
-## Education
+You'll also need to add a setting to `_config.yml` telling Jekyll how many posts
+to include per page (e.g. `paginate: 5`).
 
-<!-- .slide vertical=true -->
+### Keep It Simple
 
-School of Computer Science and Engineering, Sun Yat-sen University, Guangzhou
+In keeping with the original Hyde theme, Hydeout aims to keep the overall
+design lightweight and plugin-free. JavaScript is currently limited only
+to Disqus and Google Analytics (and is only loaded if you provide configuration
+variables).
 
-- M.S. in Computer Science, Sept. 2021 - Jul. 2024 (expected)
-  - Advised by [Prof. X. Zhang](https://xianweiz.github.io/) at [NSCC-GZ](http://www.nscc-gz.cn/index.html)
+Hydeout makes heavy use of Flexbox in its CSS. If Flexbox is not available,
+the CSS degrades into a single column layout.
 
-<!-- .slide vertical=true -->
+### Customization
 
-- B.E. in Computer Science, Supercomputer Class, Sept. 2017 - Jul. 2021
-  - Principle of Supercomputer
-  - Parallel and Distributed Computing
-  - High Performance Computing
-  - Multicore Computing
+Hydeout replaces Hyde's class-based theming with the use
+of the following SASS variables:
 
-<!-- .slide -->
+```scss
+$sidebar-bg-color: #202020 !default;
+$sidebar-fg-color: white !default;
+$sidebar-sticky: true !default;
+$layout-reverse: false !default;
+$link-color: #268bd2 !default;
+```
 
-## Projects
+To override these variables, create your own `assets/css/main.scss` file.
+Define your own variables, then import in Hydeout's SCSS, like so:
 
-<!-- .slide vertical=true -->
+```scss
+---
+# Jekyll needs front matter for SCSS files
+---
 
-- [HPL-AI](https://wu-kan.cn/2021/03/14/HPL-AI/)[![Star](https://img.shields.io/github/stars/wu-kan/HPL-AI.svg)](https://github.com/wu-kan/HPL-AI)[![Fork](https://img.shields.io/github/forks/wu-kan/HPL-AI.svg)](https://github.com/wu-kan/HPL-AI/fork)
-  - An implementation of HPL-AI Mixed-Precision Benchmark based on hpl-2.3.
-  - Graduation design for undergraduate thesis.
+$sidebar-bg-color: #ac4142;
+$link-color: #ac4142;
+$sidebar-sticky: false;
+@import "hydeout";
+```
 
-<!-- .slide vertical=true -->
+See the [_variables](_sass/hydeout/_variables.scss) file for other variables
+you can override.
 
-- [jekyll-theme-WuK](https://jekyll-theme-WuK.wu-kan.cn/)[![Star](https://img.shields.io/github/stars/wu-kan/wu-kan.github.io.svg)](https://github.com/wu-kan/wu-kan.github.io)[![Fork](https://img.shields.io/github/forks/wu-kan/wu-kan.github.io.svg)](https://github.com/wu-kan/wu-kan.github.io/fork)
-  - A static blog system with content-first, sliding sidebar theme.
-  - Powered by Jekyll.
+You can see the full set of partials you can replace in the
+[`_includes`](_includes) folder, but there are a few worth noting:
 
-<!-- .slide -->
+* `_includes/copyright.html` - Insert your own copyright here.
 
-## Honors
+* `_includes/custom-head.html` - Insert custom head tags (e.g. to load your
+  own stylesheets)
 
-- **Second Prize (3rd)**, [China Parallel Application Challenge on Demostic CPU](http://hpc-cpc.com/index.php?s=/index/index/name/index), Oct. 2021
-- **CCF Elite Collegiate Award (94 undergrads in China)**, [China Computer Federation (CCF)](https://www.ccf.org.cn/Awards/Awards/2021-09-06/736189.shtml), Sept. 2021
-- **Outstanding Undergraduate Thesis**, May. 2021
-- **First Prize (3rd) & Highest Linpack**, [ASC20-21 Student Supercomputer Challenge](https://wu-kan.cn/2021/05/19/%E6%88%91%E7%9A%84ASC%E5%86%B3%E8%B5%9B%E5%A4%8D%E7%9B%98-%E5%86%92%E9%99%A9-%E5%A4%B1%E8%AF%AF%E4%B8%8E%E7%BF%BB%E8%BD%A6/), May. 2021
+* `_includes/custom-foot.html` - Insert custom elements at the end of the
+  body (e.g. for custom JS)
 
-<!-- .slide vertical=true -->
+* `_includes/custom-nav-links.html` - Additional nav links to insert at the
+  end of the list of links in the sidebar.
 
-- **Gold Medal (4th)**, [CCF Collegiate Computer Systems & Programming Contest](https://wu-kan.cn/2020/10/17/2020-CCF-CCSP%E7%AB%9E%E8%B5%9B-%E5%90%AB%E5%88%86%E8%B5%9B%E5%8C%BA%E7%AB%9E%E8%B5%9B/), South China Division, Oct. 2020
-- **First Scholarship**, Oct. 2020
-- **Silver Medal (2nd)**, "Intel Cup" [Parallel Application Challenge](http://cse.sysu.edu.cn/content/5501), CCF HPC China, Sept. 2020
-- **First Prize (3rd) & Winner Prize (5th)**, [Priority Research Application](https://cas-pra.sugon.com/webnews/detail/205), Chinese Academic of Science (CAS), Aug. 2020
+  Pro-tip: The `nav`s in the sidebar are flexboxes. Use the `order` property
+  to order your links.
 
-<!-- .slide vertical=true -->
+* `_includes/custom-icon-links.html`- Additional icon links to insert at the
+  end of the icon links at the bottom of the sidebar. You can use the `order`
+  property to re-order.
 
-- **Top 0.05% in 11395**, [CCF Certified Software Professional](https://wu-kan.cn/2019/12/16/%E7%AC%AC%E5%8D%81%E5%85%AB%E6%AC%A1CCF%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%83%BD%E5%8A%9B%E8%AE%A4%E8%AF%81/), Dec. 2019
-- **Silver Medal**, [International Collegiate Programming Contest, Xuzhou Site](https://wu-kan.cn/2019/11/04/%E5%86%8D%E8%A7%81-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/), Nov. 2019
-- **Gold Medel**$\times 2$, China Collegiate Programming Contest, Guangdong Division, [May. 2019](http://www.gdcpc.cn/ArticleView/ArticleDetail?articleId=5cda35a3659ce607a808929a) & [May. 2018](https://ccpc.io/post/110)
+* `_includes/favicons.html` - Replace references to `favicon.ico` and
+  `favicon.png` with your own favicons references.
 
-<!-- .slide -->
+* `_includes/font-includes.html` - The Abril Fatface font used for the site
+  title is loaded here. If you're overriding that font in the CSS, be sure
+  to also remove the font load reference here.
 
-## Experience
+### New Features
 
-- Teach Assistant of Computer System Organization, Sept. 2021 - Jan. 2022 (expected)
-- Intern of Inference Engine, Speech & Audio Team (Beijing), Bytedance AI Lab, Feb. 2021 - Aug. 2021
-- Leader of [SYSU-SCC](https://github.com/SYSU-SCC), Mar. 2020 - Jul. 2021
-- Quiz Setter, Judge and Host of the Closing Ceremony for [SYSU Programing Contest](https://wu-kan.cn/2020/11/29/SYSU-Collegiate-Programming-Contest-2020,-Onsite/), Oct. 2020
+* Hydeout adds a new tags page (accessible in the sidebar). Just create a
+  new page with the tags layout:
 
-<!-- .slide -->
+  ```
+  ---
+  layout: tags
+  title: Tags
+  ---
+  ```
 
-## Blogs
+* Hydeout adds a new "category" layout for dedicated category pages.
+  Category pages are automatically added to the sidebar. All other pages
+  must have `sidebar_link: true` in their front matter to show up in
+  the sidebar. To create a category page, use the `category` layout"
 
-- [我的 ASC 决赛复盘：冒险、失误与翻车](https://wu-kan.cn/2021/05/19/%E6%88%91%E7%9A%84ASC%E5%86%B3%E8%B5%9B%E5%A4%8D%E7%9B%98-%E5%86%92%E9%99%A9-%E5%A4%B1%E8%AF%AF%E4%B8%8E%E7%BF%BB%E8%BD%A6/)
-- [今日此时所想之事（二）](https://wu-kan.cn/2021/02/11/%E4%BB%8A%E6%97%A5%E6%AD%A4%E6%97%B6%E6%89%80%E6%83%B3%E4%B9%8B%E4%BA%8B-%E4%BA%8C/)
-- [十月九日](https://wu-kan.cn/2020/10/09/%E5%8D%81%E6%9C%88%E4%B9%9D%E6%97%A5/)
-- [今日此时所想之事](https://wu-kan.cn/2020/01/24/%E4%BB%8A%E6%97%A5%E6%AD%A4%E6%97%B6%E6%89%80%E6%83%B3%E4%B9%8B%E4%BA%8B/)
+  ```
+  ---
+  layout: category
+  title: My Category
+  ---
 
-<!-- .slide vertical=true -->
+  Description of "My Category"
+  ```
 
-- [基于 Jekyll 搭建个人博客](https://wu-kan.cn/2019/01/18/%E5%9F%BA%E4%BA%8EJekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)
-- [我的算法竞赛模板](https://wu-kan.cn/2019/02/04/%E6%88%91%E7%9A%84%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E6%A8%A1%E6%9D%BF/)
-- [这一年的一点感想](https://wu-kan.cn/2019/07/18/%E8%BF%99%E4%B8%80%E5%B9%B4%E7%9A%84%E4%B8%80%E7%82%B9%E6%84%9F%E6%83%B3/)
+* You can control how pages are sorted by using the `sidebar_sort_order`
+  parameter in the front matter. This works for both category and non-category
+  pages, although non-category pages will always come first. Take a look at
+  [`_includes/sidebar-nav-links.html`](./_includes/sidebar-nav-links.html) if
+  you want to customize this behavior.
 
-<!-- .slide -->
+  ```
+  ---
+  layout: page
+  title: My page
+  sidebar_sort_order: 123
+  ---
 
-## Toolchains
+  Some content.
+  ```
 
-<!-- .slide vertical=true -->
+* A simple redirect-to-Google search is available. Just create a page with
+  the `search` layout.
 
-- **C/C++**, Familiar
-  - **CUDA/HIP/ROCm**, Familiar&Learning
-  - **MPI**, Familiar
-  - **OpenMP**, Familiar
-- **Python**, Familiar
+  ```
+  ---
+  layout: search
+  title: Google Search
+  ---
+  ```
 
-<!-- .slide vertical=true -->
+* Disqus integration is ready out of the box. Just add the following to
+  your config file:
 
-- **Markdown**, Familiar
-- **$\LaTeX$**, Familiar
-- **Shell**, Familiar&Learning
-- **Git**, Familiar
-- **VSCode**, Familiar
+  ```yaml
+  disqus:
+    shortname: my-disqus-shortname
+  ```
+
+  If you don't want Disqus or want to use something else, override
+  `comments.html`.
+
+* For Google Analytics support, define a `google_analytics` variable with
+  your property ID in your config file.
+
+There's also a bunch of minor tweaks and adjustments throughout the
+theme. Hope this works for you!
