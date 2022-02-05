@@ -24,7 +24,7 @@ author:
  name:		'ExchangeRate-API'
 
 github:
- repo:		https://github.com/ExchangeRate-API/rlstevenson-jekyll-theme
+ repo:		https://github.com/hjs011/hjs011.github.io
 
 gems:		[jekyll-paginate]
 
