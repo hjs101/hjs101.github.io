@@ -10,7 +10,7 @@ title:		HJS's Blog
 description:	'기술 블로그'
 freetext:	'알고리즘 풀이'
 
-baseurl:	'/'
+baseurl:	'https://hjs011.github.io/'
 paginate:	3
 version:	0.1.0
 colorscheme:	scheme-gulfracing
