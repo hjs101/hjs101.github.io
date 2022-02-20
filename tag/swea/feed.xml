@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://hjs101.github.io/tag/swea/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-02-20T23:45:21+09:00</updated>
+  <id>https://hjs101.github.io/tag/swea/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">hjs’s Blog | </title>
+  
+
+  
+    <subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">SWEA_5644_무선충전_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-5644" rel="alternate" type="text/html" title="SWEA_5644_무선충전_JAVA" />
+      <published>2022-02-17T01:40:00+09:00</published>
+      <updated>2022-02-17T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-5644</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-5644">&lt;h2 id=&quot;문제--무선충전&quot;&gt;문제 : 무선충전&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRDL1aeugDFAUo&amp;amp;categoryId=AWXRDL1aeugDFAUo&amp;amp;categoryType=CODE&amp;amp;problemTitle=%EB%AC%B4%EC%84%A0&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_5644_무선충전&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;IM 모의 문제라서 그런지, 문제가 상당히 복잡했다.&lt;/p&gt;
+
+&lt;p&gt;요점은 이렇다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;10*10의 2차원 평면이 있고, A와 B는 그 양쪽 대각선 끝에서 출발한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;평면에는 BC라는 무선충전기가 배치되어있는데, 일정 거리 안에 있어야만 충전이 가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BC는 1초에 P만큼 스마트폰을 충전시킬 수 있다. 만약 BC의 주변에 2대의 스마트폰이 있다면, P의 충전량을 균등하게 분배한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A,B가 정해진 루트로 이동을 할 때, 모든 사용자가 최대로 충전할 수 있는 충전량을 구하라.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;p&gt;나는, 이 무선충전의 해를 구하기 위해 먼저 객체를 생성하기 위한 클래스를 만들었다.&lt;/p&gt;
+
+&lt;p&gt;Human클래스는 A,B의 좌표정보를 저장하기 위한 클래스이다. 추가로 isEnergy라는 boolean배열을 선언했는데, 이는 현재 위치에서 접속 가능한 BC의 정보를 담을 배열이다.&lt;/p&gt;
+
+&lt;p&gt;BC클래스는 BC 객체를 생성하기 위한 클래스이다. BC는 각각 X,Y좌표, 충전가능한 거리 C, 1초에 충전가능한 충전량 P를 멤버변수로 가진다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 클래스를 만들어 두고, 메인 메서드로 넘어가는데, 기본적으로 Input 파일의 입력 설명대로 값을 읽어와서 저장을 했다.&lt;/p&gt;
+
+&lt;p&gt;A,B정보는 Human객체를 생성하여 저장했고, BC는 BC의 List를 선언해서 생성해주었다.&lt;/p&gt;
+
+&lt;p&gt;그 후, A와 B의 현재 위치(초기위치)에서 충전가능한지 여부를 확인한다. 확인 방법은 다음과 같다. A를 기준으로 설명하겠다.&lt;/p&gt;
+
+&lt;p&gt;BC리스트에 저장된 모든 BC와 A와의 거리를 비교하여, A가 BC의 충전가능 범위에 있는지 확인한다. 만약 충전가능 범위에 있다면 A에 선언해두었던 isEnergy배열의 해당 위치 값을 true로 바꾼다. 반대로 충전가능 범위에 없다면, isEnergy 배열의 해당 위치 값을 false로 바꿔준다.&lt;/p&gt;
+
+&lt;p&gt;초기 위치에서 충전가능한지 여부 확인을 마쳤다면, 이제 현재 자리에서 가능한 최대 충전량을 구해야한다.&lt;/p&gt;
+
+&lt;p&gt;A를 기준으로 BC를 탐색하며 충전가능한 최댓값을 구한다. A와 B가 겹치는 경우와, A와 B가 겹치지 않는 경우를 모두 상정해야하는 점에 주의한다.&lt;/p&gt;
+
+&lt;p&gt;구해진 초기 max값을 정답을 출력하기 위한 변수 answer에 할당해 초기화해준다.&lt;/p&gt;
+
+&lt;p&gt;위 과정을 A,B를 주어진 루트만큼 이동시키며 반복한다. 초기 1회를 먼저 돌리는 이유는 0초부터 충전이 가능하다는 규칙을 따르기 위해서이다. 1번 반복될때마다 answer에 max값을 sum해준다.&lt;/p&gt;
+
+&lt;p&gt;모든 반복이 종료된 후 answer를 출력한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class 모의_5644_무선충전 {
+	// 총 충전량 저장 변수
+	static int answer;
+	// 매회 최대 충전량 저장 변수
+	static int max;
+
+
+	public static void max(Human A, Human B, List&amp;lt;BC&amp;gt; bcQ) {
+		// 충전 가능 여부 비교하여 현재 저장 가능한 최댓값 저장
+		int energyA = 0;
+		int U = A.isEnergy.length;
+		for (int i = 0; i &amp;lt; U; i++) {
+			// AC별 충전량 저장 변수
+			int energyB = 0;
+			// A가 i번째 BC에서 충전가능하면
+			if (A.isEnergy[i] == true) {
+				// B도 같은 BC에 대해 충전 가능한지 확인
+				// A, B가 같은 BC에 접속 가능한 경우
+				if (B.isEnergy[i] == true) {
+					energyA = bcQ.get(i).P / 2;
+					energyB = energyA;
+					max = Math.max(max, energyA+energyB);
+				}
+				energyA = 0;
+				energyB = 0;
+				// A와 B가 다른 BC에 접속 가능한 경우
+				for (int j = 0; j &amp;lt; U; j++) {
+					// 가능한 에너지 값중에 최댓값
+					if (j != i &amp;amp;&amp;amp; B.isEnergy[j] == true) {
+						energyB = Math.max(bcQ.get(j).P,energyB);
+					}
+
+					energyA = bcQ.get(i).P;
+					max = Math.max(max, energyA+energyB);
+				}
+			}else { // A가 i번째 BC에서 충전 불가능하면
+				energyA = 0;
+				for (int j = 0; j &amp;lt; U; j++) {
+					// 가능한 에너지 값중에 최댓값
+					if (B.isEnergy[j] == true) {
+						energyB = Math.max(bcQ.get(j).P,energyB);
+					}
+				}
+				max = Math.max(max, energyA+energyB);
+			}
+
+		}
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		System.setIn(new FileInputStream(&quot;input_5644.txt&quot;));
+
+		// 버퍼드리더로 값 읽어오기
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		// 테케
+		int T = Integer.parseInt(in.readLine());
+
+		// X,Y좌표 바꿨기 때문에, 방향정보도 바뀔 필요가 있다.
+		// 0:제자리, 1: 좌, 2: 하 3: 우 4: 상
+		int[][] dir = { { 0, 0 }, { 0, -1 }, { 1, 0 }, { 0, 1 }, { -1, 0 } };
+
+		// 테케만큼 반복
+		for (int tc = 1; tc &amp;lt;= T; tc++) {
+			// StringTokenizer로 값 읽어오기, 2번째 줄 저장
+			StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
+
+			// 이동시간
+			int M = Integer.parseInt(st.nextToken());
+
+			// BC 개수 U로 네이밍 변경
+			int U = Integer.parseInt(st.nextToken());
+
+			// A, B 초기 위치 저장
+			Human A = new Human(1, 1);
+			Human B = new Human(10, 10);
+
+			int[] moveA = new int[M];
+			int[] moveB = new int[M];
+			// A 이동 정보 저장
+			st = new StringTokenizer(in.readLine(), &quot; &quot;);
+			for (int i = 0; i &amp;lt; M; i++) {
+				moveA[i] = Integer.parseInt(st.nextToken());
+			}
+			// B 이동 정보 저장
+			st = new StringTokenizer(in.readLine(), &quot; &quot;);
+			for (int i = 0; i &amp;lt; M; i++) {
+				moveB[i] = Integer.parseInt(st.nextToken());
+			}
+
+			// BC 목록 저장
+			List&amp;lt;BC&amp;gt; bcQ = new ArrayList&amp;lt;&amp;gt;();
+
+			// BC 할당
+			for (int i = 0; i &amp;lt; U; i++) {
+				// BC정보 읽어오기
+				st = new StringTokenizer(in.readLine(), &quot; &quot;);
+				int y = Integer.parseInt(st.nextToken());
+				int x = Integer.parseInt(st.nextToken());
+				int c = Integer.parseInt(st.nextToken());
+				int p = Integer.parseInt(st.nextToken());
+				// 한줄에다 다 적을 수 있지만 보기싫어서 나눔
+				bcQ.add(new BC(y, x, c, p));
+			}
+
+			// A, B의 충전가능여부 저장할 배열
+			A.isEnergy = new boolean[U];
+			B.isEnergy = new boolean[U];
+
+			// 현재 위치에서 충전가능한지 먼저 확인
+			isEnegy(A, bcQ);
+			isEnegy(B, bcQ);
+////			 테스트, 여기까지는 잘됨
+//			System.out.println(Arrays.toString(A.isEnergy));
+//			System.out.println(Arrays.toString(B.isEnergy));
+
+			// 매회 최대 충전량 저장 변수 초기화
+			max = 0;
+
+			// 현재 자리에서 가능한 최대 충전량 구하기
+			max(A, B, bcQ);
+
+			// 총 충전량 저장 변수 초기화
+			answer = max;
+			// 여기까지 잘 됨
+//			System.out.println(answer);
+
+			// 이동 시간만큼 반복
+			for (int i = 0; i &amp;lt; M; i++) {
+				max = 0;
+				// A 이동
+				A.X = A.X + dir[moveA[i]][0];
+				A.Y = A.Y + dir[moveA[i]][1];
+//				System.out.println(&quot;T:&quot;+i+&quot; A:&quot;+A.X+&quot;,&quot;+A.Y);
+				// B 이동
+				B.X = B.X + dir[moveB[i]][0];
+				B.Y = B.Y + dir[moveB[i]][1];
+//				System.out.println(&quot;T:&quot;+i+&quot; B:&quot;+B.X+&quot;,&quot;+B.Y);
+
+				// 현재 위치에서 충전 가능한지 여부 확인
+				isEnegy(A, bcQ);
+				isEnegy(B, bcQ);
+//				System.out.println(Arrays.toString(A.isEnergy));
+//				System.out.println(Arrays.toString(B.isEnergy));
+				// 현재 위치에서 가능한 충전량의 최댓값 구하기
+				max(A,B,bcQ);
+//				System.out.println(&quot;Max: &quot;+ max);
+				// 해당 최댓값 총 충전량에 더하기
+				answer += max;
+			}
+			// ---- 출력
+			System.out.printf(&quot;#%d %d\n&quot;,tc,answer);
+		}
+
+	}
+
+	public static void isEnegy(Human human, List&amp;lt;BC&amp;gt; bcQ) {
+		for (int i = 0, n = bcQ.size(); i &amp;lt; n; i++) {
+			// A와 BC간의 거리 비교하여 충전 가능한 BC에대해 boolean값 저장
+			if ((Math.abs(human.X - bcQ.get(i).X) + Math.abs(human.Y - bcQ.get(i).Y)) &amp;lt;= bcQ.get(i).C) {
+				human.isEnergy[i] = true;
+			}else {
+				human.isEnergy[i] = false;
+			}
+		}
+
+	}
+
+}
+
+class Human {
+	int X;
+	int Y;
+	boolean[] isEnergy;
+
+	public Human(int x, int y) {
+		super();
+		X = x;
+		Y = y;
+	}
+}
+
+class BC {
+	// x좌표
+	int X;
+	// y좌표
+	int Y;
+	// 충전범위 - 구할 수 있으니까 스킵?
+	int C;
+	// 성능
+	int P;
+
+	public BC(int x, int y, int c, int p) {
+		super();
+		X = x;
+		Y = y;
+		C = c;
+		P = p;
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 무선충전</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_6808_규영이와인영이의카드게임_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-6808" rel="alternate" type="text/html" title="SWEA_6808_규영이와인영이의카드게임_JAVA" />
+      <published>2022-02-15T01:40:00+09:00</published>
+      <updated>2022-02-15T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-6808</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-6808">&lt;h2 id=&quot;문제--규영이와인영이의카드게임&quot;&gt;문제 : 규영이와인영이의카드게임&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWgv9va6HnkDFAW0&amp;amp;categoryId=AWgv9va6HnkDFAW0&amp;amp;categoryType=CODE&amp;amp;problemTitle=%EA%B7%9C%EC%98%81%EC%9D%B4%EC%99%80&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_6808_규영이와인영이의카드게임&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;순열문제인데, 18개의 숫자중 9개씩 2명이 나눠갖는 방법을 찾는데 고민을 많이 했다. 배열에 카운트하는 방식으로 간단하게 할 수 있는 모양이지만, 이 문제를 풀 당시 나는 그에 대한 생각을 하지 못해서 다른 방법으로 구분을 지었다. A와 B에게 카드를 나눠준다고 할때, 각각 list로 값을 읽어들인다. A에게 나눠주는 카드는 주어져 있으므로, 1~18까지 반복하면서 contains를 이용하여 A에게 없는 카드이면서 B에게도 없는 카드를 B에게 add시켜주도록 한다.&lt;/p&gt;
+
+&lt;p&gt;값을 서로 나누고 나면, B가 가진 카드의 배치에 대한 경우의 수를 모두 구해서 A의 배열을 기준으로 비교를 해주면 된다. A가 승리시 카운트를 증가시켜, A가 이기는 경우의 수를 출력하고, 모든 경우의 수가 9!라고 하였으니 9!에서 A가 이기는 경우의 수를 빼주면 A가 지는 경우의 수를 알 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;리스트 2개를 생성한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 리스트 1개에 A에게 주어진 수를 읽어들여 모두 추가한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1~18까지 반복하며, A에게 없으면서 B에게 없는 수를 B의 리스트에 추가한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;재귀함수를 통해 순열을 구현하여, B가 가질수 있는 카드의 배치의 경우를 모두 구한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;재귀함수의 기저조건에서, 각 배치별로 A가 가진 카드의 배열과 비교하여, 승리하는 상황에 카운트를 1 증가시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 순열에 대한 비교를 마친 후 승리하는 경우의 수와 패배하는 경우의 수를 공백을 기준으로 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class D3_6808_규영이와인영이의카드게임 {
+	static List&amp;lt;Integer&amp;gt; card1;
+	static List&amp;lt;Integer&amp;gt; card2;
+	static int[] nums;
+	static boolean[] isSelected;
+	static int win;
+	public static void main(String[] args) throws IOException {
+
+		System.setIn(new FileInputStream(&quot;input_6808.txt&quot;));
+
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		// 순열의 문제
+		// 1 ~ 18까지
+
+		int T = Integer.parseInt(in.readLine());
+
+
+		for(int tc=1;tc&amp;lt;=T;tc++) {
+			card1 = new ArrayList&amp;lt;&amp;gt;();
+			card2 = new ArrayList&amp;lt;&amp;gt;();
+			win = 0;
+			StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
+			isSelected = new boolean[9];
+			nums = new int[9];
+			for(int i=0;i&amp;lt;9;i++) {
+				card1.add(Integer.parseInt(st.nextToken()));
+			}
+
+			for(int i=0;i&amp;lt;9;i++) {
+				for(int j=1;j&amp;lt;=18;j++) {
+					if(!card1.contains(j) &amp;amp;&amp;amp; !card2.contains(j)) {
+						card2.add(j);
+						break;
+					}
+				}
+			}
+
+			perm(0);
+			System.out.printf(&quot;#%d %d %d\n&quot;,tc,win,(362880-win));
+		}
+
+
+	}
+
+
+	public static void perm(int cnt) {
+
+		if(cnt == 9) {
+			int winA = 0;
+			int winB = 0;
+			for(int i=0;i&amp;lt;9;i++) {
+				int A = card1.get(i);
+				int B = nums[i];
+				if(A &amp;gt; B) {
+					winA = winA + A + B;
+				}else if(A&amp;lt;B){
+					winB = winB + A + B;
+				}
+			}
+			if(winA &amp;gt; winB) {
+				win++;
+			}
+			return;
+		}
+
+		for(int i=0;i&amp;lt;9;i++) {
+			if(isSelected[i]) {
+				continue;
+			}
+			isSelected[i] = true;
+			nums[cnt] = card2.get(i);
+			perm(cnt + 1);
+			isSelected[i] = false;
+
+		}
+
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 규영이와인영이의카드게임</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_1861_정사각형 방_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-1861" rel="alternate" type="text/html" title="SWEA_1861_정사각형 방_JAVA" />
+      <published>2022-02-10T01:40:00+09:00</published>
+      <updated>2022-02-10T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-1861</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-1861">&lt;h2 id=&quot;문제--정사각형-방&quot;&gt;문제 : 정사각형 방&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LtJYKDzsDFAXc&amp;amp;categoryId=AV5LtJYKDzsDFAXc&amp;amp;categoryType=CODE&amp;amp;problemTitle=1861&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_1861_정사각형 방&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;2차원 배열을 4방탐색 하면서, 현재 위치의 값보다 +1 되어있는 값이 있을 경우 그 방향으로 이동한다. 이것을 반복하다가 더 이상 이동할 수 없는 상태가 된다면, 지금까지 이동한 횟수의 최댓값 + 최대일 경우 이동한 초기위치의 값을 출력하는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;이동한 횟수의 최댓값이 같을 경우에는 초기위치의 더 작은 값을 출력한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;방향 단위배열 dir을 선언한다. dir은 상,하,좌,우 4방향의 단위벡터를 가지고 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2차원 배열의 길이(N)를 읽어들여 N*N 배열을 생성하고, 생성한 배열에 주어진 값을 할당한다. StringTokenizer를 이용한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;N*N만큼 반복한다. (for문 i,j)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;초기위치는 i,j이다. 변동할 위치는 x,y이고, 체크할 위치는 dx,dy로 잡는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;dx, dy는 각각 x,y에서 단위벡터만큼 더한 값을 가진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;While문으로 계속해서 반복하며 dx, dy를 비교하며 4방탐색을 한다. 배열의 범위를 벗어나지 않고, 해당 위치의 값이 기존 위치의 값보다 정확히 1 크다면 좌표를 이동한다. (x = dx, y = dy) 그 후 카운트를 1 증가시켜준다.(이동했으므로)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4방 탐색이 이루어지기 전과 후의 카운트 변화 추이를 비교한다. 만약 카운트가 증가되지 않았다면 더 이상 움직일 곳이 없다는 뜻이기 때문에 추가 탐색을 종료한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;탐색이 종료되면, cnt와 maxCnt를 비교하여 최댓값을 maxCnt에 저장하고, 초기위치의 값을 저장한다.(cnt &amp;gt; maxCnt일 경우)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 cnt == maxCnt일 경우, 초기위치의 두 값을 비교해서 더 작은 값을 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;저장한 maxCnt와 초기 위치의 값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class D4_1861_정사각형방 {  
+	// 현재 위치
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		System.setIn(new FileInputStream(&quot;input_1861.txt&quot;));
+		//				 우		좌	  하		상
+		int[][] dir = { {0,1},{0,-1},{1,0},{-1,0} };
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+
+		int T = Integer.parseInt(in.readLine());
+
+		for(int tc=1;tc&amp;lt;=T;tc++) {
+
+			int x = 0;
+			int y = 0;
+
+			int N = Integer.parseInt(in.readLine());
+
+			int[][] arr = new int[N][N];
+
+			StringTokenizer st;
+
+			// 2차원 배열 할당
+			for(int i=0;i&amp;lt;N;i++) {
+				st = new StringTokenizer(in.readLine(),&quot; &quot;);
+				for(int j=0;j&amp;lt;N;j++) {
+					arr[i][j] = Integer.parseInt(st.nextToken());
+				}
+			}
+
+			int maxCnt = 0;
+			int answerarr = Integer.MAX_VALUE;
+			for(int i=0;i&amp;lt;N;i++) {
+				for(int j=0;j&amp;lt;N;j++){
+					int cnt = 0;
+					x = i;
+					y = j;
+					while(true){
+						int incnt = cnt;
+						for(int d=0;d&amp;lt;4;d++) {
+							int dx = x + dir[d][0];
+							int dy = y + dir[d][1];
+							if(dx &amp;gt;= 0 &amp;amp;&amp;amp; dx &amp;lt; N &amp;amp;&amp;amp; dy &amp;gt;= 0 &amp;amp;&amp;amp; dy &amp;lt; N &amp;amp;&amp;amp; arr[x][y]+1 == arr[dx][dy]) {
+//								System.out.println(arr[x][y] +&quot; : &quot;+arr[dx][dy]);
+								x = dx;
+								y = dy;
+								cnt++;
+							}
+						}
+						if(cnt == incnt) {
+
+							break;
+						}
+					}
+					if(maxCnt &amp;lt; cnt) {
+						maxCnt = cnt;
+						answerarr = arr[i][j];
+					}else if(maxCnt == cnt) {
+						if(answerarr &amp;gt; arr[i][j]) {
+							answerarr = arr[i][j];
+						}
+					}
+				}
+			}
+			System.out.printf(&quot;#%d %d %d\n&quot;,tc,answerarr,++maxCnt);
+
+		}
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 정사각형 방</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_1224_계산기3_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-1224" rel="alternate" type="text/html" title="SWEA_1224_계산기3_JAVA" />
+      <published>2022-02-10T01:40:00+09:00</published>
+      <updated>2022-02-10T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-1224</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-1224">&lt;h2 id=&quot;문제--계산기3&quot;&gt;문제 : 계산기3&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14tDX6AFgCFAYD&amp;amp;categoryId=AV14tDX6AFgCFAYD&amp;amp;categoryType=CODE&amp;amp;problemTitle=1224&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_1224_계산기3&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;덧셈, 뺄셈, 괄호가 있는 중위표기법의 계산식을 후위표기법으로 바꾸고, 해당 후위표기법대로 계산하여 결과를 출력하라는 요청이다.&lt;/p&gt;
+
+&lt;p&gt;중위표기법을 스택을 통해 후위표기법으로 먼저 바꾸는 작업을 거친다. 그 규칙은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;피연산자는 바로 표기식에 더한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연산자가 들어왔을 경우, 자신보다 우선순위가 높거나 같은 것들을 모두 꺼내 표기식에 더하고 자신을 스택에 푸시한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;’(‘는 무조건 스택에 푸시한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;’)’를 만나면, ‘(‘를 만날때까지 스택에서 꺼내 표기식에 더한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위의 방법으로 후위표기법으로 바꾸는데 성공했다면 다음은 계산이다. 스택을 통해 후위표기법의 계산식을 계산해보자.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;피연산자는 스택에 푸시한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연산자를 만날 경우 스택에서 2번 숫자를 꺼내서 연산을 진행하고, 그 연산된 값을 다시 스택에 푸시한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연산을 모두 마친 후 스택에 남아있는 수가 계산 결과이다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;중위표기식 문자열을 읽어와서 char형 배열로 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;후위표기식 문자열을 저장할 List 객체와 후위표기식으로 변환하기 위한 Stack을 생성한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;문자열의 길이만큼 반복하고, 내부는 switch문을 통해 문자열과 숫자를 구분하여 위의 후위표기법 규칙대로 후위표기식을 만든다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;생성된 후위표기식을 스택을 이용해 계산한다. 기존 생성한 스택은 문자형이었으므로, 정수형 스택을 새로 생성해준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;계산된 결과를 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+public class D4_1224_계산기3 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		System.setIn(new FileInputStream(&quot;input_1224.txt&quot;));
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		for(int tc=1;tc&amp;lt;=10;tc++) {
+			int N = Integer.parseInt(in.readLine());
+
+			char[] chars = in.readLine().toCharArray();
+//			char[] chars = &quot;3+(4+5)*6+7&quot;.toCharArray();
+
+			Stack&amp;lt;Character&amp;gt; stack = new Stack&amp;lt;&amp;gt;();
+			List&amp;lt;Character&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();
+			// 후위표기법으로 만들기
+			for(int i=0;i&amp;lt;N;i++) {
+				char m = chars[i];
+				switch(m) {
+				case '*':
+					stack.push(m);
+					break;
+				case '+':
+					while(!stack.isEmpty()) {
+						if(stack.peek() == '(') {
+							break;
+						}
+						list.add(stack.pop());
+					}
+					stack.push(m);
+					break;
+				case '(':
+					stack.push(m);
+					break;
+				case ')':
+					while(!stack.isEmpty()) {
+						if(stack.peek() == '(') {
+							stack.pop();
+							break;
+						}
+						list.add(stack.pop());
+					}
+					break;
+				default:
+					list.add(m);
+				}
+			}
+			while(!stack.isEmpty()) {
+				list.add(stack.pop());
+			}
+	//		// 잘 변환 되었다.
+//			System.out.println(list+&quot;\n&quot;);
+			Stack&amp;lt;Integer&amp;gt; stack2 = new Stack&amp;lt;&amp;gt;();
+			// 후위표기법 계산하기
+			for(int i=0,n = list.size();i&amp;lt;n;i++) {
+				char m = list.get(i);
+				switch(m) {
+				case '+':
+					stack2.push(calcul(stack2.pop(),stack2.pop(),m));
+					break;
+				case '*':
+					stack2.push(calcul(stack2.pop(),stack2.pop(),m));
+					break;
+				default:
+					stack2.push(m-'0');
+				}
+			}
+			int answer = stack2.pop();
+			System.out.printf(&quot;#%d %d\n&quot;,tc,answer);
+		}
+	}
+
+	public static int calcul(int A, int B, char cal) {
+		switch(cal) {
+		case '+':
+			return A + B;
+		case '*':
+			return A * B;
+		}
+		return -1;
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 계산기3</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_3499_퍼펙트셔플_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-3499" rel="alternate" type="text/html" title="SWEA_3499_퍼펙트셔플_JAVA" />
+      <published>2022-02-10T01:40:00+09:00</published>
+      <updated>2022-02-10T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-3499</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-3499">&lt;h2 id=&quot;문제--퍼펙트셔플&quot;&gt;문제 : 퍼펙트셔플&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWGsRbk6AQIDFAVW&amp;amp;categoryId=AWGsRbk6AQIDFAVW&amp;amp;categoryType=CODE&amp;amp;problemTitle=3499&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_3499_퍼펙트셔플&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;A B C D E F가 있다고 한다면, 이를 A,B,C  D,E,F으로 나누어서 A,D,B,E,C,F으로 교차하여 새로운 카드모음을 만들어야한다. 기존문자열이 홀수일 경우는 먼저 놓는 쪽에 한 장을 추가한다.&lt;/p&gt;
+
+&lt;p&gt;이 문제는 여러 방식으로 풀어볼 수 있는데, 나는 스택&amp;amp;덱과 링크드리스트를 이용해서 풀었다. 여기서는 스택과 덱을 이용해서 풀어볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;먼저 주어진 문자열을 중간을 기준으로 절반으로 분리한다.&lt;/p&gt;
+
+&lt;p&gt;2개의 문자열이 생기면, 앞에 있던 문자열과 뒤에 있던 문자열을 번갈아가면서 스택에 넣는다. 만약 문자열의 전체 길이가 홀수라면, 앞에 있는 문자열을 1번 더 넣어준다.&lt;/p&gt;
+
+&lt;p&gt;모든 문자열이 스택에 푸시가 되었다면, 덱을 생성하고, 스택에서 하나씩 꺼내 front로 값을 집어넣는다.&lt;/p&gt;
+
+&lt;p&gt;완성덴 덱을 출력해준다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 스택 2개를 생성한다.(스택1, 스택2), 또 덱을 하나 선언하여 주어진 문자열을 모두 담는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;전체 문자열의 절반, 덱에서 문자열을 꺼내어 스택1에 담는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;덱부터 시작하여 번갈아가며 덱과 스택 1에 있는 값을 스택 2에 담는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;스택 2에 들어간 값을 덱에 앞에서부터 담는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;덱에서 순서대로 꺼내 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class D3_3499_퍼펙트셔플 {
+
+	// 1번쨰 방법 스택으로 자르고, 스택에 번갈아가면서 넣은 뒤에 덱으로 앞에서부터 넣기
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		System.setIn(new FileInputStream(&quot;input_3499.txt&quot;));
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for (int tc = 1; tc &amp;lt;= T; tc++) {
+			int N = Integer.parseInt(in.readLine());
+
+			StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
+
+			Deque&amp;lt;String&amp;gt; que = new LinkedList&amp;lt;&amp;gt;();
+			Stack&amp;lt;String&amp;gt; stack = new Stack&amp;lt;&amp;gt;();
+			Stack&amp;lt;String&amp;gt; stack2 = new Stack&amp;lt;&amp;gt;();
+
+			for (int i = 0; i &amp;lt; N; i++) {
+				que.add(st.nextToken());
+			}
+
+			// 절반 스택1에 꺼내기
+			for (int i = 0; i &amp;lt; N / 2; i++) {
+				stack.push(que.removeLast());
+			}
+			// 번갈아가면서 스택2에 집어넣기
+			for (int i = 0; i &amp;lt; N / 2; i++) {
+				stack2.push(que.pollFirst());
+				stack2.push(stack.pop());
+			}
+			// 홀수일 때
+			if (que.size() % 2 == 1) {
+				// 홀수일때는 원래 들어있던 값이 1개 더 많기 때문에 한 번 더 집어넣어주기
+				stack2.push(que.pollFirst());
+			}
+			// 스택2에 있는 값 차례대로 덱에 앞에서부터 집어넣기
+			for (int i = 0; i &amp;lt; N; i++) {
+				que.offerFirst(stack2.pop());
+			}
+
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i &amp;lt; N; i++) {
+				sb.append(que.remove()).append(&quot; &quot;);
+			}
+
+			System.out.printf(&quot;#%d %s\n&quot;, tc, sb);
+
+		}
+
+	}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;아래는-2번째-방법인-링크드리스트를-이용해서-구현한-코드이다&quot;&gt;아래는 2번째 방법인 링크드리스트를 이용해서 구현한 코드이다.&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+// 2번 방법 : 스택으로 꺼내서 저장하고, 값은 LinkedList로 중간에 삽입한다.
+public static void main1(String[] args) throws NumberFormatException, IOException {
+
+	System.setIn(new FileInputStream(&quot;input_3499.txt&quot;));
+
+	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+	int T = Integer.parseInt(in.readLine());
+
+	for (int tc = 1; tc &amp;lt;= T; tc++) {
+		int N = Integer.parseInt(in.readLine());
+
+		StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
+
+		LinkedList&amp;lt;String&amp;gt; que = new LinkedList&amp;lt;&amp;gt;();
+		Stack&amp;lt;String&amp;gt; stack = new Stack&amp;lt;&amp;gt;();
+
+		for (int i = 0; i &amp;lt; N; i++) {
+			que.add(st.nextToken());
+		}
+
+		// 이 때는 짝수 홀수 구분 안해도 잘 돌아간다.
+
+		// 절반 꺼내기
+		for (int i = 0; i &amp;lt; N / 2; i++) {
+			stack.push(que.removeLast());
+		}
+		// LinkedList에 index 통해서 삽입
+		for (int i = 0; i &amp;lt; N; i++) {
+			if (i % 2 == 1) {
+				que.add(i, stack.pop());
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i &amp;lt; N; i++) {
+			sb.append(que.remove()).append(&quot; &quot;);
+		}
+
+		System.out.printf(&quot;#%d %s\n&quot;, tc, sb);
+
+	}
+
+}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 퍼펙트셔플</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_5215_햄버거다이어트_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-5215" rel="alternate" type="text/html" title="SWEA_5215_햄버거다이어트_JAVA" />
+      <published>2022-02-08T01:40:00+09:00</published>
+      <updated>2022-02-08T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-5215</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-5215">&lt;h2 id=&quot;문제--햄버거다이어트&quot;&gt;문제 : 햄버거다이어트&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWT-lPB6dHUDFAVT&amp;amp;categoryId=AWT-lPB6dHUDFAVT&amp;amp;categoryType=CODE&amp;amp;problemTitle=%ED%96%84%EB%B2%84%EA%B1%B0+%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8&amp;amp;orderBy=FIRST_REG_DATETIME&amp;amp;selectCodeLang=ALL&amp;amp;select-1=&amp;amp;pageSize=10&amp;amp;pageIndex=1&quot;&gt;SWEA_5215_햄버거다이어트&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+&lt;p&gt;햄버거 N개 중에서 X개를 선택하여 칼로리 L이 넘지 않는 선에서 가장 큰 선호도를 얻는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;부분집합으로 해결할 수 있는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;N개중에 X개를 고르는 문제는 조합, 그 조합의 경우의 수를 nC1부터 nCn까지 따져봐야 하는 문제는 부분집합이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법-1&quot;&gt;풀이 방법 1&lt;/h2&gt;
+&lt;p&gt;재귀함수를 통해 부분집합의 기본을 구현해 푸는 방법과, 인자값을 조금 더 사용해서 처리속도를 조금 더 빠르게 하는 방법 두 가지로 풀어보았다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 재귀 메서드의 인자값은 cnt 하나 뿐이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;부분집합의 구현중, 반복조건은 재귀를 통해 특정 원소가 선택되었을 때와 선택되지 않았을 때를 구분하여 재귀시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;boolean형 배열을 isSelected에 N개만큼 선언하여 선택과 비선택을 구분하도록 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;부분집합 재귀의 기저조건은 cnt를 0부터 증가시켜 N이 되었을 때 멈추도록 한다. 이때, isSelected 배열에 true인 값이 선택된 값이므로, 해당하는 값이 true인 경우에 모든 선호도와 칼로리를 더하도록 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;칼로리와 선호도의 합이 구해졌다면, 칼로리가 주어진 L값과 비교하여 더 작은 경우에만 다음 작업이 진행되도록 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;칼로리가 L보다 작을 경우, 선호도의 합과, 기존 선호도를 비교하여 더 큰 값을 기존 선호도에 저장한다. (MAX값 찾기)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 반복이 종료된 후 Max값이 저장된 기존 선호도를 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드-1&quot;&gt;소스 코드 1&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+
+public class D3_5215_햄버거다이어트2 {
+	static int cal;
+	static int score;
+	static int inscore;
+	static boolean[] isSelected;
+	static int[][] arr;
+	static int N, L;
+	static int k=1;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		System.setIn(new FileInputStream(&quot;input_5215.txt&quot;));
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for(int tc = 1; tc &amp;lt;= T ; tc++) {
+			String[] str = in.readLine().split(&quot; &quot;);
+			N = Integer.parseInt(str[0]);
+			L = Integer.parseInt(str[1]);
+			arr = new int[N][2];
+			isSelected = new boolean[N];
+			for(int i=0;i&amp;lt;N;i++) {
+				String[] str2 = in.readLine().split(&quot; &quot;);
+				for(int j=0;j&amp;lt;2;j++) {
+					arr[i][j] = Integer.parseInt(str2[j]);
+				}
+			}
+			score = 0;
+			search(0);
+			System.out.printf(&quot;#%d %d\n&quot;, tc, score);
+		}
+	}
+
+	public static void search(int cnt) {
+		if(cnt == N) {
+			for(int i=0;i&amp;lt;N;i++) {
+				if(isSelected[i]) {
+					inscore += arr[i][0];
+					cal += arr[i][1];
+				}
+			}
+			if(cal &amp;lt; L) {
+				if(score &amp;lt; inscore) {
+					score = inscore;
+				}
+			}
+			cal = 0;
+			inscore = 0;
+			return;
+		}
+
+
+			// 현재 원소를 선택
+			isSelected[cnt] = true;
+			search(cnt+1);
+			// 현재 원소를 비선택
+			isSelected[cnt] = false;
+			search(cnt+1);
+		}
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;풀이-방법-2&quot;&gt;풀이 방법 2&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;풀이 방법 1과 골자는 비슷하다. 부분집합을 재귀를 통해 구현하는데, 원소가 선택되었을 때, 선택되지 않았을 때를 구분한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;인자값을 추가한다. 재귀에서 사용할 인자값으로 횟수를 체크할 cnt, 내부의 선호도라는 뜻의 inscore와 칼로리를 저장할 cal 을 int 타입으로 받는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;boolean형 배열은 사용하지 않는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;반복조건으로, 현재 원소가 선택된 경우, 기존 inscore값 + 현재 선호도, 기존 cal값 + 현재 cal을 추가하여 재귀해준다. 반대로 현재 원소가 선택되지 않았을 경우, 값을 더하지 않고 읽어온 인자값을 그대로 넘겨준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;부분집합 재귀의 기저조건은 cal이 L보다 크다면 재귀를 종료한다. 또한, cnt를 0부터 증가시켜 N이 되었을 때도 멈추도록 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cnt를 0부터 증가시켜 N까지 도달했을 경우, 선호도의 합과 기존 선호도를 비교하여 더 큰 값을 기존 선호도에 저장한다. (MAX값 찾기)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 반복이 종료된 후 Max값이 저장된 기존 선호도를 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드-2&quot;&gt;소스 코드 2&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class D3_5215_햄버거다이어트 {
+	static int score;
+	static int[][] arr;
+	static int N, L;
+	static int k=1;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		System.setIn(new FileInputStream(&quot;input_5215.txt&quot;));
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for(int tc = 1; tc &amp;lt;= T ; tc++) {
+			String[] str = in.readLine().split(&quot; &quot;);
+			N = Integer.parseInt(str[0]);
+			L = Integer.parseInt(str[1]);
+			arr = new int[N][2];
+
+			for(int i=0;i&amp;lt;N;i++) {
+				String[] str2 = in.readLine().split(&quot; &quot;);
+				for(int j=0;j&amp;lt;2;j++) {
+					arr[i][j] = Integer.parseInt(str2[j]);
+				}
+			}
+			search(0,0,0);
+			System.out.printf(&quot;#%d %d\n&quot;, tc, score);
+		}
+	}
+
+	public static void search(int cnt, int inscore, int cal) {
+
+		if(cal &amp;gt; L) {
+			return;
+		}
+
+		if(cnt == N) {
+			score = Math.max(score, inscore);
+			return;
+		}
+
+		// 현재 원소를 선택
+		search(cnt+1, inscore+arr[cnt][0], cal+arr[cnt][1]);
+		// 현재 원소를 비선택
+		search(cnt+1, inscore, cal);
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 햄버거다이어트</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">SWEA_12742_장마속의막대_JAVA</title>
+      <link href="https://hjs101.github.io/SWEA-12742" rel="alternate" type="text/html" title="SWEA_12742_장마속의막대_JAVA" />
+      <published>2022-02-07T01:40:00+09:00</published>
+      <updated>2022-02-07T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/SWEA-12742</id>
+      <content type="html" xml:base="https://hjs101.github.io/SWEA-12742">&lt;h2 id=&quot;문제--장마속의막대&quot;&gt;문제 : 장마속의막대&lt;/h2&gt;
+
+&lt;h4 id=&quot;swea문제는-로그인을-해야-열람할-수-있습니다&quot;&gt;SWEA문제는 로그인을 해야 열람할 수 있습니다.&lt;/h4&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXuUrGbatNMDFARa&quot;&gt;SWEA_12742_장마속의막대&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;방정식 풀이 하듯 풀어보자.&lt;/p&gt;
+
+&lt;p&gt;막대가 쭉 늘어서 있고 장마로 인해서 물이 잠겨서 수면 위에 드러난 부분이 a와 b이다.&lt;/p&gt;
+
+&lt;p&gt;그러면 a가 x번째, b가 x+1번째 막대라고 한다면&lt;/p&gt;
+
+&lt;p&gt;b-a는 1부터 (x+1)까지의 합 - 1부터 x까지의 합이다.&lt;/p&gt;
+
+&lt;p&gt;위 식을 계산하면 결국 x+x+1 - x. 즉, x+1 = b-a가 되고, x는  b-a-1이 된다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 K는 어떻게 구할까?&lt;/p&gt;
+
+&lt;p&gt;막대의 길이는 1~x까지의 합이다.&lt;/p&gt;
+
+&lt;p&gt;물이 잠겨서 수면위에 드러난 부분이 a라고 생각하다. 전체 길이인 1~x까지의 합에서 K를 빼면 a가 나온다.&lt;/p&gt;
+
+&lt;p&gt;1~x까지의 합 - K = a이고,&lt;/p&gt;
+
+&lt;p&gt;1~x까지의 합 - a = K이다.&lt;/p&gt;
+
+&lt;p&gt;위 식을 정리하면&lt;/p&gt;
+
+&lt;p&gt;x = b-a-1 에서 x를 구하고&lt;/p&gt;
+
+&lt;p&gt;K = 1~x까지의 합  - a 에서 K를 구하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;값을 읽어와서 각각 A, B에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;X를 선언하고 A-B-1을 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3-1. 1~X까지 반복한다. X까지의 합을 구한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3-2 등차수열의 합 공식 (X*X+1)/23 이용한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1~X까지의 합에서 A만큼 뺀다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;결과를 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/*
+ * 방정식 풀이 하듯 풀어보자.
+ * 막대가 쭉 늘어서 있고 장마로 인해서 물이 잠겨서 수면 위에 드러난 부분이 a와 b이다.
+ * 그러면 a가 x번째, b가 x+1번째 막대라고 한다면
+ * b-a는 1부터 (x+1)까지의 합 - 1부터 x까지의 합이다.
+ * 위 식을 계산하면 결국 x+x+1 - x. 즉, x+1 = b-a가 되고, x는  b-a-1이 된다.
+ * 그렇다면 K는 어떻게 구할까?
+ * 막대의 길이는 1~x까지의 합이다.
+ * 물이 잠겨서 수면위에 드러난 부분이 a라고 생각하다. 전체 길이인 1~x까지의 합에서 K를 빼면 a가 나온다.
+ * 1~x까지의 합 - K = a이고,
+ * 1~x까지의 합 - a = K이다.
+ * 위 식을 정리하면
+ * x = b-a-1 에서 x를 구하고,
+ * K = 1~x까지의 합  - a 에서 K를 구하면 된다.
+ */
+public class IM_12742_장마속의막대 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		System.setIn(new FileInputStream(&quot;input_12742.txt&quot;));
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for(int tc=1;tc&amp;lt;=T;tc++) {
+			String[] str = in.readLine().split(&quot; &quot;);
+			int A = Integer.parseInt(str[0]);
+			int B = Integer.parseInt(str[1]);
+			int X = B-A-1;
+			int answer = 0;
+//			for(int i=1;i&amp;lt;=X;i++) {
+//				answer += i;
+//			}
+//			answer = answer - A;
+			answer = (X*(X+1))/2 - A;
+
+			// -- 출력부
+			System.out.printf(&quot;#%d %d\n&quot;,tc,answer);
+		}
+	}
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">문제 : 장마속의막대</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">목차</title>
+      <link href="https://hjs101.github.io/swea-menu" rel="alternate" type="text/html" title="목차" />
+      <published>2022-02-03T01:40:00+09:00</published>
+      <updated>2022-02-03T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/swea-menu</id>
+      <content type="html" xml:base="https://hjs101.github.io/swea-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;SWEA 문제풀이 날짜별로 구성 &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+	2022-02-06
+	&lt;li&gt;&lt;a href=&quot;./SWEA-12742&quot;&gt;SWEA_12742_장미속의막대_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-02-07
+	&lt;li&gt;&lt;a href=&quot;./SWEA-5215&quot;&gt;SWEA_5215_햄버거다이어트_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-02-09
+	&lt;li&gt;&lt;a href=&quot;./SWEA-1224&quot;&gt;SWEA_1224_계산기3_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;./SWEA-1861&quot;&gt;SWEA_1861_정사각형 방_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;./SWEA-3499&quot;&gt;SWEA_3499_퍼펙트셔플_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-02-14
+	&lt;li&gt;&lt;a href=&quot;./SWEA-6808&quot;&gt;SWEA_6808_규영이와인영이의카드게임_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-02-16
+	&lt;li&gt;&lt;a href=&quot;./SWEA-5644&quot;&gt;SWEA_5644_무선충전_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="SWEA" />
+      
+
+      
+        <summary type="html">SWEA 문제풀이 날짜별로 구성 2022-02-06 SWEA_12742_장미속의막대_JAVA 2022-02-07 SWEA_5215_햄버거다이어트_JAVA 2022-02-09 SWEA_1224_계산기3_JAVA SWEA_1861_정사각형 방_JAVA SWEA_3499_퍼펙트셔플_JAVA 2022-02-14 SWEA_6808_규영이와인영이의카드게임_JAVA 2022-02-16 SWEA_5644_무선충전_JAVA</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
