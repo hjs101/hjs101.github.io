@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/swea/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-21T00:04:29+09:00</updated>
+  <updated>2022-02-21T00:10:09+09:00</updated>
   <id>https://hjs101.github.io/tag/swea/feed.xml</id>
 
   
@@ -1412,8 +1412,8 @@ public class IM_12742_장마속의막대 {
     </entry>
   
     <entry>
-      <title type="html">목차</title>
-      <link href="https://hjs101.github.io/swea-menu" rel="alternate" type="text/html" title="목차" />
+      <title type="html">SWEA_목차</title>
+      <link href="https://hjs101.github.io/swea-menu" rel="alternate" type="text/html" title="SWEA_목차" />
       <published>2022-02-03T01:40:00+09:00</published>
       <updated>2022-02-03T01:40:00+09:00</updated>
       <id>https://hjs101.github.io/swea-menu</id>
