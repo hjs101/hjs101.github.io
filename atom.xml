@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_9461_파도반수열_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--파도반수열&quot;&gt;문제 : 파도반수열&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 21 Feb 2022 01:40:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-9461</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-9461</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2840_행운의바퀴_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--행운의바퀴&quot;&gt;문제 : 행운의바퀴&lt;/h2&gt;
@@ -824,6 +839,8 @@
 	&lt;li&gt;&lt;a href=&quot;./BOJ-1063&quot;&gt;BOJ_1063_킹_JAVA&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;./BOJ-2840&quot;&gt;BOJ_2840_행운의바퀴_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
+  2022-02-20
+  &lt;li&gt;&lt;a href=&quot;./BOJ-9461&quot;&gt;BOJ_9461_파도반수열_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

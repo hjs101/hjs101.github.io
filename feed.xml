@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-02-21T00:27:42+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_1063_킹_JAVA</title><link href="https://hjs101.github.io/BOJ-1063" rel="alternate" type="text/html" title="BOJ_1063_킹_JAVA" /><published>2022-02-20T01:40:00+09:00</published><updated>2022-02-20T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-1063</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1063">&lt;h2 id=&quot;문제--킹&quot;&gt;문제 : 킹&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-02-21T02:42:10+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_9461_파도반수열_JAVA</title><link href="https://hjs101.github.io/BOJ-9461" rel="alternate" type="text/html" title="BOJ_9461_파도반수열_JAVA" /><published>2022-02-21T01:40:00+09:00</published><updated>2022-02-21T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-9461</id><content type="html" xml:base="https://hjs101.github.io/BOJ-9461">&lt;h2 id=&quot;문제--파도반수열&quot;&gt;문제 : 파도반수열&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/9461&quot;&gt;BOJ_9461_파도반수열&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;삼각형이 나선으로 놓여져있고 변의 과정이고 어쩌고 규칙이 있기는 한데, 그림과 설명을 이용해서 수열을 이해하는것 보다 나열되어있는 숫자를 보고 알아채는 게 더 쉬웠다.&lt;/p&gt;
+
+&lt;p&gt;1, 1, 1, 2, 2, 3, 4, 5, 7, 9&lt;/p&gt;
+
+&lt;p&gt;이게 파도반 수열 P(1)부터 P(10)까지이다.&lt;/p&gt;
+
+&lt;p&gt;기본값으로 P(1),P(2),P(3)은 1,1,1이다.&lt;/p&gt;
+
+&lt;p&gt;P(4) =  P(4-3) + P(4-2) = P(1) + P(2) = 1+1 = 2&lt;br /&gt;
+P(5) = P(5-3) + P(5-2) = P(2) + P(3) = 1+1 = 2&lt;br /&gt;
+P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3&lt;/p&gt;
+
+&lt;p&gt;위의 세 식을 보면 알겠듯이 해당 수열 P(N) = P(N-3) + P(N-2)의 규칙을 가진다.&lt;/p&gt;
+
+&lt;p&gt;피보나치와 유사하게 DP로 위 점화식을 풀어나가면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;테스트 케이스 수를 읽어와 테스트 케이스 수 만큼 반복한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;변수 N에 주어지는 입력값을 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;dp용 배열을 N+2개만큼 선언한다. +2를 하는 이유는, N에 3 미만의 수가 주어졌을 때 배열의 값을 벗어나지 않게 하기 위함이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;시작값을 3부터 N까지 반복하는데, 위의 점화식대로 계산하여 배열에 순차적으로 추가한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 반복이 종료된 후 dp배열의 N-1번째 값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BOJ_9461_파도반수열 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		// 버퍼드리더로 값 읽어오기
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for (int i = 0; i &amp;lt; T; i++) {
+
+			int N = Integer.parseInt(in.readLine());
+
+			long[] dp = new long[N+2];
+
+			dp[0] = 1;
+			dp[1] = 1;
+			dp[2] = 1;
+
+			for (int j = 3; j &amp;lt; N; j++) {
+				dp[j] = dp[j - 2] + dp[j - 3];
+			}
+
+			System.out.println(dp[N - 1]);
+
+		}
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 파도반수열</summary></entry><entry><title type="html">BOJ_1063_킹_JAVA</title><link href="https://hjs101.github.io/BOJ-1063" rel="alternate" type="text/html" title="BOJ_1063_킹_JAVA" /><published>2022-02-20T01:40:00+09:00</published><updated>2022-02-20T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-1063</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1063">&lt;h2 id=&quot;문제--킹&quot;&gt;문제 : 킹&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1063&quot;&gt;BOJ_1063_킹&lt;/a&gt;&lt;/p&gt;
 
@@ -253,7 +333,195 @@ public class BOJ_2840_행운의바퀴 {
 
 }
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 행운의바퀴</summary></entry><entry><title type="html">BOJ_15683_감시_JAVA</title><link href="https://hjs101.github.io/BOJ-15683" rel="alternate" type="text/html" title="BOJ_15683_감시_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-15683</id><content type="html" xml:base="https://hjs101.github.io/BOJ-15683">&lt;h2 id=&quot;문제--감시&quot;&gt;문제 : 감시&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 행운의바퀴</summary></entry><entry><title type="html">BOJ_3060_욕심쟁이돼지_JAVA</title><link href="https://hjs101.github.io/BOJ-3060" rel="alternate" type="text/html" title="BOJ_3060_욕심쟁이돼지_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-3060</id><content type="html" xml:base="https://hjs101.github.io/BOJ-3060">&lt;h2 id=&quot;문제-&quot;&gt;문제 :&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/3060&quot;&gt;BOJ_3060_욕심쟁이돼지&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;원탁에 6명이 앉아있고, 각자 인접한 돼지와 맞은편의 돼지가 먹은 식량만큼 자신의 값에 더해줘야한다. 원탁을 기반으로 하기 때문에 배열의 참조를 원형처럼 접근해야한다. 이는 나머지연산으로 간단하게 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;조건에서 6마리로 정해져 있기 떄문에 6으로 나머지연산을 시켜주면서 index에 적절한 값을 더해주면된다.&lt;/p&gt;
+
+&lt;p&gt;나머지연산을 쓰지 않으려면 직접 어떻게 되는지 다 체크해서 모든 경우의 수를 코딩 할 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;또 하나의 방법으로, 수학적으로 풀 수도 있다. 이번 문제의 경우에, 매 날짜마다 돼지들이 원하는 사료의 양은 4배씩 증가한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;배열에 첫 날 돼지들이 먹고 싶어하는 사료의 양을 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;맨 처음, 배열의 값을 다 더해서 sum변수에 저장한다. sum이 N보다 크다면 먹일 수 없다는 의미이므로 1을 출력하고 다음 테스트 케이스로 넘어간다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sum이 N보다 작다면, 날짜 반복으로 넘어간다. 카운트를 1 증가시키고, sum을 4배 증가시켜준다. 만약 증가시킨 sum값이 N보다 작다면 위 내용을 반복하고, N보다 크다면 반복을 종료한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;반복이종료된 후 카운트 값을 출력하고, 다음 테스트케이스로 넘어간다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 테스트 케이스가 테스트되었다면 프로그램을 종료한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class BOJ_3060_욕심쟁이돼지 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(in.readLine());
+
+		for(int tc = 0; tc&amp;lt;T;tc++) {
+
+			long N = Integer.parseInt(in.readLine());
+
+
+			long arr[] = new long[6];
+
+			StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
+			for(int i=0;i&amp;lt;6;i++) {
+				arr[i] = Integer.parseInt(st.nextToken());
+			}
+			long sum = 0;
+			int cnt = 1;
+			for(int i=0;i&amp;lt;6;i++) {
+				sum = sum + arr[i];
+			}
+
+			if(sum &amp;gt; N) {
+				System.out.println(cnt);
+				continue;
+			}
+			while(true) {
+				cnt++;
+				sum = sum*4;
+//				for(int i=0;i&amp;lt;6;i++) {
+//					arr[i] = arr[i] + arr[(i+3)%6] + arr[(i+5)%6] + arr[(i+1)%6];
+//					sum += arr[i];
+//				}
+				if(sum &amp;gt; N) {
+					break;
+				}
+
+
+			}
+
+			System.out.println(cnt);
+
+		}
+
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 :</summary></entry><entry><title type="html">BOJ_1904_01타일_JAVA</title><link href="https://hjs101.github.io/BOJ-1904" rel="alternate" type="text/html" title="BOJ_1904_01타일_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-1904</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1904">&lt;h2 id=&quot;문제--01타일&quot;&gt;문제 : 01타일&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1904&quot;&gt;BOJ_1904_01타일&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;N이 1일때 1으로 1개&lt;/p&gt;
+
+&lt;p&gt;N이 2일때 00, 11 2개&lt;/p&gt;
+
+&lt;p&gt;N이3일때 001,100,111 3개&lt;/p&gt;
+
+&lt;p&gt;N이 4일때 0011,0000,1001,1100,1111 5개,&lt;/p&gt;
+
+&lt;p&gt;N이 5일때 11111, 11100, 11001, 10011, 00111, 10000, 00100, 00001 8개&lt;/p&gt;
+
+&lt;p&gt;N이 6이라면 111111, 111100, 111001, 110011, 100111, 001111, 110000, 100001, 100100, 000011, 000011, 001001, 000000 13개이다.&lt;/p&gt;
+
+&lt;p&gt;1, 2, 3, 5, 8, 13 … 어딘가 익숙할 것이다.&lt;/p&gt;
+
+&lt;p&gt;이것은 다른 문제의 탈을 쓴 피보나치 수열 문제이다. 시간제한이 0.75초로 매우 짧은 것은 DP를 사용하라는 의미이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;결과값을 저장할 배열을 N+1개만큼 선언한다. N+1개만큼 선언하는 이유는, 해당 문제의 시작이 피보나치수열의 2번째부터이기 때문이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;피보나치 수열의 초기값을 dp배열의 0번, 1번에 할당한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;i는 2부터 N번까지 반복을 돌려서 피보나치 수열을 계산하여 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주의해야할 점은 문제에서 원하는 값은 15746으로 나눈 나머지이고, 주어지는 값이 매우 커서 허용가능한 int값을 넘어선다. (a + b) % c = a % c + b % c의 성질을 이용해서 값을 더할때마다 15746으로 나머지 연산을 해주어야한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;N번째까지 반복을 돈 후, dp배열의 N-1번째 값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BOJ_1904_01타일 {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		// 버퍼드리더로 값 읽어오기
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int N = Integer.parseInt(in.readLine());
+		N = N + 1;
+		int[] dp = new int[N];
+		dp[0] = 1;
+		dp[1] = 1;
+
+		for(int i=2;i&amp;lt;N;i++) {
+			dp[i] = (dp[i-1] + dp[i-2])%15746;
+
+		}
+
+		System.out.println(dp[N-1]);
+	}
+
+}
+
+//
+//	static long fiboDp(int N) {
+//		
+//		if(N == 0) {
+//			return 0;
+//		}
+//		if(N == 1) {
+//			return 1;
+//		}
+
+//		if(dp[N] != 0) {
+//			return dp[N];
+//		}
+//		dp[N] = fiboDp(N-1) + fiboDp(N-2);
+//		return dp[N];
+//		
+
+//	}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 01타일</summary></entry><entry><title type="html">BOJ_15683_감시_JAVA</title><link href="https://hjs101.github.io/BOJ-15683" rel="alternate" type="text/html" title="BOJ_15683_감시_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-15683</id><content type="html" xml:base="https://hjs101.github.io/BOJ-15683">&lt;h2 id=&quot;문제--감시&quot;&gt;문제 : 감시&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/15683&quot;&gt;BOJ_15683_감시&lt;/a&gt;&lt;/p&gt;
 
@@ -598,139 +866,33 @@ public class BOJ_15683_감시 {
 	}
 }
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 감시</summary></entry><entry><title type="html">BOJ_3060_욕심쟁이돼지_JAVA</title><link href="https://hjs101.github.io/BOJ-3060" rel="alternate" type="text/html" title="BOJ_3060_욕심쟁이돼지_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-3060</id><content type="html" xml:base="https://hjs101.github.io/BOJ-3060">&lt;h2 id=&quot;문제-&quot;&gt;문제 :&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 감시</summary></entry><entry><title type="html">BOJ_14888_연산자끼워넣기_JAVA</title><link href="https://hjs101.github.io/BOJ-14888" rel="alternate" type="text/html" title="BOJ_14888_연산자끼워넣기_JAVA" /><published>2022-02-18T01:40:00+09:00</published><updated>2022-02-18T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-14888</id><content type="html" xml:base="https://hjs101.github.io/BOJ-14888">&lt;h2 id=&quot;문제--연산자끼워넣기&quot;&gt;문제 : 연산자끼워넣기&lt;/h2&gt;
 
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/3060&quot;&gt;BOJ_3060_욕심쟁이돼지&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/14888&quot;&gt;BOJ_14888_연산자끼워넣기&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
 
-&lt;p&gt;원탁에 6명이 앉아있고, 각자 인접한 돼지와 맞은편의 돼지가 먹은 식량만큼 자신의 값에 더해줘야한다. 원탁을 기반으로 하기 때문에 배열의 참조를 원형처럼 접근해야한다. 이는 나머지연산으로 간단하게 할 수 있다.&lt;/p&gt;
+&lt;p&gt;위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다.&lt;/p&gt;
 
-&lt;p&gt;조건에서 6마리로 정해져 있기 떄문에 6으로 나머지연산을 시켜주면서 index에 적절한 값을 더해주면된다.&lt;/p&gt;
-
-&lt;p&gt;나머지연산을 쓰지 않으려면 직접 어떻게 되는지 다 체크해서 모든 경우의 수를 코딩 할 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;또 하나의 방법으로, 수학적으로 풀 수도 있다. 이번 문제의 경우에, 매 날짜마다 돼지들이 원하는 사료의 양은 4배씩 증가한다.&lt;/p&gt;
+&lt;p&gt;나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다.&lt;/p&gt;
 
 &lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;배열에 첫 날 돼지들이 먹고 싶어하는 사료의 양을 저장한다.&lt;/p&gt;
+    &lt;p&gt;숫자의 개수 N값을 입력받아 숫자 개수만큼 1차우너 배열을 생성한다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;맨 처음, 배열의 값을 다 더해서 sum변수에 저장한다. sum이 N보다 크다면 먹일 수 없다는 의미이므로 1을 출력하고 다음 테스트 케이스로 넘어간다.&lt;/p&gt;
+    &lt;p&gt;그 후 주어지는 덧셈, 뺄셈, 곱셈, 나눗셈의 개수를 입력받는데, 입력이 연산자의 개수, 즉 숫자로 주어지기 때문에, 주어진 숫자만큼 반복하여 연산자의 리스트(Character)에 추가해준다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;sum이 N보다 작다면, 날짜 반복으로 넘어간다. 카운트를 1 증가시키고, sum을 4배 증가시켜준다. 만약 증가시킨 sum값이 N보다 작다면 위 내용을 반복하고, N보다 크다면 반복을 종료한다.&lt;/p&gt;
+    &lt;p&gt;순열을 이용해 주어진 연산자 리스트로부터 가능한 연산자 배치의 경우의 수를 모두 찾는다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;반복이종료된 후 카운트 값을 출력하고, 다음 테스트케이스로 넘어간다.&lt;/p&gt;
+    &lt;p&gt;순열 메서드의 기저조건에서, 만들어진 연산자의 배치대로 주어진 숫자배열을 대입하여 연산을 진행하고, 연산을 마친 후, 최댓값과 최솟값을 저장한다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;모든 테스트 케이스가 테스트되었다면 프로그램을 종료한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
-public class BOJ_3060_욕심쟁이돼지 {
-
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		int T = Integer.parseInt(in.readLine());
-
-		for(int tc = 0; tc&amp;lt;T;tc++) {
-
-			long N = Integer.parseInt(in.readLine());
-
-
-			long arr[] = new long[6];
-
-			StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
-			for(int i=0;i&amp;lt;6;i++) {
-				arr[i] = Integer.parseInt(st.nextToken());
-			}
-			long sum = 0;
-			int cnt = 1;
-			for(int i=0;i&amp;lt;6;i++) {
-				sum = sum + arr[i];
-			}
-
-			if(sum &amp;gt; N) {
-				System.out.println(cnt);
-				continue;
-			}
-			while(true) {
-				cnt++;
-				sum = sum*4;
-//				for(int i=0;i&amp;lt;6;i++) {
-//					arr[i] = arr[i] + arr[(i+3)%6] + arr[(i+5)%6] + arr[(i+1)%6];
-//					sum += arr[i];
-//				}
-				if(sum &amp;gt; N) {
-					break;
-				}
-
-
-			}
-
-			System.out.println(cnt);
-
-		}
-
-
-	}
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 :</summary></entry><entry><title type="html">BOJ_1904_01타일_JAVA</title><link href="https://hjs101.github.io/BOJ-1904" rel="alternate" type="text/html" title="BOJ_1904_01타일_JAVA" /><published>2022-02-19T01:40:00+09:00</published><updated>2022-02-19T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-1904</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1904">&lt;h2 id=&quot;문제--01타일&quot;&gt;문제 : 01타일&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1904&quot;&gt;BOJ_1904_01타일&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;N이 1일때 1으로 1개&lt;/p&gt;
-
-&lt;p&gt;N이 2일때 00, 11 2개&lt;/p&gt;
-
-&lt;p&gt;N이3일때 001,100,111 3개&lt;/p&gt;
-
-&lt;p&gt;N이 4일때 0011,0000,1001,1100,1111 5개,&lt;/p&gt;
-
-&lt;p&gt;N이 5일때 11111, 11100, 11001, 10011, 00111, 10000, 00100, 00001 8개&lt;/p&gt;
-
-&lt;p&gt;N이 6이라면 111111, 111100, 111001, 110011, 100111, 001111, 110000, 100001, 100100, 000011, 000011, 001001, 000000 13개이다.&lt;/p&gt;
-
-&lt;p&gt;1, 2, 3, 5, 8, 13 … 어딘가 익숙할 것이다.&lt;/p&gt;
-
-&lt;p&gt;이것은 다른 문제의 탈을 쓴 피보나치 수열 문제이다. 시간제한이 0.75초로 매우 짧은 것은 DP를 사용하라는 의미이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;결과값을 저장할 배열을 N+1개만큼 선언한다. N+1개만큼 선언하는 이유는, 해당 문제의 시작이 피보나치수열의 2번째부터이기 때문이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;피보나치 수열의 초기값을 dp배열의 0번, 1번에 할당한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;i는 2부터 N번까지 반복을 돌려서 피보나치 수열을 계산하여 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;주의해야할 점은 문제에서 원하는 값은 15746으로 나눈 나머지이고, 주어지는 값이 매우 커서 허용가능한 int값을 넘어선다. (a + b) % c = a % c + b % c의 성질을 이용해서 값을 더할때마다 15746으로 나머지 연산을 해주어야한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;N번째까지 반복을 돈 후, dp배열의 N-1번째 값을 출력한다.&lt;/p&gt;
+    &lt;p&gt;모든 순열이 탐색된 후 최댓값과 최솟값을 출력한다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -741,52 +903,104 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
-public class BOJ_1904_01타일 {
-
-
+public class BOJ_14888_연산자끼워넣기 {
+	static int[] nums;
+	static int[] cal;
+	static List&amp;lt;Character&amp;gt; operactor = new ArrayList&amp;lt;&amp;gt;();
+	static char[] opPerm;
+	static int max,min;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
-		// 버퍼드리더로 값 읽어오기
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 		int N = Integer.parseInt(in.readLine());
-		N = N + 1;
-		int[] dp = new int[N];
-		dp[0] = 1;
-		dp[1] = 1;
 
-		for(int i=2;i&amp;lt;N;i++) {
-			dp[i] = (dp[i-1] + dp[i-2])%15746;
+		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
 
+		nums = new int[N];
+
+		for(int i=0;i&amp;lt;N;i++) {
+			nums[i] = Integer.parseInt(st.nextToken());
+		}
+		st = new StringTokenizer(in.readLine(),&quot; &quot;);
+
+		// 덧셈
+		int k = Integer.parseInt(st.nextToken());
+		for(int i=0;i&amp;lt;k;i++) {
+			operactor.add('+');
+		}
+		// 뺄셈
+		k = Integer.parseInt(st.nextToken());
+		for(int i=0;i&amp;lt;k;i++) {
+			operactor.add('-');
+		}
+		// 곱셈
+		k = Integer.parseInt(st.nextToken());
+		for(int i=0;i&amp;lt;k;i++) {
+			operactor.add('*');
+		}
+		// 나눗셈
+		k = Integer.parseInt(st.nextToken());
+		for(int i=0;i&amp;lt;k;i++) {
+			operactor.add('/');
+		}
+		opPerm = new char[operactor.size()];
+		max = Integer.MIN_VALUE;
+		min = Integer.MAX_VALUE;
+		perm(0,0);
+		System.out.println(max);
+		System.out.println(min);
+	}
+
+	static void perm(int cnt, int flag) {
+
+		// 기저조건
+		if(cnt == operactor.size()) {
+			int num = nums[0];
+			for(int i=0;i&amp;lt;nums.length-1;i++) {
+				switch(opPerm[i]){
+				case '+':
+					num = num + nums[i+1];
+					break;
+				case '-':
+					num = num - nums[i+1];					
+					break;
+				case '*':
+					num = num * nums[i+1];
+					break;
+				case '/':
+					num = num / nums[i+1];
+					break;
+				}
+			}
+			max = Math.max(max, num);
+			min = Math.min(min, num);
+			return;
 		}
 
-		System.out.println(dp[N-1]);
+
+		// 유도파트
+
+		for(int i=0,n=operactor.size();i&amp;lt;n;i++) {
+
+			if((flag &amp;amp; 1&amp;lt;&amp;lt;i) != 0) {
+				continue;
+			}
+
+			opPerm[cnt] = operactor.get(i);
+			perm(cnt+1,flag | 1&amp;lt;&amp;lt;i);
+		}
+
 	}
 
 }
 
-//
-//	static long fiboDp(int N) {
-//		
-//		if(N == 0) {
-//			return 0;
-//		}
-//		if(N == 1) {
-//			return 1;
-//		}
 
-//		if(dp[N] != 0) {
-//			return dp[N];
-//		}
-//		dp[N] = fiboDp(N-1) + fiboDp(N-2);
-//		return dp[N];
-//		
-
-//	}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 01타일</summary></entry><entry><title type="html">BOJ_3085_사탕게임_JAVA</title><link href="https://hjs101.github.io/BOJ-3085" rel="alternate" type="text/html" title="BOJ_3085_사탕게임_JAVA" /><published>2022-02-18T01:40:00+09:00</published><updated>2022-02-18T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-3085</id><content type="html" xml:base="https://hjs101.github.io/BOJ-3085">&lt;h2 id=&quot;문제--사탕게임&quot;&gt;문제 : 사탕게임&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연산자끼워넣기</summary></entry><entry><title type="html">BOJ_3085_사탕게임_JAVA</title><link href="https://hjs101.github.io/BOJ-3085" rel="alternate" type="text/html" title="BOJ_3085_사탕게임_JAVA" /><published>2022-02-18T01:40:00+09:00</published><updated>2022-02-18T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-3085</id><content type="html" xml:base="https://hjs101.github.io/BOJ-3085">&lt;h2 id=&quot;문제--사탕게임&quot;&gt;문제 : 사탕게임&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/3085&quot;&gt;BOJ_3085_사탕게임&lt;/a&gt;&lt;/p&gt;
 
@@ -925,141 +1139,7 @@ public class BOJ_3085_사탕게임 {
 	}
 }
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 사탕게임</summary></entry><entry><title type="html">BOJ_14888_연산자끼워넣기_JAVA</title><link href="https://hjs101.github.io/BOJ-14888" rel="alternate" type="text/html" title="BOJ_14888_연산자끼워넣기_JAVA" /><published>2022-02-18T01:40:00+09:00</published><updated>2022-02-18T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-14888</id><content type="html" xml:base="https://hjs101.github.io/BOJ-14888">&lt;h2 id=&quot;문제--연산자끼워넣기&quot;&gt;문제 : 연산자끼워넣기&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/14888&quot;&gt;BOJ_14888_연산자끼워넣기&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다.&lt;/p&gt;
-
-&lt;p&gt;나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;숫자의 개수 N값을 입력받아 숫자 개수만큼 1차우너 배열을 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;그 후 주어지는 덧셈, 뺄셈, 곱셈, 나눗셈의 개수를 입력받는데, 입력이 연산자의 개수, 즉 숫자로 주어지기 때문에, 주어진 숫자만큼 반복하여 연산자의 리스트(Character)에 추가해준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열을 이용해 주어진 연산자 리스트로부터 가능한 연산자 배치의 경우의 수를 모두 찾는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열 메서드의 기저조건에서, 만들어진 연산자의 배치대로 주어진 숫자배열을 대입하여 연산을 진행하고, 연산을 마친 후, 최댓값과 최솟값을 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모든 순열이 탐색된 후 최댓값과 최솟값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
-
-public class BOJ_14888_연산자끼워넣기 {
-	static int[] nums;
-	static int[] cal;
-	static List&amp;lt;Character&amp;gt; operactor = new ArrayList&amp;lt;&amp;gt;();
-	static char[] opPerm;
-	static int max,min;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		int N = Integer.parseInt(in.readLine());
-
-		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-		nums = new int[N];
-
-		for(int i=0;i&amp;lt;N;i++) {
-			nums[i] = Integer.parseInt(st.nextToken());
-		}
-		st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-		// 덧셈
-		int k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&amp;lt;k;i++) {
-			operactor.add('+');
-		}
-		// 뺄셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&amp;lt;k;i++) {
-			operactor.add('-');
-		}
-		// 곱셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&amp;lt;k;i++) {
-			operactor.add('*');
-		}
-		// 나눗셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&amp;lt;k;i++) {
-			operactor.add('/');
-		}
-		opPerm = new char[operactor.size()];
-		max = Integer.MIN_VALUE;
-		min = Integer.MAX_VALUE;
-		perm(0,0);
-		System.out.println(max);
-		System.out.println(min);
-	}
-
-	static void perm(int cnt, int flag) {
-
-		// 기저조건
-		if(cnt == operactor.size()) {
-			int num = nums[0];
-			for(int i=0;i&amp;lt;nums.length-1;i++) {
-				switch(opPerm[i]){
-				case '+':
-					num = num + nums[i+1];
-					break;
-				case '-':
-					num = num - nums[i+1];					
-					break;
-				case '*':
-					num = num * nums[i+1];
-					break;
-				case '/':
-					num = num / nums[i+1];
-					break;
-				}
-			}
-			max = Math.max(max, num);
-			min = Math.min(min, num);
-			return;
-		}
-
-
-		// 유도파트
-
-		for(int i=0,n=operactor.size();i&amp;lt;n;i++) {
-
-			if((flag &amp;amp; 1&amp;lt;&amp;lt;i) != 0) {
-				continue;
-			}
-
-			opPerm[cnt] = operactor.get(i);
-			perm(cnt+1,flag | 1&amp;lt;&amp;lt;i);
-		}
-
-	}
-
-}
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연산자끼워넣기</summary></entry><entry><title type="html">BOJ_2980_도로와신호등_JAVA</title><link href="https://hjs101.github.io/BOJ-2980" rel="alternate" type="text/html" title="BOJ_2980_도로와신호등_JAVA" /><published>2022-02-17T01:40:00+09:00</published><updated>2022-02-17T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-2980</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2980">&lt;h2 id=&quot;문제--도로와-신호등&quot;&gt;문제 : 도로와 신호등&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 사탕게임</summary></entry><entry><title type="html">BOJ_2980_도로와신호등_JAVA</title><link href="https://hjs101.github.io/BOJ-2980" rel="alternate" type="text/html" title="BOJ_2980_도로와신호등_JAVA" /><published>2022-02-17T01:40:00+09:00</published><updated>2022-02-17T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-2980</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2980">&lt;h2 id=&quot;문제--도로와-신호등&quot;&gt;문제 : 도로와 신호등&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2980&quot;&gt;BOJ_2980_도로와신호등&lt;/a&gt;&lt;/p&gt;
 
@@ -1426,100 +1506,4 @@ class BC {
 
 }
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="SWEA" /><summary type="html">문제 : 무선충전</summary></entry><entry><title type="html">BOJ_9184_신나는함수실행_JAVA</title><link href="https://hjs101.github.io/BOJ-9184" rel="alternate" type="text/html" title="BOJ_9184_신나는함수실행_JAVA" /><published>2022-02-17T01:40:00+09:00</published><updated>2022-02-17T01:40:00+09:00</updated><id>https://hjs101.github.io/BOJ-9184</id><content type="html" xml:base="https://hjs101.github.io/BOJ-9184">&lt;h2 id=&quot;문제--신나는함수실행&quot;&gt;문제 : 신나는함수실행&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/9184&quot;&gt;BOJ_9184_신나는함수실행&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;p&gt;DP란 무엇일까?&lt;/p&gt;
-
-&lt;p&gt;동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다.&lt;/p&gt;
-
-&lt;p&gt;DP의 조건은 3가지가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;먼저 큰 문제가 작은 문제로 쪼개질 수 있는가.&lt;/li&gt;
-  &lt;li&gt;작은문제들의 해로 큰 문제의 해를 구할 수 있는가.&lt;/li&gt;
-  &lt;li&gt;그리고, 이 해들이 중복되는가.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 3가지 조건이 충족되면 DP를 적용할 수 있다고 한다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이러한 내용은 내게 너무 낮설고 적용하기도 어려웠다.&lt;/p&gt;
-
-&lt;p&gt;나는 이 문제를 풀면서 어떻게 DP를 사용하는 지에만 집중했다.&lt;/p&gt;
-
-&lt;p&gt;결론은 이것이다. 재귀를 통해 호출되는 함수의 결과를 기억해두고, 재귀를 통해 호출하는 함수가 기억되어있는 함수와 같다면, 재귀를 호출하지 않고 기억되어있는 함수의 값을 리턴한다.&lt;/p&gt;
-
-&lt;p&gt;메모이제이션은 이것을 말하는 것이다. ‘기억’하는 것.&lt;/p&gt;
-
-&lt;p&gt;그렇기 때문에, 3개의 인자값을 받는 이 재귀함수의 파라미터 a,b,c. 이 값을 배열로 선언해 0으로 초기화 해두고, 호출된 함수의 위치에 결과값을 저장했다. 그 후 같은 인자값을 사용하는 함수가 재귀호출될 경우, 그 함수는 추가적인 작업 없이 저장되어있는 결과값을 리턴하고 종료된다.&lt;/p&gt;
-
-&lt;p&gt;이번 문제에서는 DP에 대해 이정도까지밖에 이해하지 못했다. 몇몇 문제를 더 풀어보며 이해력을 늘려야 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
-public class BOJ_9184_신나는함수실행 {
-
-	static int[][][] dp;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		StringBuilder sb = new StringBuilder();
-		dp = new int[21][21][21];
-		while(true) {
-			st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			int c = Integer.parseInt(st.nextToken());
-
-			if(a==-1&amp;amp;&amp;amp;b==-1&amp;amp;&amp;amp;c==-1) {
-				break;
-			}
-			long n = w(a,b,c);
-
-			sb.append(String.format(&quot;w(%d, %d, %d) = %d\n&quot;,a,b,c, n));
-		}
-		System.out.print(sb);
-	}
-
-	public static int w(int a, int b, int c) {
-
-		if((a&amp;gt;=0 &amp;amp;&amp;amp; a &amp;lt;=20 &amp;amp;&amp;amp; b &amp;gt;= 0 &amp;amp;&amp;amp; b &amp;lt;= 20 &amp;amp;&amp;amp; c &amp;gt;= 0 &amp;amp;&amp;amp; c &amp;lt;= 20) &amp;amp;&amp;amp; dp[a][b][c] != 0) {
-			return dp[a][b][c];
-		}
-
-		if(a &amp;lt;= 0 || b &amp;lt;= 0 || c &amp;lt;= 0) {
-			return 1;
-		}
-
-		if(a &amp;gt; 20 || b &amp;gt; 20 || c &amp;gt; 20) {
-			dp[20][20][20] = w(20,20,20);
-			return dp[20][20][20];
-		}
-
-		if(a &amp;lt; b &amp;amp;&amp;amp; b &amp;lt; c) {
-			dp[a][b][c] =w(a,b,c-1)+w(a,b-1,c-1) - w(a,b-1,c);
-			return dp[a][b][c];
-		}
-		dp[a][b][c] = w(a-1,b,c) + w(a-1,b-1,c) + w(a-1,b,c-1) - w(a-1,b-1,c-1);
-		return dp[a][b][c];
-
-	}
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 신나는함수실행</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="SWEA" /><summary type="html">문제 : 무선충전</summary></entry></feed>
