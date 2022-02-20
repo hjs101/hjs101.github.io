@@ -11,25 +11,13 @@
 
 
 
-    <title>SWEA_목차</title>
+    <title>BOJ_1874_스택수열_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- font, Awesome !-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <!-- 웹 폰트 설정 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
-
-
     <!-- Styles'n'Scripts -->
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
-
-    <!-- custom.css -->
-    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
-
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
@@ -44,76 +32,34 @@
             }
         </style>
     <![endif]-->
-
+    
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
-    <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/swea-menu" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/built/images/favicon.jpg" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/BOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="SWEA_목차" />
-    <meta property="og:description" content="SWEA 문제풀이 날짜별로 구성 
-
-	2022-02-06
-	SWEA_12742_장미속의막대_JAVA
-	
-	2022-02-07
-	SWEA_5215_햄버거다이어트_JAVA
-	
-	2022-02-09
-	SWEA_1224_계산기3_JAVA
-	SWEA_1861_정사각형 방_JAVA
-	SWEA_3499_퍼펙트셔플_JAVA
-	
-	2022-02-14
-	SWEA_6808_규영이와인영이의카드게임_JAVA
-	
-	2022-02-16
-	SWEA_5644_무선충전_JAVA
-	
-
-
-" />
-    <meta property="og:url" content="https://hjs101.github.io/swea-menu" />
-    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/SWEA-logo.jpg" />
+    <meta property="og:title" content="BOJ_1874_스택수열_JAVA" />
+    <meta property="og:description" content="문제 : 스택수열 링크 : BOJ_1874_스택수열 접근 방식 1~n까지 증가해가면서 스택을 쌓다가, 수열에 해당하는 수를 만나면 수열에 해당하는 수가 더이상 나타나지 않을 때까지 반복해서 꺼낸다. 예를 들어 주어진 n값이 8이고, 수열이 4 3 6 8 7 5 2 1 이라고 하면. 스택에 1,2,3,4 까지 push한다. 스택의 top = 4, 수열의" />
+    <meta property="og:url" content="http://localhost:4000/BOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4" />
+    <meta property="og:image" content="http://localhost:4000/assets/built/images/python-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-03T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-03T01:40:00+09:00" />
-    <meta property="article:tag" content="Swea" />
+    <meta property="article:published_time" content="2022-02-06T01:40:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-06T01:40:00+09:00" />
+    <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SWEA_목차" />
-    <meta name="twitter:description" content="SWEA 문제풀이 날짜별로 구성 
-
-	2022-02-06
-	SWEA_12742_장미속의막대_JAVA
-	
-	2022-02-07
-	SWEA_5215_햄버거다이어트_JAVA
-	
-	2022-02-09
-	SWEA_1224_계산기3_JAVA
-	SWEA_1861_정사각형 방_JAVA
-	SWEA_3499_퍼펙트셔플_JAVA
-	
-	2022-02-14
-	SWEA_6808_규영이와인영이의카드게임_JAVA
-	
-	2022-02-16
-	SWEA_5644_무선충전_JAVA
-	
-
-
-" />
-    <meta name="twitter:url" content="https://hjs101.github.io/" />
-    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/SWEA-logo.jpg" />
+    <meta name="twitter:title" content="BOJ_1874_스택수열_JAVA" />
+    <meta name="twitter:description" content="문제 : 스택수열 링크 : BOJ_1874_스택수열 접근 방식 1~n까지 증가해가면서 스택을 쌓다가, 수열에 해당하는 수를 만나면 수열에 해당하는 수가 더이상 나타나지 않을 때까지 반복해서 꺼낸다. 예를 들어 주어진 n값이 8이고, 수열이 4 3 6 8 7 5 2 1 이라고 하면. 스택에 1,2,3,4 까지 push한다. 스택의 top = 4, 수열의" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/built/images/python-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="hjs's Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Swea" />
+    <meta name="twitter:data2" content="Boj" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -126,41 +72,20 @@
     "publisher": {
         "@type": "Organization",
         "name": "hjs's Blog",
-        "logo": "https://hjs101.github.io/"
+        "logo": "http://localhost:4000/"
     },
-    "url": "https://hjs101.github.io/swea-menu",
+    "url": "http://localhost:4000/BOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4",
     "image": {
         "@type": "ImageObject",
-        "url": "https://hjs101.github.io/assets/built/images/SWEA-logo.jpg",
+        "url": "http://localhost:4000/assets/built/images/python-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/swea-menu"
+        "@id": "http://localhost:4000/BOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4"
     },
-    "description": "SWEA 문제풀이 날짜별로 구성 
-
-	2022-02-06
-	SWEA_12742_장미속의막대_JAVA
-	
-	2022-02-07
-	SWEA_5215_햄버거다이어트_JAVA
-	
-	2022-02-09
-	SWEA_1224_계산기3_JAVA
-	SWEA_1861_정사각형 방_JAVA
-	SWEA_3499_퍼펙트셔플_JAVA
-	
-	2022-02-14
-	SWEA_6808_규영이와인영이의카드게임_JAVA
-	
-	2022-02-16
-	SWEA_5644_무선충전_JAVA
-	
-
-
-"
+    "description": "문제 : 스택수열 링크 : BOJ_1874_스택수열 접근 방식 1~n까지 증가해가면서 스택을 쌓다가, 수열에 해당하는 수를 만나면 수열에 해당하는 수가 더이상 나타나지 않을 때까지 반복해서 꺼낸다. 예를 들어 주어진 n값이 8이고, 수열이 4 3 6 8 7 5 2 1 이라고 하면. 스택에 1,2,3,4 까지 push한다. 스택의 top = 4, 수열의"
 }
     </script>
 
@@ -173,7 +98,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="SWEA_목차" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_1874_스택수열_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -192,15 +117,15 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://hjs101.github.io/">hjs's Blog</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">hjs's Blog</a>
             
         
         
             <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-jekyll" role="menuitem"><a href="/boj-menu">BOJ</a></li>
-    <li class="nav-python" role="menuitem"><a href="/swea-menu">SWEA</a></li>
+    <li class="nav-jekyll" role="menuitem"><a href="/tag/BOJ/">BOJ</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/SWEA/">SWEA</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/Dragon/">Dragon</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
@@ -232,57 +157,110 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-swea post tag-SWEA ">
+        <article class="post-full  tag-boj post tag-BOJ ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 3 February 2022"> 3 February 2022</time>
+                    <time class="post-full-meta-date" datetime=" 6 February 2022"> 6 February 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/swea/'>SWEA</a>
+                               <a href='/tag/boj/'>BOJ</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">SWEA_목차</h1>
+                <h1 class="post-full-title">BOJ_1874_스택수열_JAVA</h1>
             </header>
-            <!--
+
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/SWEA-logo.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
             </figure>
-             !-->
+            
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><span class="table-of-contents-list">SWEA 문제풀이 날짜별로 구성 </span></p>
-<ul class="table-of-contents-list">
-	2022-02-06
-	<li><a href="./SWEA-12742">SWEA_12742_장미속의막대_JAVA</a></li>
-	<br />
-	2022-02-07
-	<li><a href="./SWEA-5215">SWEA_5215_햄버거다이어트_JAVA</a></li>
-	<br />
-	2022-02-09
-	<li><a href="./SWEA-1224">SWEA_1224_계산기3_JAVA</a></li>
-	<li><a href="./SWEA-1861">SWEA_1861_정사각형 방_JAVA</a></li>
-	<li><a href="./SWEA-3499">SWEA_3499_퍼펙트셔플_JAVA</a></li>
-	<br />
-	2022-02-14
-	<li><a href="./SWEA-6808">SWEA_6808_규영이와인영이의카드게임_JAVA</a></li>
-	<br />
-	2022-02-16
-	<li><a href="./SWEA-5644">SWEA_5644_무선충전_JAVA</a></li>
-	<br />
-</ul>
+                    <h2 id="문제--스택수열">문제 : 스택수열</h2>
+<p>링크 : <a href="https://www.acmicpc.net/problem/1874">BOJ_1874_스택수열</a></p>
 
+<h2 id="접근-방식">접근 방식</h2>
+<p>1~n까지 증가해가면서 스택을 쌓다가, 수열에 해당하는 수를 만나면 수열에 해당하는 수가 더이상 나타나지 않을 때까지 반복해서 꺼낸다.</p>
+
+<p>예를 들어 주어진 n값이 8이고, 수열이 4 3 6 8 7 5 2 1 이라고 하면.</p>
+
+<ol>
+  <li>스택에 1,2,3,4 까지 push한다.</li>
+  <li>스택의 top = 4, 수열의 첫 번째 값도 4, 두 값이 같기 때문에 pop한다. 수열의 카운트는 1 증가시켜 3을 가리킨다.</li>
+  <li>스택의 top = 3, 수열의 두 번째 값은 3, 두 값이 같기 때문에 pop한다. 수열의 카운트는 1 증가시켜 6을 가리킨다.</li>
+  <li>스택의 top = 2, 수열의 세 번째 값은 6, 두 값이 다르기 때문에 반복을 종료한다.</li>
+  <li>스택에 5, 6 까지 push한다.
+.
+.
+.</li>
+</ol>
+
+<p>이러한 방식으로 1부터 시작해서 n에 도달할 때까지 반복해서 돌려주면 된다.</p>
+
+<h2 id="풀이-방법">풀이 방법</h2>
+<ol>
+  <li>Stack 클래스를 사용해서 Integer 스택을 생성한다. 변수 N에 수열 개수를 읽어와 저장한다.</li>
+  <li>수열은 값을 읽어와서 따로 배열에 저장해둔다.</li>
+  <li>StringBuilder 객체를 생성한다.</li>
+  <li>1~N까지 반복문을 돌려 stack에 push하고 StringBuilder에 +를 append한다.</li>
+  <li>중첩 반복문으로, 스택이 비어있거나 수열의 값과 스택의 최상위 값이 일치하면 stack를 pop하고, StringBuilder에 -를 append한다. 수열은 카운트를 1 증가시켜 다음 번호로 넘어간다.</li>
+  <li>더이상 수열의 값과 스택의 최상위 값이 일치하지 않으면 내부 반복문을 빠져나간다.</li>
+  <li>반복문이 모두 종료된 후 스택이 비어있다면 수열대로 정렬이 성공한 것이므로 지금까지 append시킨 StringBuilder를 출력한다.</li>
+  <li>스택에 남아있는 값이 있다면 NO를 출력한다.
+    <h2 id="소스-코드">소스 코드</h2>
+    <p>~~~
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;</p>
+  </li>
+</ol>
+
+<p>public class BOJ_1874_스택수열 {</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static void main(String[] args) throws NumberFormatException, IOException {
+	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+	int N = Integer.parseInt(in.readLine());
+	Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+	int[] arr = new int[N];
+	for (int i = 0; i &lt; N; i++) {
+		arr[i] = Integer.parseInt(in.readLine());
+	}
+	int cnt = 0;
+	StringBuilder sb = new StringBuilder();
+
+	for (int i = 1; i &lt;= N; i++) {
+		stack.push(i);
+		sb.append("+\n");
+		while (true) {
+			if (!stack.empty() &amp;&amp; arr[cnt] == stack.peek()) {
+				sb.append("-\n");
+				stack.pop();
+				cnt++;
+			} else {
+				break;
+			}
+		}
+	}
+	if (stack.empty()) {
+		System.out.println(sb);
+	} else {
+		System.out.println("NO");
+	}
+
+} } ~~~
+</code></pre></div></div>
 
                 </div>
             </section>
 
             <!-- Email subscribe form at the bottom of the page -->
-            <!--
             
                 <section class="subscribe-form">
                     <h3 class="subscribe-form-title">Subscribe to hjs's Blog</h3>
@@ -299,7 +277,7 @@ into the {body} of the default.hbs template -->
 
                 </section>
             
-            !-->
+
             <footer class="post-full-footer">
                 <!-- Everything inside the #author tags pulls data from the author -->
                 <!-- #author-->
@@ -307,7 +285,7 @@ into the {body} of the default.hbs template -->
                     
                         <section class="author-card">
                             
-                                <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
+                                <img class="author-profile-image" src="/assets/built/images/economy-author-logo.jpg" alt="hjs" />
                             
                             <section class="author-card-content">
                                 <h4 class="author-card-name"><a href="/author/hjs">hjs</a></h4>
@@ -332,9 +310,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/swea-menu';
-                            var this_page_identifier = '/swea-menu';
-                            var this_page_title = 'SWEA_목차';
+                            var this_page_url = 'http://localhost:4000/BOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4';
+                            var this_page_identifier = '/BOJ-1874-스택수열';
+                            var this_page_title = 'BOJ_1874_스택수열_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -360,206 +338,24 @@ into the {body} of the default.hbs template -->
                 
                 
                 
-                    <article class="read-next-card"
-                        
-                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
-                        
-                    >
-                        <header class="read-next-card-header">
-                            <small class="read-next-card-header-sitetitle">&mdash; hjs's Blog &mdash;</small>
-                            
-                                <h3 class="read-next-card-header-title"><a href="/tag/swea/">Swea</a></h3>
-                            
-                        </header>
-                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
-                        <div class="read-next-card-content">
-                            <ul>
-                                
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/SWEA-5644">SWEA_5644_무선충전_JAVA</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/SWEA-6808">SWEA_6808_규영이와인영이의카드게임_JAVA</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/SWEA-3499">SWEA_3499_퍼펙트셔플_JAVA</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                            </ul>
-                        </div>
-                        <footer class="read-next-card-footer">
-                            <a href="/tag/swea/">
-                                
-                                    See all 7 posts  →
-                                
-                            </a>
-                        </footer>
-                    </article>
-                
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
                 
 
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/BOJ-10773">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
-            </a>
+    <article class="post-card  no-image">
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-10773">
+            <a class="post-card-content-link" href="/SWEA-5215-%ED%96%84%EB%B2%84%EA%B1%B0%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8">
                 <header class="post-card-header">
                     
-                        
-                            
-                                <span class="post-card-tags">Boj</span>
-                            
-                        
-                    
 
-                    <h2 class="post-card-title">BOJ_10773_제로_JAVA</h2>
+                    <h2 class="post-card-title">SWEA_5215_햄버거다이어트_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 제로
-링크 : BOJ_10773_제로
+                        <p>문제 : 햄버거다이어트
 
 </p>
                     
@@ -569,7 +365,7 @@ into the {body} of the default.hbs template -->
                 
                     
                         
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
+                        <img class="author-profile-image" src="/assets/built/images/economy-author-logo.jpg" alt="hjs" />
                         
                         <span class="post-card-author">
                             <a href="/author/hjs/">hjs</a>
@@ -592,28 +388,20 @@ into the {body} of the default.hbs template -->
             
                 
 
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/boj-menu">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
-            </a>
+    <article class="post-card  no-image">
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/boj-menu">
+            <a class="post-card-content-link" href="/SWEA-12742-%EC%9E%A5%EB%A7%88%EC%86%8D%EC%9D%98%EB%A7%89%EB%8C%80">
                 <header class="post-card-header">
                     
-                        
-                            
-                                <span class="post-card-tags">Boj</span>
-                            
-                        
-                    
 
-                    <h2 class="post-card-title">BOJ_목차</h2>
+                    <h2 class="post-card-title">SWEA_12742_장마속의막대_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>BOJ 문제풀이 날짜별로 구성 2022-02-05 BOJ_1874_스택수열_JAVA BOJ_4949_균형잡힌세상_JAVA BOJ_9012_괄호_JAVA BOJ_10773_제로_JAVA BOJ_10828_스택_JAVA BOJ_17298_오큰수_JAVA 2022-02-06 BOJ_18258_큐2_JAVA 2022-02-08 BOJ_1021_회전하는큐_JAVA BOJ_1966_프린터큐_JAVA BOJ_2164_카드2_JAVA BOJ_5430_AC_JAVA BOJ_10866_덱_JAVA BOJ_11866_요세푸스문제0_JAVA 2022-02-09 BOJ_2309_일곱난쟁이_JAVA BOJ_2609_최대공약수와최소공배수_JAVA 2022-02-10 BOJ_2605_줄세우기_JAVA BOJ_2981_검문_JAVA 2022-02-11 BOJ_2477_참외밭_JAVA BOJ_2491_수열_JAVA BOJ_2564_경비원_JAVA 2022-02-12 BOJ_2635_수이어가기_JAVA BOJ_10157_자리배정_JAVA</p>
+                        <p>문제 : 장마속의막대
+
+</p>
                     
                 </section>
             </a>
@@ -621,7 +409,7 @@ into the {body} of the default.hbs template -->
                 
                     
                         
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
+                        <img class="author-profile-image" src="/assets/built/images/economy-author-logo.jpg" alt="hjs" />
                         
                         <span class="post-card-author">
                             <a href="/author/hjs/">hjs</a>
@@ -647,24 +435,24 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://hjs101.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>hjs's Blog</span>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">SWEA_목차</div>
+    <div class="floating-header-title">BOJ_1874_스택수열_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=SWEA_%EB%AA%A9%EC%B0%A8&amp;url=https://hjs101.github.ioswea-menu"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_1874_%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4_JAVA&amp;url=https://hjs101.github.ioBOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioswea-menu"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-1874-%EC%8A%A4%ED%83%9D%EC%88%98%EC%97%B4"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
@@ -689,7 +477,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://hjs101.github.io/">hjs's Blog</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">hjs's Blog</a> &copy; 2022</section>
                 <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
                     <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
                     <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
