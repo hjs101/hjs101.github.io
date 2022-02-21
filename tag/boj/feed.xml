@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/boj/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-21T20:30:50+09:00</updated>
+  <updated>2022-02-22T00:59:19+09:00</updated>
   <id>https://hjs101.github.io/tag/boj/feed.xml</id>
 
   
@@ -30,185 +30,6 @@
   
   
 
-  
-    <entry>
-      <title type="html">BOJ_1260_DFS와BFS_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-1260" rel="alternate" type="text/html" title="BOJ_1260_DFS와BFS_JAVA" />
-      <published>2022-02-21T01:40:00+09:00</published>
-      <updated>2022-02-21T01:40:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-1260</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-1260">&lt;h2 id=&quot;문제--dfs와bfs&quot;&gt;문제 : DFS와BFS&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1260&quot;&gt;BOJ_1260_DFS와BFS&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;주어진 노드를 읽어들여 그래프를 만들고, 그 그래프를 DFS와 BFS를 이용한 순회 결과를 출력하면 되는 문제이다.&lt;/p&gt;
-
-&lt;p&gt;BFS와 DFS는 아래 링크의 게시글을 참고하여 공부하였다.&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://better-tomorrow.tistory.com/entry/DFS-BFS-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0?category=456505&quot;&gt;DFS와 BFS&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;BFS를 이용하여 먼저 그래프를 순회한다. 인자값으로 boolean 배열(노드 수만큼), 생성한 그래프 배열, 시작할 노드를 받는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;큐를 생성한다. 초기 노드를 방문처리하고 큐에 추가한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;큐가 모두 비어있을 때까지 반복한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;큐에서 값을 꺼내어 StringBuilder에 저장한다. 그 후 배열의 크기만큼 반복한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;만약 해당 노드의 행에 아직 방문하지 않고, 인접한 노드가 있다면 큐에 해당 노드를 추가하고 방문처리한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;BFS 이용한 순회가 끝나면, DFS 이용하여 순회를 한다. 인자값으로는 BFS와 같다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DFS는 재귀로 구현한다. 먼저, 해당 노드를 방문처리하고 StringBuilder에 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열의 크기만큼 반복하는데, 해당 노드의 행에 아직 방문하지 않은 상태의 인접한 노드가 있다면, 해당 노드를 방문처리하고 재귀함수를 호출한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모든 순회가 끝나면 StringBuilder에 저장한 문자열을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
-
-public class BOJ_1260_DFS와BFS {
-	static StringBuilder sb;
-	static int N;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-
-
-
-		StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
-
-		N = Integer.parseInt(st.nextToken());
-
-		int M = Integer.parseInt(st.nextToken());
-
-		int V = Integer.parseInt(st.nextToken());
-
-		int[][] adjMatrix = new int[N+1][N+1];
-
-
-
-		for(int i=0;i&amp;lt;M;i++) {
-			st = new StringTokenizer(in.readLine(),&quot; &quot;);
-			int v1 = Integer.parseInt(st.nextToken());
-			int v2 = Integer.parseInt(st.nextToken());
-			adjMatrix[v1][v2] = 1;
-			adjMatrix[v2][v1] = 1;
-		}
-
-		boolean[] visited = new boolean[N+1];
-		Arrays.fill(visited, false);
-		sb = new StringBuilder();
-		// dfs
-		dfs(V, visited, adjMatrix);
-		sb.setLength(sb.length()-1);
-		sb.append('\n');
-
-		Arrays.fill(visited, false);
-
-		bfs(V,visited, adjMatrix);
-
-		System.out.println(sb);
-
-	}
-	public static void bfs(int v, boolean[] visited, int[][] adjMatrix) {
-
-		Queue&amp;lt;Integer&amp;gt; queue = new LinkedList&amp;lt;Integer&amp;gt;();
-
-		visited[v] = true;
-		queue.offer(v);
-
-		while(!queue.isEmpty()) {
-			int current = queue.poll();
-
-			sb.append(current + &quot; &quot;);
-
-			for(int i=1;i&amp;lt;=N;i++) {
-				if(!visited[i] &amp;amp;&amp;amp; adjMatrix[current][i] != 0) {
-					queue.offer(i);
-					visited[i] = true;
-				}
-			}
-		}
-
-
-		sb.setLength(sb.length()-1);
-
-	}
-
-	public static void dfs(int v, boolean[] visited, int[][] adjMatrix) {
-		visited[v] = true;
-		sb.append(v + &quot; &quot;);
-		for(int i=1;i&amp;lt;=N;i++) {
-			if(!visited[i] &amp;amp;&amp;amp; adjMatrix[v][i] != 0) {
-				visited[i] = true;
-				dfs(i, visited, adjMatrix);
-			}
-		}
-	}
-
-
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : DFS와BFS</summary>
-      
-
-      
-      
-    </entry>
   
     <entry>
       <title type="html">BOJ_9461_파도반수열_JAVA</title>
@@ -318,122 +139,6 @@ public class BOJ_9461_파도반수열 {
 
       
         <summary type="html">문제 : 파도반수열</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">BOJ_2060_바이러스_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-2060" rel="alternate" type="text/html" title="BOJ_2060_바이러스_JAVA" />
-      <published>2022-02-21T01:40:00+09:00</published>
-      <updated>2022-02-21T01:40:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-2060</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-2060">&lt;h2 id=&quot;문제--바이러스&quot;&gt;문제 : 바이러스&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2060&quot;&gt;BOJ_2060_바이러스&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;DFS 또는 BFS를 이용하여 인접한 노드를 전체 순회하고 카운트 하면 되는 문제이다. 그래프 생성과 DFS, BFS중 한 가지라도 구현할 수 있다면 문제를 풀 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DFS를 이용하여 인접 노드를 순회한다. DFS는 재귀로 구현한다. 먼저, 해당 노드를 방문처리한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열의 크기만큼 반복하는데, 해당 노드의 행에 아직 방문하지 않은 상태의 인접한 노드가 있다면, 해당 노드를 방문처리하고 재귀함수를 호출한다. 그리고 카운트를 1 증가시킨다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모든 순회가 끝나면 저장된 카운트 값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
-
-public class BOJ_2060_바이러스 {
-	static int N;
-	static int cnt;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-
-		N = Integer.parseInt(in.readLine());
-
-		int C = Integer.parseInt(in.readLine());
-
-		int[][] arr = new int[N+1][N+1];
-		StringTokenizer st;
-		for(int i=0;i&amp;lt;C;i++) {
-			st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-			int from = Integer.parseInt(st.nextToken());
-
-			int to = Integer.parseInt(st.nextToken());
-			arr[from][to] = 1;
-			arr[to][from] = 1;
-
-		}
-
-		dfs(arr,new boolean[N+1],1);
-
-
-		System.out.println(cnt);
-//		for(int i=1;i&amp;lt;=N;i++) {
-//			System.out.println(Arrays.toString(arr[i]));
-//		}
-
-	}
-
-	public static void dfs(int[][] arr, boolean[] isVisited, int V) {
-		isVisited[V] = true;
-
-		for(int i=1;i&amp;lt;=N;i++) {
-			if(!isVisited[i] &amp;amp;&amp;amp; arr[V][i] == 1) {
-				cnt++;
-				dfs(arr, isVisited, i);
-			}
-		}
-
-	}
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : 바이러스</summary>
       
 
       
@@ -1733,6 +1438,269 @@ public class BOJ_3085_사탕게임 {
 
       
         <summary type="html">문제 : 사탕게임</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">BOJ_2980_도로와신호등_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-2980" rel="alternate" type="text/html" title="BOJ_2980_도로와신호등_JAVA" />
+      <published>2022-02-17T01:40:00+09:00</published>
+      <updated>2022-02-17T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-2980</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-2980">&lt;h2 id=&quot;문제--도로와-신호등&quot;&gt;문제 : 도로와 신호등&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2980&quot;&gt;BOJ_2980_도로와신호등&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;1초에 1미터를 움직이는 트럭이 신호등을 만났을 때, 신호등의 상태에 따라서 전진할 지 멈출지 결정하여 최종 목적지까지 도착했을 때 흐른 시간을 출력하면 되는 문제이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;p&gt;나는 이 문제를 푸는 방법으로 신호등 객체를 생성하여 이용했다. 신호등 객체의 각각의 타이머를 돌려 스스로의 신호 상태를 바꾸게 하고, 트럭이 해당 위치에 도착했을 때, 객체의 신호 상태를 읽어들여 빨간불이면 멈추고, 초록불이면 이동하게 하였다.&lt;/p&gt;
+
+&lt;p&gt;신호등 객체는 자신의 위치정보, 빨간불의 지속시간, 초록불의 지속시간, 타이머, 현재 자신의 상태(빨간불,초록불)를 멤버변수로 갖는다.&lt;/p&gt;
+
+&lt;p&gt;신호등에 대한 정보를 입력받아, 신호등 객체 배열로 저장하고, 저장된 모든 신호등의 타이머를 1씩 증가시킨다.&lt;/p&gt;
+
+&lt;p&gt;각각의 빨간불, 초록불에 지속시간에 따라서 각 신호등 객체는 스스로의 상태를 변경시킨다. 나머지연산을 이용해서 변하는 시점을 구했다.&lt;/p&gt;
+
+&lt;p&gt;신호등 객체의 상태가 정해지면, 트럭을 1 증가시켜 이동시킨다.&lt;/p&gt;
+
+&lt;p&gt;이동시킨 후, 신호등을 순회하여 트럭과 같은 위치에 신호등이 있는지 확인한다. 만약 신호등이 있다면 빨간불일 경우 이동한 거리에서 -1을, 초록불이라면 그대로 둔다.&lt;/p&gt;
+
+&lt;p&gt;트럭이 1부터 시작하여 L에 도달했을 때, 반복을 종료하고 이때까지 걸린 시간을 출력한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class BOJ_2980_도로와신호등 {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
+
+		int N = Integer.parseInt(st.nextToken());
+
+		int L = Integer.parseInt(st.nextToken());
+
+		TrafficLight[] traf = new TrafficLight[N];
+
+		for(int i=0;i&amp;lt;N;i++) {
+			st = new StringTokenizer(in.readLine(),&quot; &quot;);
+			int dic = Integer.parseInt(st.nextToken());
+			int red = Integer.parseInt(st.nextToken());
+			int green = Integer.parseInt(st.nextToken());
+			traf[i] = new TrafficLight(dic, red, green);
+		}
+		int time = 0;
+		for(int i=1;i&amp;lt;L;i++) {
+			for(int j=0;j&amp;lt;N;j++) {
+				if(traf[j].timer % traf[j].red == 0 &amp;amp;&amp;amp; traf[j].traffic == false) {
+					traf[j].timer = 0;
+					traf[j].traffic = true;
+				}else if(traf[j].timer % traf[j].green == 0 &amp;amp;&amp;amp; traf[j].traffic==true) {
+					traf[j].timer = 0;
+					traf[j].traffic = false;
+				}
+				traf[j].timer++;
+//				System.out.print(traf[j].traffic + &quot; &quot;);
+			}
+//			System.out.println();
+			for(int j=0;j&amp;lt;N;j++) {
+				if(i == traf[j].dic &amp;amp;&amp;amp; traf[j].traffic == false) {
+					i--;
+				}
+			}
+			time++;
+		}
+
+		System.out.println(time);
+
+	}
+
+}
+
+class TrafficLight{
+	int dic;
+	int red;
+	int green;
+	int timer;
+	boolean traffic = true;
+
+
+	public TrafficLight(int dic, int red, int green) {
+		super();
+		this.dic = dic;
+		this.red = red;
+		this.green = green;
+	}
+
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 도로와 신호등</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">BOJ_9184_신나는함수실행_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-9184" rel="alternate" type="text/html" title="BOJ_9184_신나는함수실행_JAVA" />
+      <published>2022-02-17T01:40:00+09:00</published>
+      <updated>2022-02-17T01:40:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-9184</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-9184">&lt;h2 id=&quot;문제--신나는함수실행&quot;&gt;문제 : 신나는함수실행&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/9184&quot;&gt;BOJ_9184_신나는함수실행&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;p&gt;DP란 무엇일까?&lt;/p&gt;
+
+&lt;p&gt;동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다.&lt;/p&gt;
+
+&lt;p&gt;DP의 조건은 3가지가 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;먼저 큰 문제가 작은 문제로 쪼개질 수 있는가.&lt;/li&gt;
+  &lt;li&gt;작은문제들의 해로 큰 문제의 해를 구할 수 있는가.&lt;/li&gt;
+  &lt;li&gt;그리고, 이 해들이 중복되는가.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 3가지 조건이 충족되면 DP를 적용할 수 있다고 한다.&lt;/p&gt;
+
+&lt;p&gt;하지만 이러한 내용은 내게 너무 낮설고 적용하기도 어려웠다.&lt;/p&gt;
+
+&lt;p&gt;나는 이 문제를 풀면서 어떻게 DP를 사용하는 지에만 집중했다.&lt;/p&gt;
+
+&lt;p&gt;결론은 이것이다. 재귀를 통해 호출되는 함수의 결과를 기억해두고, 재귀를 통해 호출하는 함수가 기억되어있는 함수와 같다면, 재귀를 호출하지 않고 기억되어있는 함수의 값을 리턴한다.&lt;/p&gt;
+
+&lt;p&gt;메모이제이션은 이것을 말하는 것이다. ‘기억’하는 것.&lt;/p&gt;
+
+&lt;p&gt;그렇기 때문에, 3개의 인자값을 받는 이 재귀함수의 파라미터 a,b,c. 이 값을 배열로 선언해 0으로 초기화 해두고, 호출된 함수의 위치에 결과값을 저장했다. 그 후 같은 인자값을 사용하는 함수가 재귀호출될 경우, 그 함수는 추가적인 작업 없이 저장되어있는 결과값을 리턴하고 종료된다.&lt;/p&gt;
+
+&lt;p&gt;이번 문제에서는 DP에 대해 이정도까지밖에 이해하지 못했다. 몇몇 문제를 더 풀어보며 이해력을 늘려야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class BOJ_9184_신나는함수실행 {
+
+	static int[][][] dp;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
+		dp = new int[21][21][21];
+		while(true) {
+			st = new StringTokenizer(in.readLine(),&quot; &quot;);
+
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
+
+			if(a==-1&amp;amp;&amp;amp;b==-1&amp;amp;&amp;amp;c==-1) {
+				break;
+			}
+			long n = w(a,b,c);
+
+			sb.append(String.format(&quot;w(%d, %d, %d) = %d\n&quot;,a,b,c, n));
+		}
+		System.out.print(sb);
+	}
+
+	public static int w(int a, int b, int c) {
+
+		if((a&amp;gt;=0 &amp;amp;&amp;amp; a &amp;lt;=20 &amp;amp;&amp;amp; b &amp;gt;= 0 &amp;amp;&amp;amp; b &amp;lt;= 20 &amp;amp;&amp;amp; c &amp;gt;= 0 &amp;amp;&amp;amp; c &amp;lt;= 20) &amp;amp;&amp;amp; dp[a][b][c] != 0) {
+			return dp[a][b][c];
+		}
+
+		if(a &amp;lt;= 0 || b &amp;lt;= 0 || c &amp;lt;= 0) {
+			return 1;
+		}
+
+		if(a &amp;gt; 20 || b &amp;gt; 20 || c &amp;gt; 20) {
+			dp[20][20][20] = w(20,20,20);
+			return dp[20][20][20];
+		}
+
+		if(a &amp;lt; b &amp;amp;&amp;amp; b &amp;lt; c) {
+			dp[a][b][c] =w(a,b,c-1)+w(a,b-1,c-1) - w(a,b-1,c);
+			return dp[a][b][c];
+		}
+		dp[a][b][c] = w(a-1,b,c) + w(a-1,b-1,c) + w(a-1,b,c-1) - w(a-1,b-1,c-1);
+		return dp[a][b][c];
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 신나는함수실행</summary>
       
 
       

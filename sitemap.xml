@@ -4,38 +4,6 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://hjs101.github.io/BOJ-2060.html</loc>
-        
-        <lastmod>2022-02-21T01:40:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://hjs101.github.io/BOJ-1260.html</loc>
-        
-        <lastmod>2022-02-21T01:40:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
         <loc>https://hjs101.github.io/BOJ-9461.html</loc>
         
         <lastmod>2022-02-21T01:40:00+09:00</lastmod>

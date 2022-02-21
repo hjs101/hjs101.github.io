@@ -8,36 +8,6 @@
     
       
       <item>
-        <title>BOJ_2060_바이러스_JAVA</title>
-        
-          <description>&lt;h2 id=&quot;문제--바이러스&quot;&gt;문제 : 바이러스&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Mon, 21 Feb 2022 01:40:00 +0900</pubDate>
-        <link>
-        https://hjs101.github.io/BOJ-2060</link>
-        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2060</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>BOJ_1260_DFS와BFS_JAVA</title>
-        
-          <description>&lt;h2 id=&quot;문제--dfs와bfs&quot;&gt;문제 : DFS와BFS&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Mon, 21 Feb 2022 01:40:00 +0900</pubDate>
-        <link>
-        https://hjs101.github.io/BOJ-1260</link>
-        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1260</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>BOJ_9461_파도반수열_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--파도반수열&quot;&gt;문제 : 파도반수열&lt;/h2&gt;
@@ -783,6 +753,8 @@
 	2022-02-16
 	&lt;li&gt;&lt;a href=&quot;./SWEA-5644&quot;&gt;SWEA_5644_무선충전_JAVA&lt;/a&gt;&lt;/li&gt;
 	&lt;br /&gt;
+	2022-02-21
+	&lt;li&gt;&lt;a href=&quot;./SWEA-1238&quot;&gt;SWEA_1238_Contact_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -871,9 +843,13 @@
   &lt;br /&gt;
   2022-02-20
   &lt;li&gt;&lt;a href=&quot;./BOJ-9461&quot;&gt;BOJ_9461_파도반수열_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
   2022-02-21
   &lt;li&gt;&lt;a href=&quot;./BOJ-1260&quot;&gt;BOJ_1260_DFS와BFS_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-2060&quot;&gt;BOJ_2060_바이러스_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1417&quot;&gt;BOJ_1417_국회의원선거_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1759&quot;&gt;BOJ_1759_암호만들기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
 &lt;/ul&gt;
 
 </description>
