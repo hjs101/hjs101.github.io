@@ -11,13 +11,25 @@
 
 
 
-    <title>Welcome to Ghost</title>
+    <title>BOJ_2060_바이러스_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font, Awesome !-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- 웹 폰트 설정 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+
     <!-- Styles'n'Scripts -->
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!-- custom.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
@@ -32,34 +44,34 @@
             }
         </style>
     <![endif]-->
-    
+
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
-    <link rel="shortcut icon" href="http://localhost:4000/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="http://localhost:4000/welcome" />
+    <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-2060" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Welcome to Ghost" />
-    <meta property="og:description" content="Hey! Welcome to Ghost, it’s great to have you :) We know that first impressions are important, so we’ve populated your new site with some initial Getting Started posts that will help you get familiar with everything in no time. This is the first one! There are a few things" />
-    <meta property="og:url" content="http://localhost:4000/welcome" />
-    <meta property="og:image" content="http://localhost:4000/assets/images/welcome.jpg" />
+    <meta property="og:title" content="BOJ_2060_바이러스_JAVA" />
+    <meta property="og:description" content="문제 : 바이러스 링크 : BOJ_2060_바이러스 접근 방식 DFS 또는 BFS를 이용하여 인접한 노드를 전체 순회하고 카운트 하면 되는 문제이다. 그래프 생성과 DFS, BFS중 한 가지라도 구현할 수 있다면 문제를 풀 수 있다. 풀이 방법 인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다. DFS를 이용하여 인접 노드를 순회한다." />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-2060" />
+    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2017-07-27T19:00:00+09:00" />
-    <meta property="article:modified_time" content="2017-07-27T19:00:00+09:00" />
-    <meta property="article:tag" content="Getting Started" />
+    <meta property="article:published_time" content="2022-02-21T01:40:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-21T01:40:00+09:00" />
+    <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Welcome to Ghost" />
-    <meta name="twitter:description" content="Hey! Welcome to Ghost, it’s great to have you :) We know that first impressions are important, so we’ve populated your new site with some initial Getting Started posts that will help you get familiar with everything in no time. This is the first one! There are a few things" />
-    <meta name="twitter:url" content="http://localhost:4000/" />
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/welcome.jpg" />
+    <meta name="twitter:title" content="BOJ_2060_바이러스_JAVA" />
+    <meta name="twitter:description" content="문제 : 바이러스 링크 : BOJ_2060_바이러스 접근 방식 DFS 또는 BFS를 이용하여 인접한 노드를 전체 순회하고 카운트 하면 되는 문제이다. 그래프 생성과 DFS, BFS중 한 가지라도 구현할 수 있다면 문제를 풀 수 있다. 풀이 방법 인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다. DFS를 이용하여 인접 노드를 순회한다." />
+    <meta name="twitter:url" content="https://hjs101.github.io/" />
+    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="hjs's Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Getting Started" />
+    <meta name="twitter:data2" content="Boj" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -72,20 +84,20 @@
     "publisher": {
         "@type": "Organization",
         "name": "hjs's Blog",
-        "logo": "http://localhost:4000/"
+        "logo": "https://hjs101.github.io/"
     },
-    "url": "http://localhost:4000/welcome",
+    "url": "https://hjs101.github.io/BOJ-2060",
     "image": {
         "@type": "ImageObject",
-        "url": "http://localhost:4000/assets/images/welcome.jpg",
+        "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://localhost:4000/welcome"
+        "@id": "https://hjs101.github.io/BOJ-2060"
     },
-    "description": "Hey! Welcome to Ghost, it’s great to have you :) We know that first impressions are important, so we’ve populated your new site with some initial Getting Started posts that will help you get familiar with everything in no time. This is the first one! There are a few things"
+    "description": "문제 : 바이러스 링크 : BOJ_2060_바이러스 접근 방식 DFS 또는 BFS를 이용하여 인접한 노드를 전체 순회하고 카운트 하면 되는 문제이다. 그래프 생성과 DFS, BFS중 한 가지라도 구현할 수 있다면 문제를 풀 수 있다. 풀이 방법 인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다. DFS를 이용하여 인접 노드를 순회한다."
 }
     </script>
 
@@ -98,7 +110,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Welcome to Ghost" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_2060_바이러스_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -117,15 +129,15 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="http://localhost:4000/">hjs's Blog</a>
+                <a class="site-nav-logo" href="https://hjs101.github.io/">hjs's Blog</a>
             
         
         
             <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-jekyll" role="menuitem"><a href="/tag/BOJ/">BOJ</a></li>
-    <li class="nav-python" role="menuitem"><a href="/tag/SWEA/">SWEA</a></li>
+    <li class="nav-jekyll" role="menuitem"><a href="/boj-menu">BOJ</a></li>
+    <li class="nav-python" role="menuitem"><a href="/swea-menu">SWEA</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/Dragon/">Dragon</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
@@ -157,51 +169,119 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-getting-started post ">
+        <article class="post-full  tag-boj post tag-BOJ ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="27 July 2017">27 July 2017</time>
+                    <time class="post-full-meta-date" datetime="21 February 2022">21 February 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/getting-started/'>GETTING STARTED</a>
+                               <a href='/tag/boj/'>BOJ</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">Welcome to Ghost</h1>
+                <h1 class="post-full-title">BOJ_2060_바이러스_JAVA</h1>
             </header>
-
+            <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/images/welcome.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/Boj-logo.png)">
             </figure>
-            
+             !-->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>Hey! Welcome to Ghost, it’s great to have you :)</p>
+                    <h2 id="문제--바이러스">문제 : 바이러스</h2>
 
-<p>We know that first impressions are important, so we’ve populated your new site with some initial <strong>Getting Started</strong> posts that will help you get familiar with everything in no time. This is the first one!</p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/2060">BOJ_2060_바이러스</a></p>
 
-<h3 id="there-are-a-few-things-that-you-should-know-up-front">There are a few things that you should know up-front:</h3>
+<h2 id="접근-방식">접근 방식</h2>
+
+<p>DFS 또는 BFS를 이용하여 인접한 노드를 전체 순회하고 카운트 하면 되는 문제이다. 그래프 생성과 DFS, BFS중 한 가지라도 구현할 수 있다면 문제를 풀 수 있다.</p>
+
+<h2 id="풀이-방법">풀이 방법</h2>
+
 <ol>
-  <li>Ghost is designed for ambitious, professional publishers who want to actively build a business around their content. That’s who it works best for. If you’re using Ghost for some other purpose, that’s fine too - but it might not be the best choice for you.</li>
-  <li>The entire platform can be modified and customized to suit your needs, which is very powerful, but doing so <strong>does</strong> require some knowledge of code. Ghost is not necessarily a good platform for beginners or people who just want a simple personal blog.</li>
-  <li>For the best experience we recommend downloading the Ghost Desktop App for your computer, which is the best way to access your Ghost site on a desktop device.</li>
+  <li>
+    <p>인접 행렬을 통해 주어진 인접 상태 좌표를 읽어들여 그래프를 구현한다.</p>
+  </li>
+  <li>
+    <p>DFS를 이용하여 인접 노드를 순회한다. DFS는 재귀로 구현한다. 먼저, 해당 노드를 방문처리한다.</p>
+  </li>
+  <li>
+    <p>배열의 크기만큼 반복하는데, 해당 노드의 행에 아직 방문하지 않은 상태의 인접한 노드가 있다면, 해당 노드를 방문처리하고 재귀함수를 호출한다. 그리고 카운트를 1 증가시킨다.</p>
+  </li>
+  <li>
+    <p>모든 순회가 끝나면 저장된 카운트 값을 출력한다.</p>
+  </li>
 </ol>
 
-<p>Ghost is made by an independent non-profit organisation called the Ghost Foundation. We are 100% self funded by revenue from our <a href="https://ghost.org/pricing">Ghost(Pro)</a> service, and every penny we make is re-invested into funding further development of free, open source technology for modern journalism.</p>
+<h2 id="소스-코드">소스 코드</h2>
 
-<p>The main thing you’ll want to read about next is probably: <a href="https://demo.ghost.io/the-editor/">the Ghost editor</a>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-<p>Once you’re done reading, you can simply delete the default <strong>Ghost</strong> user from your team to remove all of these introductory posts!</p>
+public class BOJ_2060_바이러스 {
+	static int N;
+	static int cnt;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+
+		N = Integer.parseInt(in.readLine());
+
+		int C = Integer.parseInt(in.readLine());
+
+		int[][] arr = new int[N+1][N+1];
+		StringTokenizer st;
+		for(int i=0;i&lt;C;i++) {
+			st = new StringTokenizer(in.readLine()," ");
+
+			int from = Integer.parseInt(st.nextToken());
+
+			int to = Integer.parseInt(st.nextToken());
+			arr[from][to] = 1;
+			arr[to][from] = 1;
+
+		}
+
+		dfs(arr,new boolean[N+1],1);
+
+
+		System.out.println(cnt);
+//		for(int i=1;i&lt;=N;i++) {
+//			System.out.println(Arrays.toString(arr[i]));
+//		}
+
+	}
+
+	public static void dfs(int[][] arr, boolean[] isVisited, int V) {
+		isVisited[V] = true;
+
+		for(int i=1;i&lt;=N;i++) {
+			if(!isVisited[i] &amp;&amp; arr[V][i] == 1) {
+				cnt++;
+				dfs(arr, isVisited, i);
+			}
+		}
+
+	}
+
+}
+
+</code></pre></div></div>
 
                 </div>
             </section>
 
             <!-- Email subscribe form at the bottom of the page -->
+            <!--
             
                 <section class="subscribe-form">
                     <h3 class="subscribe-form-title">Subscribe to hjs's Blog</h3>
@@ -218,11 +298,26 @@ into the {body} of the default.hbs template -->
 
                 </section>
             
-
+            !-->
             <footer class="post-full-footer">
                 <!-- Everything inside the #author tags pulls data from the author -->
                 <!-- #author-->
                 
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/hjs">hjs</a></h4>
+                                
+                                    <p>Read <a href="/author/hjs">more posts</a> by this author.</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/hjs">Read More</a>
+                        </div>
                     
                 
                 <!-- /author  -->
@@ -236,9 +331,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'http://localhost:4000/welcome';
-                            var this_page_identifier = '/welcome';
-                            var this_page_title = 'Welcome to Ghost';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-2060';
+                            var this_page_identifier = '/BOJ-2060';
+                            var this_page_title = 'BOJ_2060_바이러스_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -266,13 +361,13 @@ into the {body} of the default.hbs template -->
                 
                     <article class="read-next-card"
                         
-                            style="background-image: url(/assets/built/images/blog-cover1.png)"
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
                         
                     >
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; hjs's Blog &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/getting-started/">Getting started</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/boj/">Boj</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -282,102 +377,6 @@ into the {body} of the default.hbs template -->
                                 
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
                                     
                                   
                                 
@@ -385,7 +384,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/the-editor">Using the Ghost editor</a></li>
+                                            <li><a href="/BOJ-1260">BOJ_1260_DFS와BFS_JAVA</a></li>
                                         
                                     
                                   
@@ -394,7 +393,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/using-tags">Organising your content with tags</a></li>
+                                            <li><a href="/BOJ-9461">BOJ_9461_파도반수열_JAVA</a></li>
                                         
                                     
                                   
@@ -403,7 +402,28 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/managing-users">Managing Ghost users</a></li>
+                                            <li><a href="/BOJ-2840">BOJ_2840_행운의바퀴_JAVA</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -432,7 +452,131 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -442,15 +586,129 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/getting-started/">
+                            <a href="/tag/boj/">
                                 
-                                    See all 6 posts  →
+                                    See all 43 posts  →
                                 
                             </a>
                         </footer>
@@ -460,20 +718,34 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
                 
 
-    <article class="post-card  no-image">
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/BOJ-1260">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
+            </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/test-post">
+            <a class="post-card-content-link" href="/BOJ-1260">
                 <header class="post-card-header">
                     
+                        
+                            
+                                <span class="post-card-tags">Boj</span>
+                            
+                        
+                    
 
-                    <h2 class="post-card-title">blog</h2>
+                    <h2 class="post-card-title">BOJ_1260_DFS와BFS_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>안녕하세요. 테스트입니다.
+                        <p>문제 : DFS와BFS
+
 </p>
                     
                 </section>
@@ -482,7 +754,7 @@ into the {body} of the default.hbs template -->
                 
                     
                         
-                        <img class="author-profile-image" src="/assets/built/images/economy-author-logo.jpg" alt="hjs" />
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
                         
                         <span class="post-card-author">
                             <a href="/author/hjs/">hjs</a>
@@ -501,51 +773,6 @@ into the {body} of the default.hbs template -->
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/the-editor">
-                <div class="post-card-image" style="background-image: url(/assets/images/writing.jpg)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/the-editor">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Getting started</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Using the Ghost editor</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>Ghost uses a language called Markdown to format text. When you go to edit a post and see special characters and colours intertwined between the words, those are Markdown shortcuts which tell Ghost</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      3 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
         </div>
     </div>
 </aside>
@@ -553,24 +780,24 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="http://localhost:4000/">
+        <a href="https://hjs101.github.io/">
             
             <span>hjs's Blog</span>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Welcome to Ghost</div>
+    <div class="floating-header-title">BOJ_2060_바이러스_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Welcome+to+Ghost&amp;url=https://hjs101.github.iowelcome"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_2060_%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_JAVA&amp;url=https://hjs101.github.ioBOJ-2060"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.iowelcome"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-2060"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
@@ -595,7 +822,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="http://localhost:4000/">hjs's Blog</a> &copy; 2022</section>
+                <section class="copyright"><a href="https://hjs101.github.io/">hjs's Blog</a> &copy; 2022</section>
                 <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
                     <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
                     <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
