@@ -8,6 +8,66 @@
     
       
       <item>
+        <title>SWEA__서로소집합_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--서로소집합&quot;&gt;문제 : 서로소집합&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 22 Feb 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/SWEA-3289</link>
+        <guid isPermaLink="true">https://hjs101.github.io/SWEA-3289</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2667_단지번호붙이기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--단지번호붙이기&quot;&gt;문제 : 단지번호붙이기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 22 Feb 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2667</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2667</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2567_색종이2_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--색종이2&quot;&gt;문제 : 색종이2&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 22 Feb 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2567</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2567</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>SWEA_1238_Contact_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--contact&quot;&gt;문제 : Contact&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 22 Feb 2022 01:40:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/SWEA-1238</link>
+        <guid isPermaLink="true">https://hjs101.github.io/SWEA-1238</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2060_바이러스_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--바이러스&quot;&gt;문제 : 바이러스&lt;/h2&gt;
@@ -115,7 +175,7 @@
       <item>
         <title>BOJ_3060_욕심쟁이돼지_JAVA</title>
         
-          <description>&lt;h2 id=&quot;문제-&quot;&gt;문제 :&lt;/h2&gt;
+          <description>&lt;h2 id=&quot;문제--욕심쟁이-돼지&quot;&gt;문제 : 욕심쟁이 돼지&lt;/h2&gt;
 
 </description>
         
@@ -458,16 +518,16 @@
     
       
       <item>
-        <title>BOJ_2981_검문_JAVA</title>
+        <title>BOJ_3036_링_JAVA</title>
         
-          <description>&lt;h2 id=&quot;문제--검문&quot;&gt;문제 : 검문&lt;/h2&gt;
+          <description>&lt;h2 id=&quot;문제--링&quot;&gt;문제 : 링&lt;/h2&gt;
 
 </description>
         
         <pubDate>Fri, 11 Feb 2022 01:40:00 +0900</pubDate>
         <link>
-        https://hjs101.github.io/BOJ-2981</link>
-        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2981</guid>
+        https://hjs101.github.io/BOJ-3036</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-3036</guid>
       </item>
       
     
@@ -815,6 +875,10 @@
 	&lt;br /&gt;
 	2022-02-21
 	&lt;li&gt;&lt;a href=&quot;./SWEA-1238&quot;&gt;SWEA_1238_Contact_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-02-22
+	&lt;li&gt;&lt;a href=&quot;./SWEA-3289&quot;&gt;SWEA_3289_서로소집합_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
 &lt;/ul&gt;
 
 </description>
@@ -858,7 +922,7 @@
   &lt;br /&gt;
 	2022-02-10
 	&lt;li&gt;&lt;a href=&quot;./BOJ-2605&quot;&gt;BOJ_2605_줄세우기_JAVA&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;./BOJ-2981&quot;&gt;BOJ_2981_검문_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;./BOJ-3036&quot;&gt;BOJ_3036_링_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 	2022-02-11
 	&lt;li&gt;&lt;a href=&quot;./BOJ-2477&quot;&gt;BOJ_2477_참외밭_JAVA&lt;/a&gt;&lt;/li&gt;
@@ -909,6 +973,10 @@
   &lt;li&gt;&lt;a href=&quot;./BOJ-2060&quot;&gt;BOJ_2060_바이러스_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-1417&quot;&gt;BOJ_1417_국회의원선거_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-1759&quot;&gt;BOJ_1759_암호만들기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-02-22
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2567&quot;&gt;BOJ_2567_색종이2_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2667&quot;&gt;BOJ_2667_단지번호붙이기_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
