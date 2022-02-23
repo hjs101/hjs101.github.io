@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://hjs101.github.io/tag/dragon/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-02-24T02:44:59+09:00</updated>
+  <id>https://hjs101.github.io/tag/dragon/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">hjs’s Blog | </title>
+  
+
+  
+    <subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">게임 컨셉 회의</title>
+      <link href="https://hjs101.github.io/Dragon-01" rel="alternate" type="text/html" title="게임 컨셉 회의" />
+      <published>2022-02-23T09:00:00+09:00</published>
+      <updated>2022-02-23T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Dragon-01</id>
+      <content type="html" xml:base="https://hjs101.github.io/Dragon-01">&lt;h2 id=&quot;드래곤을-컨셉으로-하는-서바이벌-슈팅-게임-제작---1&quot;&gt;드래곤을 컨셉으로 하는 서바이벌 슈팅 게임 제작 - 1&lt;/h2&gt;
+
+&lt;p&gt;2명의 지인과 유니티를 이용해 서바이벌 핵 앤 슬래쉬 게임을 제작하는 프로젝트를 진행하려 한다.&lt;/p&gt;
+
+&lt;p&gt;기본적인 컨셉은 탑뷰의 오픈 필드에서 계속해서 들이닥치는 적들을 사냥하는 드래곤. 사냥을 할 수록 레벨업을 하고 새로운 스킬을 배워나가며 더 많은 적을 사냥하는 방식으로 한다.&lt;/p&gt;
+
+&lt;p&gt;유사한 장르의 게임으로, 매직 서바이벌, 뱀파이어 서바이버가 있다.&lt;/p&gt;
+
+&lt;p&gt;현재 회의를 통해 플레이어블 캐릭터의 컨셉, 사용 기술, 능력치 등의 대략적인 틀을 잡고있다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Dragon" />
+      
+
+      
+        <summary type="html">드래곤을 컨셉으로 하는 서바이벌 슈팅 게임 제작 - 1</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
