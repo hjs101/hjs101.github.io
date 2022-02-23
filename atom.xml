@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_2178_미로탐색_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--미로탐색&quot;&gt;문제 : 미로탐색&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 23 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2178</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2178</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_16236_아기 상어_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--아기-상어&quot;&gt;문제 : 아기 상어&lt;/h2&gt;
@@ -33,6 +48,21 @@
         <link>
         https://hjs101.github.io/BOJ-15686</link>
         <guid isPermaLink="true">https://hjs101.github.io/BOJ-15686</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_11399_ATM_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--atm&quot;&gt;문제 : ATM&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 23 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-11399</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-11399</guid>
       </item>
       
     
@@ -1011,6 +1041,8 @@
   2022-02-23
   &lt;li&gt;&lt;a href=&quot;./BOJ-15686&quot;&gt;BOJ_15686_치킨배달_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-16236&quot;&gt;BOJ_16236_아기상어_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2178&quot;&gt;BOJ_2178_미로탐색_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-11399&quot;&gt;BOJ_11399_ATM_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
