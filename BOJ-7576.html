@@ -11,7 +11,7 @@
 
 
 
-    <title>BOJ_14888_연산자끼워넣기_JAVA</title>
+    <title>BOJ_7576_토마토_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,24 +48,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/BOJ-14888" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-7576" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BOJ_14888_연산자끼워넣기_JAVA" />
-    <meta property="og:description" content="문제 : 연산자끼워넣기 링크 : BOJ_14888_연산자끼워넣기 접근 방식 위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다. 나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다. 풀이 방법 숫자의 개수" />
-    <meta property="og:url" content="https://hjs101.github.io/BOJ-14888" />
+    <meta property="og:title" content="BOJ_7576_토마토_JAVA" />
+    <meta property="og:description" content="문제 : 토마토 링크 : BOJ_7576_토마토 접근 방식 BFS와 Depth를 이용하면 간단하게 풀 수 있는 문제였다. 나는 큐의 작동방식을 잊어버려 너무 복잡한 방식으로 접근하다가 시간을 엄청 허비했다. 큐는 선입선출 방식이다. 따라서 2차원 배열에 존재하는 토마토를 순서대로 큐에 집어넣은 뒤 BFS를 실행하면, 자동으로 먼저 들어간 토마토가 탐색을 하고 다음 탐색 노드가" />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-7576" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-18T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-18T01:40:00+09:00" />
+    <meta property="article:published_time" content="2022-02-24T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-24T09:00:00+09:00" />
     <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BOJ_14888_연산자끼워넣기_JAVA" />
-    <meta name="twitter:description" content="문제 : 연산자끼워넣기 링크 : BOJ_14888_연산자끼워넣기 접근 방식 위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다. 나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다. 풀이 방법 숫자의 개수" />
+    <meta name="twitter:title" content="BOJ_7576_토마토_JAVA" />
+    <meta name="twitter:description" content="문제 : 토마토 링크 : BOJ_7576_토마토 접근 방식 BFS와 Depth를 이용하면 간단하게 풀 수 있는 문제였다. 나는 큐의 작동방식을 잊어버려 너무 복잡한 방식으로 접근하다가 시간을 엄청 허비했다. 큐는 선입선출 방식이다. 따라서 2차원 배열에 존재하는 토마토를 순서대로 큐에 집어넣은 뒤 BFS를 실행하면, 자동으로 먼저 들어간 토마토가 탐색을 하고 다음 탐색 노드가" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -86,7 +86,7 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/BOJ-14888",
+    "url": "https://hjs101.github.io/BOJ-7576",
     "image": {
         "@type": "ImageObject",
         "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
@@ -95,9 +95,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/BOJ-14888"
+        "@id": "https://hjs101.github.io/BOJ-7576"
     },
-    "description": "문제 : 연산자끼워넣기 링크 : BOJ_14888_연산자끼워넣기 접근 방식 위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다. 나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다. 풀이 방법 숫자의 개수"
+    "description": "문제 : 토마토 링크 : BOJ_7576_토마토 접근 방식 BFS와 Depth를 이용하면 간단하게 풀 수 있는 문제였다. 나는 큐의 작동방식을 잊어버려 너무 복잡한 방식으로 접근하다가 시간을 엄청 허비했다. 큐는 선입선출 방식이다. 따라서 2차원 배열에 존재하는 토마토를 순서대로 큐에 집어넣은 뒤 BFS를 실행하면, 자동으로 먼저 들어간 토마토가 탐색을 하고 다음 탐색 노드가"
 }
     </script>
 
@@ -110,7 +110,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="BOJ_14888_연산자끼워넣기_JAVA" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_7576_토마토_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -174,7 +174,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="18 February 2022">18 February 2022</time>
+                    <time class="post-full-meta-date" datetime="24 February 2022">24 February 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -184,7 +184,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">BOJ_14888_연산자끼워넣기_JAVA</h1>
+                <h1 class="post-full-title">BOJ_7576_토마토_JAVA</h1>
             </header>
             <!--
             
@@ -194,33 +194,47 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="문제--연산자끼워넣기">문제 : 연산자끼워넣기</h2>
+                    <h2 id="문제--토마토">문제 : 토마토</h2>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/14888">BOJ_14888_연산자끼워넣기</a></p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/7576">BOJ_7576_토마토</a></p>
 
 <h2 id="접근-방식">접근 방식</h2>
 
-<p>위치가 고정되어있는 숫자가 주어지고, 연산자의 개수가 숫자의 개수 -1개만큼 주어진다. 이 연산자의 계산은 우선순위법칙을 따르지 않는다. 주어진 연산자로 가능한 경우의 수 중에서 가능한 최댓값과 최솟값을 출력해야한다.</p>
+<p>BFS와 Depth를 이용하면 간단하게 풀 수 있는 문제였다. 나는 큐의 작동방식을 잊어버려 너무 복잡한 방식으로 접근하다가 시간을 엄청 허비했다.</p>
 
-<p>나는 이 문제를 연산자를 순열 완전탐색으로 구하여 숫자에 연산을 적용해보는 방법으로 풀었다.</p>
+<p>큐는 선입선출 방식이다. 따라서 2차원 배열에 존재하는 토마토를 순서대로 큐에 집어넣은 뒤 BFS를 실행하면, 자동으로 먼저 들어간 토마토가 탐색을 하고 다음 탐색 노드가 큐의 마지막으로 들어간다. 미리 큐에 집어넣어두면 자동적으로 모든 토마토로부터의 탐색이 이루어지는 것이다. 나는 이 부분을 놓쳐서 큐를 각각 리스트로 만들어서 해결하려 했다.</p>
+
+<p>아무튼, 문제풀이는 위와 같은 방법으로 하면 된다. 배열을 탐색하며 큐에 토마토의 위치와 깊이를 저장하고, bfs를 통해 모든 탐색이 완료 되었을 때 Depth 최댓값을 구한다. 그 후 배열을 다시 탐색하여 익지 않은 토마토(0)이 있다면 -1을 출력하고, 그렇지 않다면 저장한 Depth를 출력한다.</p>
 
 <h2 id="풀이-방법">풀이 방법</h2>
 
 <ol>
   <li>
-    <p>숫자의 개수 N값을 입력받아 숫자 개수만큼 1차우너 배열을 생성한다.</p>
+    <p>Node클래스를 생성한다. Node 클래스는 멤버변수로 x,y좌표와 depth 깊이를 저장한다.</p>
   </li>
   <li>
-    <p>그 후 주어지는 덧셈, 뺄셈, 곱셈, 나눗셈의 개수를 입력받는데, 입력이 연산자의 개수, 즉 숫자로 주어지기 때문에, 주어진 숫자만큼 반복하여 연산자의 리스트(Character)에 추가해준다.</p>
+    <p>배열의 크기 M과 N을 입력받아 저장하고, N*M 크기의 2차원 배열을 하나 생성한다. 같은 크기의 방문상태를 확인하는 배열, 그리고 토마토를 담을 queue도 생성한다.</p>
   </li>
   <li>
-    <p>순열을 이용해 주어진 연산자 리스트로부터 가능한 연산자 배치의 경우의 수를 모두 찾는다.</p>
+    <p>배열의 크기만큼 반복한다. 배열에 값을 할당하면서, 그 값이 1(토마토)이라면 해당 토마토의 위치 Node를 생성해 큐에 offer한다.</p>
   </li>
   <li>
-    <p>순열 메서드의 기저조건에서, 만들어진 연산자의 배치대로 주어진 숫자배열을 대입하여 연산을 진행하고, 연산을 마친 후, 최댓값과 최솟값을 저장한다.</p>
+    <p>BFS 메서드를 수행한다. BFS 메서드는 큐를 이용해 구현한다.</p>
   </li>
   <li>
-    <p>모든 순열이 탐색된 후 최댓값과 최솟값을 출력한다.</p>
+    <p>큐가 전부 빌 때까지 반복한다. 먼저 Node를 생성하여 큐에서 poll 하여 저장한다.</p>
+  </li>
+  <li>
+    <p>해당 노드의 위치를 방문처리하고, 4방탐색을 진행한다. 만약 탐색이 가능한 상태라면 그 위치를 방문처리, 배열의 값을 1로 바꾸고, 탐색할 위치에 depth를 1 증가시켜 새로운 Node를 생성해 큐에 offer한다.</p>
+  </li>
+  <li>
+    <p>1번 반복이 진행될 때마다 depth의 max값을 answer 변수에 저장한다.</p>
+  </li>
+  <li>
+    <p>모든 반복이종료된 후 배열을 탐색한다. 배열에 0이 존재한다면 -1을 출력하고 프로그램을 종료한다.</p>
+  </li>
+  <li>
+    <p>그렇지 않다면 answer를 -1 해주고 출력한다.</p>
   </li>
 </ol>
 
@@ -232,101 +246,80 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_14888_연산자끼워넣기 {
-	static int[] nums;
-	static int[] cal;
-	static List&lt;Character&gt; operactor = new ArrayList&lt;&gt;();
-	static char[] opPerm;
-	static int max,min;
+public class BOJ_7576_토마토2 {
+	static int M, N, arr[][];
+	static Queue&lt;Node&gt; queue;
+	static int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
+	static boolean[][] visited;
+	static int answer;
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-		int N = Integer.parseInt(in.readLine());
+		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
+		M = Integer.parseInt(st.nextToken());
 
-		nums = new int[N];
+		N = Integer.parseInt(st.nextToken());
 
-		for(int i=0;i&lt;N;i++) {
-			nums[i] = Integer.parseInt(st.nextToken());
-		}
-		st = new StringTokenizer(in.readLine()," ");
+		arr = new int[N][M];
+		queue = new LinkedList&lt;&gt;();
+		visited = new boolean[N][M];
+		for (int i = 0; i &lt; N; i++) {
+			st = new StringTokenizer(in.readLine(), " ");
+			for (int j = 0; j &lt; M; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
 
-		// 덧셈
-		int k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('+');
-		}
-		// 뺄셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('-');
-		}
-		// 곱셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('*');
-		}
-		// 나눗셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('/');
-		}
-		opPerm = new char[operactor.size()];
-		max = Integer.MIN_VALUE;
-		min = Integer.MAX_VALUE;
-		perm(0,0);
-		System.out.println(max);
-		System.out.println(min);
-	}
-
-	static void perm(int cnt, int flag) {
-
-		// 기저조건
-		if(cnt == operactor.size()) {
-			int num = nums[0];
-			for(int i=0;i&lt;nums.length-1;i++) {
-				switch(opPerm[i]){
-				case '+':
-					num = num + nums[i+1];
-					break;
-				case '-':
-					num = num - nums[i+1];					
-					break;
-				case '*':
-					num = num * nums[i+1];
-					break;
-				case '/':
-					num = num / nums[i+1];
-					break;
+				if (arr[i][j] == 1) {
+					queue.offer(new Node(i, j, 1));
 				}
 			}
-			max = Math.max(max, num);
-			min = Math.min(min, num);
-			return;
 		}
 
 
-		// 유도파트
 
-		for(int i=0,n=operactor.size();i&lt;n;i++) {
-
-			if((flag &amp; 1&lt;&lt;i) != 0) {
-				continue;
+		bfs();
+		for(int i=0;i&lt;N;i++) {
+			for(int j=0;j&lt;M;j++) {
+				if(arr[i][j] == 0) {
+					System.out.println(-1);
+					return;
+				}
 			}
-
-			opPerm[cnt] = operactor.get(i);
-			perm(cnt+1,flag | 1&lt;&lt;i);
 		}
-
+		System.out.println(answer-1);
 	}
 
-}
+	static void bfs() {
 
+		while (!queue.isEmpty()) {
+
+			Node node = queue.poll();
+
+			answer = Math.max(answer, node.depth);
+
+			visited[node.x][node.y] = true;
+
+			for (int d = 0; d &lt; 4; d++) {
+				int dx = node.x + dir[d][0];
+				int dy = node.y + dir[d][1];
+
+				if (dx &gt;= 0 &amp;&amp; dx &lt; N &amp;&amp; dy &gt;= 0 &amp;&amp; dy &lt; M) {
+					if (arr[dx][dy] == 0 &amp;&amp; !visited[dx][dy]) {
+						visited[dx][dy] = true;
+						arr[dx][dy] = 1;
+						queue.offer(new Node(dx, dy, node.depth + 1));
+					}
+				}
+			}
+		}
+	}
+}
 
 </code></pre></div></div>
 
@@ -384,9 +377,9 @@ public class BOJ_14888_연산자끼워넣기 {
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/BOJ-14888';
-                            var this_page_identifier = '/BOJ-14888';
-                            var this_page_title = 'BOJ_14888_연산자끼워넣기_JAVA';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-7576';
+                            var this_page_identifier = '/BOJ-7576';
+                            var this_page_title = 'BOJ_7576_토마토_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -431,11 +424,6 @@ public class BOJ_14888_연산자끼워넣기 {
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/BOJ-7576">BOJ_7576_토마토_JAVA</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -462,23 +450,9 @@ public class BOJ_14888_연산자끼워넣기 {
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/BOJ-16236">BOJ_16236_아기 상어_JAVA</a></li>
                                         
                                     
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
                                   
                                 
                                   
@@ -511,11 +485,6 @@ public class BOJ_14888_연산자끼워넣기 {
                                     
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -575,6 +544,30 @@ public class BOJ_14888_연산자끼워넣기 {
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -849,16 +842,19 @@ public class BOJ_14888_연산자끼워넣기 {
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
                 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-3085">
+            <a class="post-card-image-link" href="/BOJ-17473">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-3085">
+            <a class="post-card-content-link" href="/BOJ-17473">
                 <header class="post-card-header">
                     
                         
@@ -868,11 +864,11 @@ public class BOJ_14888_연산자끼워넣기 {
                         
                     
 
-                    <h2 class="post-card-title">BOJ_3085_사탕게임_JAVA</h2>
+                    <h2 class="post-card-title">BOJ_17473_단어뒤집기2_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 사탕게임
+                        <p>문제 : 단어 뒤집기 2
 
 </p>
                     
@@ -892,61 +888,7 @@ public class BOJ_14888_연산자끼워넣기 {
                 <span class="reading-time">
                     
                     
-                      2 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/SWEA-5644">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/SWEA-logo.jpg)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/SWEA-5644">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Swea</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">SWEA_5644_무선충전_JAVA</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>문제 : 무선충전
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/hjs/">hjs</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      5 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -968,18 +910,18 @@ public class BOJ_14888_연산자끼워넣기 {
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">BOJ_14888_연산자끼워넣기_JAVA</div>
+    <div class="floating-header-title">BOJ_7576_토마토_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_14888_%EC%97%B0%EC%82%B0%EC%9E%90%EB%81%BC%EC%9B%8C%EB%84%A3%EA%B8%B0_JAVA&amp;url=https://hjs101.github.ioBOJ-14888"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_7576_%ED%86%A0%EB%A7%88%ED%86%A0_JAVA&amp;url=https://hjs101.github.ioBOJ-7576"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-14888"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-7576"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

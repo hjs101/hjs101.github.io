@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>BOJ_7576_토마토_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--토마토&quot;&gt;문제 : 토마토&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 24 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-7576</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-7576</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_17473_단어뒤집기2_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--단어-뒤집기-2&quot;&gt;문제 : 단어 뒤집기 2&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 24 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-17473</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-17473</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>게임 컨셉 회의</title>
         
           <description>&lt;h2 id=&quot;드래곤을-컨셉으로-하는-서바이벌-슈팅-게임-제작---1&quot;&gt;드래곤을 컨셉으로 하는 서바이벌 슈팅 게임 제작 - 1&lt;/h2&gt;
@@ -1079,6 +1109,10 @@
   &lt;li&gt;&lt;a href=&quot;./BOJ-16236&quot;&gt;BOJ_16236_아기상어_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-2178&quot;&gt;BOJ_2178_미로탐색_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-11399&quot;&gt;BOJ_11399_ATM_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-02-24
+  &lt;li&gt;&lt;a href=&quot;./BOJ-17473&quot;&gt;BOJ_17473_단어뒤집기2_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-7576&quot;&gt;BOJ_7576_토마토_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
