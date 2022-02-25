@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/boj/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-25T01:18:59+09:00</updated>
+  <updated>2022-02-26T03:29:35+09:00</updated>
   <id>https://hjs101.github.io/tag/boj/feed.xml</id>
 
   
@@ -30,6 +30,578 @@
   
   
 
+  
+    <entry>
+      <title type="html">BOJ_2116_주사위쌓기_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-2116" rel="alternate" type="text/html" title="BOJ_2116_주사위쌓기_JAVA" />
+      <published>2022-02-25T09:00:00+09:00</published>
+      <updated>2022-02-25T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-2116</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-2116">&lt;h2 id=&quot;문제--주사위쌓기&quot;&gt;문제 : 주사위쌓기&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2116&quot;&gt;BOJ_2116_주사위쌓기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다.&lt;/p&gt;
+
+&lt;p&gt;ABCDEF 순으로 값이 주어진다.&lt;/p&gt;
+
+&lt;p&gt;순서는 1번 주사위부터 N번주사위까지 주어짐&lt;/p&gt;
+
+&lt;p&gt;A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해&lt;/p&gt;
+
+&lt;p&gt;경우의 수 별로 나머지 주사위들의 최댓값을 모아 출력하면 될 것 같았다. 하지만 모든 경우의 수를 따지려면, 주사위 개수만큼 for문을 중첩해야 할 것 같았다. 따라서 재귀를 이용해서 풀어보기로 했다.&lt;/p&gt;
+
+&lt;p&gt;주사위를 숫자로 매칭했을 때 다음과 같다. 1-A, 2-B, 3-C, 4-D, 5-E, 6-F&lt;/p&gt;
+
+&lt;p&gt;그리고, 어느 한 쪽을 주사위의 밑면으로 한다면 그 반대편 의 index는 다음과 같다. 1-6, 2-4, 3-5&lt;/p&gt;
+
+&lt;p&gt;1번에서 먼저 1번 주사위를 선택한다. 그 다음부터는 주사위를 쌓는 방향을 바꿀수 없다. 첫 주사위의 방향대로 나머지 주사위의 옆면의 수가 정해진다.&lt;/p&gt;
+
+&lt;p&gt;이게 DFS가 맞는지는 모르겠지만 1번주사위부터 6번주사위까지 경우의 수를 한 번씩 모두 구하는 것이라고 생각해서 DFS라고 이름지었다.&lt;/p&gt;
+
+&lt;p&gt;함수의 실행은 대략 이렇게 이루어진다.&lt;/p&gt;
+
+&lt;p&gt;먼저 주사위를 놓으면 반대편 주사위까지는 사용을 못한다.&lt;/p&gt;
+
+&lt;p&gt;나머지 주사위 값 중에서 최댓값을 구해 더하고, 다음 주사위로 넘어간다. 반대편 주사위의 값을 다음 재귀로 넘겨준다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;주사위 개수를 읽어와 변수에 저장한다. 주사위 정보는 2차원 배열을 생성하여 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;i를 1부터 6까지 반복한다. 여기서 1~6은 첫 번째 주사위의 바닥에 두는 수를 뜻한다. 반복할 때마다 dfs 메서드를 호출한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;dfs 메서드는 인자값으로 int 타입과 1차원 배열을 받는다. int 타입에는 바닥에 놓을 1번주사위의 값이, 배열에는 1번 주사위의 정보가 주어진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 6의 크기의 1차원 boolean 배열을 선언한다. 그 후, 인자값으로 받아온 주사위 정보를 탐색하여 해당 밸류를 가지고 있는 index를 찾아 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;규칙(1-6, 2-4, 3-5)대로, 밑면과 밑면의 대응되는 윗면을 visited 배열에서 방문처리한다. 해당 규칙은 따로 메서드(search 메서드)로 꺼내두었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1부터 6까지 반복한다. 만약 해당 위치가 이미 방문한 상태라면 continue하고, 아닐 경우 주사위의 나머지 값 중에서 최댓값을 구해 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 최댓값을 누적시키고 재귀호출한다. 재귀호출하는 인자값으로는 현재 놓여진 주사위의 윗면의 index, 그리고 다음 주사위의 배열을 인자값으로 넘겨준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;기저조건으로는 cnt가 N-1이 되었을 때, 즉 N번 주사위까지 탐색이 되었을 때 재귀가 종료된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1번 dfs를 돌릴 때마다 1면을 바닥으로 했을 때의 최댓값이 나타난다. 즉, 6번 dfs를 돌리면서 최댓값을 저장하면 주사위 N개를 쌓아올릴때의 옆면의 최댓값을 구할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;구한 최댓값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class BOJ_2116_주사위쌓기 {
+
+
+	/* 규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다.
+	 * ABCDEF 순으로 값이 주어짐. A는 윗면, F는 아랫면
+	 * 순서는 1번 주사위부터 6번주사위까지 주어짐
+	 * A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해
+	 * 경우의 수 별로 나머지 주사위들의최댓값을 모아 출력하면 되지않을까
+	 *  */
+	static int max, sum, N;
+	static int arr[][];
+	static int cnt = 0;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		N = Integer.parseInt(in.readLine());
+		arr = new int[N][6];
+		StringTokenizer st;
+		for(int i=0;i&amp;lt;N;i++) {
+			st = new StringTokenizer(in.readLine(),&quot; &quot;);
+			for(int j=0;j&amp;lt;6;j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+
+
+		// 1-A, 2-B, 3-C, 4-D, 5-E, 6-F
+		// 1-6, 2-4, 3-5
+		// 1-6 제외
+		// 1번에서 가장 작은 수를 먼저 바닥으로 쓰면 그 반대편의 수는 다음 사람은 못쓴다.
+		// 굳이 가장 작은수를 바닥으로 쓸 필요없이 6만 남길 수 있으면 된다.
+		// 먼저 1번 주사위를 선택한다.(숫자 자유)그 다음부터는 그냥 바꿀수 없이 정해짐
+		// dfs를 해보자
+		// 먼저 주사위를 놓으면 반대편 주사위까지는 사용을 못한다.
+		// 나머지 주사위 값 중에서 최댓값을 구해 더하고, 다음 주사위로 넘어간다. 반대편 주사위의 값을 다음 재귀로 넘겨준다.
+		for(int i=1;i&amp;lt;=6;i++) {
+			sum = 0;
+			cnt = 0;
+			dfs(i,arr[0]);
+			max = Math.max(max, sum);
+		}
+		System.out.println(max);
+	}
+
+	public static void dfs(int value,int dice[]) {
+
+
+
+		int index = 0;
+
+		boolean[] visited = new boolean[6];
+
+		for(int i=0;i&amp;lt;6;i++) {
+			if(dice[i] == value) {
+				index = i;
+//				System.out.println(i);
+			}
+		}
+
+		visited[index] = true;
+		visited[search(index)] = true;
+//		System.out.println(index+&quot;:&quot;+search(index)+&quot;:&quot;+value+&quot;:&quot;+cnt);
+		int max = 0;
+		for(int i=0;i&amp;lt;6;i++) {
+			if(visited[i] == true) {
+				continue;
+			}
+			max = Math.max(max, dice[i]);
+		}
+
+//		System.out.println(Arrays.toString(visited));
+
+		sum = sum + max;
+
+		if(cnt == N-1) {
+//			System.out.println(sum);
+			return;
+		}
+
+		dfs(dice[search(index)],arr[++cnt]);
+
+	}
+
+
+	public static int search(int index) {
+
+		switch(index) {
+		case 0:
+			return 5;
+		case 1:
+			return 3;
+		case 2:
+			return 4;
+		case 3:
+			return 1;
+		case 4:
+			return 2;
+		case 5:
+			return 0;
+		}
+
+		return -1;
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 주사위쌓기</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">BOJ_1697_숨바꼭질_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-1697" rel="alternate" type="text/html" title="BOJ_1697_숨바꼭질_JAVA" />
+      <published>2022-02-25T09:00:00+09:00</published>
+      <updated>2022-02-25T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-1697</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-1697">&lt;h2 id=&quot;문제--숨바꼭질&quot;&gt;문제 : 숨바꼭질&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1697&quot;&gt;BOJ_1697_숨바꼭질&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;좌표를 x 한 가지만 사용하는 BFS 탐색 문제이다. 이 문제는 처음에 BFS를 사용하지 않고 풀어보려 했지만 조건문이 너무 복잡해져서 포기했다.&lt;/p&gt;
+
+&lt;p&gt;문제 자체는 간단하다 N과 K가 주어지고 N에서 +1 하거나, -1하거나 *2하여 K와 N을 같게 만드는 최소 시간을 구하면 된다. 따라서 BFS를 통해서 위의 연산을 계속해서 실행해주고, K의 위치에 처음 도착했을 때의 깊이가 최소시간이 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;BFS에 사용할 Node 클래스를 하나 만들었다. 멤버변수로는 x좌표와 bfs의 깊이를 담을 int변수가 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주어진 값을 읽어들여 N과 K int형 변수에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주어진 방문 범위의 최댓값인 100001으로 생성하여 bfs에 인자값으로 넘겨 호출한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BFS는 다른 문제와 유사하게 진행된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;N을 좌표로 하는 Node를 생성하여 Queue에 추가한다. visited 배열의 N번째 값을 방문처리한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;큐가 전부 빌 때까지 반복한다. Queue에서 poll하여 노드에 할당한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;+연산, -연산 *2연산을 배열에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3번 반복하는데, 위의 연산을 한번 씩 실행하여 queue에 추가해준다. 해당 구문은 해당하는 값이 10만보다 작거나 같을 때, 또는 음수가 아닐 때, 그리고 해당 위치를 방문한 적이 없을 때에만 수행한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;반복의 종료조건으로 큐에서 꺼낸 node의 좌표가 K와 같다면 해당 node의 깊이(depth)를 전역변수 cnt에 저장하고 return한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;bfs가 끝난 후, cnt값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class BOJ_1697_숨바꼭질 {
+	static int N, K, cnt;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
+
+		N = Integer.parseInt(st.nextToken());
+
+		K = Integer.parseInt(st.nextToken());
+
+		bfs(new boolean[100001]);
+		System.out.println(cnt);
+
+	}
+
+	static void bfs(boolean[] visited) {
+
+		Queue&amp;lt;Node2&amp;gt; queue = new LinkedList&amp;lt;&amp;gt;();
+
+		queue.offer(new Node2(N, 0));
+		visited[N] = true;
+		while (!queue.isEmpty()) {
+
+			Node2 node = queue.poll();
+
+			if (node.x == K) {
+				cnt = node.depth;
+				return;
+			}
+
+
+			int[] next = { node.x -1, node.x + 1, node.x*2 };
+
+			for (int i = 0; i &amp;lt; 3; i++) {
+				// 범위 체크 확실히 하자
+				if (next[i] &amp;lt;= 100000 &amp;amp;&amp;amp; next[i] &amp;gt;= 0 &amp;amp;&amp;amp; !visited[next[i]]) {
+					visited[next[i]] = true;
+					queue.offer(new Node2(next[i], node.depth + 1));
+				}
+			}
+		}
+	}
+}
+
+class Node2 {
+
+	int x;
+	int depth;
+
+	public Node2(int x, int depth) {
+		super();
+		this.x = x;
+		this.depth = depth;
+	}
+}
+
+
+// 경우의수 따지기 실패
+//while(N != K) {
+//	// N이 K보다 크면 N--
+//	if(N &amp;gt; K) {
+//		N--;
+//	}
+//	// N*2배가 K보다 작으면 무조건 2배
+//	else if(N*2 &amp;lt; K ) {
+//		N = N *2;
+//	//	N*2가  K까지의 거리보다 크면서 N*2보다 N+1에서 K까지의 거리가 더 멀 때
+//	}else if(N*2 &amp;gt; K) {
+//		int M = N*2-K;
+//		int temp = N;
+//		int incnt = 0;
+//		while(true) {
+//			if(temp*2 - K &amp;gt; 2) {
+//				temp--;
+//				incnt++;
+//			}else {
+//				if(incnt &amp;lt; M) {
+//					cnt = cnt + incnt;
+//					N = temp;
+//				}else {
+//					N = N*2;
+//				}
+//				break;
+//			}
+//		}
+//		N = N * 2;
+// N*2가 K까지 거리보다 크지만 N+1에서 K까지의 거리가 더 가까울때
+
+//	System.out.println(N);
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 숨바꼭질</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">BOJ_2206_벽부수고이동하기_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-2206" rel="alternate" type="text/html" title="BOJ_2206_벽부수고이동하기_JAVA" />
+      <published>2022-02-25T09:00:00+09:00</published>
+      <updated>2022-02-25T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-2206</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-2206">&lt;h2 id=&quot;문제--벽-부수고-이동하기&quot;&gt;문제 : 벽 부수고 이동하기&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2206&quot;&gt;BOJ_2206_벽부수고이동하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;BFS를 통한 최단경로 구하는 문제와 유사하다. 이 문제를 풀기 전에 어둠의 경로로 3차원 배열을 사용해야 문제가 풀린다는 정보를 입수했다. 나는 3차원 배열을 사용하지 않고 풀어보려고 했지만 실패했다.&lt;/p&gt;
+
+&lt;p&gt;코드 자체는 기존 BFS 문제를 풀 때와 크게 다르지 않다. 바뀌는 점은 노드로 사용할 클래스의 멤버 변수에 벽을 부쉈는지 부수지 않았는지 확인하는 boolean 변수를 하나 추가한 것과, 방문정보를 체크하는 visited boolean 배열에 차원을 하나 늘려 벽을 부순 상태와 부수지 않은 상태의 공간을 분리해주는 부분이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;BFS에 사용할 Node 클래스를 하나 만들었다. 멤버변수로는 x,y좌표와 bfs의 깊이를 담을 int변수, 벽 파괴 여부를 저장할 boolean변수가 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주어진 값을 읽어들여 2차원 배열을 생성해 저장한다. 크기는 N*M크기이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;0,0에서 N,M까지 이동하는 문제이므로, bfs를 호출하는데, Node를 하나 생성해주고,(좌표와 깊이는 0으로, 벽은 부수지 않았으니 false로 생성한다.) boolean 3차원 배열을 생성하여 인자값으로 보내준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BFS 내부에서는 일반적인 4방탐색 BFS와 동일하게 동작한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4방탐색을 하는 부분에서, 이미 벽을 부순 경우, 벽을 아직 부수지 않은 경우로 나누어서 큐에 offer해준다. 이미 벽을 부순 경우라면, 3차원을 구분하는 index를 1로 바꾸어 공간을 전환시켜준다. 만약 아직 벽을 부수지 않은 상태인데 1을 만난다면 벽을 부순다. 역시 3차원을 구분하는 index를 1로 바꾸어준 뒤 visit 처리한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;종료조건을 만족했을 때(좌표가 N,M에 도달했을 때) 종료 노드의 depth를 리턴한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 모든 탐색을 완료했는데도 N,M에 도달하지 못했다면 -1를 리턴한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;호출부로 돌아와서, 리턴받은 값을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class BOJ_2206_벽부수고이동하기 {
+	static int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
+	static int N, M;
+	static char[][] arr;
+	static boolean check;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st = new StringTokenizer(in.readLine(), &quot; &quot;);
+
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+
+		arr = new char[N][M];
+
+		for (int i = 0; i &amp;lt; N; i++) {
+			arr[i] = in.readLine().toCharArray();
+		}
+
+		int A1 = bfs(new Node(0, 0, 1, false), new boolean[N][M][2]);
+
+		System.out.println(A1);
+
+	}
+
+	static int bfs(Node node, boolean[][][] visited) {
+
+		Queue&amp;lt;Node&amp;gt; queue = new LinkedList&amp;lt;&amp;gt;();
+
+		queue.offer(node);
+
+		visited[node.x][node.y][0] = true;
+		while (!queue.isEmpty()) {
+
+			Node temp = queue.poll();
+			if (temp.x == N - 1 &amp;amp;&amp;amp; temp.y == M - 1) {
+				return temp.depth;
+			}
+
+			for (int d = 0; d &amp;lt; 4; d++) {
+				int dx = temp.x + dir[d][0];
+				int dy = temp.y + dir[d][1];
+				if (dx &amp;gt;= 0 &amp;amp;&amp;amp; dx &amp;lt; N &amp;amp;&amp;amp; dy &amp;gt;= 0 &amp;amp;&amp;amp; dy &amp;lt; M) {
+					if (arr[dx][dy] == '0') {
+						if (!temp.crash &amp;amp;&amp;amp; !visited[dx][dy][0]) {
+							//
+							visited[dx][dy][0] = true;
+							queue.offer(new Node(dx, dy, temp.depth + 1, false));
+						} else if (temp.crash &amp;amp;&amp;amp; !visited[dx][dy][1]) {
+							visited[dx][dy][1] = true;
+							queue.offer(new Node(dx, dy, temp.depth + 1, true));
+						}
+					} else if (arr[dx][dy] == '1') {
+						if (!temp.crash) {
+							queue.offer(new Node(dx, dy, temp.depth + 1, true));
+							visited[dx][dy][1] = true;
+						}
+
+					}
+				}
+			}
+		}
+		return -1;
+	}
+}
+
+class Node {
+
+	int x;
+	int y;
+	boolean crash;
+	int depth;
+
+	public Node(int x, int y, int depth) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.depth = depth;
+	}
+
+	public Node(int x, int y, int depth, boolean crash) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.depth = depth;
+		this.crash = crash;
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 벽 부수고 이동하기</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">BOJ_17473_단어뒤집기2_JAVA</title>
@@ -317,6 +889,141 @@ public class BOJ_7576_토마토2 {
 
       
         <summary type="html">문제 : 토마토</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">BOJ_2178_미로탐색_JAVA</title>
+      <link href="https://hjs101.github.io/BOJ-2178" rel="alternate" type="text/html" title="BOJ_2178_미로탐색_JAVA" />
+      <published>2022-02-23T09:00:00+09:00</published>
+      <updated>2022-02-23T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/BOJ-2178</id>
+      <content type="html" xml:base="https://hjs101.github.io/BOJ-2178">&lt;h2 id=&quot;문제--미로탐색&quot;&gt;문제 : 미로탐색&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2178&quot;&gt;BOJ_2178_미로탐색&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;오늘 앞서 풀었던 아기 상어 문제에 있는 최단 거리를 구하는 BFS의 알고리즘을 그대로 사용해서 풀 수 있었다. 배열의 시작점부터 끝까지 BFS으로 탐색하면서 가장 먼저 목적지까지 도달하는 순간 그때의 거리를 출력하면 해결할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;값을 읽어와 N*M 크기의 배열을 생성한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;방문정보를 저장할 동일한 크기의 boolean 배열도 생성한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;배열에 값을 읽어와 저장하고, BFS를 호출한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;BFS에서 사방탐색을 통해 이동할 수 있는 경우를 확인하고, 방문하지 않은 곳이면서 이동이 가능할 경우 이동한다. 배열에서 벽이 0이므로, 0이 아닐경우 또는 1일경우 이동가능한 것으로 본다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;탐색 도중 목적지에 도달한 최초 거리를 출력하고 return 한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class BOJ_2178_미로탐색 {
+
+
+	static char[][] arr;
+	static boolean[][] isVisited;
+	static int N,M;
+	static int[][] dir = { {1,0},{-1,0},{0,1},{0,-1} };
+	static int cnt;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
+
+		N = Integer.parseInt(st.nextToken());
+
+		M = Integer.parseInt(st.nextToken());
+		arr = new char[N][M];
+		isVisited = new boolean[N][M];
+		for(int i=0;i&amp;lt;N;i++) {
+			arr[i] = in.readLine().toCharArray();
+		}
+
+		bfs(0,0);		
+
+
+	}
+
+	static void bfs(int x, int y) {
+
+		Queue&amp;lt;int[]&amp;gt; queue = new LinkedList&amp;lt;&amp;gt;();
+
+		queue.offer(new int[]{x,y,0});
+
+		isVisited[x][y] = true;
+
+		while(!queue.isEmpty()) {
+
+
+			int[] pos = queue.poll();
+			if(pos[0] == N-1 &amp;amp;&amp;amp; pos[1] == M-1) {
+				System.out.println(++pos[2]);
+				break;
+			}
+			for(int d=0;d&amp;lt;4;d++) {
+				int dx = pos[0] + dir[d][0];
+				int dy = pos[1] + dir[d][1];
+				if(dx &amp;gt;= 0 &amp;amp;&amp;amp; dx &amp;lt; N &amp;amp;&amp;amp; dy &amp;gt;= 0 &amp;amp;&amp;amp; dy &amp;lt; M) {
+					if(arr[dx][dy] == '1' &amp;amp;&amp;amp; isVisited[dx][dy] == false) {
+						isVisited[dx][dy] = true;
+						queue.offer(new int[] {dx,dy,pos[2]+1});
+					}
+				}
+			}
+
+		}
+
+
+
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="BOJ" />
+      
+
+      
+        <summary type="html">문제 : 미로탐색</summary>
       
 
       
@@ -1089,282 +1796,6 @@ public class BOJ_11399_ATM {
     </entry>
   
     <entry>
-      <title type="html">BOJ_2178_미로탐색_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-2178" rel="alternate" type="text/html" title="BOJ_2178_미로탐색_JAVA" />
-      <published>2022-02-23T09:00:00+09:00</published>
-      <updated>2022-02-23T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-2178</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-2178">&lt;h2 id=&quot;문제--미로탐색&quot;&gt;문제 : 미로탐색&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2178&quot;&gt;BOJ_2178_미로탐색&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;오늘 앞서 풀었던 아기 상어 문제에 있는 최단 거리를 구하는 BFS의 알고리즘을 그대로 사용해서 풀 수 있었다. 배열의 시작점부터 끝까지 BFS으로 탐색하면서 가장 먼저 목적지까지 도달하는 순간 그때의 거리를 출력하면 해결할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;값을 읽어와 N*M 크기의 배열을 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;방문정보를 저장할 동일한 크기의 boolean 배열도 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열에 값을 읽어와 저장하고, BFS를 호출한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;BFS에서 사방탐색을 통해 이동할 수 있는 경우를 확인하고, 방문하지 않은 곳이면서 이동이 가능할 경우 이동한다. 배열에서 벽이 0이므로, 0이 아닐경우 또는 1일경우 이동가능한 것으로 본다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;탐색 도중 목적지에 도달한 최초 거리를 출력하고 return 한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
-
-public class BOJ_2178_미로탐색 {
-
-
-	static char[][] arr;
-	static boolean[][] isVisited;
-	static int N,M;
-	static int[][] dir = { {1,0},{-1,0},{0,1},{0,-1} };
-	static int cnt;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-		N = Integer.parseInt(st.nextToken());
-
-		M = Integer.parseInt(st.nextToken());
-		arr = new char[N][M];
-		isVisited = new boolean[N][M];
-		for(int i=0;i&amp;lt;N;i++) {
-			arr[i] = in.readLine().toCharArray();
-		}
-
-		bfs(0,0);		
-
-
-	}
-
-	static void bfs(int x, int y) {
-
-		Queue&amp;lt;int[]&amp;gt; queue = new LinkedList&amp;lt;&amp;gt;();
-
-		queue.offer(new int[]{x,y,0});
-
-		isVisited[x][y] = true;
-
-		while(!queue.isEmpty()) {
-
-
-			int[] pos = queue.poll();
-			if(pos[0] == N-1 &amp;amp;&amp;amp; pos[1] == M-1) {
-				System.out.println(++pos[2]);
-				break;
-			}
-			for(int d=0;d&amp;lt;4;d++) {
-				int dx = pos[0] + dir[d][0];
-				int dy = pos[1] + dir[d][1];
-				if(dx &amp;gt;= 0 &amp;amp;&amp;amp; dx &amp;lt; N &amp;amp;&amp;amp; dy &amp;gt;= 0 &amp;amp;&amp;amp; dy &amp;lt; M) {
-					if(arr[dx][dy] == '1' &amp;amp;&amp;amp; isVisited[dx][dy] == false) {
-						isVisited[dx][dy] = true;
-						queue.offer(new int[] {dx,dy,pos[2]+1});
-					}
-				}
-			}
-
-		}
-
-
-
-	}
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : 미로탐색</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">BOJ_2667_단지번호붙이기_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-2667" rel="alternate" type="text/html" title="BOJ_2667_단지번호붙이기_JAVA" />
-      <published>2022-02-22T21:00:00+09:00</published>
-      <updated>2022-02-22T21:00:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-2667</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-2667">&lt;h2 id=&quot;문제--단지번호붙이기&quot;&gt;문제 : 단지번호붙이기&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2667&quot;&gt;BOJ_2667_단지번호붙이기&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;DFS 또는 BFS를 이용하여 2차원 배열의 서로 인접한 노드의 개수를 탐색한다. 인접한 노드의 집합을 묶어서 카운트하고, 각 집합의 개수도 추가로 카운트한다. 최종적으로 2차원 배열의 인접한 노드의 집합의 개수와 각 집합의 노드 개수를 구하여 출력하면 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;주어진 배열의 크기를 읽어들여 char타입 2차원 배열을 생성한다. 같은 크기로 boolean 배열도 함께 선언한다.(false 기본초기화)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;생성한 2차원 배열에 입력값을 할당한다. 노드의 집합을 저장할 list를 하나 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열을 탐색하여 값이 ‘1’이면서 아직 방문하지 않은 노드일 경우 카운트를 1로 두고 DFS 메서드를 호출한다. 방문처리는 앞서 선언했던 boolean 배열을 이용한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DFS를 이용하여 인접 노드를 순회한다. DFS는 재귀로 구현한다. 먼저, 해당 노드를 방문처리한다. 배열의 크기만큼 반복하는데, 해당 노드의 행에 아직 방문하지 않은 상태의 인접한 노드가 있다면, 해당 노드를 방문처리하고 재귀함수를 호출한다. 그리고 카운트를 1 증가시킨다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DFS 순회가 끝난 후 cnt값을 list에 추가하고 이어서 반복한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열 탐색이 모두 끝나면 리스트를 정렬하여 리스트의 길이와 리스트에 들어있는 값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class BOJ_2667_단지번호붙이기 {
-	static int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
-	static boolean[][] isVisited;
-	static int N;
-	static char arr[][];
-	static int cnt;
-
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();
-
-		N = Integer.parseInt(in.readLine());
-
-		// 값 저장할 배열
-		arr = new char[N][N];
-		// 방문상태 파악
-		isVisited = new boolean[N][N];
-
-		for (int i = 0; i &amp;lt; N; i++) {
-			arr[i] = in.readLine().toCharArray();
-		}
-
-		// dfs
-		for (int i = 0; i &amp;lt; N; i++) {
-			for (int j = 0; j &amp;lt; N; j++) {
-				if (arr[i][j] == '1' &amp;amp;&amp;amp; isVisited[i][j] == false) {
-					cnt = 1;
-					int cnt = dfs(i, j);
-					list.add(cnt);
-				}
-			}
-		}
-
-		StringBuilder sb = new StringBuilder();
-
-		Collections.sort(list);
-
-		sb.append(list.size()).append('\n');
-
-		for (int i = 0; i &amp;lt; list.size(); i++) {
-			sb.append(list.get(i)).append('\n');
-		}
-
-		System.out.println(sb);
-
-	}
-
-	static int dfs(int x, int y) {
-
-		isVisited[x][y] = true;
-
-		for (int i = 0; i &amp;lt; 4; i++) {
-			int dx = x + dir[i][0];
-			int dy = y + dir[i][1];
-			if (dx &amp;gt;= 0 &amp;amp;&amp;amp; dx &amp;lt; N &amp;amp;&amp;amp; dy &amp;gt;= 0 &amp;amp;&amp;amp; dy &amp;lt; N &amp;amp;&amp;amp; arr[dx][dy] == '1' &amp;amp;&amp;amp; isVisited[dx][dy] != true) {
-				dfs(dx, dy);
-				cnt++;
-			}
-		}
-		return cnt;
-	}
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : 단지번호붙이기</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">BOJ_2567_색종이2_JAVA</title>
       <link href="https://hjs101.github.io/BOJ-2567" rel="alternate" type="text/html" title="BOJ_2567_색종이2_JAVA" />
       <published>2022-02-22T21:00:00+09:00</published>
@@ -1486,288 +1917,6 @@ public class BOJ_2567_색종이2 {
 
       
         <summary type="html">문제 : 색종이2</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">BOJ_1759_암호만들기_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-1759" rel="alternate" type="text/html" title="BOJ_1759_암호만들기_JAVA" />
-      <published>2022-02-21T21:00:00+09:00</published>
-      <updated>2022-02-21T21:00:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-1759</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-1759">&lt;h2 id=&quot;문제--암호만들기&quot;&gt;문제 : 암호만들기&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1759&quot;&gt;BOJ_1759_암호만들기&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;백트래킹 문제인데, 조합을 이용해서 푸는 문제라고 한다. 나는 이런 내용을 순열로 풀고 나서 알게 되었다. 나는 순열을 구하면서 가지치기를 통해 원하는 값을 리스트에 넣고, 그 리스트를 정렬하여 사전순으로 만들었다.&lt;/p&gt;
-
-&lt;p&gt;C 개의 알파벳으로부터 L개의 길이의 암호문을 구하는 문제이다. 암호의 조건으로는 2가지가 있는데, 1가지는 왼쪽의 알파벳부터 오른쪽으로 갈 수록 값이 증가한다는 것, abc는 가능하지만 bac는 불가능하다.&lt;/p&gt;
-
-&lt;p&gt;2번째 조건은 알파벳의 모음(a,e,i,o,u)은 최소 1개 이상 암호문에 포함되어야하며, 자음은 최소 2개 이상 암호문에 포함되어야 한다는 조건이다.&lt;/p&gt;
-
-&lt;p&gt;나는 암호에 순서가 있다고 생각하여 순열을 이용하여 풀이해주었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;먼저 값을 저장할 변수들을 전역으로 선언해주었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;알파벳의 개수와 암호문의 길이를 읽어와 변수에 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;주어진 문자열을 읽어들일 배열을 생성해 값을 할당하고,  암호문 경우의 수를 저장할 배열을 암호문의 길이 L의 크기로 생성했다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열을 통해 경우의 수를 구하는데, 가지치기의 조건을 둔다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;가지치기의 조건은, 현재 알파벳이 다음 알파벳보다 작을 경우에만 재귀호출을 하도록 하는 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열이 완성되면, 각 순열별로 자음 카운트와 모음 카운트를 저장할 변수를 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;만들어진 순열을 탐색하는데, 알파벳이 모음이면 모음 카운트를 증가시키고, 자음이라면 자음 카운트를 증가시킨다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열의 순회가 끝나고, 모음카운트가 1 이상, 자음카운트가 2 이상이라면 해당하는 수열을 문자열로 만들어 String 타입 리스트에 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;순열이 모두 구해진 후, String 리스트를 Collections.sort 메서드를 이용하여 정렬한 후 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
-
-public class BOJ_1759_암호만들기 {
-	static int C;
-	static int L;
-	static char[] chars;
-	static char[] answer;
-	static StringBuilder sb = new StringBuilder();
-	static List&amp;lt;String&amp;gt; strs = new ArrayList&amp;lt;&amp;gt;();
-	public static void main(String[] args) throws IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		StringTokenizer st = new StringTokenizer(in.readLine(),&quot; &quot;);
-
-		L = Integer.parseInt(st.nextToken());
-		C = Integer.parseInt(st.nextToken());
-
-		chars = new char[C];
-		answer = new char[L];
-		st = new StringTokenizer(in.readLine(),&quot; &quot;);
-		for(int i=0;i&amp;lt;C;i++) {
-			chars[i] = st.nextToken().charAt(0);
-		}
-
-		perm(0,0,' ');
-		Collections.sort(strs);
-
-		for(int i=0;i&amp;lt;strs.size();i++) {
-			sb.append(strs.get(i)).append('\n');
-		}
-		System.out.print(sb);
-	}
-
-	public static void perm(int cnt, int flag, char n) {
-
-		if(cnt == L) {
-			int mCnt = 0;
-			int jCnt = 0;
-			for(int i=0;i&amp;lt;L;i++) {
-				switch(answer[i]) {
-				case 'a':
-				case 'e':
-				case 'i':
-				case 'o':
-				case 'u':
-					mCnt++;
-					break;
-				default:
-					jCnt++;
-				}
-			}
-			if(mCnt &amp;gt;= 1 &amp;amp;&amp;amp; jCnt &amp;gt;= 2) {
-				String str = &quot;&quot;;
-				for(int i=0;i&amp;lt;L;i++) {
-					str = str + answer[i];
-				}
-				strs.add(str);
-			}
-			return;
-		}
-
-
-		for(int i=0;i&amp;lt;C;i++) {
-			if((flag &amp;amp; 1&amp;lt;&amp;lt;i) != 0) {
-				continue;
-			}
-			answer[cnt] = chars[i];
-			// 가지치기 1 현재 알파벳이 다음 알파벳보다 작을 경우에만 재귀,
-			if(n &amp;lt; answer[cnt]) {
-				perm(cnt+1,flag | 1&amp;lt;&amp;lt;i, answer[cnt]);
-			}
-		}
-
-	}
-
-}
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : 암호만들기</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">BOJ_1417_국회의원선거_JAVA</title>
-      <link href="https://hjs101.github.io/BOJ-1417" rel="alternate" type="text/html" title="BOJ_1417_국회의원선거_JAVA" />
-      <published>2022-02-21T21:00:00+09:00</published>
-      <updated>2022-02-21T21:00:00+09:00</updated>
-      <id>https://hjs101.github.io/BOJ-1417</id>
-      <content type="html" xml:base="https://hjs101.github.io/BOJ-1417">&lt;h2 id=&quot;문제--국회의원선거&quot;&gt;문제 : 국회의원선거&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1417&quot;&gt;BOJ_1417_국회의원선거&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;배열의 최댓값을 구하면서 인덱스 값을 같이 저장한다. 다솜의 번호는 가장 첫 번째이므로, 최댓값의 인덱스가 첫 번째 번호라면 투표를 뺏어올 필요가 없으니 0이다.&lt;/p&gt;
-
-&lt;p&gt;그렇지 않은 경우라면, 배열의 최댓값에서 투표 수를 1 꺼내서 다솜의 투표에 추가하면 된다.&lt;/p&gt;
-
-&lt;p&gt;문제는 최댓값이 다솜과 같은 인원이 다수 있을 때인데, 이 상황에서는, 최대 투표값을 크거나 같은 것으로 설정하면 해결된다. 그 이유는 다솜은 무조건 첫 번째 후보이기 때문에, 자신과 같은 투표수의 뒷 후보가 있다면 자동으로 본인은 최대 득표자에서 벗어나게 된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;선거의 총 참여 인원수를 읽어와 저장하고, 각 후보의 투표 수를 N개 크기의 배열에 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;다솜의 투표 수가 최대가 될때까지 반복하는 반복문을 돌린다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열을 순회하며 최대 득표자를 찾고, 만약 최댓값이 다솜이라면 반복문을 나간다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;다솜이 최대 득표자가 아니라면, 최대 득표 후보는 -1을 다솜은 +1을 시켜준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;반복문이 한 번 돌아갈 때마다 카운트를 1 증가시킨다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모든 반복이 종료된 후 카운트 값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class BOJ_1417_국회의원선거 {
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		int N = Integer.parseInt(in.readLine());
-
-		int arr[] = new int[N];
-
-		for(int i=0;i&amp;lt;N;i++) {
-			arr[i] = Integer.parseInt(in.readLine());
-		}
-		int cnt = 0;
-		// 다솜이 최댓값이 될때까지 반복
-		while(true) {
-			int max = 0;
-			int maxIndex = 0;
-			for(int i=0;i&amp;lt;N;i++) {
-				// 표 중에 최댓값을 구한다. index도 같이 저장한다.
-				if(max &amp;lt;= arr[i]) {
-					max = arr[i];
-					maxIndex = i;
-				}
-			}
-			// 최댓값이 다솜이라면
-			if(maxIndex == 0) {
-				break;
-			}
-			arr[maxIndex]--;
-			arr[0]++;
-			cnt++;
-		}
-
-		System.out.println(cnt);
-	}
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="BOJ" />
-      
-
-      
-        <summary type="html">문제 : 국회의원선거</summary>
       
 
       

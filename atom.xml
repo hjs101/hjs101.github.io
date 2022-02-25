@@ -8,6 +8,51 @@
     
       
       <item>
+        <title>BOJ_2206_벽부수고이동하기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--벽-부수고-이동하기&quot;&gt;문제 : 벽 부수고 이동하기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 25 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2206</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2206</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2116_주사위쌓기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--주사위쌓기&quot;&gt;문제 : 주사위쌓기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 25 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2116</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2116</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1697_숨바꼭질_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--숨바꼭질&quot;&gt;문제 : 숨바꼭질&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 25 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1697</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1697</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_7576_토마토_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--토마토&quot;&gt;문제 : 토마토&lt;/h2&gt;
@@ -1113,6 +1158,11 @@
   2022-02-24
   &lt;li&gt;&lt;a href=&quot;./BOJ-17473&quot;&gt;BOJ_17473_단어뒤집기2_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-7576&quot;&gt;BOJ_7576_토마토_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-02-25
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2206&quot;&gt; BOJ_2206_벽부수고이동하기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2116&quot;&gt;BOJ_2116_주사위쌓기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1697&quot;&gt;BOJ_1697_숨바꼭질_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 

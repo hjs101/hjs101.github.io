@@ -11,7 +11,7 @@
 
 
 
-    <title>BOJ_1021_회전하는큐_JAVA</title>
+    <title>BOJ_2116_주사위쌓기_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,24 +48,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/BOJ-1021" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-2116" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BOJ_1021_회전하는큐_JAVA" />
-    <meta property="og:description" content="문제 : 회전하는 큐 링크 : BOJ_1021_회전하는 큐 접근 방식 양방향 순환 큐에서, 원하는 원소를 순서대로 뽑기까지 연산의 최소 횟수를 구하는 문제이다. 이 문제는 현재 위치에서 다음 순서의 숫자를 얻기까지의 최소 횟수를 찾아서 전체 횟수에 더해주면 된다. 양방향 순환 큐이기 때문에, 오른쪽으로 밀었을 때와 왼쪽으로 밀었을 때의 시행횟수를 각각 구하고" />
-    <meta property="og:url" content="https://hjs101.github.io/BOJ-1021" />
+    <meta property="og:title" content="BOJ_2116_주사위쌓기_JAVA" />
+    <meta property="og:description" content="문제 : 주사위쌓기 링크 : BOJ_2116_주사위쌓기 접근 방식 규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다. ABCDEF 순으로 값이 주어진다. 순서는 1번 주사위부터 N번주사위까지 주어짐 A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해 경우의 수 별로 나머지 주사위들의 최댓값을 모아 출력하면 될 것 같았다. 하지만" />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-2116" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-09T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-09T01:40:00+09:00" />
+    <meta property="article:published_time" content="2022-02-25T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-25T09:00:00+09:00" />
     <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BOJ_1021_회전하는큐_JAVA" />
-    <meta name="twitter:description" content="문제 : 회전하는 큐 링크 : BOJ_1021_회전하는 큐 접근 방식 양방향 순환 큐에서, 원하는 원소를 순서대로 뽑기까지 연산의 최소 횟수를 구하는 문제이다. 이 문제는 현재 위치에서 다음 순서의 숫자를 얻기까지의 최소 횟수를 찾아서 전체 횟수에 더해주면 된다. 양방향 순환 큐이기 때문에, 오른쪽으로 밀었을 때와 왼쪽으로 밀었을 때의 시행횟수를 각각 구하고" />
+    <meta name="twitter:title" content="BOJ_2116_주사위쌓기_JAVA" />
+    <meta name="twitter:description" content="문제 : 주사위쌓기 링크 : BOJ_2116_주사위쌓기 접근 방식 규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다. ABCDEF 순으로 값이 주어진다. 순서는 1번 주사위부터 N번주사위까지 주어짐 A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해 경우의 수 별로 나머지 주사위들의 최댓값을 모아 출력하면 될 것 같았다. 하지만" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -86,7 +86,7 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/BOJ-1021",
+    "url": "https://hjs101.github.io/BOJ-2116",
     "image": {
         "@type": "ImageObject",
         "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
@@ -95,9 +95,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/BOJ-1021"
+        "@id": "https://hjs101.github.io/BOJ-2116"
     },
-    "description": "문제 : 회전하는 큐 링크 : BOJ_1021_회전하는 큐 접근 방식 양방향 순환 큐에서, 원하는 원소를 순서대로 뽑기까지 연산의 최소 횟수를 구하는 문제이다. 이 문제는 현재 위치에서 다음 순서의 숫자를 얻기까지의 최소 횟수를 찾아서 전체 횟수에 더해주면 된다. 양방향 순환 큐이기 때문에, 오른쪽으로 밀었을 때와 왼쪽으로 밀었을 때의 시행횟수를 각각 구하고"
+    "description": "문제 : 주사위쌓기 링크 : BOJ_2116_주사위쌓기 접근 방식 규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다. ABCDEF 순으로 값이 주어진다. 순서는 1번 주사위부터 N번주사위까지 주어짐 A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해 경우의 수 별로 나머지 주사위들의 최댓값을 모아 출력하면 될 것 같았다. 하지만"
 }
     </script>
 
@@ -110,7 +110,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="BOJ_1021_회전하는큐_JAVA" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_2116_주사위쌓기_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -174,7 +174,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 9 February 2022"> 9 February 2022</time>
+                    <time class="post-full-meta-date" datetime="25 February 2022">25 February 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -184,7 +184,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">BOJ_1021_회전하는큐_JAVA</h1>
+                <h1 class="post-full-title">BOJ_2116_주사위쌓기_JAVA</h1>
             </header>
             <!--
             
@@ -194,43 +194,68 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="문제--회전하는-큐">문제 : 회전하는 큐</h2>
+                    <h2 id="문제--주사위쌓기">문제 : 주사위쌓기</h2>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/1021">BOJ_1021_회전하는 큐</a></p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/2116">BOJ_2116_주사위쌓기</a></p>
 
 <h2 id="접근-방식">접근 방식</h2>
 
-<p>양방향 순환 큐에서, 원하는 원소를 순서대로 뽑기까지 연산의 최소 횟수를 구하는 문제이다.</p>
+<p>규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다.</p>
 
-<p>이 문제는 현재 위치에서 다음 순서의 숫자를 얻기까지의 최소 횟수를 찾아서 전체 횟수에 더해주면 된다.</p>
+<p>ABCDEF 순으로 값이 주어진다.</p>
 
-<p>양방향 순환 큐이기 때문에, 오른쪽으로 밀었을 때와 왼쪽으로 밀었을 때의 시행횟수를 각각 구하고 그 중에 작은 값을 구해서 더하면 된다.</p>
+<p>순서는 1번 주사위부터 N번주사위까지 주어짐</p>
 
-<p>따라서 양방향 모두 값을 집어넣고 꺼낼 수 있는 덱을 사용하는 것이 핵심이다.</p>
+<p>A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해</p>
+
+<p>경우의 수 별로 나머지 주사위들의 최댓값을 모아 출력하면 될 것 같았다. 하지만 모든 경우의 수를 따지려면, 주사위 개수만큼 for문을 중첩해야 할 것 같았다. 따라서 재귀를 이용해서 풀어보기로 했다.</p>
+
+<p>주사위를 숫자로 매칭했을 때 다음과 같다. 1-A, 2-B, 3-C, 4-D, 5-E, 6-F</p>
+
+<p>그리고, 어느 한 쪽을 주사위의 밑면으로 한다면 그 반대편 의 index는 다음과 같다. 1-6, 2-4, 3-5</p>
+
+<p>1번에서 먼저 1번 주사위를 선택한다. 그 다음부터는 주사위를 쌓는 방향을 바꿀수 없다. 첫 주사위의 방향대로 나머지 주사위의 옆면의 수가 정해진다.</p>
+
+<p>이게 DFS가 맞는지는 모르겠지만 1번주사위부터 6번주사위까지 경우의 수를 한 번씩 모두 구하는 것이라고 생각해서 DFS라고 이름지었다.</p>
+
+<p>함수의 실행은 대략 이렇게 이루어진다.</p>
+
+<p>먼저 주사위를 놓으면 반대편 주사위까지는 사용을 못한다.</p>
+
+<p>나머지 주사위 값 중에서 최댓값을 구해 더하고, 다음 주사위로 넘어간다. 반대편 주사위의 값을 다음 재귀로 넘겨준다.</p>
 
 <h2 id="풀이-방법">풀이 방법</h2>
 
 <ol>
   <li>
-    <p>인자값 num을 받아 특정 수를 찾을 때까지 « 방향으로 덱을 미는 메서드, » 방향으로 덱을 미는 메서드를 선언한다.</p>
+    <p>주사위 개수를 읽어와 변수에 저장한다. 주사위 정보는 2차원 배열을 생성하여 저장한다.</p>
   </li>
   <li>
-    <p>각 함수는 정의된 방향으로 num을 찾을 때까지 cnt를 증가시켜가며 덱을 순환시키며, num을 찾았을 때 cnt 값을 리턴한다.</p>
+    <p>i를 1부터 6까지 반복한다. 여기서 1~6은 첫 번째 주사위의 바닥에 두는 수를 뜻한다. 반복할 때마다 dfs 메서드를 호출한다.</p>
   </li>
   <li>
-    <p>deque 2개를 멤버 변수로 선언한다. 2개의 덱은 같은 값이 들어간다.  «와 » 각각 최소 횟수를 찾아야 하기 때문에 2개를 선언하였다.</p>
+    <p>dfs 메서드는 인자값으로 int 타입과 1차원 배열을 받는다. int 타입에는 바닥에 놓을 1번주사위의 값이, 배열에는 1번 주사위의 정보가 주어진다.</p>
   </li>
   <li>
-    <p>입력 값을 읽어들여 배열로 저장하고, 배열의 길이만큼 반복한다.</p>
+    <p>먼저 6의 크기의 1차원 boolean 배열을 선언한다. 그 후, 인자값으로 받아온 주사위 정보를 탐색하여 해당 밸류를 가지고 있는 index를 찾아 저장한다.</p>
   </li>
   <li>
-    <p>2개의 덱에 1~N까지 offer시키고 각 방향별로 메서드를 실행시켜 카운트 값을 구한다.</p>
+    <p>규칙(1-6, 2-4, 3-5)대로, 밑면과 밑면의 대응되는 윗면을 visited 배열에서 방문처리한다. 해당 규칙은 따로 메서드(search 메서드)로 꺼내두었다.</p>
   </li>
   <li>
-    <p>두 카운트 값 중 더 적은 값을 구해서 누적 cnt 변수에 더한다.</p>
+    <p>1부터 6까지 반복한다. 만약 해당 위치가 이미 방문한 상태라면 continue하고, 아닐 경우 주사위의 나머지 값 중에서 최댓값을 구해 저장한다.</p>
   </li>
   <li>
-    <p>반복이 모두 종료된 후 누적된 cnt 값을 출력한다.</p>
+    <p>해당 최댓값을 누적시키고 재귀호출한다. 재귀호출하는 인자값으로는 현재 놓여진 주사위의 윗면의 index, 그리고 다음 주사위의 배열을 인자값으로 넘겨준다.</p>
+  </li>
+  <li>
+    <p>기저조건으로는 cnt가 N-1이 되었을 때, 즉 N번 주사위까지 탐색이 되었을 때 재귀가 종료된다.</p>
+  </li>
+  <li>
+    <p>1번 dfs를 돌릴 때마다 1면을 바닥으로 했을 때의 최댓값이 나타난다. 즉, 6번 dfs를 돌리면서 최댓값을 저장하면 주사위 N개를 쌓아올릴때의 옆면의 최댓값을 구할 수 있다.</p>
+  </li>
+  <li>
+    <p>구한 최댓값을 출력한다.</p>
   </li>
 </ol>
 
@@ -240,66 +265,115 @@ into the {body} of the default.hbs template -->
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-public class BOJ_1021_회전하는큐 {
+public class BOJ_2116_주사위쌓기 {
 
-	static Deque&lt;Integer&gt; deq = new LinkedList&lt;&gt;();
-	static Deque&lt;Integer&gt; deq2 = new LinkedList&lt;&gt;();
-	// 일단 구현
-	public static void main(String[] args) throws IOException {
+
+	/* 규칙 깔리는 주사위의 윗면과 놓는 주사위의 밑면의 숫자가 같아야한다.
+	 * ABCDEF 순으로 값이 주어짐. A는 윗면, F는 아랫면
+	 * 순서는 1번 주사위부터 6번주사위까지 주어짐
+	 * A-F, B-D, C-E가 윗면, 아랫면이 될 수 있다. 이 세가지 경우를 조사해
+	 * 경우의 수 별로 나머지 주사위들의최댓값을 모아 출력하면 되지않을까
+	 *  */
+	static int max, sum, N;
+	static int arr[][];
+	static int cnt = 0;
+	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		String[] str=  in.readLine().split(" ");
-		int N = Integer.parseInt(str[0]);
-		int M = Integer.parseInt(str[1]);
 
-		int[] arr = new int[M];
-
-
-		String[] str2 = in.readLine().split(" ");
-		for(int i=0;i&lt;M;i++) {
-			arr[i] = Integer.parseInt(str2[i]);
+		N = Integer.parseInt(in.readLine());
+		arr = new int[N][6];
+		StringTokenizer st;
+		for(int i=0;i&lt;N;i++) {
+			st = new StringTokenizer(in.readLine()," ");
+			for(int j=0;j&lt;6;j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
 		}
 
 
-		for(int i=1;i&lt;=N;i++) {
-			deq.offer(i);
-			deq2.offer(i);
+		// 1-A, 2-B, 3-C, 4-D, 5-E, 6-F
+		// 1-6, 2-4, 3-5
+		// 1-6 제외
+		// 1번에서 가장 작은 수를 먼저 바닥으로 쓰면 그 반대편의 수는 다음 사람은 못쓴다.
+		// 굳이 가장 작은수를 바닥으로 쓸 필요없이 6만 남길 수 있으면 된다.
+		// 먼저 1번 주사위를 선택한다.(숫자 자유)그 다음부터는 그냥 바꿀수 없이 정해짐
+		// dfs를 해보자
+		// 먼저 주사위를 놓으면 반대편 주사위까지는 사용을 못한다.
+		// 나머지 주사위 값 중에서 최댓값을 구해 더하고, 다음 주사위로 넘어간다. 반대편 주사위의 값을 다음 재귀로 넘겨준다.
+		for(int i=1;i&lt;=6;i++) {
+			sum = 0;
+			cnt = 0;
+			dfs(i,arr[0]);
+			max = Math.max(max, sum);
 		}
-		int cntsum = 0;
-		for(int i=0;i&lt;M;i++) {
-			int cnt1 = forwardSearch(arr[i]);
-			int cnt2 = backwardSearch(arr[i]);
-			cntsum = cntsum + Math.min(cnt1, cnt2);
-			deq.poll();
-			deq2.poll();
-		}
-		System.out.println(cntsum);
+		System.out.println(max);
 	}
 
-	// &lt;&lt;&lt;&lt; 이쪽 방향으로 미는 것을 forward로 하자.
-	public static int forwardSearch(int num) {
-		int cnt = 0;
-		while(deq.peek() != num) {
-			deq.offerLast(deq.pollFirst());
-			cnt++;
+	public static void dfs(int value,int dice[]) {
+
+
+
+		int index = 0;
+
+		boolean[] visited = new boolean[6];
+
+		for(int i=0;i&lt;6;i++) {
+			if(dice[i] == value) {
+				index = i;
+//				System.out.println(i);
+			}
 		}
-		return cnt;
-	}
-	// &gt;&gt;&gt; 이쪽 방향으로 미는 것을 backward로 하자.
-	public static int backwardSearch(int num) {
-		int cnt = 0;
-		while(deq2.peek() != num) {
-			deq2.offerFirst(deq2.pollLast());
-			cnt++;
+
+		visited[index] = true;
+		visited[search(index)] = true;
+//		System.out.println(index+":"+search(index)+":"+value+":"+cnt);
+		int max = 0;
+		for(int i=0;i&lt;6;i++) {
+			if(visited[i] == true) {
+				continue;
+			}
+			max = Math.max(max, dice[i]);
 		}
-		return cnt;
+
+//		System.out.println(Arrays.toString(visited));
+
+		sum = sum + max;
+
+		if(cnt == N-1) {
+//			System.out.println(sum);
+			return;
+		}
+
+		dfs(dice[search(index)],arr[++cnt]);
+
 	}
+
+
+	public static int search(int index) {
+
+		switch(index) {
+		case 0:
+			return 5;
+		case 1:
+			return 3;
+		case 2:
+			return 4;
+		case 3:
+			return 1;
+		case 4:
+			return 2;
+		case 5:
+			return 0;
+		}
+
+		return -1;
+	}
+
 }
-
-
 
 </code></pre></div></div>
 
@@ -357,9 +431,9 @@ public class BOJ_1021_회전하는큐 {
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/BOJ-1021';
-                            var this_page_identifier = '/BOJ-1021';
-                            var this_page_title = 'BOJ_1021_회전하는큐_JAVA';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-2116';
+                            var this_page_identifier = '/BOJ-2116';
+                            var this_page_title = 'BOJ_2116_주사위쌓기_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -413,11 +487,6 @@ public class BOJ_1021_회전하는큐 {
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/BOJ-2116">BOJ_2116_주사위쌓기_JAVA</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -433,51 +502,7 @@ public class BOJ_1021_회전하는큐 {
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/BOJ-7576">BOJ_7576_토마토_JAVA</a></li>
                                         
                                     
                                   
@@ -519,76 +544,6 @@ public class BOJ_1021_회전하는큐 {
                                     
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -692,24 +647,6 @@ public class BOJ_1021_회전하는큐 {
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
                                 
                                   
                                     
@@ -740,6 +677,22 @@ public class BOJ_1021_회전하는큐 {
                                   
                                 
                                   
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                     
                                         
                                         
@@ -761,6 +714,127 @@ public class BOJ_1021_회전하는큐 {
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -847,12 +921,12 @@ public class BOJ_1021_회전하는큐 {
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-10866">
+            <a class="post-card-image-link" href="/BOJ-2206">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-10866">
+            <a class="post-card-content-link" href="/BOJ-2206">
                 <header class="post-card-header">
                     
                         
@@ -862,11 +936,11 @@ public class BOJ_1021_회전하는큐 {
                         
                     
 
-                    <h2 class="post-card-title">BOJ_10866_덱_JAVA</h2>
+                    <h2 class="post-card-title">BOJ_2206_벽부수고이동하기_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 덱
+                        <p>문제 : 벽 부수고 이동하기
 
 </p>
                     
@@ -886,7 +960,7 @@ public class BOJ_1021_회전하는큐 {
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -901,26 +975,26 @@ public class BOJ_1021_회전하는큐 {
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/SWEA-5215">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/SWEA-logo.jpg)"></div>
+            <a class="post-card-image-link" href="/BOJ-1697">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/SWEA-5215">
+            <a class="post-card-content-link" href="/BOJ-1697">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Swea</span>
+                                <span class="post-card-tags">Boj</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">SWEA_5215_햄버거다이어트_JAVA</h2>
+                    <h2 class="post-card-title">BOJ_1697_숨바꼭질_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 햄버거다이어트
+                        <p>문제 : 숨바꼭질
 
 </p>
                     
@@ -940,7 +1014,7 @@ public class BOJ_1021_회전하는큐 {
                 <span class="reading-time">
                     
                     
-                      3 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -962,18 +1036,18 @@ public class BOJ_1021_회전하는큐 {
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">BOJ_1021_회전하는큐_JAVA</div>
+    <div class="floating-header-title">BOJ_2116_주사위쌓기_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_1021_%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%ED%81%90_JAVA&amp;url=https://hjs101.github.ioBOJ-1021"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_2116_%EC%A3%BC%EC%82%AC%EC%9C%84%EC%8C%93%EA%B8%B0_JAVA&amp;url=https://hjs101.github.ioBOJ-2116"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-1021"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-2116"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
