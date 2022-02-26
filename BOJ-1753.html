@@ -11,7 +11,7 @@
 
 
 
-    <title>BOJ_10866_덱_JAVA</title>
+    <title>BOJ_1753_최단경로_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,24 +48,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/BOJ-10866" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-1753" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BOJ_10866_덱_JAVA" />
-    <meta property="og:description" content="문제 : 덱 링크 : BOJ_10866_덱 접근 방식 덱의 설명에는 시간복잡도를 O(1)로 하지 않아도 통과는 되지만, 가급적 시간복잡도를 O(1)로 해달라는 요청이 적혀있다. 물론 이전의 큐2 문제를 풀때, 나는 큐를 쓰지 않고 덱을 사용했기 때문에, 시간복잡도가 O(1)인 덱의 코드는 이미 있었다. 해당 코드를 덱 용으로 수정하여 통과했다. 링크 : BOJ_10828_큐2 풀이" />
-    <meta property="og:url" content="https://hjs101.github.io/BOJ-10866" />
+    <meta property="og:title" content="BOJ_1753_최단경로_JAVA" />
+    <meta property="og:description" content="문제 : 최단경로 링크 : BOJ_1753_최단경로 접근 방식 다익스트라 알고리즘을 이용해야하는 문제이다. 한 노드에서 다른 노드로 이동하는 모든 최단경로를 구해야한다. 먼저 다익스트라 알고리즘에 대해 알아보겠다. 다익스트라(Dijkstra) 알고리즘은 하나의 시작 정점에서 다른 모든 정점의 최단경로를 구하는 알고리즘이다. 특징으로는 그리디한 기법을 사용해 지나간 길을 다시 돌아가는 작업을 거치지 않기 때문에 간선의 가중치가" />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-1753" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-09T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-09T01:40:00+09:00" />
+    <meta property="article:published_time" content="2022-02-26T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-26T09:00:00+09:00" />
     <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BOJ_10866_덱_JAVA" />
-    <meta name="twitter:description" content="문제 : 덱 링크 : BOJ_10866_덱 접근 방식 덱의 설명에는 시간복잡도를 O(1)로 하지 않아도 통과는 되지만, 가급적 시간복잡도를 O(1)로 해달라는 요청이 적혀있다. 물론 이전의 큐2 문제를 풀때, 나는 큐를 쓰지 않고 덱을 사용했기 때문에, 시간복잡도가 O(1)인 덱의 코드는 이미 있었다. 해당 코드를 덱 용으로 수정하여 통과했다. 링크 : BOJ_10828_큐2 풀이" />
+    <meta name="twitter:title" content="BOJ_1753_최단경로_JAVA" />
+    <meta name="twitter:description" content="문제 : 최단경로 링크 : BOJ_1753_최단경로 접근 방식 다익스트라 알고리즘을 이용해야하는 문제이다. 한 노드에서 다른 노드로 이동하는 모든 최단경로를 구해야한다. 먼저 다익스트라 알고리즘에 대해 알아보겠다. 다익스트라(Dijkstra) 알고리즘은 하나의 시작 정점에서 다른 모든 정점의 최단경로를 구하는 알고리즘이다. 특징으로는 그리디한 기법을 사용해 지나간 길을 다시 돌아가는 작업을 거치지 않기 때문에 간선의 가중치가" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -86,7 +86,7 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/BOJ-10866",
+    "url": "https://hjs101.github.io/BOJ-1753",
     "image": {
         "@type": "ImageObject",
         "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
@@ -95,9 +95,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/BOJ-10866"
+        "@id": "https://hjs101.github.io/BOJ-1753"
     },
-    "description": "문제 : 덱 링크 : BOJ_10866_덱 접근 방식 덱의 설명에는 시간복잡도를 O(1)로 하지 않아도 통과는 되지만, 가급적 시간복잡도를 O(1)로 해달라는 요청이 적혀있다. 물론 이전의 큐2 문제를 풀때, 나는 큐를 쓰지 않고 덱을 사용했기 때문에, 시간복잡도가 O(1)인 덱의 코드는 이미 있었다. 해당 코드를 덱 용으로 수정하여 통과했다. 링크 : BOJ_10828_큐2 풀이"
+    "description": "문제 : 최단경로 링크 : BOJ_1753_최단경로 접근 방식 다익스트라 알고리즘을 이용해야하는 문제이다. 한 노드에서 다른 노드로 이동하는 모든 최단경로를 구해야한다. 먼저 다익스트라 알고리즘에 대해 알아보겠다. 다익스트라(Dijkstra) 알고리즘은 하나의 시작 정점에서 다른 모든 정점의 최단경로를 구하는 알고리즘이다. 특징으로는 그리디한 기법을 사용해 지나간 길을 다시 돌아가는 작업을 거치지 않기 때문에 간선의 가중치가"
 }
     </script>
 
@@ -110,7 +110,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="BOJ_10866_덱_JAVA" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_1753_최단경로_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -174,7 +174,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 9 February 2022"> 9 February 2022</time>
+                    <time class="post-full-meta-date" datetime="26 February 2022">26 February 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -184,7 +184,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">BOJ_10866_덱_JAVA</h1>
+                <h1 class="post-full-title">BOJ_1753_최단경로_JAVA</h1>
             </header>
             <!--
             
@@ -194,45 +194,44 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="문제--덱">문제 : 덱</h2>
+                    <h2 id="문제--최단경로">문제 : 최단경로</h2>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/10866">BOJ_10866_덱</a></p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/1753">BOJ_1753_최단경로</a></p>
 
 <h2 id="접근-방식">접근 방식</h2>
 
-<p>덱의 설명에는 시간복잡도를 O(1)로 하지 않아도 통과는 되지만, 가급적 시간복잡도를 O(1)로 해달라는 요청이 적혀있다.</p>
+<p>다익스트라 알고리즘을 이용해야하는 문제이다.</p>
 
-<p>물론 이전의 큐2 문제를 풀때, 나는 큐를 쓰지 않고 덱을 사용했기 때문에, 시간복잡도가 O(1)인 덱의 코드는 이미 있었다. 해당 코드를 덱 용으로 수정하여 통과했다.</p>
+<p>한 노드에서 다른 노드로 이동하는 모든 최단경로를 구해야한다. 먼저 다익스트라 알고리즘에 대해 알아보겠다.</p>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/18258">BOJ_10828_큐2</a></p>
+<p>다익스트라(Dijkstra) 알고리즘은 하나의 시작 정점에서 다른 모든 정점의 최단경로를 구하는 알고리즘이다. 특징으로는 그리디한 기법을 사용해 지나간 길을 다시 돌아가는 작업을 거치지 않기 때문에 간선의 가중치가 음수인 경우는 고려하지 않는 것이다.</p>
 
-<h2 id="풀이-방법">풀이 방법</h2>
+<p>최소신장트리의 프림(Prim’s) 알고리즘과 유사하다.</p>
+
+<p>적용 방법은 다음과 같다.</p>
+
 <ol>
   <li>
-    <p>push_front : offerFront 메서드를 통해 값을 front에 집어넣는다.</p>
+    <p>먼저 모든 정점의 거리 정보를 1차원 배열에 저장한다. 이에대한 전제조건으로 그래프로 주어지는 인접행렬 간선이 주어진 부분이 아니면 전부 무한대로 초기화 되어있다고 가정한다. 다만, 0으로 초기화되어있다고 하더라도 기본적으로 해당 1차원 배열에 대해 정점에서 값을 얻어오지 않고 무한대로 처음부터 초기화 해두는 방법도 있다.</p>
   </li>
   <li>
-    <p>push_back : offerLast 메서드를 통해 값을 Last에 집어넣는다.</p>
+    <p>시작 정점을 하나 선택하고 해당 정점에 대한 거리 배열을 0으로 만든다. 이것에 대한 의미는, a 정점을 선택했다고 하면, a-&gt;a로 이동하는 최단 거리가 0임을 뜻한다.</p>
   </li>
   <li>
-    <p>pop_front : Integer 변수 k에 pollFront 메서드로 값을 꺼내서 저장한다. Deque 클래스의 poll() 메서드는 queue가 비어있으면 null을 반환하므로, 조건문을 넣어 k가 null일 경우 -1을, null이 아닐경우 k를 출력하게 한다.</p>
+    <p>a를 방문처리하고, 거리 배열에서 a와 연결된 노드들을 a에서 해당 노드로 이동하는 가중치 값으로 변경시켜준다.</p>
   </li>
   <li>
-    <p>pop_back : Integer 변수 k에 pollLast 메서드로 값을 꺼내서 저장한다. Deque 클래스의 poll() 메서드는 queue가 비어있으면 null을 반환하므로, 조건문을 넣어 k가 null일 경우 -1을, null이 아닐경우 k를 출력하게 한다.</p>
+    <p>a와 연결된 간선중 아직 방문하지 않았으면서 거리가 최소인 노드를 찾는다. 그 후 해당 노드를 방문처리한다.(노드 이동)</p>
   </li>
   <li>
-    <p>size : 현재 deque의 사이즈를 출력한다.</p>
+    <p>현재 거리 배열에 있는 값과, 현재 연결한 노드 + 그 노드로부터 연결되어있는 간선의 거리 중 더 짧은 거리를 거리 배열 전체를 돌면서 집어넣는다.</p>
   </li>
   <li>
-    <p>empty : isEmpty 메서드를 통해 deque가 비어있는 지 확인한다. 비어있다면 1을, 비어있지 않다면 0을 출력한다.</p>
-  </li>
-  <li>
-    <p>front : Integer 변수 k1에 peek 메서드를 통해 가장 첫번쨰 값을 읽어와 저장한다. peek 메서드는 queue가 비어있으면 null을 반환하므로, 조건문을 통해 2번 처럼 구분해준다.</p>
-  </li>
-  <li>
-    <p>back : Integer 변수 k11에 peekLast 메서드를 통해 queue의 마지막 값을 읽어와 저장한다. peekLast 메서드는 queue가 비어있으면 null을 반환하므로, 조건문을 통해 2번 처럼 구분해준다.</p>
+    <p>4~5 의 과정을 노드 개수만큼 반복한다.</p>
   </li>
 </ol>
+
+<p>위 과정을 통해 다익스트라 알고리즘, 한 노드에서 다른 모든 노드에게로의 최단 거리가 구해지게 된다.</p>
 
 <h2 id="소스-코드">소스 코드</h2>
 
@@ -240,74 +239,88 @@ into the {body} of the default.hbs template -->
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-import java.util.Deque;
-import java.util.LinkedList;
+public class BOJ_1753_최단경로 {
+	static int V,E,K,arr[][];
 
-
-public class BOJ_10866_덱 {
-
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws IOException {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		Deque&lt;Integer&gt; queue = new LinkedList&lt;Integer&gt;();
-		int N = Integer.parseInt(in.readLine());
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i &lt; N; i++) {
-			String[] str = in.readLine().split(" ");
-			switch(str[0]) {
-			case "push_front":
-				queue.offerFirst(Integer.parseInt(str[1]));
-				break;
-			case "push_back":
-				queue.offerLast(Integer.parseInt(str[1]));
-				break;
-			case "pop_front":
-				Integer k = queue.pollFirst();
-				if(k == null) {
-					sb.append(-1).append('\n');
-				}else {
-					sb.append(k).append('\n');
-				}
-				break;
-			case "pop_back":
-				Integer k2 = queue.pollLast();
-				if(k2 == null) {
-					sb.append(-1).append('\n');
-				}else {
-					sb.append(k2).append('\n');
-				}
-				break;
-			case "size":
-				// 덱의 사이즈 출력
-				sb.append(queue.size()).append('\n');
-				break;
-			case "empty":
-				if(queue.isEmpty()) {
-					sb.append(1).append('\n');
-				}else{
-					sb.append(0).append('\n');
-				}
-				break;
-			case "front":
-				Integer k1 = queue.peekFirst();
-				if(k1 == null) {
-					sb.append(-1).append('\n');
-				}else{
-					sb.append(k1).append('\n');
-				}
-				break;
-			case "back":
-				Integer k11 = queue.peekLast();
-				if(k11 == null) {
-					sb.append(-1).append('\n');
-				}else{
-					sb.append(k11).append('\n');
-				}
-				break;
+
+		StringTokenizer st = new StringTokenizer(in.readLine()," ");
+
+		V = Integer.parseInt(st.nextToken());
+		E = Integer.parseInt(st.nextToken());
+
+		K = Integer.parseInt(in.readLine());
+		// 정점 정보
+		arr = new int[V+1][V+1];
+
+		// 정점에 값 집어넣기
+		for(int i=0;i&lt;E;i++) {
+			st = new StringTokenizer(in.readLine()," ");
+
+			int from = Integer.parseInt(st.nextToken());
+			int to = Integer.parseInt(st.nextToken());
+			arr[from][to] = Integer.parseInt(st.nextToken());
+		}
+
+
+
+		int[] answer = dijkstra(K);
+
+		for(int i=1;i&lt;=V;i++) {
+			if(answer[i] == Integer.MAX_VALUE) {
+				System.out.println("INF");
+			}else {
+				System.out.println(answer[i]);
 			}
 		}
-		System.out.print(sb);
+	}
+
+	public static int[] dijkstra(int start) {
+		// 거리 배열 생성 : 정점 개수만큼
+		int[] distance = new int[V+1];
+
+		// 방문 정보 저장
+		boolean[] visited = new boolean[V+1];
+
+		// 거리 배열 초기화
+		Arrays.fill(distance, Integer.MAX_VALUE);
+
+		// 시작 정점의 거리를 0으로 만듦
+		distance[start] = 0;
+
+		//정점 개수만큼 반복
+		for(int i=0;i&lt;V;i++) {
+			int min = Integer.MAX_VALUE;
+			int current = 0;
+
+			// 해당 노드로부터 연결되어있는 다음 노드로의 최솟값 구하기
+			for(int j =0 ;j&lt;V;j++) {
+				if(!visited[j] &amp;&amp; min &gt; distance[j]) {
+					min = distance[j];
+					current = j;
+				}
+			}
+
+			// 해당 노드를 방문처리
+			visited[current] = true;
+
+			// 현재 거리 배열에 저장되어있는 값, 현재 노드까지의 거리 + 앞으로 이동할 노드의 거리 중 더 작은 값을
+			// 거리 배열의 해당 노드에 넣는다.
+			for(int j=0;j&lt;V;j++) {
+				// 아직 방문하지 않았고, 간선이 연결되어있으며 두 개의 거리 중 더 작은 값을 할당한다.
+				if(!visited[j] &amp;&amp; arr[current][j] != 0 &amp;&amp;
+					distance[j] &gt; distance[current] + arr[current][j]) {
+						distance[j] = distance[current] + arr[current][j];
+					}
+			}
+		}
+
+		return distance;
 	}
 
 }
@@ -368,9 +381,9 @@ public class BOJ_10866_덱 {
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/BOJ-10866';
-                            var this_page_identifier = '/BOJ-10866';
-                            var this_page_title = 'BOJ_10866_덱_JAVA';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-1753';
+                            var this_page_identifier = '/BOJ-1753';
+                            var this_page_title = 'BOJ_1753_최단경로_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -415,11 +428,6 @@ public class BOJ_10866_덱 {
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/BOJ-1753">BOJ_1753_최단경로_JAVA</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -444,53 +452,9 @@ public class BOJ_10866_덱 {
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/BOJ-1697">BOJ_1697_숨바꼭질_JAVA</a></li>
                                         
                                     
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
                                   
                                 
                                   
@@ -537,76 +501,6 @@ public class BOJ_10866_덱 {
                                     
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -710,6 +604,122 @@ public class BOJ_10866_덱 {
                                   
                                 
                                   
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                     
                                         
                                         
@@ -772,6 +782,9 @@ public class BOJ_10866_덱 {
                                   
                                 
                                   
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -861,57 +874,6 @@ public class BOJ_10866_덱 {
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/BOJ-11866">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-11866">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Boj</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">BOJ_11866_요세푸스문제0_JAVA</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>문제 : 요세푸스문제0
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/hjs/">hjs</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -919,12 +881,12 @@ public class BOJ_10866_덱 {
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-1021">
+            <a class="post-card-image-link" href="/BOJ-2206">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-1021">
+            <a class="post-card-content-link" href="/BOJ-2206">
                 <header class="post-card-header">
                     
                         
@@ -934,11 +896,11 @@ public class BOJ_10866_덱 {
                         
                     
 
-                    <h2 class="post-card-title">BOJ_1021_회전하는큐_JAVA</h2>
+                    <h2 class="post-card-title">BOJ_2206_벽부수고이동하기_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 회전하는 큐
+                        <p>문제 : 벽 부수고 이동하기
 
 </p>
                     
@@ -958,7 +920,7 @@ public class BOJ_10866_덱 {
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -980,18 +942,18 @@ public class BOJ_10866_덱 {
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">BOJ_10866_덱_JAVA</div>
+    <div class="floating-header-title">BOJ_1753_최단경로_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_10866_%EB%8D%B1_JAVA&amp;url=https://hjs101.github.ioBOJ-10866"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_1753_%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C_JAVA&amp;url=https://hjs101.github.ioBOJ-1753"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-10866"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-1753"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
