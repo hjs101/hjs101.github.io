@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -236,70 +239,68 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Deque;
-import java.util.LinkedList;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 
-public class BOJ_1021_회전하는큐 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1021_회전하는큐</span> <span class="o">{</span>
 
-	static Deque&lt;Integer&gt; deq = new LinkedList&lt;&gt;();
-	static Deque&lt;Integer&gt; deq2 = new LinkedList&lt;&gt;();
-	// 일단 구현
-	public static void main(String[] args) throws IOException {
+	<span class="kd">static</span> <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">deq</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+	<span class="kd">static</span> <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">deq2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+	<span class="c1">// 일단 구현</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		String[] str=  in.readLine().split(" ");
-		int N = Integer.parseInt(str[0]);
-		int M = Integer.parseInt(str[1]);
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">str</span><span class="o">=</span>  <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+		<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
 
-		int[] arr = new int[M];
-
-
-		String[] str2 = in.readLine().split(" ");
-		for(int i=0;i&lt;M;i++) {
-			arr[i] = Integer.parseInt(str2[i]);
-		}
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">M</span><span class="o">];</span>
 
 
-		for(int i=1;i&lt;=N;i++) {
-			deq.offer(i);
-			deq2.offer(i);
-		}
-		int cntsum = 0;
-		for(int i=0;i&lt;M;i++) {
-			int cnt1 = forwardSearch(arr[i]);
-			int cnt2 = backwardSearch(arr[i]);
-			cntsum = cntsum + Math.min(cnt1, cnt2);
-			deq.poll();
-			deq2.poll();
-		}
-		System.out.println(cntsum);
-	}
-
-	// &lt;&lt;&lt;&lt; 이쪽 방향으로 미는 것을 forward로 하자.
-	public static int forwardSearch(int num) {
-		int cnt = 0;
-		while(deq.peek() != num) {
-			deq.offerLast(deq.pollFirst());
-			cnt++;
-		}
-		return cnt;
-	}
-	// &gt;&gt;&gt; 이쪽 방향으로 미는 것을 backward로 하자.
-	public static int backwardSearch(int num) {
-		int cnt = 0;
-		while(deq2.peek() != num) {
-			deq2.offerFirst(deq2.pollLast());
-			cnt++;
-		}
-		return cnt;
-	}
-}
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">M</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+		<span class="o">}</span>
 
 
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">deq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+			<span class="n">deq2</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">cntsum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">M</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="n">forwardSearch</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="kt">int</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="n">backwardSearch</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="n">cntsum</span> <span class="o">=</span> <span class="n">cntsum</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">cnt1</span><span class="o">,</span> <span class="n">cnt2</span><span class="o">);</span>
+			<span class="n">deq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="n">deq2</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cntsum</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="c1">// &lt;&lt;&lt;&lt; 이쪽 방향으로 미는 것을 forward로 하자.</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">forwardSearch</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">deq</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">!=</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">deq</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">deq</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+			<span class="n">cnt</span><span class="o">++;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="c1">// &gt;&gt;&gt; 이쪽 방향으로 미는 것을 backward로 하자.</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">backwardSearch</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">deq2</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">!=</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">deq2</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="n">deq2</span><span class="o">.</span><span class="na">pollLast</span><span class="o">());</span>
+			<span class="n">cnt</span><span class="o">++;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 

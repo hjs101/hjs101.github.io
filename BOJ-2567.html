@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -225,68 +228,68 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2567_색종이2 {
-	static int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
-	public static void main(String[] args) throws NumberFormatException, IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2567_색종이2</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">dir</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
-		StringTokenizer st;
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="nc">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
 
 
-		// 100*100 크기 배열 생성
-		int[][] arr = new int[100][100];
+		<span class="c1">// 100*100 크기 배열 생성</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100</span><span class="o">][</span><span class="mi">100</span><span class="o">];</span>
 
-		// 주어진 좌표로부터 10*10만큼 1 집어넣기
-		for(int i=0;i&lt;N;i++) {
-			st = new StringTokenizer(in.readLine());
+		<span class="c1">// 주어진 좌표로부터 10*10만큼 1 집어넣기</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
+			<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-			for(int j = a; j &lt;a+10;j++) {
-				for(int k = b;k&lt;b+10;k++) {
-					arr[j][k] = 1;
-				}
-			}
-		}
-		// 둘레를 저장할 변수
-		int cnt = 0;
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="n">a</span><span class="o">+</span><span class="mi">10</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">b</span><span class="o">+</span><span class="mi">10</span><span class="o">;</span><span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="c1">// 둘레를 저장할 변수</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-		// 배열 전체 탐색 하며 1 주변의 0의 개수를 세기, 1 주변이 배열의 경계일 경우도 cnt를 더해준다
-		for(int i=0;i&lt;100;i++) {
-			for(int j=0;j&lt;100;j++) {
-				// 배열에서 1을 만나면
-				if(arr[i][j] == 1) {
-					// 4방탐색
-					for(int d = 0; d &lt; 4; d++) {
-						int dx = i + dir[d][0];
-						int dy = j + dir[d][1];
-						// 배열의 경계를 체크하여, 1 주변이 배열의 경계라면 cnt를 1 더해준다.
-						if(dx &lt; 0 || dx &gt;= 100 || dy &lt; 0 || dy &gt;= 100) {
-							cnt++;
-						}
-						// 배열의 경계 안에 있을 때, 1 주변에 0이 있다면 cnt를 1 더해준다.
-						if(dx &gt;= 0 &amp;&amp; dx &lt; 100 &amp;&amp; dy &gt;= 0 &amp;&amp; dy &lt; 100 &amp;&amp; arr[dx][dy] == 0) {
-							cnt++;
-						}
-					}
-				}
-			}
-		}
+		<span class="c1">// 배열 전체 탐색 하며 1 주변의 0의 개수를 세기, 1 주변이 배열의 경계일 경우도 cnt를 더해준다</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="c1">// 배열에서 1을 만나면</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+					<span class="c1">// 4방탐색</span>
+					<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">d</span><span class="o">++)</span> <span class="o">{</span>
+						<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+						<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+						<span class="c1">// 배열의 경계를 체크하여, 1 주변이 배열의 경계라면 cnt를 1 더해준다.</span>
+						<span class="k">if</span><span class="o">(</span><span class="n">dx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="o">||</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="o">)</span> <span class="o">{</span>
+							<span class="n">cnt</span><span class="o">++;</span>
+						<span class="o">}</span>
+						<span class="c1">// 배열의 경계 안에 있을 때, 1 주변에 0이 있다면 cnt를 1 더해준다.</span>
+						<span class="k">if</span><span class="o">(</span><span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+							<span class="n">cnt</span><span class="o">++;</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-		System.out.println(cnt);
-	}
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

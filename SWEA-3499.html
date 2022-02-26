@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -236,121 +239,121 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class D3_3499_퍼펙트셔플 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">D3_3499_퍼펙트셔플</span> <span class="o">{</span>
 
-	// 1번쨰 방법 스택으로 자르고, 스택에 번갈아가면서 넣은 뒤에 덱으로 앞에서부터 넣기
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="c1">// 1번쨰 방법 스택으로 자르고, 스택에 번갈아가면서 넣은 뒤에 덱으로 앞에서부터 넣기</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		System.setIn(new FileInputStream("input_3499.txt"));
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_3499.txt"</span><span class="o">));</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int T = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		for (int tc = 1; tc &lt;= T; tc++) {
-			int N = Integer.parseInt(in.readLine());
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span><span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-			StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-			Deque&lt;String&gt; que = new LinkedList&lt;&gt;();
-			Stack&lt;String&gt; stack = new Stack&lt;&gt;();
-			Stack&lt;String&gt; stack2 = new Stack&lt;&gt;();
+			<span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">que</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+			<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+			<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stack2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
 
-			for (int i = 0; i &lt; N; i++) {
-				que.add(st.nextToken());
-			}
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">que</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
 
-			// 절반 스택1에 꺼내기
-			for (int i = 0; i &lt; N / 2; i++) {
-				stack.push(que.removeLast());
-			}
-			// 번갈아가면서 스택2에 집어넣기
-			for (int i = 0; i &lt; N / 2; i++) {
-				stack2.push(que.pollFirst());
-				stack2.push(stack.pop());
-			}
-			// 홀수일 때
-			if (que.size() % 2 == 1) {
-				// 홀수일때는 원래 들어있던 값이 1개 더 많기 때문에 한 번 더 집어넣어주기
-				stack2.push(que.pollFirst());
-			}
-			// 스택2에 있는 값 차례대로 덱에 앞에서부터 집어넣기
-			for (int i = 0; i &lt; N; i++) {
-				que.offerFirst(stack2.pop());
-			}
+			<span class="c1">// 절반 스택1에 꺼내기</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">removeLast</span><span class="o">());</span>
+			<span class="o">}</span>
+			<span class="c1">// 번갈아가면서 스택2에 집어넣기</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">stack2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+				<span class="n">stack2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+			<span class="o">}</span>
+			<span class="c1">// 홀수일 때</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 홀수일때는 원래 들어있던 값이 1개 더 많기 때문에 한 번 더 집어넣어주기</span>
+				<span class="n">stack2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">());</span>
+			<span class="o">}</span>
+			<span class="c1">// 스택2에 있는 값 차례대로 덱에 앞에서부터 집어넣기</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">que</span><span class="o">.</span><span class="na">offerFirst</span><span class="o">(</span><span class="n">stack2</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+			<span class="o">}</span>
 
-			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i &lt; N; i++) {
-				sb.append(que.remove()).append(" ");
-			}
+			<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">remove</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+			<span class="o">}</span>
 
-			System.out.printf("#%d %s\n", tc, sb);
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %s\n"</span><span class="o">,</span> <span class="n">tc</span><span class="o">,</span> <span class="n">sb</span><span class="o">);</span>
 
-		}
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
 </code></pre></div></div>
 
 <h4 id="아래는-2번째-방법인-링크드리스트를-이용해서-구현한-코드이다">아래는 2번째 방법인 링크드리스트를 이용해서 구현한 코드이다.</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-// 2번 방법 : 스택으로 꺼내서 저장하고, 값은 LinkedList로 중간에 삽입한다.
-public static void main1(String[] args) throws NumberFormatException, IOException {
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// 2번 방법 : 스택으로 꺼내서 저장하고, 값은 LinkedList로 중간에 삽입한다.</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main1</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-	System.setIn(new FileInputStream("input_3499.txt"));
+	<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_3499.txt"</span><span class="o">));</span>
 
-	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-	int T = Integer.parseInt(in.readLine());
+	<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-	for (int tc = 1; tc &lt;= T; tc++) {
-		int N = Integer.parseInt(in.readLine());
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span><span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-		LinkedList&lt;String&gt; que = new LinkedList&lt;&gt;();
-		Stack&lt;String&gt; stack = new Stack&lt;&gt;();
+		<span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">que</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
 
-		for (int i = 0; i &lt; N; i++) {
-			que.add(st.nextToken());
-		}
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">que</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="o">}</span>
 
-		// 이 때는 짝수 홀수 구분 안해도 잘 돌아간다.
+		<span class="c1">// 이 때는 짝수 홀수 구분 안해도 잘 돌아간다.</span>
 
-		// 절반 꺼내기
-		for (int i = 0; i &lt; N / 2; i++) {
-			stack.push(que.removeLast());
-		}
-		// LinkedList에 index 통해서 삽입
-		for (int i = 0; i &lt; N; i++) {
-			if (i % 2 == 1) {
-				que.add(i, stack.pop());
-			}
-		}
+		<span class="c1">// 절반 꺼내기</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">removeLast</span><span class="o">());</span>
+		<span class="o">}</span>
+		<span class="c1">// LinkedList에 index 통해서 삽입</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">que</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i &lt; N; i++) {
-			sb.append(que.remove()).append(" ");
-		}
+		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">que</span><span class="o">.</span><span class="na">remove</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+		<span class="o">}</span>
 
-		System.out.printf("#%d %s\n", tc, sb);
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %s\n"</span><span class="o">,</span> <span class="n">tc</span><span class="o">,</span> <span class="n">sb</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

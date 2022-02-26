@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -236,74 +239,74 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드-1">소스 코드 1</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 
 
-public class D3_5215_햄버거다이어트2 {
-	static int cal;
-	static int score;
-	static int inscore;
-	static boolean[] isSelected;
-	static int[][] arr;
-	static int N, L;
-	static int k=1;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		System.setIn(new FileInputStream("input_5215.txt"));
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">D3_5215_햄버거다이어트2</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cal</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">score</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">inscore</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">isSelected</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">,</span> <span class="no">L</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_5215.txt"</span><span class="o">));</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int T = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		for(int tc = 1; tc &lt;= T ; tc++) {
-			String[] str = in.readLine().split(" ");
-			N = Integer.parseInt(str[0]);
-			L = Integer.parseInt(str[1]);
-			arr = new int[N][2];
-			isSelected = new boolean[N];
-			for(int i=0;i&lt;N;i++) {
-				String[] str2 = in.readLine().split(" ");
-				for(int j=0;j&lt;2;j++) {
-					arr[i][j] = Integer.parseInt(str2[j]);
-				}
-			}
-			score = 0;
-			search(0);
-			System.out.printf("#%d %d\n", tc, score);
-		}
-	}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span> <span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">String</span><span class="o">[]</span> <span class="n">str</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+			<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+			<span class="no">L</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+			<span class="n">isSelected</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="nc">String</span><span class="o">[]</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str2</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">search</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %d\n"</span><span class="o">,</span> <span class="n">tc</span><span class="o">,</span> <span class="n">score</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void search(int cnt) {
-		if(cnt == N) {
-			for(int i=0;i&lt;N;i++) {
-				if(isSelected[i]) {
-					inscore += arr[i][0];
-					cal += arr[i][1];
-				}
-			}
-			if(cal &lt; L) {
-				if(score &lt; inscore) {
-					score = inscore;
-				}
-			}
-			cal = 0;
-			inscore = 0;
-			return;
-		}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">isSelected</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+					<span class="n">inscore</span> <span class="o">+=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+					<span class="n">cal</span> <span class="o">+=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">cal</span> <span class="o">&lt;</span> <span class="no">L</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">inscore</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">score</span> <span class="o">=</span> <span class="n">inscore</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="n">cal</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">inscore</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
 
-			// 현재 원소를 선택
-			isSelected[cnt] = true;
-			search(cnt+1);
-			// 현재 원소를 비선택
-			isSelected[cnt] = false;
-			search(cnt+1);
-		}
+			<span class="c1">// 현재 원소를 선택</span>
+			<span class="n">isSelected</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="n">search</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+			<span class="c1">// 현재 원소를 비선택</span>
+			<span class="n">isSelected</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="n">search</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
 
-}
+<span class="o">}</span>
 </code></pre></div></div>
 
 <h2 id="풀이-방법-2">풀이 방법 2</h2>
@@ -334,58 +337,58 @@ public class D3_5215_햄버거다이어트2 {
 
 <h2 id="소스-코드-2">소스 코드 2</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
 
-public class D3_5215_햄버거다이어트 {
-	static int score;
-	static int[][] arr;
-	static int N, L;
-	static int k=1;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		System.setIn(new FileInputStream("input_5215.txt"));
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">D3_5215_햄버거다이어트</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">score</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">,</span> <span class="no">L</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_5215.txt"</span><span class="o">));</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int T = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		for(int tc = 1; tc &lt;= T ; tc++) {
-			String[] str = in.readLine().split(" ");
-			N = Integer.parseInt(str[0]);
-			L = Integer.parseInt(str[1]);
-			arr = new int[N][2];
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span> <span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">String</span><span class="o">[]</span> <span class="n">str</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+			<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+			<span class="no">L</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
 
-			for(int i=0;i&lt;N;i++) {
-				String[] str2 = in.readLine().split(" ");
-				for(int j=0;j&lt;2;j++) {
-					arr[i][j] = Integer.parseInt(str2[j]);
-				}
-			}
-			search(0,0,0);
-			System.out.printf("#%d %d\n", tc, score);
-		}
-	}
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="nc">String</span><span class="o">[]</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str2</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="n">search</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %d\n"</span><span class="o">,</span> <span class="n">tc</span><span class="o">,</span> <span class="n">score</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void search(int cnt, int inscore, int cal) {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">inscore</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cal</span><span class="o">)</span> <span class="o">{</span>
 
-		if(cal &gt; L) {
-			return;
-		}
+		<span class="k">if</span><span class="o">(</span><span class="n">cal</span> <span class="o">&gt;</span> <span class="no">L</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
-		if(cnt == N) {
-			score = Math.max(score, inscore);
-			return;
-		}
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">score</span><span class="o">,</span> <span class="n">inscore</span><span class="o">);</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
-		// 현재 원소를 선택
-		search(cnt+1, inscore+arr[cnt][0], cal+arr[cnt][1]);
-		// 현재 원소를 비선택
-		search(cnt+1, inscore, cal);
-	}
-}
+		<span class="c1">// 현재 원소를 선택</span>
+		<span class="n">search</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">inscore</span><span class="o">+</span><span class="n">arr</span><span class="o">[</span><span class="n">cnt</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span> <span class="n">cal</span><span class="o">+</span><span class="n">arr</span><span class="o">[</span><span class="n">cnt</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+		<span class="c1">// 현재 원소를 비선택</span>
+		<span class="n">search</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">inscore</span><span class="o">,</span> <span class="n">cal</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 

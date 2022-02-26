@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -247,78 +250,78 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.awt.List;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.awt.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2628_종이자르기 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2628_종이자르기</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-		int M = Integer.parseInt(st.nextToken());
+		<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		int N = Integer.parseInt(st.nextToken());
-		// 세로리스트
-		LinkedList&lt;Integer&gt; list1 = new LinkedList&lt;&gt;();
-		// 가로리스트
-		LinkedList&lt;Integer&gt; list2 = new LinkedList&lt;&gt;();
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="c1">// 세로리스트</span>
+		<span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="c1">// 가로리스트</span>
+		<span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
 
-		list1.add(N);
-		list2.add(M);
-		int R = Integer.parseInt(in.readLine());
-		for(int i=0;i&lt;R;i++) {
-			st = new StringTokenizer(in.readLine()," ");
+		<span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="no">N</span><span class="o">);</span>
+		<span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="no">M</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="no">R</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">R</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-			//가로, 세로 여부
-			int D = Integer.parseInt(st.nextToken());
-			// 길이
-			int L = Integer.parseInt(st.nextToken());
-			// 가로로 자를 경우
-			if(D == 0) {
+			<span class="c1">//가로, 세로 여부</span>
+			<span class="kt">int</span> <span class="no">D</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="c1">// 길이</span>
+			<span class="kt">int</span> <span class="no">L</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="c1">// 가로로 자를 경우</span>
+			<span class="k">if</span><span class="o">(</span><span class="no">D</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
 
-				// 리스트 길이만큼 반복
-				for(int j=0,n=list1.size();j&lt;n;j++) {
-					if(list1.get(j) &gt; L) {
-						int temp = list1.remove(j) - L;
-						list1.add(j,temp);
-						list1.add(j,L);
-						break;
-					}else {
-						L = L - list1.get(j);
-					}
-				}
-			// 세로로 자를 경우
-			}else {
-				for(int j=0,n=list2.size();j&lt;n;j++) {
-					if(list2.get(j) &gt; L) {
-						int temp = list2.remove(j) - L;
-						list2.add(j,temp);
-						list2.add(j,L);
-						break;
-					}else {
-						L = L - list2.get(j);
-					}
-				}
-			}
-		}
-		System.out.println(list1);
-		System.out.println(list2);
-		Collections.sort(list1,Collections.reverseOrder());
-		Collections.sort(list2,Collections.reverseOrder());
+				<span class="c1">// 리스트 길이만큼 반복</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&gt;</span> <span class="no">L</span><span class="o">)</span> <span class="o">{</span>
+						<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="no">L</span><span class="o">;</span>
+						<span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">temp</span><span class="o">);</span>
+						<span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="no">L</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+						<span class="no">L</span> <span class="o">=</span> <span class="no">L</span> <span class="o">-</span> <span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="c1">// 세로로 자를 경우</span>
+			<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&gt;</span> <span class="no">L</span><span class="o">)</span> <span class="o">{</span>
+						<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="no">L</span><span class="o">;</span>
+						<span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">temp</span><span class="o">);</span>
+						<span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="no">L</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+						<span class="no">L</span> <span class="o">=</span> <span class="no">L</span> <span class="o">-</span> <span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">);</span>
+		<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span><span class="nc">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+		<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list2</span><span class="o">,</span><span class="nc">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
 
-		System.out.println(list1.get(0)*list2.get(0));
-	}
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)*</span><span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 
 </code></pre></div></div>

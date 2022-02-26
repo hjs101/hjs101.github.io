@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -249,218 +252,218 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class 모의_5644_무선충전 {
-	// 총 충전량 저장 변수
-	static int answer;
-	// 매회 최대 충전량 저장 변수
-	static int max;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">모의_5644_무선충전</span> <span class="o">{</span>
+	<span class="c1">// 총 충전량 저장 변수</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="c1">// 매회 최대 충전량 저장 변수</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">max</span><span class="o">;</span>
 
 
-	public static void max(Human A, Human B, List&lt;BC&gt; bcQ) {
-		// 충전 가능 여부 비교하여 현재 저장 가능한 최댓값 저장
-		int energyA = 0;
-		int U = A.isEnergy.length;
-		for (int i = 0; i &lt; U; i++) {
-			// AC별 충전량 저장 변수
-			int energyB = 0;
-			// A가 i번째 BC에서 충전가능하면
-			if (A.isEnergy[i] == true) {
-				// B도 같은 BC에 대해 충전 가능한지 확인
-				// A, B가 같은 BC에 접속 가능한 경우
-				if (B.isEnergy[i] == true) {
-					energyA = bcQ.get(i).P / 2;
-					energyB = energyA;
-					max = Math.max(max, energyA+energyB);
-				}
-				energyA = 0;
-				energyB = 0;
-				// A와 B가 다른 BC에 접속 가능한 경우
-				for (int j = 0; j &lt; U; j++) {
-					// 가능한 에너지 값중에 최댓값
-					if (j != i &amp;&amp; B.isEnergy[j] == true) {
-						energyB = Math.max(bcQ.get(j).P,energyB);
-					}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">max</span><span class="o">(</span><span class="nc">Human</span> <span class="no">A</span><span class="o">,</span> <span class="nc">Human</span> <span class="no">B</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">BC</span><span class="o">&gt;</span> <span class="n">bcQ</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// 충전 가능 여부 비교하여 현재 저장 가능한 최댓값 저장</span>
+		<span class="kt">int</span> <span class="n">energyA</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="no">U</span> <span class="o">=</span> <span class="no">A</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">U</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="c1">// AC별 충전량 저장 변수</span>
+			<span class="kt">int</span> <span class="n">energyB</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="c1">// A가 i번째 BC에서 충전가능하면</span>
+			<span class="k">if</span> <span class="o">(</span><span class="no">A</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// B도 같은 BC에 대해 충전 가능한지 확인</span>
+				<span class="c1">// A, B가 같은 BC에 접속 가능한 경우</span>
+				<span class="k">if</span> <span class="o">(</span><span class="no">B</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">energyA</span> <span class="o">=</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">P</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+					<span class="n">energyB</span> <span class="o">=</span> <span class="n">energyA</span><span class="o">;</span>
+					<span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">energyA</span><span class="o">+</span><span class="n">energyB</span><span class="o">);</span>
+				<span class="o">}</span>
+				<span class="n">energyA</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="n">energyB</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="c1">// A와 B가 다른 BC에 접속 가능한 경우</span>
+				<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">U</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="c1">// 가능한 에너지 값중에 최댓값</span>
+					<span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="no">B</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">energyB</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">).</span><span class="na">P</span><span class="o">,</span><span class="n">energyB</span><span class="o">);</span>
+					<span class="o">}</span>
 
-					energyA = bcQ.get(i).P;
-					max = Math.max(max, energyA+energyB);
-				}
-			}else { // A가 i번째 BC에서 충전 불가능하면
-				energyA = 0;
-				for (int j = 0; j &lt; U; j++) {
-					// 가능한 에너지 값중에 최댓값
-					if (B.isEnergy[j] == true) {
-						energyB = Math.max(bcQ.get(j).P,energyB);
-					}
-				}
-				max = Math.max(max, energyA+energyB);
-			}
+					<span class="n">energyA</span> <span class="o">=</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">P</span><span class="o">;</span>
+					<span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">energyA</span><span class="o">+</span><span class="n">energyB</span><span class="o">);</span>
+				<span class="o">}</span>
+			<span class="o">}</span><span class="k">else</span> <span class="o">{</span> <span class="c1">// A가 i번째 BC에서 충전 불가능하면</span>
+				<span class="n">energyA</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">U</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="c1">// 가능한 에너지 값중에 최댓값</span>
+					<span class="k">if</span> <span class="o">(</span><span class="no">B</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">energyB</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">).</span><span class="na">P</span><span class="o">,</span><span class="n">energyB</span><span class="o">);</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+				<span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">energyA</span><span class="o">+</span><span class="n">energyB</span><span class="o">);</span>
+			<span class="o">}</span>
 
-		}
-	}
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		System.setIn(new FileInputStream("input_5644.txt"));
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_5644.txt"</span><span class="o">));</span>
 
-		// 버퍼드리더로 값 읽어오기
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="c1">// 버퍼드리더로 값 읽어오기</span>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		// 테케
-		int T = Integer.parseInt(in.readLine());
+		<span class="c1">// 테케</span>
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		// X,Y좌표 바꿨기 때문에, 방향정보도 바뀔 필요가 있다.
-		// 0:제자리, 1: 좌, 2: 하 3: 우 4: 상
-		int[][] dir = { { 0, 0 }, { 0, -1 }, { 1, 0 }, { 0, 1 }, { -1, 0 } };
+		<span class="c1">// X,Y좌표 바꿨기 때문에, 방향정보도 바뀔 필요가 있다.</span>
+		<span class="c1">// 0:제자리, 1: 좌, 2: 하 3: 우 4: 상</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">dir</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">}</span> <span class="o">};</span>
 
-		// 테케만큼 반복
-		for (int tc = 1; tc &lt;= T; tc++) {
-			// StringTokenizer로 값 읽어오기, 2번째 줄 저장
-			StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+		<span class="c1">// 테케만큼 반복</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;=</span> <span class="no">T</span><span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="c1">// StringTokenizer로 값 읽어오기, 2번째 줄 저장</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-			// 이동시간
-			int M = Integer.parseInt(st.nextToken());
+			<span class="c1">// 이동시간</span>
+			<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-			// BC 개수 U로 네이밍 변경
-			int U = Integer.parseInt(st.nextToken());
+			<span class="c1">// BC 개수 U로 네이밍 변경</span>
+			<span class="kt">int</span> <span class="no">U</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-			// A, B 초기 위치 저장
-			Human A = new Human(1, 1);
-			Human B = new Human(10, 10);
+			<span class="c1">// A, B 초기 위치 저장</span>
+			<span class="nc">Human</span> <span class="no">A</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Human</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+			<span class="nc">Human</span> <span class="no">B</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Human</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
 
-			int[] moveA = new int[M];
-			int[] moveB = new int[M];
-			// A 이동 정보 저장
-			st = new StringTokenizer(in.readLine(), " ");
-			for (int i = 0; i &lt; M; i++) {
-				moveA[i] = Integer.parseInt(st.nextToken());
-			}
-			// B 이동 정보 저장
-			st = new StringTokenizer(in.readLine(), " ");
-			for (int i = 0; i &lt; M; i++) {
-				moveB[i] = Integer.parseInt(st.nextToken());
-			}
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">moveA</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">M</span><span class="o">];</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">moveB</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">M</span><span class="o">];</span>
+			<span class="c1">// A 이동 정보 저장</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">moveA</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
+			<span class="c1">// B 이동 정보 저장</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">moveB</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
 
-			// BC 목록 저장
-			List&lt;BC&gt; bcQ = new ArrayList&lt;&gt;();
+			<span class="c1">// BC 목록 저장</span>
+			<span class="nc">List</span><span class="o">&lt;</span><span class="no">BC</span><span class="o">&gt;</span> <span class="n">bcQ</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-			// BC 할당
-			for (int i = 0; i &lt; U; i++) {
-				// BC정보 읽어오기
-				st = new StringTokenizer(in.readLine(), " ");
-				int y = Integer.parseInt(st.nextToken());
-				int x = Integer.parseInt(st.nextToken());
-				int c = Integer.parseInt(st.nextToken());
-				int p = Integer.parseInt(st.nextToken());
-				// 한줄에다 다 적을 수 있지만 보기싫어서 나눔
-				bcQ.add(new BC(y, x, c, p));
-			}
+			<span class="c1">// BC 할당</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">U</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="c1">// BC정보 읽어오기</span>
+				<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+				<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="c1">// 한줄에다 다 적을 수 있지만 보기싫어서 나눔</span>
+				<span class="n">bcQ</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="no">BC</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">p</span><span class="o">));</span>
+			<span class="o">}</span>
 
-			// A, B의 충전가능여부 저장할 배열
-			A.isEnergy = new boolean[U];
-			B.isEnergy = new boolean[U];
+			<span class="c1">// A, B의 충전가능여부 저장할 배열</span>
+			<span class="no">A</span><span class="o">.</span><span class="na">isEnergy</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">U</span><span class="o">];</span>
+			<span class="no">B</span><span class="o">.</span><span class="na">isEnergy</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">U</span><span class="o">];</span>
 
-			// 현재 위치에서 충전가능한지 먼저 확인
-			isEnegy(A, bcQ);
-			isEnegy(B, bcQ);
-////			 테스트, 여기까지는 잘됨
-//			System.out.println(Arrays.toString(A.isEnergy));
-//			System.out.println(Arrays.toString(B.isEnergy));
+			<span class="c1">// 현재 위치에서 충전가능한지 먼저 확인</span>
+			<span class="n">isEnegy</span><span class="o">(</span><span class="no">A</span><span class="o">,</span> <span class="n">bcQ</span><span class="o">);</span>
+			<span class="n">isEnegy</span><span class="o">(</span><span class="no">B</span><span class="o">,</span> <span class="n">bcQ</span><span class="o">);</span>
+<span class="c1">////			 테스트, 여기까지는 잘됨</span>
+<span class="c1">//			System.out.println(Arrays.toString(A.isEnergy));</span>
+<span class="c1">//			System.out.println(Arrays.toString(B.isEnergy));</span>
 
-			// 매회 최대 충전량 저장 변수 초기화
-			max = 0;
+			<span class="c1">// 매회 최대 충전량 저장 변수 초기화</span>
+			<span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-			// 현재 자리에서 가능한 최대 충전량 구하기
-			max(A, B, bcQ);
+			<span class="c1">// 현재 자리에서 가능한 최대 충전량 구하기</span>
+			<span class="n">max</span><span class="o">(</span><span class="no">A</span><span class="o">,</span> <span class="no">B</span><span class="o">,</span> <span class="n">bcQ</span><span class="o">);</span>
 
-			// 총 충전량 저장 변수 초기화
-			answer = max;
-			// 여기까지 잘 됨
-//			System.out.println(answer);
+			<span class="c1">// 총 충전량 저장 변수 초기화</span>
+			<span class="n">answer</span> <span class="o">=</span> <span class="n">max</span><span class="o">;</span>
+			<span class="c1">// 여기까지 잘 됨</span>
+<span class="c1">//			System.out.println(answer);</span>
 
-			// 이동 시간만큼 반복
-			for (int i = 0; i &lt; M; i++) {
-				max = 0;
-				// A 이동
-				A.X = A.X + dir[moveA[i]][0];
-				A.Y = A.Y + dir[moveA[i]][1];
-//				System.out.println("T:"+i+" A:"+A.X+","+A.Y);
-				// B 이동
-				B.X = B.X + dir[moveB[i]][0];
-				B.Y = B.Y + dir[moveB[i]][1];
-//				System.out.println("T:"+i+" B:"+B.X+","+B.Y);
+			<span class="c1">// 이동 시간만큼 반복</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="c1">// A 이동</span>
+				<span class="no">A</span><span class="o">.</span><span class="na">X</span> <span class="o">=</span> <span class="no">A</span><span class="o">.</span><span class="na">X</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">moveA</span><span class="o">[</span><span class="n">i</span><span class="o">]][</span><span class="mi">0</span><span class="o">];</span>
+				<span class="no">A</span><span class="o">.</span><span class="na">Y</span> <span class="o">=</span> <span class="no">A</span><span class="o">.</span><span class="na">Y</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">moveA</span><span class="o">[</span><span class="n">i</span><span class="o">]][</span><span class="mi">1</span><span class="o">];</span>
+<span class="c1">//				System.out.println("T:"+i+" A:"+A.X+","+A.Y);</span>
+				<span class="c1">// B 이동</span>
+				<span class="no">B</span><span class="o">.</span><span class="na">X</span> <span class="o">=</span> <span class="no">B</span><span class="o">.</span><span class="na">X</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">moveB</span><span class="o">[</span><span class="n">i</span><span class="o">]][</span><span class="mi">0</span><span class="o">];</span>
+				<span class="no">B</span><span class="o">.</span><span class="na">Y</span> <span class="o">=</span> <span class="no">B</span><span class="o">.</span><span class="na">Y</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">moveB</span><span class="o">[</span><span class="n">i</span><span class="o">]][</span><span class="mi">1</span><span class="o">];</span>
+<span class="c1">//				System.out.println("T:"+i+" B:"+B.X+","+B.Y);</span>
 
-				// 현재 위치에서 충전 가능한지 여부 확인
-				isEnegy(A, bcQ);
-				isEnegy(B, bcQ);
-//				System.out.println(Arrays.toString(A.isEnergy));
-//				System.out.println(Arrays.toString(B.isEnergy));
-				// 현재 위치에서 가능한 충전량의 최댓값 구하기
-				max(A,B,bcQ);
-//				System.out.println("Max: "+ max);
-				// 해당 최댓값 총 충전량에 더하기
-				answer += max;
-			}
-			// ---- 출력
-			System.out.printf("#%d %d\n",tc,answer);
-		}
+				<span class="c1">// 현재 위치에서 충전 가능한지 여부 확인</span>
+				<span class="n">isEnegy</span><span class="o">(</span><span class="no">A</span><span class="o">,</span> <span class="n">bcQ</span><span class="o">);</span>
+				<span class="n">isEnegy</span><span class="o">(</span><span class="no">B</span><span class="o">,</span> <span class="n">bcQ</span><span class="o">);</span>
+<span class="c1">//				System.out.println(Arrays.toString(A.isEnergy));</span>
+<span class="c1">//				System.out.println(Arrays.toString(B.isEnergy));</span>
+				<span class="c1">// 현재 위치에서 가능한 충전량의 최댓값 구하기</span>
+				<span class="n">max</span><span class="o">(</span><span class="no">A</span><span class="o">,</span><span class="no">B</span><span class="o">,</span><span class="n">bcQ</span><span class="o">);</span>
+<span class="c1">//				System.out.println("Max: "+ max);</span>
+				<span class="c1">// 해당 최댓값 총 충전량에 더하기</span>
+				<span class="n">answer</span> <span class="o">+=</span> <span class="n">max</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="c1">// ---- 출력</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %d\n"</span><span class="o">,</span><span class="n">tc</span><span class="o">,</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-	public static void isEnegy(Human human, List&lt;BC&gt; bcQ) {
-		for (int i = 0, n = bcQ.size(); i &lt; n; i++) {
-			// A와 BC간의 거리 비교하여 충전 가능한 BC에대해 boolean값 저장
-			if ((Math.abs(human.X - bcQ.get(i).X) + Math.abs(human.Y - bcQ.get(i).Y)) &lt;= bcQ.get(i).C) {
-				human.isEnergy[i] = true;
-			}else {
-				human.isEnergy[i] = false;
-			}
-		}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">isEnegy</span><span class="o">(</span><span class="nc">Human</span> <span class="n">human</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">BC</span><span class="o">&gt;</span> <span class="n">bcQ</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="c1">// A와 BC간의 거리 비교하여 충전 가능한 BC에대해 boolean값 저장</span>
+			<span class="k">if</span> <span class="o">((</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">human</span><span class="o">.</span><span class="na">X</span> <span class="o">-</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">X</span><span class="o">)</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">human</span><span class="o">.</span><span class="na">Y</span> <span class="o">-</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">Y</span><span class="o">))</span> <span class="o">&lt;=</span> <span class="n">bcQ</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">C</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">human</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+				<span class="n">human</span><span class="o">.</span><span class="na">isEnergy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
-class Human {
-	int X;
-	int Y;
-	boolean[] isEnergy;
+<span class="kd">class</span> <span class="nc">Human</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="no">X</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="no">Y</span><span class="o">;</span>
+	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">isEnergy</span><span class="o">;</span>
 
-	public Human(int x, int y) {
-		super();
-		X = x;
-		Y = y;
-	}
-}
+	<span class="kd">public</span> <span class="nf">Human</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">();</span>
+		<span class="no">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+		<span class="no">Y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
-class BC {
-	// x좌표
-	int X;
-	// y좌표
-	int Y;
-	// 충전범위 - 구할 수 있으니까 스킵?
-	int C;
-	// 성능
-	int P;
+<span class="kd">class</span> <span class="nc">BC</span> <span class="o">{</span>
+	<span class="c1">// x좌표</span>
+	<span class="kt">int</span> <span class="no">X</span><span class="o">;</span>
+	<span class="c1">// y좌표</span>
+	<span class="kt">int</span> <span class="no">Y</span><span class="o">;</span>
+	<span class="c1">// 충전범위 - 구할 수 있으니까 스킵?</span>
+	<span class="kt">int</span> <span class="no">C</span><span class="o">;</span>
+	<span class="c1">// 성능</span>
+	<span class="kt">int</span> <span class="no">P</span><span class="o">;</span>
 
-	public BC(int x, int y, int c, int p) {
-		super();
-		X = x;
-		Y = y;
-		C = c;
-		P = p;
-	}
+	<span class="kd">public</span> <span class="nf">BC</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">();</span>
+		<span class="no">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+		<span class="no">Y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+		<span class="no">C</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+		<span class="no">P</span> <span class="o">=</span> <span class="n">p</span><span class="o">;</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -224,76 +227,76 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2178_미로탐색 {
-
-
-	static char[][] arr;
-	static boolean[][] isVisited;
-	static int N,M;
-	static int[][] dir = { {1,0},{-1,0},{0,1},{0,-1} };
-	static int cnt;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
-
-		N = Integer.parseInt(st.nextToken());
-
-		M = Integer.parseInt(st.nextToken());
-		arr = new char[N][M];
-		isVisited = new boolean[N][M];
-		for(int i=0;i&lt;N;i++) {
-			arr[i] = in.readLine().toCharArray();
-		}
-
-		bfs(0,0);		
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2178_미로탐색</span> <span class="o">{</span>
 
 
-	}
+	<span class="kd">static</span> <span class="kt">char</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">isVisited</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">,</span><span class="no">M</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">dir</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},{-</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">},{</span><span class="mi">0</span><span class="o">,-</span><span class="mi">1</span><span class="o">}</span> <span class="o">};</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-	static void bfs(int x, int y) {
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		Queue&lt;int[]&gt; queue = new LinkedList&lt;&gt;();
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-		queue.offer(new int[]{x,y,0});
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		isVisited[x][y] = true;
+		<span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="no">M</span><span class="o">];</span>
+		<span class="n">isVisited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="no">M</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+		<span class="o">}</span>
 
-		while(!queue.isEmpty()) {
-
-
-			int[] pos = queue.poll();
-			if(pos[0] == N-1 &amp;&amp; pos[1] == M-1) {
-				System.out.println(++pos[2]);
-				break;
-			}
-			for(int d=0;d&lt;4;d++) {
-				int dx = pos[0] + dir[d][0];
-				int dy = pos[1] + dir[d][1];
-				if(dx &gt;= 0 &amp;&amp; dx &lt; N &amp;&amp; dy &gt;= 0 &amp;&amp; dy &lt; M) {
-					if(arr[dx][dy] == '1' &amp;&amp; isVisited[dx][dy] == false) {
-						isVisited[dx][dy] = true;
-						queue.offer(new int[] {dx,dy,pos[2]+1});
-					}
-				}
-			}
-
-		}
+		<span class="n">bfs</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>		
 
 
+	<span class="o">}</span>
 
-	}
+	<span class="kd">static</span> <span class="kt">void</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
 
-}
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+
+		<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="mi">0</span><span class="o">});</span>
+
+		<span class="n">isVisited</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+		<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+
+
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">pos</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="no">N</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">pos</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="no">M</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">pos</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">d</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span><span class="n">d</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+				<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="no">M</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">isVisited</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">isVisited</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+						<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="n">dx</span><span class="o">,</span><span class="n">dy</span><span class="o">,</span><span class="n">pos</span><span class="o">[</span><span class="mi">2</span><span class="o">]+</span><span class="mi">1</span><span class="o">});</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+		<span class="o">}</span>
+
+
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
 
 </code></pre></div></div>
 

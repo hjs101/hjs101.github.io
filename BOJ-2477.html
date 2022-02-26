@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -245,85 +248,85 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2477_참외밭 {
-	public static void main(String[] args) throws IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2477_참외밭</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		// 배열 생성 : 기존 길이인 6에서 +3 해준 9만큼 생성한다.
-		int[][] arr = new int[9][2];
-		for (int i = 0; i &lt; 6; i++) {
-			StringTokenizer st = new StringTokenizer(in.readLine(), " ");
-			for (int j = 0; j &lt; 2; j++) {
-				arr[i][j] = Integer.parseInt(st.nextToken());
+		<span class="c1">// 배열 생성 : 기존 길이인 6에서 +3 해준 9만큼 생성한다.</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">9</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-				// 0, 1, 2 인덱스의 값을 6,7,8 인덱스에 복사
-				if (i == 0) {
-					arr[6][j] = arr[i][j];
-				}
-				if(i == 1) {
-					arr[7][j] = arr[i][j];
-				}
-				if(i == 2) {
-					arr[8][j] = arr[i][j];
-				}
-			}
-		}
-		int xMax = 0;
-		int yMax = 0;
-		for (int i = 0; i &lt; 6; i++) {
-			if (arr[i][0] == 3 || arr[i][0] == 4) {
-				xMax = Math.max(xMax, arr[i][1]);
-			}
-			if (arr[i][0] == 1 || arr[i][0] == 2) {
-				yMax = Math.max(yMax, arr[i][1]);
-			}
-		}
-		int xMin = 0;
-		int yMin = 0;
-		// 연속해서 3131 2323 1414 4242가 나왔을 때, 2번째와 3번째가 작은 사각형이다.
-		for (int i = 0; i &lt; 9; i++) {
-			if (i + 3 &gt;= 9) {
-				continue;
-			}
-			// 3131
-			if (arr[i][0] == 3 &amp;&amp; arr[i + 1][0] == 1 &amp;&amp; arr[i + 2][0] == 3 &amp;&amp; arr[i + 3][0] == 1) {
-				xMin = arr[i + 1][1];
-				yMin = arr[i + 2][1];
-				break;
-			}
-			// 2323
-			if (arr[i][0] == 2 &amp;&amp; arr[i + 1][0] == 3 &amp;&amp; arr[i + 2][0] == 2 &amp;&amp; arr[i + 3][0] == 3) {
-				xMin = arr[i + 1][1];
-				yMin = arr[i + 2][1];
-				break;
-			}
-			// 1414
-			if (arr[i][0] == 1 &amp;&amp; arr[i + 1][0] == 4 &amp;&amp; arr[i + 2][0] == 1 &amp;&amp; arr[i + 3][0] == 4) {
-				xMin = arr[i + 1][1];
-				yMin = arr[i + 2][1];
-				break;
-			}
-			// 4242
-			if (arr[i][0] == 4 &amp;&amp; arr[i + 1][0] == 2 &amp;&amp; arr[i + 2][0] == 4 &amp;&amp; arr[i + 3][0] == 2) {
-				xMin = arr[i + 1][1];
-				yMin = arr[i + 2][1];
-				break;
-			}
-		}
-		int ans = xMax * yMax - xMin * yMin;
-		System.out.println(N * ans);
-	}
+				<span class="c1">// 0, 1, 2 인덱스의 값을 6,7,8 인덱스에 복사</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="mi">6</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+				<span class="o">}</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="mi">7</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+				<span class="o">}</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="mi">8</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">xMax</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">yMax</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMax</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">xMax</span><span class="o">,</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="o">}</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">yMax</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">yMax</span><span class="o">,</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">xMin</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">yMin</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="c1">// 연속해서 3131 2323 1414 4242가 나왔을 때, 2번째와 3번째가 작은 사각형이다.</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="c1">// 3131</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="n">yMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="c1">// 2323</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="n">yMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="c1">// 1414</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="n">yMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="c1">// 4242</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="n">yMin</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">xMax</span> <span class="o">*</span> <span class="n">yMax</span> <span class="o">-</span> <span class="n">xMin</span> <span class="o">*</span> <span class="n">yMin</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="no">N</span> <span class="o">*</span> <span class="n">ans</span><span class="o">);</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 </code></pre></div></div>
 
                 </div>

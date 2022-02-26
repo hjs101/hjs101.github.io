@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -231,98 +234,98 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class D3_6808_규영이와인영이의카드게임 {
-	static List&lt;Integer&gt; card1;
-	static List&lt;Integer&gt; card2;
-	static int[] nums;
-	static boolean[] isSelected;
-	static int win;
-	public static void main(String[] args) throws IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">D3_6808_규영이와인영이의카드게임</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">card1</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">card2</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">isSelected</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">win</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		System.setIn(new FileInputStream("input_6808.txt"));
-
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		// 순열의 문제
-		// 1 ~ 18까지
-
-		int T = Integer.parseInt(in.readLine());
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_6808.txt"</span><span class="o">));</span>
 
 
-		for(int tc=1;tc&lt;=T;tc++) {
-			card1 = new ArrayList&lt;&gt;();
-			card2 = new ArrayList&lt;&gt;();
-			win = 0;
-			StringTokenizer st = new StringTokenizer(in.readLine()," ");
-			isSelected = new boolean[9];
-			nums = new int[9];
-			for(int i=0;i&lt;9;i++) {
-				card1.add(Integer.parseInt(st.nextToken()));
-			}
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-			for(int i=0;i&lt;9;i++) {
-				for(int j=1;j&lt;=18;j++) {
-					if(!card1.contains(j) &amp;&amp; !card2.contains(j)) {
-						card2.add(j);
-						break;
-					}
-				}
-			}
+		<span class="c1">// 순열의 문제</span>
+		<span class="c1">// 1 ~ 18까지</span>
 
-			perm(0);
-			System.out.printf("#%d %d %d\n",tc,win,(362880-win));
-		}
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
 
-	}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">tc</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">tc</span><span class="o">&lt;=</span><span class="no">T</span><span class="o">;</span><span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">card1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+			<span class="n">card2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+			<span class="n">win</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+			<span class="n">isSelected</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>
+			<span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">card1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">()));</span>
+			<span class="o">}</span>
+
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">18</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(!</span><span class="n">card1</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">card2</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
+						<span class="n">card2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+
+			<span class="n">perm</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %d %d\n"</span><span class="o">,</span><span class="n">tc</span><span class="o">,</span><span class="n">win</span><span class="o">,(</span><span class="mi">362880</span><span class="o">-</span><span class="n">win</span><span class="o">));</span>
+		<span class="o">}</span>
 
 
-	public static void perm(int cnt) {
-
-		if(cnt == 9) {
-			int winA = 0;
-			int winB = 0;
-			for(int i=0;i&lt;9;i++) {
-				int A = card1.get(i);
-				int B = nums[i];
-				if(A &gt; B) {
-					winA = winA + A + B;
-				}else if(A&lt;B){
-					winB = winB + A + B;
-				}
-			}
-			if(winA &gt; winB) {
-				win++;
-			}
-			return;
-		}
-
-		for(int i=0;i&lt;9;i++) {
-			if(isSelected[i]) {
-				continue;
-			}
-			isSelected[i] = true;
-			nums[cnt] = card2.get(i);
-			perm(cnt + 1);
-			isSelected[i] = false;
-
-		}
+	<span class="o">}</span>
 
 
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">perm</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
 
-}
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">9</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">winA</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">winB</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="no">A</span> <span class="o">=</span> <span class="n">card1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+				<span class="kt">int</span> <span class="no">B</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+				<span class="k">if</span><span class="o">(</span><span class="no">A</span> <span class="o">&gt;</span> <span class="no">B</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">winA</span> <span class="o">=</span> <span class="n">winA</span> <span class="o">+</span> <span class="no">A</span> <span class="o">+</span> <span class="no">B</span><span class="o">;</span>
+				<span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="no">A</span><span class="o">&lt;</span><span class="no">B</span><span class="o">){</span>
+					<span class="n">winB</span> <span class="o">=</span> <span class="n">winB</span> <span class="o">+</span> <span class="no">A</span> <span class="o">+</span> <span class="no">B</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">winA</span> <span class="o">&gt;</span> <span class="n">winB</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">win</span><span class="o">++;</span>
+			<span class="o">}</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">isSelected</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">isSelected</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="n">nums</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="n">card2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+			<span class="n">perm</span><span class="o">(</span><span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+			<span class="n">isSelected</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+		<span class="o">}</span>
+
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
 
 </code></pre></div></div>
 

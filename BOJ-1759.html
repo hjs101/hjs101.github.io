@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -242,91 +245,91 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_1759_암호만들기 {
-	static int C;
-	static int L;
-	static char[] chars;
-	static char[] answer;
-	static StringBuilder sb = new StringBuilder();
-	static List&lt;String&gt; strs = new ArrayList&lt;&gt;();
-	public static void main(String[] args) throws IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1759_암호만들기</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">C</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">L</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+	<span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">strs</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-		L = Integer.parseInt(st.nextToken());
-		C = Integer.parseInt(st.nextToken());
+		<span class="no">L</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="no">C</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		chars = new char[C];
-		answer = new char[L];
-		st = new StringTokenizer(in.readLine()," ");
-		for(int i=0;i&lt;C;i++) {
-			chars[i] = st.nextToken().charAt(0);
-		}
+		<span class="n">chars</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="no">C</span><span class="o">];</span>
+		<span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="no">L</span><span class="o">];</span>
+		<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">C</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">chars</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+		<span class="o">}</span>
 
-		perm(0,0,' ');
-		Collections.sort(strs);
+		<span class="n">perm</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="sc">' '</span><span class="o">);</span>
+		<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">strs</span><span class="o">);</span>
 
-		for(int i=0;i&lt;strs.size();i++) {
-			sb.append(strs.get(i)).append('\n');
-		}
-		System.out.print(sb);
-	}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">strs</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">strs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+	<span class="o">}</span>
 
-	public static void perm(int cnt, int flag, char n) {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">perm</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="o">,</span> <span class="kt">char</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
 
-		if(cnt == L) {
-			int mCnt = 0;
-			int jCnt = 0;
-			for(int i=0;i&lt;L;i++) {
-				switch(answer[i]) {
-				case 'a':
-				case 'e':
-				case 'i':
-				case 'o':
-				case 'u':
-					mCnt++;
-					break;
-				default:
-					jCnt++;
-				}
-			}
-			if(mCnt &gt;= 1 &amp;&amp; jCnt &gt;= 2) {
-				String str = "";
-				for(int i=0;i&lt;L;i++) {
-					str = str + answer[i];
-				}
-				strs.add(str);
-			}
-			return;
-		}
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="no">L</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">mCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">jCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">L</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">switch</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+				<span class="k">case</span> <span class="sc">'a'</span><span class="o">:</span>
+				<span class="k">case</span> <span class="sc">'e'</span><span class="o">:</span>
+				<span class="k">case</span> <span class="sc">'i'</span><span class="o">:</span>
+				<span class="k">case</span> <span class="sc">'o'</span><span class="o">:</span>
+				<span class="k">case</span> <span class="sc">'u'</span><span class="o">:</span>
+					<span class="n">mCnt</span><span class="o">++;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">default</span><span class="o">:</span>
+					<span class="n">jCnt</span><span class="o">++;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">mCnt</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">jCnt</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">L</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">+</span> <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+				<span class="o">}</span>
+				<span class="n">strs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
 
-		for(int i=0;i&lt;C;i++) {
-			if((flag &amp; 1&lt;&lt;i) != 0) {
-				continue;
-			}
-			answer[cnt] = chars[i];
-			// 가지치기 1 현재 알파벳이 다음 알파벳보다 작을 경우에만 재귀,
-			if(n &lt; answer[cnt]) {
-				perm(cnt+1,flag | 1&lt;&lt;i, answer[cnt]);
-			}
-		}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">C</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">((</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">answer</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="n">chars</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+			<span class="c1">// 가지치기 1 현재 알파벳이 다음 알파벳보다 작을 경우에만 재귀,</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">answer</span><span class="o">[</span><span class="n">cnt</span><span class="o">])</span> <span class="o">{</span>
+				<span class="n">perm</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">flag</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">,</span> <span class="n">answer</span><span class="o">[</span><span class="n">cnt</span><span class="o">]);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 
 </code></pre></div></div>

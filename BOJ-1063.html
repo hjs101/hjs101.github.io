@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -236,108 +239,108 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_1063_킹 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1063_킹</span> <span class="o">{</span>
 
-	// 우 좌 상 하 우상 좌상 우하 좌하 (문제기준)
-	static int dir[][] = { { 0, 1 }, { 0, -1 }, { -1, 0 }, { 1, 0 }, { 1, 1 }, { 1, -1 }, { -1, 1 }, { -1, -1 } };
+	<span class="c1">// 우 좌 상 하 우상 좌상 우하 좌하 (문제기준)</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">dir</span><span class="o">[][]</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
 
-//	static int arr[][];
+<span class="c1">//	static int arr[][];</span>
 
-	static int xK, yK, xS, yS;
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">xK</span><span class="o">,</span> <span class="n">yK</span><span class="o">,</span> <span class="n">xS</span><span class="o">,</span> <span class="n">yS</span><span class="o">;</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		// 버퍼드리더로 값 읽어오기
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="c1">// 버퍼드리더로 값 읽어오기</span>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-//		// 뒤의 8은 a부터 h까지 매칭
-//		arr = new int[9][9];
+<span class="c1">//		// 뒤의 8은 a부터 h까지 매칭</span>
+<span class="c1">//		arr = new int[9][9];</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-		char[] pos = st.nextToken().toCharArray();
+		<span class="kt">char</span><span class="o">[]</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
 
-		// 왕의 위치를 1로
-		xK = pos[1] - '0';
-		yK = pos[0] - 'A' + 1;
+		<span class="c1">// 왕의 위치를 1로</span>
+		<span class="n">xK</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span>
+		<span class="n">yK</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
 
-		pos = st.nextToken().toCharArray();
+		<span class="n">pos</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
 
-		xS = pos[1] - '0';
-		yS = pos[0] - 'A' + 1;
-//		System.out.println(xK+","+yK);
-//		System.out.println(xS+","+yS);
-		int N = Integer.parseInt(st.nextToken());
-		// 왕 이동할 값 읽어와서 이동시키기
-		for (int i = 0; i &lt; N; i++) {
-			String command = in.readLine();
+		<span class="n">xS</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span>
+		<span class="n">yS</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="c1">//		System.out.println(xK+","+yK);</span>
+<span class="c1">//		System.out.println(xS+","+yS);</span>
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="c1">// 왕 이동할 값 읽어와서 이동시키기</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
 
-			switch (command) {
-			case "R":
-				// 킹 이동 함수
-				move(0);
-				break;
-			case "L":
-				move(1);
-				break;
-			case "B":
-				move(2);
-				break;
-			case "T":
-				move(3);
-				break;
-			case "RT":
-				move(4);
-				break;
-			case "LT":
-				move(5);
-				break;
-			case "RB":
-				move(6);
-				break;
-			case "LB":
-				move(7);
-				break;
-			}
+			<span class="k">switch</span> <span class="o">(</span><span class="n">command</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">case</span> <span class="s">"R"</span><span class="o">:</span>
+				<span class="c1">// 킹 이동 함수</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"L"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"B"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"T"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"RT"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"LT"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"RB"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"LB"</span><span class="o">:</span>
+				<span class="n">move</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
 
-		}
+		<span class="o">}</span>
 
-		System.out.printf("%c%d\n",(char)(yK+'A'-1),xK);
-		System.out.printf("%c%d\n",(char)(yS+'A'-1),xS);		
-	}
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%c%d\n"</span><span class="o">,(</span><span class="kt">char</span><span class="o">)(</span><span class="n">yK</span><span class="o">+</span><span class="sc">'A'</span><span class="o">-</span><span class="mi">1</span><span class="o">),</span><span class="n">xK</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%c%d\n"</span><span class="o">,(</span><span class="kt">char</span><span class="o">)(</span><span class="n">yS</span><span class="o">+</span><span class="sc">'A'</span><span class="o">-</span><span class="mi">1</span><span class="o">),</span><span class="n">xS</span><span class="o">);</span>		
+	<span class="o">}</span>
 
-	public static void move(int dirr) {
-		int dx = dir[dirr][0];
-		int dy = dir[dirr][1];
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="kt">int</span> <span class="n">dirr</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">dir</span><span class="o">[</span><span class="n">dirr</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+		<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">dir</span><span class="o">[</span><span class="n">dirr</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
 
-		// 킹이 이동할 위치가 범위 밖인지 확인
-		if (xK + dx &gt; 0 &amp;&amp; xK + dx &lt;= 8 &amp;&amp; yK + dy &gt; 0 &amp;&amp; yK + dy &lt;= 8) {
-			// 킹의 위치를 변경할 곳에 돌이 있는지 확인
-			if (xK + dx == xS &amp;&amp; yK + dy == yS) {
-				// 돌이 이동할 위치가 범위 밖인지 확인
-				if (xS + dx &gt; 0 &amp;&amp; xS + dx &lt;= 8 &amp;&amp; yS + dy &gt; 0 &amp;&amp; yS + dy &lt;= 8) {
-					xK = xK + dx;
-					yK = yK + dy;
+		<span class="c1">// 킹이 이동할 위치가 범위 밖인지 확인</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">xK</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">xK</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">&lt;=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">yK</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">yK</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// 킹의 위치를 변경할 곳에 돌이 있는지 확인</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">xK</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">==</span> <span class="n">xS</span> <span class="o">&amp;&amp;</span> <span class="n">yK</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">==</span> <span class="n">yS</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 돌이 이동할 위치가 범위 밖인지 확인</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">xS</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">xS</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">&lt;=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">yS</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">yS</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">xK</span> <span class="o">=</span> <span class="n">xK</span> <span class="o">+</span> <span class="n">dx</span><span class="o">;</span>
+					<span class="n">yK</span> <span class="o">=</span> <span class="n">yK</span> <span class="o">+</span> <span class="n">dy</span><span class="o">;</span>
 
-					xS = xS + dx;
-					yS = yS + dy;
-				}
-			}else{
-				xK = xK + dx;
-				yK = yK + dy;
-			}
-		}
+					<span class="n">xS</span> <span class="o">=</span> <span class="n">xS</span> <span class="o">+</span> <span class="n">dx</span><span class="o">;</span>
+					<span class="n">yS</span> <span class="o">=</span> <span class="n">yS</span> <span class="o">+</span> <span class="n">dy</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+				<span class="n">xK</span> <span class="o">=</span> <span class="n">xK</span> <span class="o">+</span> <span class="n">dx</span><span class="o">;</span>
+				<span class="n">yK</span> <span class="o">=</span> <span class="n">yK</span> <span class="o">+</span> <span class="n">dy</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 
 </code></pre></div></div>

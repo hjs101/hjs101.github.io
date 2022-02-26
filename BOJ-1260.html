@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -243,101 +246,101 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_1260_DFS와BFS {
-	static StringBuilder sb;
-	static int N;
-	public static void main(String[] args) throws NumberFormatException, IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1260_DFS와BFS</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="nc">StringBuilder</span> <span class="n">sb</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-
-
-
-		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
-
-		N = Integer.parseInt(st.nextToken());
-
-		int M = Integer.parseInt(st.nextToken());
-
-		int V = Integer.parseInt(st.nextToken());
-
-		int[][] adjMatrix = new int[N+1][N+1];
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
 
 
-		for(int i=0;i&lt;M;i++) {
-			st = new StringTokenizer(in.readLine()," ");
-			int v1 = Integer.parseInt(st.nextToken());
-			int v2 = Integer.parseInt(st.nextToken());
-			adjMatrix[v1][v2] = 1;
-			adjMatrix[v2][v1] = 1;
-		}
 
-		boolean[] visited = new boolean[N+1];
-		Arrays.fill(visited, false);
-		sb = new StringBuilder();
-		// dfs
-		dfs(V, visited, adjMatrix);
-		sb.setLength(sb.length()-1);
-		sb.append('\n');
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-		Arrays.fill(visited, false);
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		bfs(V,visited, adjMatrix);
+		<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		System.out.println(sb);
+		<span class="kt">int</span> <span class="no">V</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-	}
-	public static void bfs(int v, boolean[] visited, int[][] adjMatrix) {
-
-		Queue&lt;Integer&gt; queue = new LinkedList&lt;Integer&gt;();
-
-		visited[v] = true;
-		queue.offer(v);
-
-		while(!queue.isEmpty()) {
-			int current = queue.poll();
-
-			sb.append(current + " ");
-
-			for(int i=1;i&lt;=N;i++) {
-				if(!visited[i] &amp;&amp; adjMatrix[current][i] != 0) {
-					queue.offer(i);
-					visited[i] = true;
-				}
-			}
-		}
-
-
-		sb.setLength(sb.length()-1);
-
-	}
-
-	public static void dfs(int v, boolean[] visited, int[][] adjMatrix) {
-		visited[v] = true;
-		sb.append(v + " ");
-		for(int i=1;i&lt;=N;i++) {
-			if(!visited[i] &amp;&amp; adjMatrix[v][i] != 0) {
-				visited[i] = true;
-				dfs(i, visited, adjMatrix);
-			}
-		}
-	}
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">adjMatrix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="no">N</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
 
 
 
-}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">M</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+			<span class="kt">int</span> <span class="n">v1</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">v2</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="n">adjMatrix</span><span class="o">[</span><span class="n">v1</span><span class="o">][</span><span class="n">v2</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+			<span class="n">adjMatrix</span><span class="o">[</span><span class="n">v2</span><span class="o">][</span><span class="n">v1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">N</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+		<span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">visited</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+		<span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+		<span class="c1">// dfs</span>
+		<span class="n">dfs</span><span class="o">(</span><span class="no">V</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">adjMatrix</span><span class="o">);</span>
+		<span class="n">sb</span><span class="o">.</span><span class="na">setLength</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">);</span>
+
+		<span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">visited</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+
+		<span class="n">bfs</span><span class="o">(</span><span class="no">V</span><span class="o">,</span><span class="n">visited</span><span class="o">,</span> <span class="n">adjMatrix</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">v</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">adjMatrix</span><span class="o">)</span> <span class="o">{</span>
+
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+
+		<span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+
+		<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">current</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">current</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">adjMatrix</span><span class="o">[</span><span class="n">current</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+					<span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+
+		<span class="n">sb</span><span class="o">.</span><span class="na">setLength</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">v</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">adjMatrix</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">v</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">adjMatrix</span><span class="o">[</span><span class="n">v</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+				<span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">adjMatrix</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+
+
+<span class="o">}</span>
 
 </code></pre></div></div>
 

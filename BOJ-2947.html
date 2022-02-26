@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -220,51 +223,51 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2947_나무조각 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2947_나무조각</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
-		int[] arr = new int[5];
-		arr[0] = Integer.parseInt(st.nextToken());
-		arr[1] = Integer.parseInt(st.nextToken());
-		arr[2] = Integer.parseInt(st.nextToken());
-		arr[3] = Integer.parseInt(st.nextToken());
-		arr[4] = Integer.parseInt(st.nextToken());
-		while(true) {
-			for(int i=0;i&lt;5;i++) {
-				if(i+1 &gt;=5)continue;
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+		<span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&gt;=</span><span class="mi">5</span><span class="o">)</span><span class="k">continue</span><span class="o">;</span>
 
-				if(arr[i] &gt; arr[i+1]) {
-					swap(arr,i,i+1);
-					System.out.printf("%d %d %d %d %d\n",arr[0],arr[1],arr[2],arr[3],arr[4]);
-				}
-			}
-			int cnt = 0;
-			for(int i=0;i&lt;5;i++) {
-				if(arr[i] != i+1) {
-					break;
-				}
-				cnt++;
-			}
-			if(cnt == 5) return;
-		}
-	}
+				<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+					<span class="n">swap</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span><span class="n">i</span><span class="o">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+					<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%d %d %d %d %d\n"</span><span class="o">,</span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">arr</span><span class="o">[</span><span class="mi">3</span><span class="o">],</span><span class="n">arr</span><span class="o">[</span><span class="mi">4</span><span class="o">]);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="n">cnt</span><span class="o">++;</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void swap(int[] arr, int a, int b) {
-		int temp = arr[a];
-		arr[a] = arr[b];
-		arr[b] = temp;
-	}
-}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">a</span><span class="o">];</span>
+		<span class="n">arr</span><span class="o">[</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">b</span><span class="o">];</span>
+		<span class="n">arr</span><span class="o">[</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 

@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -241,105 +244,105 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_1697_숨바꼭질 {
-	static int N, K, cnt;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1697_숨바꼭질</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">,</span> <span class="no">K</span><span class="o">,</span> <span class="n">cnt</span><span class="o">;</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-		N = Integer.parseInt(st.nextToken());
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		K = Integer.parseInt(st.nextToken());
+		<span class="no">K</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		bfs(new boolean[100001]);
-		System.out.println(cnt);
+		<span class="n">bfs</span><span class="o">(</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">100001</span><span class="o">]);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-	static void bfs(boolean[] visited) {
+	<span class="kd">static</span> <span class="kt">void</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">)</span> <span class="o">{</span>
 
-		Queue&lt;Node2&gt; queue = new LinkedList&lt;&gt;();
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node2</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
 
-		queue.offer(new Node2(N, 0));
-		visited[N] = true;
-		while (!queue.isEmpty()) {
+		<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node2</span><span class="o">(</span><span class="no">N</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+		<span class="n">visited</span><span class="o">[</span><span class="no">N</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
 
-			Node2 node = queue.poll();
+			<span class="nc">Node2</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
 
-			if (node.x == K) {
-				cnt = node.depth;
-				return;
-			}
-
-
-			int[] next = { node.x -1, node.x + 1, node.x*2 };
-
-			for (int i = 0; i &lt; 3; i++) {
-				// 범위 체크 확실히 하자
-				if (next[i] &lt;= 100000 &amp;&amp; next[i] &gt;= 0 &amp;&amp; !visited[next[i]]) {
-					visited[next[i]] = true;
-					queue.offer(new Node2(next[i], node.depth + 1));
-				}
-			}
-		}
-	}
-}
-
-class Node2 {
-
-	int x;
-	int depth;
-
-	public Node2(int x, int depth) {
-		super();
-		this.x = x;
-		this.depth = depth;
-	}
-}
+			<span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">x</span> <span class="o">==</span> <span class="no">K</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">cnt</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">depth</span><span class="o">;</span>
+				<span class="k">return</span><span class="o">;</span>
+			<span class="o">}</span>
 
 
-// 경우의수 따지기 실패
-//while(N != K) {
-//	// N이 K보다 크면 N--
-//	if(N &gt; K) {
-//		N--;
-//	}
-//	// N*2배가 K보다 작으면 무조건 2배
-//	else if(N*2 &lt; K ) {
-//		N = N *2;
-//	//	N*2가  K까지의 거리보다 크면서 N*2보다 N+1에서 K까지의 거리가 더 멀 때
-//	}else if(N*2 &gt; K) {
-//		int M = N*2-K;
-//		int temp = N;
-//		int incnt = 0;
-//		while(true) {
-//			if(temp*2 - K &gt; 2) {
-//				temp--;
-//				incnt++;
-//			}else {
-//				if(incnt &lt; M) {
-//					cnt = cnt + incnt;
-//					N = temp;
-//				}else {
-//					N = N*2;
-//				}
-//				break;
-//			}
-//		}
-//		N = N * 2;
-// N*2가 K까지 거리보다 크지만 N+1에서 K까지의 거리가 더 가까울때
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">next</span> <span class="o">=</span> <span class="o">{</span> <span class="n">node</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">node</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">node</span><span class="o">.</span><span class="na">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">};</span>
 
-//	System.out.println(N);
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="c1">// 범위 체크 확실히 하자</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">next</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="mi">100000</span> <span class="o">&amp;&amp;</span> <span class="n">next</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">visited</span><span class="o">[</span><span class="n">next</span><span class="o">[</span><span class="n">i</span><span class="o">]])</span> <span class="o">{</span>
+					<span class="n">visited</span><span class="o">[</span><span class="n">next</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+					<span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="nc">Node2</span><span class="o">(</span><span class="n">next</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">node</span><span class="o">.</span><span class="na">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Node2</span> <span class="o">{</span>
+
+	<span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">depth</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">Node2</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">();</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">depth</span> <span class="o">=</span> <span class="n">depth</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="c1">// 경우의수 따지기 실패</span>
+<span class="c1">//while(N != K) {</span>
+<span class="c1">//	// N이 K보다 크면 N--</span>
+<span class="c1">//	if(N &gt; K) {</span>
+<span class="c1">//		N--;</span>
+<span class="c1">//	}</span>
+<span class="c1">//	// N*2배가 K보다 작으면 무조건 2배</span>
+<span class="c1">//	else if(N*2 &lt; K ) {</span>
+<span class="c1">//		N = N *2;</span>
+<span class="c1">//	//	N*2가  K까지의 거리보다 크면서 N*2보다 N+1에서 K까지의 거리가 더 멀 때</span>
+<span class="c1">//	}else if(N*2 &gt; K) {</span>
+<span class="c1">//		int M = N*2-K;</span>
+<span class="c1">//		int temp = N;</span>
+<span class="c1">//		int incnt = 0;</span>
+<span class="c1">//		while(true) {</span>
+<span class="c1">//			if(temp*2 - K &gt; 2) {</span>
+<span class="c1">//				temp--;</span>
+<span class="c1">//				incnt++;</span>
+<span class="c1">//			}else {</span>
+<span class="c1">//				if(incnt &lt; M) {</span>
+<span class="c1">//					cnt = cnt + incnt;</span>
+<span class="c1">//					N = temp;</span>
+<span class="c1">//				}else {</span>
+<span class="c1">//					N = N*2;</span>
+<span class="c1">//				}</span>
+<span class="c1">//				break;</span>
+<span class="c1">//			}</span>
+<span class="c1">//		}</span>
+<span class="c1">//		N = N * 2;</span>
+<span class="c1">// N*2가 K까지 거리보다 크지만 N+1에서 K까지의 거리가 더 가까울때</span>
+
+<span class="c1">//	System.out.println(N);</span>
 
 </code></pre></div></div>
 

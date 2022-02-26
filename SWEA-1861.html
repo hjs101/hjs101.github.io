@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -243,87 +246,87 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class D4_1861_정사각형방 {  
-	// 현재 위치
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">D4_1861_정사각형방</span> <span class="o">{</span>  
+	<span class="c1">// 현재 위치</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		System.setIn(new FileInputStream("input_1861.txt"));
-		//				 우		좌	  하		상
-		int[][] dir = { {0,1},{0,-1},{1,0},{-1,0} };
+		<span class="nc">System</span><span class="o">.</span><span class="na">setIn</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"input_1861.txt"</span><span class="o">));</span>
+		<span class="c1">//				 우		좌	  하		상</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">dir</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">},{</span><span class="mi">0</span><span class="o">,-</span><span class="mi">1</span><span class="o">},{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},{-</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">}</span> <span class="o">};</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
 
-		int T = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		for(int tc=1;tc&lt;=T;tc++) {
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">tc</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">tc</span><span class="o">&lt;=</span><span class="no">T</span><span class="o">;</span><span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
 
-			int x = 0;
-			int y = 0;
+			<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-			int N = Integer.parseInt(in.readLine());
+			<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-			int[][] arr = new int[N][N];
+			<span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="no">N</span><span class="o">];</span>
 
-			StringTokenizer st;
+			<span class="nc">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
 
-			// 2차원 배열 할당
-			for(int i=0;i&lt;N;i++) {
-				st = new StringTokenizer(in.readLine()," ");
-				for(int j=0;j&lt;N;j++) {
-					arr[i][j] = Integer.parseInt(st.nextToken());
-				}
-			}
+			<span class="c1">// 2차원 배열 할당</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
 
-			int maxCnt = 0;
-			int answerarr = Integer.MAX_VALUE;
-			for(int i=0;i&lt;N;i++) {
-				for(int j=0;j&lt;N;j++){
-					int cnt = 0;
-					x = i;
-					y = j;
-					while(true){
-						int incnt = cnt;
-						for(int d=0;d&lt;4;d++) {
-							int dx = x + dir[d][0];
-							int dy = y + dir[d][1];
-							if(dx &gt;= 0 &amp;&amp; dx &lt; N &amp;&amp; dy &gt;= 0 &amp;&amp; dy &lt; N &amp;&amp; arr[x][y]+1 == arr[dx][dy]) {
-//								System.out.println(arr[x][y] +" : "+arr[dx][dy]);
-								x = dx;
-								y = dy;
-								cnt++;
-							}
-						}
-						if(cnt == incnt) {
+			<span class="kt">int</span> <span class="n">maxCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">answerarr</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+					<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+					<span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+					<span class="n">y</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+					<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+						<span class="kt">int</span> <span class="n">incnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">;</span>
+						<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">d</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span><span class="n">d</span><span class="o">++)</span> <span class="o">{</span>
+							<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+							<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">d</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+							<span class="k">if</span><span class="o">(</span><span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">arr</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">])</span> <span class="o">{</span>
+<span class="c1">//								System.out.println(arr[x][y] +" : "+arr[dx][dy]);</span>
+								<span class="n">x</span> <span class="o">=</span> <span class="n">dx</span><span class="o">;</span>
+								<span class="n">y</span> <span class="o">=</span> <span class="n">dy</span><span class="o">;</span>
+								<span class="n">cnt</span><span class="o">++;</span>
+							<span class="o">}</span>
+						<span class="o">}</span>
+						<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="n">incnt</span><span class="o">)</span> <span class="o">{</span>
 
-							break;
-						}
-					}
-					if(maxCnt &lt; cnt) {
-						maxCnt = cnt;
-						answerarr = arr[i][j];
-					}else if(maxCnt == cnt) {
-						if(answerarr &gt; arr[i][j]) {
-							answerarr = arr[i][j];
-						}
-					}
-				}
-			}
-			System.out.printf("#%d %d %d\n",tc,answerarr,++maxCnt);
+							<span class="k">break</span><span class="o">;</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">maxCnt</span> <span class="o">&lt;</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">maxCnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">;</span>
+						<span class="n">answerarr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+					<span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">maxCnt</span> <span class="o">==</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+						<span class="k">if</span><span class="o">(</span><span class="n">answerarr</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+							<span class="n">answerarr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"#%d %d %d\n"</span><span class="o">,</span><span class="n">tc</span><span class="o">,</span><span class="n">answerarr</span><span class="o">,++</span><span class="n">maxCnt</span><span class="o">);</span>
 
-		}
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

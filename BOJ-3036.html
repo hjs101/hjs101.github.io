@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -218,43 +221,43 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-// 각 수를 최대 공약수로 나누어서 분수 형태로 표현하면 된다.
-public class BOJ_3036_링 {
+<span class="c1">// 각 수를 최대 공약수로 나누어서 분수 형태로 표현하면 된다.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_3036_링</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
-		int[] arr = new int[N];
-		for(int i=0;i&lt;N;i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
-		}
-		int first = arr[0];
-		for(int i=1;i&lt;N;i++) {
-			int gcd = getgcd(first,arr[i]);
-			System.out.println(first/gcd+"/"+arr[i]/gcd);
-		}
-	}
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">gcd</span> <span class="o">=</span> <span class="n">getgcd</span><span class="o">(</span><span class="n">first</span><span class="o">,</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">first</span><span class="o">/</span><span class="n">gcd</span><span class="o">+</span><span class="s">"/"</span><span class="o">+</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]/</span><span class="n">gcd</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static int getgcd(int A, int B) {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getgcd</span><span class="o">(</span><span class="kt">int</span> <span class="no">A</span><span class="o">,</span> <span class="kt">int</span> <span class="no">B</span><span class="o">)</span> <span class="o">{</span>
 
-		while(B != 0) {
-			int R = A%B;
-			A = B;
-			B = R;
-		}
-		return A;
-	}
-}
+		<span class="k">while</span><span class="o">(</span><span class="no">B</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="no">R</span> <span class="o">=</span> <span class="no">A</span><span class="o">%</span><span class="no">B</span><span class="o">;</span>
+			<span class="no">A</span> <span class="o">=</span> <span class="no">B</span><span class="o">;</span>
+			<span class="no">B</span> <span class="o">=</span> <span class="no">R</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="no">A</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
 
 </code></pre></div></div>

@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -226,106 +229,106 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_14888_연산자끼워넣기 {
-	static int[] nums;
-	static int[] cal;
-	static List&lt;Character&gt; operactor = new ArrayList&lt;&gt;();
-	static char[] opPerm;
-	static int max,min;
-	public static void main(String[] args) throws NumberFormatException, IOException {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_14888_연산자끼워넣기</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">cal</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">operactor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+	<span class="kd">static</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">opPerm</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">max</span><span class="o">,</span><span class="n">min</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine()," ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-		nums = new int[N];
+		<span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
 
-		for(int i=0;i&lt;N;i++) {
-			nums[i] = Integer.parseInt(st.nextToken());
-		}
-		st = new StringTokenizer(in.readLine()," ");
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="o">}</span>
+		<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-		// 덧셈
-		int k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('+');
-		}
-		// 뺄셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('-');
-		}
-		// 곱셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('*');
-		}
-		// 나눗셈
-		k = Integer.parseInt(st.nextToken());
-		for(int i=0;i&lt;k;i++) {
-			operactor.add('/');
-		}
-		opPerm = new char[operactor.size()];
-		max = Integer.MIN_VALUE;
-		min = Integer.MAX_VALUE;
-		perm(0,0);
-		System.out.println(max);
-		System.out.println(min);
-	}
+		<span class="c1">// 덧셈</span>
+		<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">operactor</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">'+'</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="c1">// 뺄셈</span>
+		<span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">operactor</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">'-'</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="c1">// 곱셈</span>
+		<span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">operactor</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">'*'</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="c1">// 나눗셈</span>
+		<span class="n">k</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">operactor</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">'/'</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="n">opPerm</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">operactor</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+		<span class="n">max</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+		<span class="n">min</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+		<span class="n">perm</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">max</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">min</span><span class="o">);</span>
+	<span class="o">}</span>
 
-	static void perm(int cnt, int flag) {
+	<span class="kd">static</span> <span class="kt">void</span> <span class="nf">perm</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="o">)</span> <span class="o">{</span>
 
-		// 기저조건
-		if(cnt == operactor.size()) {
-			int num = nums[0];
-			for(int i=0;i&lt;nums.length-1;i++) {
-				switch(opPerm[i]){
-				case '+':
-					num = num + nums[i+1];
-					break;
-				case '-':
-					num = num - nums[i+1];					
-					break;
-				case '*':
-					num = num * nums[i+1];
-					break;
-				case '/':
-					num = num / nums[i+1];
-					break;
-				}
-			}
-			max = Math.max(max, num);
-			min = Math.min(min, num);
-			return;
-		}
+		<span class="c1">// 기저조건</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="n">operactor</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">switch</span><span class="o">(</span><span class="n">opPerm</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span>
+				<span class="k">case</span> <span class="sc">'+'</span><span class="o">:</span>
+					<span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">'-'</span><span class="o">:</span>
+					<span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>					
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">'*'</span><span class="o">:</span>
+					<span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">'/'</span><span class="o">:</span>
+					<span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+			<span class="n">min</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
 
-		// 유도파트
+		<span class="c1">// 유도파트</span>
 
-		for(int i=0,n=operactor.size();i&lt;n;i++) {
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">operactor</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 
-			if((flag &amp; 1&lt;&lt;i) != 0) {
-				continue;
-			}
+			<span class="k">if</span><span class="o">((</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
 
-			opPerm[cnt] = operactor.get(i);
-			perm(cnt+1,flag | 1&lt;&lt;i);
-		}
+			<span class="n">opPerm</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="n">operactor</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+			<span class="n">perm</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">flag</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 
 </code></pre></div></div>

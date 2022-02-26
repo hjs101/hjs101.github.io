@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -227,79 +230,79 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
-public class BOJ_2667_단지번호붙이기 {
-	static int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
-	static boolean[][] isVisited;
-	static int N;
-	static char arr[][];
-	static int cnt;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2667_단지번호붙이기</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">dir</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">},</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">isVisited</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">char</span> <span class="n">arr</span><span class="o">[][];</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">;</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+		<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-		N = Integer.parseInt(in.readLine());
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		// 값 저장할 배열
-		arr = new char[N][N];
-		// 방문상태 파악
-		isVisited = new boolean[N][N];
+		<span class="c1">// 값 저장할 배열</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="no">N</span><span class="o">];</span>
+		<span class="c1">// 방문상태 파악</span>
+		<span class="n">isVisited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="no">N</span><span class="o">];</span>
 
-		for (int i = 0; i &lt; N; i++) {
-			arr[i] = in.readLine().toCharArray();
-		}
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+		<span class="o">}</span>
 
-		// dfs
-		for (int i = 0; i &lt; N; i++) {
-			for (int j = 0; j &lt; N; j++) {
-				if (arr[i][j] == '1' &amp;&amp; isVisited[i][j] == false) {
-					cnt = 1;
-					int cnt = dfs(i, j);
-					list.add(cnt);
-				}
-			}
-		}
+		<span class="c1">// dfs</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">isVisited</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+					<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+					<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
 
-		StringBuilder sb = new StringBuilder();
+		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
 
-		Collections.sort(list);
+		<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
 
-		sb.append(list.size()).append('\n');
+		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">);</span>
 
-		for (int i = 0; i &lt; list.size(); i++) {
-			sb.append(list.get(i)).append('\n');
-		}
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">);</span>
+		<span class="o">}</span>
 
-		System.out.println(sb);
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-	static int dfs(int x, int y) {
+	<span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
 
-		isVisited[x][y] = true;
+		<span class="n">isVisited</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 
-		for (int i = 0; i &lt; 4; i++) {
-			int dx = x + dir[i][0];
-			int dy = y + dir[i][1];
-			if (dx &gt;= 0 &amp;&amp; dx &lt; N &amp;&amp; dy &gt;= 0 &amp;&amp; dy &lt; N &amp;&amp; arr[dx][dy] == '1' &amp;&amp; isVisited[dx][dy] != true) {
-				dfs(dx, dy);
-				cnt++;
-			}
-		}
-		return cnt;
-	}
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+			<span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">dx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="no">N</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">isVisited</span><span class="o">[</span><span class="n">dx</span><span class="o">][</span><span class="n">dy</span><span class="o">]</span> <span class="o">!=</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">dfs</span><span class="o">(</span><span class="n">dx</span><span class="o">,</span> <span class="n">dy</span><span class="o">);</span>
+				<span class="n">cnt</span><span class="o">++;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

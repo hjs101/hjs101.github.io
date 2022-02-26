@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -216,73 +219,74 @@ into the {body} of the default.hbs template -->
 <p>반복이 모두 이루어진 후 스택이 비어있는 지 확인해서 비어있다면 YES를, 비어있지 않다면 NO를 출력한다.</p>
 
 <h2 id="소스-코드">소스 코드</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
-public class BOJ_9012_괄호 {
-	static ArrayList&lt;Integer&gt; stack = new ArrayList&lt;&gt;();
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_9012_괄호</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int K = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">K</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		for(int i=0;i&lt;K;i++) {
-			stack.clear();
-			char[] chars = in.readLine().toCharArray();
-			for(int j=0;j&lt;chars.length;j++) {
-				if(chars[j] == '(') {
-					push('(');
-				}else if(chars[j] == ')'){
-					if(top() == '(') {
-						pop();
-					}else {
-						push(')');
-					}
-				}
-			}
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">K</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">stack</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">chars</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">chars</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">push</span><span class="o">(</span><span class="sc">'('</span><span class="o">);</span>
+				<span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">chars</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">')'</span><span class="o">){</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">top</span><span class="o">()</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">pop</span><span class="o">();</span>
+					<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+						<span class="n">push</span><span class="o">(</span><span class="sc">')'</span><span class="o">);</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
 
-			if(isEmpty()) {
-				System.out.println("YES");
-			}else
-			{
-				System.out.println("NO");
-			}
-		}
-	}
+			<span class="k">if</span><span class="o">(</span><span class="n">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"YES"</span><span class="o">);</span>
+			<span class="o">}</span><span class="k">else</span>
+			<span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"NO"</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void push(int X) {
-		stack.add(X);
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="no">X</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">stack</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="no">X</span><span class="o">);</span>
+	<span class="o">}</span>
 
-	public static void pop() {
-		if(stack.size() == 0) {
-		}else {
-			stack.remove(stack.size()-1);
-		}
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+			<span class="n">stack</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static void size() {
-		System.out.println(stack.size());
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+	<span class="o">}</span>
 
-	public static boolean isEmpty() {
-		if(stack.size() == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	public static int top() {
-		if(stack.size() == 0) {
-			return -1;
-		}else {
-			return stack.get(stack.size()-1);
-		}
-	}
-}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">top</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
                 </div>

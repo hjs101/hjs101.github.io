@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -211,61 +214,63 @@ stack1,2를 만들고 주어진 문자열을 탐색한다. 각각 ‘[’ 과 �
 <p>그래서, 스택을 하나로 합치고, 잘못된 짝이 지어졌을 때는 바로 no를 출력하고 다음 문자열로 넘어가도록 했다. 또한, 잘못된 짝이 지어지지 않았더라도, 문자열을 모두 탐색한 후 스택에 값이 남아있다면, 짝지어지지 못한 괄호가 있는 것이므로 no를 출력하도록 했다.</p>
 
 <h2 id="소스-코드">소스 코드</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Stack;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
 
-public class BOJ_4949_균형잡힌세상 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_4949_균형잡힌세상</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		go:while (true) {
-			// (), [] 담을 스택
-			Stack&lt;Integer&gt; stack1 = new Stack&lt;&gt;();
+		<span class="nl">go:</span><span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// (), [] 담을 스택</span>
+			<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
 
-			char[] chars = in.readLine().toCharArray();
-			// 종료 조건
-			if (chars.length == 1 &amp;&amp; chars[0] == '.') {
-				break;
-			}
-			for (int i = 0; i &lt; chars.length; i++) {
-				switch (chars[i]) {
-				case '(':
-					stack1.push((int) chars[i]);
-					break;
-				case ')':
-					if (!stack1.empty()&amp;&amp;stack1.peek() == '(') {
-						stack1.pop();
-					} else {
-						System.out.println("no");
-						continue go;
-					}
-					break;
-				case '[':
-					stack1.push((int) chars[i]);
-					break;
-				case ']':
-					if (!stack1.empty()&amp;&amp;stack1.peek() == '[') {
-						stack1.pop();
-					} else {
-						System.out.println("no");
-						continue go;
-					}
-					break;
-				}
-			}
-			if (stack1.empty()) {
-				System.out.println("yes");
-			}else {
-				System.out.println("no");
-			}
-		}
-	}
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="c1">// 종료 조건</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">chars</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">chars</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'.'</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">chars</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">chars</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+				<span class="k">case</span> <span class="sc">'('</span><span class="o">:</span>
+					<span class="n">stack1</span><span class="o">.</span><span class="na">push</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="n">chars</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">')'</span><span class="o">:</span>
+					<span class="k">if</span> <span class="o">(!</span><span class="n">stack1</span><span class="o">.</span><span class="na">empty</span><span class="o">()&amp;&amp;</span><span class="n">stack1</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">stack1</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+						<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"no"</span><span class="o">);</span>
+						<span class="k">continue</span> <span class="n">go</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">'['</span><span class="o">:</span>
+					<span class="n">stack1</span><span class="o">.</span><span class="na">push</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="n">chars</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="sc">']'</span><span class="o">:</span>
+					<span class="k">if</span> <span class="o">(!</span><span class="n">stack1</span><span class="o">.</span><span class="na">empty</span><span class="o">()&amp;&amp;</span><span class="n">stack1</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">==</span> <span class="sc">'['</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">stack1</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+						<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"no"</span><span class="o">);</span>
+						<span class="k">continue</span> <span class="n">go</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">stack1</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"yes"</span><span class="o">);</span>
+			<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"no"</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
+
 </code></pre></div></div>
 
                 </div>

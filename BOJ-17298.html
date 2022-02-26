@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -311,76 +314,76 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
 
-public class BOJ_17298_오큰수 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_17298_오큰수</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
-		String[] str = in.readLine().split(" ");
-		Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
-		// Map으로 하니 중복일 때 덮어씌워버리는 문제 발생
-		Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
-		int[] B = new int[N];
-		// 스택으로 풀어보기
-		for (int i = 0; i &lt; N; i++) {
-			int K = Integer.parseInt(str[i]);
-			int cnt = i;
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">str</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+		<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+		<span class="c1">// Map으로 하니 중복일 때 덮어씌워버리는 문제 발생</span>
+		<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="no">B</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+		<span class="c1">// 스택으로 풀어보기</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="no">K</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
 
-			while (true) {
-				if (!stack.empty() &amp;&amp; stack.peek() &lt; K) {
-					// 해당 조건문이 없다면 이미 값이 들어있는 경우에도 덮어쓰기가 되어버린다.
-					// 2 1 2 3
-					// 0 2 0 0 // 2 2
-					// 2 1 2 3 // 2 2 3
-					// 0 2 3 0
-					if (B[--cnt] != 0) {
-						continue;
-					} else {
-						B[cnt] = K;
-					}
+			<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">empty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">&lt;</span> <span class="no">K</span><span class="o">)</span> <span class="o">{</span>
+					<span class="c1">// 해당 조건문이 없다면 이미 값이 들어있는 경우에도 덮어쓰기가 되어버린다.</span>
+					<span class="c1">// 2 1 2 3</span>
+					<span class="c1">// 0 2 0 0 // 2 2</span>
+					<span class="c1">// 2 1 2 3 // 2 2 3</span>
+					<span class="c1">// 0 2 3 0</span>
+					<span class="k">if</span> <span class="o">(</span><span class="no">B</span><span class="o">[--</span><span class="n">cnt</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+						<span class="k">continue</span><span class="o">;</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+						<span class="no">B</span><span class="o">[</span><span class="n">cnt</span><span class="o">]</span> <span class="o">=</span> <span class="no">K</span><span class="o">;</span>
+					<span class="o">}</span>
 
-					stack.pop();
-				} else {
+					<span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 
-					break;
-				}
-			}
-			stack.push(K);
-		}
-// 스택 안쓰고 풀어보기 - 시간초과		
-//		go:for(int i=0;i&lt;N;i++) {
-//			for(int j=i;j&lt;N;j++) {
-//				if(A[i] &lt; A[j]) {
-//					arr.add(A[j]);
-//					continue go;
-//				}
-//			}
-//			arr.add(-1);
-//		}
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i &lt; N; i++) {
-			if (B[i] == 0) {
-				B[i] = -1;
-			}
-			sb.append(B[i]).append(" ");
-		}
-		System.out.print(sb);
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="no">K</span><span class="o">);</span>
+		<span class="o">}</span>
+<span class="c1">// 스택 안쓰고 풀어보기 - 시간초과		</span>
+<span class="c1">//		go:for(int i=0;i&lt;N;i++) {</span>
+<span class="c1">//			for(int j=i;j&lt;N;j++) {</span>
+<span class="c1">//				if(A[i] &lt; A[j]) {</span>
+<span class="c1">//					arr.add(A[j]);</span>
+<span class="c1">//					continue go;</span>
+<span class="c1">//				}</span>
+<span class="c1">//			}</span>
+<span class="c1">//			arr.add(-1);</span>
+<span class="c1">//		}</span>
+		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span><span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]).</span><span class="na">append</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

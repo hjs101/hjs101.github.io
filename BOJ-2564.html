@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -256,41 +259,41 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_2564_경비원 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2564_경비원</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
 
-		int N = Integer.parseInt(st.nextToken());
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		int M = Integer.parseInt(st.nextToken());
+		<span class="kt">int</span> <span class="no">M</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		int R = Integer.parseInt(in.readLine());
+		<span class="kt">int</span> <span class="no">R</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-		int[][] arr = new int[R][2];
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">R</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
 
-		for (int i = 0; i &lt; R; i++) {
-			st = new StringTokenizer(in.readLine(), " ");
-			for (int j = 0; j &lt; 2; j++) {
-				arr[i][j] = Integer.parseInt(st.nextToken());
-			}
-		}
-		st = new StringTokenizer(in.readLine(), " ");
-		// 동근이 방향
-		int dongDir = Integer.parseInt(st.nextToken());
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">R</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+		<span class="c1">// 동근이 방향</span>
+		<span class="kt">int</span> <span class="n">dongDir</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		// 동근이 거리
-		int dongDis = Integer.parseInt(st.nextToken());
-		/*
+		<span class="c1">// 동근이 거리</span>
+		<span class="kt">int</span> <span class="n">dongDis</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="cm">/*
 			총정리
 		 	/*
 		 	1. 동근이 동일때 (4)
@@ -317,111 +320,111 @@ public class BOJ_2564_경비원 {
 				- 상점이 남 : Min(M + 동근 + 상점, 2N + M -동근 - 상점)
 				- 상점이 북 : 동근 - 상점 절댓값
 
-		*/
-		int ans = 0;
-		int sum = 0;
-		for (int i = 0; i &lt; R; i++) {
-			int shopDir = arr[i][0];
-			int shopDis = arr[i][1];
+		*/</span>
+		<span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">R</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">shopDir</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+			<span class="kt">int</span> <span class="n">shopDis</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
 
-			// 동근이 위치 기반 스위치문
-			switch (dongDir) {
-			// 동근이 동
+			<span class="c1">// 동근이 위치 기반 스위치문</span>
+			<span class="k">switch</span> <span class="o">(</span><span class="n">dongDir</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// 동근이 동</span>
 
-			case 4:
-				// 상점 위치 기반 스위치문
-				switch (shopDir) {
-				// 상점 동 : 상점 - 동근 절댓값
-				case 4:
-					ans = Math.abs(shopDis - dongDis);
-					break;
-				// 상점 서 : Min(N + 동근 + 상점, 2M + N - 동근 - 상점)
-				case 3:
-					ans = Math.min(N+dongDis+shopDis, 2*M+N-dongDis-shopDis);
-					break;
-				// 상점 남 : M - 동근 + 상점
-				case 2:
-					ans = M - dongDis + shopDis;
-					break;
-				// 상점 북 : 동근 + N - 상점
-				case 1:
-					ans = dongDis + N - shopDis;
-					break;
-				}
-				break;
-			// 동근이 서
-			case 3:
-				switch (shopDir) {
-				// 상점이 동 : Min(N + 동근 + 상점, 2M + N - 동근 - 상점)
-				case 4:
-					ans = Math.min(N+dongDis+shopDis, 2*M+N-dongDis-shopDis);
-					break;
-				// 상점 서 : 상점 - 동근 절댓값
-				case 3:
-					ans = Math.abs(shopDis - dongDis);
-					break;
-				// 상점 남 : M - 동근  + 상점거리
-				case 2:
-					ans = M - dongDis + shopDis;
-					break;
-				// 상점 북 : 동근 + 상점
-				case 1:
-					ans = dongDis + shopDis;
-					break;
-				}
-				break;
-			// 동근이 남
-			case 2:
-				switch (shopDir) {
-				// 상점 동 : N+M-동근-상점
-				case 4:
-					ans = N + M - dongDis - shopDis;
-					break;
-				// 상점 서 : 동근 + M - 상점
-				case 3:
-					ans = dongDis + M - shopDis;
-					break;
-				// 상점 남 : 상점 - 동근 절댓값
-				case 2:
-					ans = Math.abs(shopDis - dongDis);
-					break;
-				// 상점 북 :  Min(M + 동근 + 상점, 2N + M -동근 - 상점)
-				case 1:
-					ans = Math.min(M+dongDis+shopDis, 2*N + M - dongDis-shopDis);
-					break;
-				}
-				break;
-			// 동근이 북
-			case 1:
-				switch (shopDir) {
-				// 상점 동 : N - 동근 + 상점
-				case 4:
-					ans = N - dongDis + shopDis;
-					break;
-				// 상점 서 : 동근 + 상점
-				case 3:
-					ans = dongDis + shopDis;
-					break;
-				// 상점 남 : Min(M + 동근 + 상점, 2N + M -동근 - 상점)
-				case 2:
-					ans = Math.min(M+dongDis+shopDis, 2*N + M - dongDis-shopDis);
-					break;
-				// 상점 북 : 동근 - 상점 절댓값
-				case 1:
-					ans = Math.abs(shopDis - dongDis);
-					break;
-				}
-				break;
-			}
+			<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+				<span class="c1">// 상점 위치 기반 스위치문</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">shopDir</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 상점 동 : 상점 - 동근 절댓값</span>
+				<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">shopDis</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 서 : Min(N + 동근 + 상점, 2M + N - 동근 - 상점)</span>
+				<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="no">N</span><span class="o">+</span><span class="n">dongDis</span><span class="o">+</span><span class="n">shopDis</span><span class="o">,</span> <span class="mi">2</span><span class="o">*</span><span class="no">M</span><span class="o">+</span><span class="no">N</span><span class="o">-</span><span class="n">dongDis</span><span class="o">-</span><span class="n">shopDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 남 : M - 동근 + 상점</span>
+				<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="no">M</span> <span class="o">-</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 북 : 동근 + N - 상점</span>
+				<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="no">N</span> <span class="o">-</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="c1">// 동근이 서</span>
+			<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">shopDir</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 상점이 동 : Min(N + 동근 + 상점, 2M + N - 동근 - 상점)</span>
+				<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="no">N</span><span class="o">+</span><span class="n">dongDis</span><span class="o">+</span><span class="n">shopDis</span><span class="o">,</span> <span class="mi">2</span><span class="o">*</span><span class="no">M</span><span class="o">+</span><span class="no">N</span><span class="o">-</span><span class="n">dongDis</span><span class="o">-</span><span class="n">shopDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 서 : 상점 - 동근 절댓값</span>
+				<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">shopDis</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 남 : M - 동근  + 상점거리</span>
+				<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="no">M</span> <span class="o">-</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 북 : 동근 + 상점</span>
+				<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="c1">// 동근이 남</span>
+			<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">shopDir</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 상점 동 : N+M-동근-상점</span>
+				<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="no">N</span> <span class="o">+</span> <span class="no">M</span> <span class="o">-</span> <span class="n">dongDis</span> <span class="o">-</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 서 : 동근 + M - 상점</span>
+				<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="no">M</span> <span class="o">-</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 남 : 상점 - 동근 절댓값</span>
+				<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">shopDis</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 북 :  Min(M + 동근 + 상점, 2N + M -동근 - 상점)</span>
+				<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="no">M</span><span class="o">+</span><span class="n">dongDis</span><span class="o">+</span><span class="n">shopDis</span><span class="o">,</span> <span class="mi">2</span><span class="o">*</span><span class="no">N</span> <span class="o">+</span> <span class="no">M</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">-</span><span class="n">shopDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="c1">// 동근이 북</span>
+			<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+				<span class="k">switch</span> <span class="o">(</span><span class="n">shopDir</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 상점 동 : N - 동근 + 상점</span>
+				<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="no">N</span> <span class="o">-</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 서 : 동근 + 상점</span>
+				<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="n">dongDis</span> <span class="o">+</span> <span class="n">shopDis</span><span class="o">;</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 남 : Min(M + 동근 + 상점, 2N + M -동근 - 상점)</span>
+				<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="no">M</span><span class="o">+</span><span class="n">dongDis</span><span class="o">+</span><span class="n">shopDis</span><span class="o">,</span> <span class="mi">2</span><span class="o">*</span><span class="no">N</span> <span class="o">+</span> <span class="no">M</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">-</span><span class="n">shopDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="c1">// 상점 북 : 동근 - 상점 절댓값</span>
+				<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+					<span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">shopDis</span> <span class="o">-</span> <span class="n">dongDis</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
 
-			sum = sum + ans;
-		}
+			<span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">ans</span><span class="o">;</span>
+		<span class="o">}</span>
 
-		System.out.println(sum);
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 
 </code></pre></div></div>

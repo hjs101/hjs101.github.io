@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -225,17 +228,17 @@ into the {body} of the default.hbs template -->
 
 <p>그렇다면 이 내용을 자바 코드로 구현해 보았다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-public static int search(int A, int B) {
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span> <span class="no">A</span><span class="o">,</span> <span class="kt">int</span> <span class="no">B</span><span class="o">)</span> <span class="o">{</span>
 
-	while(B != 0) {
-		int R = A%B;
-		A = B;
-		B = R;
-	}
+	<span class="k">while</span><span class="o">(</span><span class="no">B</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="no">R</span> <span class="o">=</span> <span class="no">A</span><span class="o">%</span><span class="no">B</span><span class="o">;</span>
+		<span class="no">A</span> <span class="o">=</span> <span class="no">B</span><span class="o">;</span>
+		<span class="no">B</span> <span class="o">=</span> <span class="no">R</span><span class="o">;</span>
+	<span class="o">}</span>
 
-	return A;
-}
+	<span class="k">return</span> <span class="no">A</span><span class="o">;</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 
@@ -280,42 +283,42 @@ public static int search(int A, int B) {
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.util.Scanner;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
-public class BOJ_2609_최대공약수와최소공배수 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_2609_최대공약수와최소공배수</span> <span class="o">{</span>
 
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
 
-		int A = in.nextInt();
-		int B = in.nextInt();
-		int ans1 =0;
-		if(A&gt;B) {
-			ans1 = search(A,B);
-		}else{
-			ans1 = search(B,A);
-		}
+		<span class="kt">int</span> <span class="no">A</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="no">B</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">ans1</span> <span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="no">A</span><span class="o">&gt;</span><span class="no">B</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">ans1</span> <span class="o">=</span> <span class="n">search</span><span class="o">(</span><span class="no">A</span><span class="o">,</span><span class="no">B</span><span class="o">);</span>
+		<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+			<span class="n">ans1</span> <span class="o">=</span> <span class="n">search</span><span class="o">(</span><span class="no">B</span><span class="o">,</span><span class="no">A</span><span class="o">);</span>
+		<span class="o">}</span>
 
-		int ans2 = A*B/ans1;
+		<span class="kt">int</span> <span class="n">ans2</span> <span class="o">=</span> <span class="no">A</span><span class="o">*</span><span class="no">B</span><span class="o">/</span><span class="n">ans1</span><span class="o">;</span>
 
-		System.out.println(ans1);
-		System.out.println(ans2);
-}
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ans1</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ans2</span><span class="o">);</span>
+<span class="o">}</span>
 
 
-	public static int search(int A, int B) {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span> <span class="no">A</span><span class="o">,</span> <span class="kt">int</span> <span class="no">B</span><span class="o">)</span> <span class="o">{</span>
 
-		while(B != 0) {
-			int R = A%B;
-			A = B;
-			B = R;
-		}
+		<span class="k">while</span><span class="o">(</span><span class="no">B</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="no">R</span> <span class="o">=</span> <span class="no">A</span><span class="o">%</span><span class="no">B</span><span class="o">;</span>
+			<span class="no">A</span> <span class="o">=</span> <span class="no">B</span><span class="o">;</span>
+			<span class="no">B</span> <span class="o">=</span> <span class="no">R</span><span class="o">;</span>
+		<span class="o">}</span>
 
-		return A;
-	}
+		<span class="k">return</span> <span class="no">A</span><span class="o">;</span>
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

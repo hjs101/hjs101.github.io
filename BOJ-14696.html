@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -226,67 +229,67 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_14696_딱지놀이 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_14696_딱지놀이</span> <span class="o">{</span>
 
 
-	// 별 = 4, 동그라미 = 3 네모 = 2 세모 = 1
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="c1">// 별 = 4, 동그라미 = 3 네모 = 2 세모 = 1</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-		int N = Integer.parseInt(in.readLine());
-		// 라운드 수 만큼 반복
-		StringBuilder sb = new StringBuilder();
-		for(int r=0;r&lt;N;r++) {
-			StringTokenizer st = new StringTokenizer(in.readLine()," ");
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="c1">// 라운드 수 만큼 반복</span>
+		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">r</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">r</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-			int[] cardA = new int[Integer.parseInt(st.nextToken())];
-			for(int i=0;i&lt;cardA.length;i++) {
-				cardA[i] = Integer.parseInt(st.nextToken());
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">cardA</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">())];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cardA</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">cardA</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-			}
+			<span class="o">}</span>
 
-			st = new StringTokenizer(in.readLine()," ");
-			int[] cardB = new int[Integer.parseInt(st.nextToken())];
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">cardB</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">())];</span>
 
-			for(int i=0;i&lt;cardB.length;i++) {
-				cardB[i] = Integer.parseInt(st.nextToken());
-			}
-			int[] cnt1 = new int[5];
-			int[] cnt2 = new int[5];
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cardB</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">cardB</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
 
-			for(int i=0;i&lt;cardA.length;i++) {
-				cnt1[cardA[i]]++;
-			}
-			for(int i=0;i&lt;cardB.length;i++) {
-				cnt2[cardB[i]]++;
-			}
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cardA</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">cnt1</span><span class="o">[</span><span class="n">cardA</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
+			<span class="o">}</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cardB</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">cnt2</span><span class="o">[</span><span class="n">cardB</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
+			<span class="o">}</span>
 
-			// 비교 부분
-			for(int i=4;i&gt;0;i--) {
-				if(cnt1[i] &gt; cnt2[i]) {
-					sb.append("A").append("\n");
-					break;
-				}else if(cnt1[i] &lt; cnt2[i]) {
-					sb.append("B").append("\n");
-					break;
-				}else if(i == 1){
-					sb.append("D").append("\n");
-					break;
-				}
-			}
-		}
-		System.out.print(sb);
+			<span class="c1">// 비교 부분</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">4</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">cnt1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">cnt2</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"A"</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">cnt1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">cnt2</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"B"</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+					<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"D"</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-}
+<span class="o">}</span>
 
 </code></pre></div></div>
 

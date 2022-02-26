@@ -17,9 +17,12 @@
 
     <!-- font, Awesome !-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css 추가 -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
 
     <!-- Styles'n'Scripts -->
@@ -229,58 +232,58 @@ into the {body} of the default.hbs template -->
 
 <h2 id="소스-코드">소스 코드</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-public class BOJ_10163_색종이 {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_10163_색종이</span> <span class="o">{</span>
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-
-		int[][] arr = new int[1001][1001];
-
-		int N = Integer.parseInt(in.readLine());
-		int xMax = 0;
-		int yMax = 0;
-		for(int c=1;c&lt;=N;c++) {
-			StringTokenizer st = new StringTokenizer(in.readLine()," ");
-			int x = Integer.parseInt(st.nextToken());
-			int y = Integer.parseInt(st.nextToken());
-			int d = Integer.parseInt(st.nextToken());
-			int r = Integer.parseInt(st.nextToken());
-			for(int i=x;i&lt;x+d;i++) {
-				for(int j=y;j&lt;y+r;j++){
-					arr[i][j] = c;
-				}
-			}
-			if(x+d &gt; xMax) {
-				xMax = x+d;
-			}
-			if(y+r &gt; yMax) {
-				yMax = y+r;
-			}
-		}
-		for(int c=1;c&lt;=N;c++) {
-			int cnt = 0;
-			for(int i=0;i&lt;xMax;i++) {
-				for(int j=0;j&lt;yMax;j++) {
-					if(arr[i][j] == c) {
-						cnt++;
-					}
-				}
-			}
-			System.out.println(cnt);
-		}
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
 
-	}
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1001</span><span class="o">][</span><span class="mi">1001</span><span class="o">];</span>
 
-}
+		<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="kt">int</span> <span class="n">xMax</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">yMax</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">c</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span><span class="n">c</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+			<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">x</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">x</span><span class="o">+</span><span class="n">d</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">y</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">y</span><span class="o">+</span><span class="n">r</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+					<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">x</span><span class="o">+</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">xMax</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">xMax</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">d</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">y</span><span class="o">+</span><span class="n">r</span> <span class="o">&gt;</span> <span class="n">yMax</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">yMax</span> <span class="o">=</span> <span class="n">y</span><span class="o">+</span><span class="n">r</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">c</span><span class="o">&lt;=</span><span class="no">N</span><span class="o">;</span><span class="n">c</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">xMax</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">yMax</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+						<span class="n">cnt</span><span class="o">++;</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+		<span class="o">}</span>
+
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
 
 </code></pre></div></div>
 
