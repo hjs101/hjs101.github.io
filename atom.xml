@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_10431_줄세우기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--줄-세우기&quot;&gt;문제 : 줄 세우기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 27 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-10431</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-10431</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1753_최단경로_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--최단경로&quot;&gt;문제 : 최단경로&lt;/h2&gt;
@@ -1181,7 +1196,9 @@
   &lt;br /&gt;
   2022-02-26
   &lt;li&gt;&lt;a href=&quot;./BOJ-1753&quot;&gt;BOJ_1753_최단경로_JAVA&lt;/a&gt;&lt;/li&gt;
-
+  &lt;br /&gt;
+  2022-02-27
+  &lt;li&gt;&lt;a href=&quot;./BOJ-10431&quot;&gt;BOJ_10431_줄세우기_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
