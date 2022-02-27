@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>Unity_공부_01</title>
+        
+          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 27 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-01</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-01</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_10431_줄세우기_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--줄-세우기&quot;&gt;문제 : 줄 세우기&lt;/h2&gt;
@@ -18,6 +33,27 @@
         <link>
         https://hjs101.github.io/BOJ-10431</link>
         <guid isPermaLink="true">https://hjs101.github.io/BOJ-10431</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Unity_목차</title>
+        
+          <description>
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+  2022-02-28
+  &lt;li&gt;&lt;a href=&quot;./Dragon-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sat, 26 Feb 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-menu</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-menu</guid>
       </item>
       
     

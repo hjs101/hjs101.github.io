@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-02-28T03:04:21+09:00</updated>
+  <id>https://hjs101.github.io/tag/unity/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">hjs’s Blog | </title>
+  
+
+  
+    <subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Unity_공부_01</title>
+      <link href="https://hjs101.github.io/Unity-01" rel="alternate" type="text/html" title="Unity_공부_01" />
+      <published>2022-02-27T09:00:00+09:00</published>
+      <updated>2022-02-27T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-01</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-01">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+
+&lt;p&gt;실습하기에 앞서서 교재에서 사용하는 버전에 맞는 유니티를 설치하여 준비를 끝마치려고 한다.&lt;/p&gt;
+
+&lt;p&gt;설치하는 방법은 유니티 허브에서 install 하는 것과 아카이브 페이지에서 다운로드 받는 것 2가지가 있는데, 나는 유니티 허브에서 설치하던 중 오류가 발생하여 아카이브 페이지에서 설치 파일을 다운받아 설치했다.&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://unity3d.com/kr/get-unity/download/archive&quot;&gt;SWEA_3289_서로소집합&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_00.jpg&quot; alt=&quot;Unity_00&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 링크를 타고 들어가면 Unity 에디터 설치 파일을 다운로드 받을 수 있다. 나는 현 시점에서 최신 버전인 2021.2.13 버전을 다운받았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 자동으로 정해지는 대로 쭉 다음 버튼을 눌러 설치했다.&lt;/p&gt;
+
+&lt;p&gt;다만, 이렇게 아카이브를 통해 설치하면 부가적인 모듈을 설치해야 하는데 어디서 설치해야 할 지 몰랐다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아카이브 페이지를 다시 찾아보니, 유니티 에디터 설치 파일이 아니라 설치마법사가 있는 파일이 따로 있었다. 위 사진에 있는 Unity 설치 프로그램 항목을 눌러 설치를 다시 진행하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로 받은 파일로 설치하면 위와 같이 체크박스로 설치할 컴포넌트를 선택할 수 있다. 처음부터 위 파일로 설치한다면 위 사진과 같이 4개를 체크하면 된다. 나는 에디터를 먼저 설치했었기 때문에, 가장 위에 있는 체크박스는 해제하고 설치했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;모두 설치된 후 재부팅해준다.&lt;/p&gt;
+
+&lt;p&gt;이후 유니티 허브에 들어가 보면 다음과 같이 2021.2.13버전이 설치되어 있는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;유니티 허브 설치에 대한 부분은 다른 블로그의 포스팅을 참고해주시면 감사하겠습니다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Unity_목차</title>
+      <link href="https://hjs101.github.io/Unity-menu" rel="alternate" type="text/html" title="Unity_목차" />
+      <published>2022-02-26T09:00:00+09:00</published>
+      <updated>2022-02-26T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-menu</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+  2022-02-28
+  &lt;li&gt;&lt;a href=&quot;./Dragon-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
