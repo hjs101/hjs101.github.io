@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-01T02:09:26+09:00</updated>
+  <updated>2022-03-01T03:16:16+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -32,8 +32,104 @@
 
   
     <entry>
-      <title type="html">Unity_공부_01</title>
-      <link href="https://hjs101.github.io/Unity-01" rel="alternate" type="text/html" title="Unity_공부_01" />
+      <title type="html">Unity_초급학습_02</title>
+      <link href="https://hjs101.github.io/Unity-02" rel="alternate" type="text/html" title="Unity_초급학습_02" />
+      <published>2022-02-28T09:00:00+09:00</published>
+      <updated>2022-02-28T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-02</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-02">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 프로젝트를 생성하고 간단한 컴포넌트 추가를 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 프로젝트 생성 부분이다. 위 사진에서 오른쪽 위의 New project버튼을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3D를 선택하고, Project 이름은 HelloUnity로 한다. 프로젝트 폴더를 저장할 위치는 임의로 정했다. 이후 Create project 버튼을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_10.jpg&quot; alt=&quot;Unity_10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 프로젝트가 생성되어 오픈된 사진이다. 간단하게만 목록만 설명하겠다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;아래에는 프로젝트 Window가 있고 이곳에서는 프로젝트에서 사용할 수 있는 에셋 라이브러리가 표시된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;중앙에 있는 공간같은 화면은 씬(Scene)뷰이다. 이 화면에서는 씬을 시작적으로 탐색하며 편집할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;왼쪽에는 Hierachy(계층구조) Window 가 있다. 계층구조 Window 에서는 씬에 있는 모든 오브젝트를 계층구조로 표시한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;오른쪽에는 인스펙터(Inspector) Window가 있다. 인스펙터 Window 에서는 현재 선택한 오브젝트의 모든 프로퍼티를 보고 편집할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;마지막으로, 재생, 일시정지 등의 버튼이 보이는 상단은 Tool Bar이다. 이를 통해서 가장 필수적인 작업기능에 접근할 수 있다. 왼쪽에는 씬 뷰와 그 안에 있는 오브젝트를 조작할 수 있는 기본 툴, 중앙에는 재생, 일시정지, 스텝 컨트롤이, 오른쪽에 있는 버튼을 통해 Unity 클라우드 서비스 및 Unity 계정에 접근할 수 있다. 오른쪽에 이어서 레이어 메뉴와, 레이아웃을 저장할 수 있는 에디터 레이아웃 메뉴가 있다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;유니티 작업 Window 구조를 간단하게 알아봤으니, 이제 오브젝트 하나를 생성해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_11.jpg&quot; alt=&quot;Unity_11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hierachy Window에 커서를 대고 오른쪽 클릭을 한다. 3D Object -&amp;gt; Cube를 선택하여 Cube를 하나 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_12.jpg&quot; alt=&quot;Unity_12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;큐브 하나만 달랑 있으면 아쉬우니 바닥도 생성해준다. 위와 동일한 방법으로 이번에는 Plane를 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_13.jpg&quot; alt=&quot;Unity_13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;큐브와 바닥을 생성하고 나면 두 개의 오브젝트는 겹쳐있을 것이다. 위 사진은 큐브를 선택한 후 Y축으로 끌어올려 바닥 위 공중에 큐브를 띄워놓은 상태이다. 이제 큐브에 중력을 적용하여 큐브가 바닥 위로 떨어지게 해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_14.jpg&quot; alt=&quot;Unity_14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;큐브를 선택하고, 오른쪽 인스펙터 Window를 살펴본다. 아래에 Add Component를 찾아 검색창에 Rigid를 검색하면, 다음과 같은 컴포넌트가 나타난다. 해당 컴포넌트를 추가해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_15.jpg&quot; alt=&quot;Unity_15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;컴포넌트를 추가하고 나면 위와 같이 RigidBody가 생성되었을 것이다. RigidBody는 선택한 게임 오브젝트가 물리제어로 동작할 수 있게 하는 컴포넌트이다. 자세한 설명은 아래 링크를 참고하면 좋겠다. 그 위에 있는 Collider은 충돌판정에 대한 컴포넌트로, 큐브는 Box형으로 충돌판정을 하는 것이 디폴트로 되어있다.&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://docs.unity3d.com/kr/2018.4/Manual/class-Rigidbody.html&quot;&gt;Unity RigidBody&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 Tool Bar의 재생 버튼을 눌러 실행해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_16.gif&quot; alt=&quot;Unity_16&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;바닥으로 떨어지는 큐브가 보인다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Unity_초급학습_01</title>
+      <link href="https://hjs101.github.io/Unity-01" rel="alternate" type="text/html" title="Unity_초급학습_01" />
       <published>2022-02-27T09:00:00+09:00</published>
       <updated>2022-02-27T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-01</id>
@@ -110,7 +206,8 @@
       <content type="html" xml:base="https://hjs101.github.io/Unity-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
   2022-02-28
-  &lt;li&gt;&lt;a href=&quot;./Dragon-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./Unity-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./Unity-02&quot;&gt;유니티 초급 학습_02&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;</content>
 
@@ -133,7 +230,7 @@
       
 
       
-        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01</summary>
+        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02</summary>
       
 
       
