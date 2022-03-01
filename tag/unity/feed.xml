@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-01T03:16:16+09:00</updated>
+  <updated>2022-03-02T03:01:58+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,143 @@
   
   
 
+  
+    <entry>
+      <title type="html">Unity_초급학습_03</title>
+      <link href="https://hjs101.github.io/Unity-03" rel="alternate" type="text/html" title="Unity_초급학습_03" />
+      <published>2022-03-01T09:00:00+09:00</published>
+      <updated>2022-03-01T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-03</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-03">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 Retr0 교재에서 제공하는 예제 파일을 다운받아서 오픈했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;실행을 하려고 하면 해당하는 버전이 없다는 메시지가 뜬다. 아래 톱니모양의 다른 버전의 데이터를 선택한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;실습용으로 설치한 2021.2.13버전을 선택했다. 그 후 몇 가지 메시지가 뜨면 진행 하는 방향으로 클릭해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;에디터가 실행되면, 빨간색으로 동그라미친 파일, SampleScene 파일을 더블클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그러면 위와 같은 화면으로 바뀐다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;저번 글에서 설명했던 툴바의 레이아웃을 변경하려고 한다. default로 되어있는 버튼을 눌러 2 by 3을 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그러면 에디터를 구성하는 화면이 바뀔 것이다. 바뀐 에디터를 조정하여 위와 같은 구조로 만들었다.&lt;/p&gt;
+
+&lt;p&gt;각 창에 대한 설명은 앞선 글에서 짤막하게 했기 때문에 추가적인 내용만 조금 적어 보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_08.jpg&quot; alt=&quot;Unity_08&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hierarchy Window에서 오브젝트를 검색할 수 있다. 위 사진의 빨간색으로 칠해져있는 버튼을 누르면&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이와 같이 상세검색을 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_10.jpg&quot; alt=&quot;Unity_10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Window에서 빨간색을 칠해진 부분을 왼쪽으로 당기면, 아이콘으로 보이던 화면이 리스트로 바뀐다. 기본 윈도우에서 폴더 내 파일의 표기 방식을 바꾸는 것이라고 생각하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_11.jpg&quot; alt=&quot;Unity_11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Console Window는, 시스템 메시지가 출력되는 Window로, 로깅이나 시스템 출력이 나타나는 Window이다. 해당 위치에는 3가지의 로그가 나타날 수 있다. 일반 로그, 경고 로그, 에러 로그이다.
+경고 로그는 게임을 진행하는 데에는 문제가 없지만 수정을 권장할만한 상황에 표시된다.
+에러 로그는 게임을 진행하는 데 치명적인 문제가 있을 때 표시된다. (실행이 불가할 때)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_12.jpg&quot; alt=&quot;Unity_12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진은 씬에 존재하는 게임 오브젝트를 편집할 때 사용할 툴을 모아놓은 툴 박스의 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_13.jpg&quot; alt=&quot;Unity_13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;드래그 앤 드롭으로 씬 Window 상단에 배치시켰다. 각 툴들은 다음과 같은 기능을 가지고 있다. 왼쪽부터 설명하겠다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hand : 그림관련 프로그램을 사용해봤다면 많이 익숙할 것이다. 화면을 움직인다. 단축키 Q, 마우스 휠 버튼으로 조작 가능&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Translate : 오브젝트를 이동할 수 있다. 단축키 W&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rocate : 오브젝트를 회전시킬 수 있다. 단축키 E&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scale : 오브젝트의 크기를 바꿀 수 있다. 단축키 R&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rect : UI와 2D 오브젝트의 크기를 조정한다. 단축키 T&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Transform : Translate, Rocate, Scale을 하나로 합친 기능이다. 단축키 Y&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;씬 화면을 움직이는 방법 중 마우스를 함께 이용하는 방법은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;마우스 오른쪽 키를 누른 채로 WASD를 통해 움직이기. - 평행이동&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;alt + 마우스 왼쪽 키를 누른 채로 마우스 움직이기 - 회전&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;alt + 마우스 오른쪽 키를 누른 채로 마우스 움직이기 - 줌인, 줌아웃&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_14.jpg&quot; alt=&quot;Unity_14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진에 나와있는 화살표는, 오브젝트를 이동시킬 때 사용할 수 있다. 빨간색은 X축, 초록색은 Y축, 파란색은 Z축을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;내부에 있는 사각형을 이용해 각각의 2개의 축이 만들어내는 평면에 평행하게끔 평행이동을 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_15.jpg&quot; alt=&quot;Unity_15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진은 Scene Gizmo이다. 현재 씬이 바라보고 있는 방향을 표시하고, 카메라를 지정한 방향으로 빠르게 전환시킬 수 있다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 이전 포스팅에 이어서 창의 세부적인 기능들을 조금 더 살펴보았다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Unity_초급학습_02</title>
@@ -209,6 +346,9 @@
   &lt;li&gt;&lt;a href=&quot;./Unity-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./Unity-02&quot;&gt;유니티 초급 학습_02&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
+  2022-03-01
+  &lt;li&gt;&lt;a href=&quot;./Unity-03&quot;&gt;유니티 초급 학습_03&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
 &lt;/ul&gt;</content>
 
       
@@ -230,7 +370,7 @@
       
 
       
-        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02</summary>
+        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03</summary>
       
 
       
