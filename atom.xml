@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>Unity_초급학습_04</title>
+        
+          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 02 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-04</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-04</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2630_색종이만들기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--색종이만들기&quot;&gt;문제 : 색종이만들기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 02 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2630</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2630</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Unity_초급학습_03</title>
         
           <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
@@ -100,8 +130,7 @@
       <item>
         <title>Unity_목차</title>
         
-          <description>
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
   2022-02-28
   &lt;li&gt;&lt;a href=&quot;./Unity-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
@@ -110,6 +139,8 @@
   2022-03-01
   &lt;li&gt;&lt;a href=&quot;./Unity-03&quot;&gt;유니티 초급 학습_03&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
+  2022-03-02
+  &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -1305,6 +1336,9 @@
   &lt;br /&gt;
   2022-03-01
   &lt;li&gt;&lt;a href=&quot;./BOJ-1707&quot;&gt;BOJ_1707_이분그래프_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-02
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2630&quot;&gt;BOJ_2630_색종이만들기_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
