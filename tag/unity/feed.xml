@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-03T00:46:03+09:00</updated>
+  <updated>2022-03-04T02:11:10+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,112 @@
   
   
 
+  
+    <entry>
+      <title type="html">Unity_초급학습_05</title>
+      <link href="https://hjs101.github.io/Unity-05" rel="alternate" type="text/html" title="Unity_초급학습_05" />
+      <published>2022-03-03T09:00:00+09:00</published>
+      <updated>2022-03-03T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-05</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-05">&lt;p&gt;유니티 기초에 대해 공부한 내용을 포스팅 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;이번에는 C#에 대해 알아보겠다. C#은 이전에 다뤄본적도 있고, 비슷한 객체지향 언어인 자바를 공부했기 때문에, 언어 자체보다는 유니티와 연동하는 부분에 초점을 맞추도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;유니티의 project window에 오른쪽 클릭을 하고 Create -&amp;gt; C# Script를 하나 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;파일이 한 개 생성되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;유니티에서 기본적으로 C# 스크립트 파일을 생성하면 화면과 같은 기본 코드가 제공된다. 네임스페이스로 UnityEngine이 추가되어있고, 클래스는 MonoBehaviour를 상속받고있다.&lt;/p&gt;
+
+&lt;p&gt;start 메서드는 코드 실행이 시작되는 시작점을 제공한다. 앞 번에 설명했던 유니티 이벤트 메서드에 해당하는 메서드이다. 게임이 시작될 때 자동으로 한 번 수행되는 메서드이다. 게임 시작과 동시에 수행해야할 코드가 들어가면 된다.&lt;/p&gt;
+
+&lt;p&gt;update메서드는 1프레임 마다 한 번씩 수행되는 메서드이다. 실시간으로 계속해서 수행되어야할 코드가 있을 때 사용한다. 프레임 단위로 작동하기 때문에 프레임 상태에 따라서 호출이 불규칙하다.&lt;/p&gt;
+
+&lt;p&gt;※ FixedUpdate 와 update 의 차이 : update는 프레임을 기반으로 호출되는 메서드이고, FixedUpdate는 자체적인 Timestep에 설정된 값에 따라서 일정한 간격으로 호출된다. update의 주 사용처는 물리효과(RigidBody)가 적용되지 않는 오브젝트의 움직임, 키 입력 등에 사용된다. FixedUpdate는 물리효과가 적용된 오브젝트를 조정할 때 사용된다. 물리효과 적용된 오브젝트를 update로 조정할 경우에는 물리엔진 충돌검사 등이 제대로 이루어지지 않을 수 있다.&lt;/p&gt;
+
+&lt;p&gt;Debug 기능에 대해서 조금 실습해보자. 복잡한 코드가 아니기 때문에 소스코드는 첨부하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;문자열 변수, 정수형 변수를 선언하고 각각 Debug.log 메서드로 출력하는 코드를 작성했다.&lt;/p&gt;
+
+&lt;p&gt;유니티에서 스크립트는 독립적으로 수행될 수 없다. 스크립트를 동작시키고 싶다면, 게임에 존재하는 오브젝트로 만들어야 한다. 그 방법은 컴포넌트로 빈 껍데기인 게임 오브젝트에 추가하는 것. 기존 예제의 큐브에 작성한 스크립트를 컴포넌트로 추가해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;큐브 오브젝트를 Hierarchy Window에서 선택한다. Inspector Window의 Add Component를 누르고 검색 창에 Hello를 치니 작성한 스크립트명 HelloUnity가 보인다. 컴포넌트를 추가해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;재생버튼을 누르자 Console Window에 위와 같이 3개의 메시지가 나타난다. Debug를 통해 콘솔창에 정보를 출력할 수 있다는 점, 변수를 찍어볼 수 있다는 점은, 개발할 때 문제 파악에 많은 도움이 될 것이다.&lt;/p&gt;
+
+&lt;p&gt;다음은 메서드 사용법인데, 교재의 예제를 구현하도록 하겠다. 두 점 사이의 거리를 구하는 메서드이다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-CSharp&quot;&gt;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class getDistanceTest : MonoBehaviour
+{
+    void Start()
+    {
+        Debug.Log(GetDistance(0, 3, 0, 4));
+    }
+
+    // 피타고라스 정리 이용 두 점 사이의 거리 구하기
+    float GetDistance(float x1, float x2, float y1, float y2)
+    {
+        float width = x2 - x1;
+        float height = y2 - y1;
+
+        return Mathf.Sqrt(width * width + height * height);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;스크립트 전체 코드이다. 자바와 다른점은 메서드의 첫 글자를 대문자로 쓰는 것 정도? 세세한 부분이 약간씩 다르기는 하지만 C와 비슷한 면도 있어서 어느정도 익숙하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(0,0)과 (3,4)의 거리를 구하니 5가 출력된 모습이다. 역시 게임오브젝트에 컴포넌트로 추가하여 실행시켰다. 게임을 실행시켜 테스트를 마친 후에는 꼭! 다시 플레이 버튼을 눌러 모드를 해제시켜주자. 플레이 모드에서 오브젝트가 변경된 사항은 플레이 모드를 해제하면 원래대로 돌아간다. 플레이 모드로 작업하다가 취소하고 작업물을 전부 날려먹는 안타까운 일이 없길 바란다.&lt;/p&gt;
+
+&lt;p&gt;if문, for, while문, 배열 등은 자바와 거의 같은 내용이기 때문에 넘어가겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 유니티에서 C# 스크립트를 사용하는 방법에 대해서 알아보았고, 기본적인 C# 예제를 테스트해보았다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">유니티 기초에 대해 공부한 내용을 포스팅 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Unity_초급학습_04</title>
@@ -465,7 +571,7 @@
       <published>2022-02-26T09:00:00+09:00</published>
       <updated>2022-02-26T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-menu</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티 공부&lt;/span&gt;&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;유니티_목차&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
   2022-02-28
   &lt;li&gt;&lt;a href=&quot;./Unity-01&quot;&gt;유니티 초급 학습_01&lt;/a&gt;&lt;/li&gt;
@@ -476,6 +582,8 @@
   &lt;br /&gt;
   2022-03-02
   &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
+  2022-03-03
+  &lt;li&gt;&lt;a href=&quot;./Unity-05&quot;&gt;유니티 초급 학습_05&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -497,7 +605,7 @@
       
 
       
-        <summary type="html">유니티 공부 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04</summary>
+        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05</summary>
       
 
       
