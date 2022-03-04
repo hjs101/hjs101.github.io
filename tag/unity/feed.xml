@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-04T02:19:43+09:00</updated>
+  <updated>2022-03-05T03:09:40+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -32,12 +32,129 @@
 
   
     <entry>
+      <title type="html">유니티_초급학습_06</title>
+      <link href="https://hjs101.github.io/Unity-06" rel="alternate" type="text/html" title="유니티_초급학습_06" />
+      <published>2022-03-04T09:00:00+09:00</published>
+      <updated>2022-03-04T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-06</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-06">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에는 매우 중요한 개념인 객체지향에 대해서 간단하게 알아보겠다. 언어만 다를 뿐, 자바에서의 객체지향과 의미는 같아보인다. (개념에 대한 설명은 교재에 나와있지 않은 내용이니 참고해주세요.)&lt;/p&gt;
+
+&lt;h3 id=&quot;객체&quot;&gt;객체&lt;/h3&gt;
+
+&lt;p&gt;객체 : 개발자의 관점에서 객체는, 우리 주변에 있는 모든 것으로, 프로그래밍의 대상이 될 수 있는 모든 것을 객체로 정의한다. 이는 사물, 개념, 논리가 될 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;객체지향 프로그래밍은 다음을 의미한다. 주변의 많은 객체화 할 수 있는 대상을 객체화 시켜 프로그래밍 하는 것이다. 프로그램 밖에 있는 것들을 프로그램 안으로 끌어들이는 것이라고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;###클래스와 인스턴스&lt;/p&gt;
+
+&lt;p&gt;클래스 : 클래스는 객체를 정의해 놓은 것이다. 즉 객체를 생성하기 위한 설계도이다. 흔히들 붕어빵 틀에 비유하곤 한다. 붕어빵 틀은 붕어빵을 찍어내기 위한 틀이고, 틀을 이용해서 붕어빵을 만들 수 있다. 여기서 틀에 해당하는 것이 클래스, 붕어빵에 해당하는 것이 인스턴스이다.&lt;/p&gt;
+
+&lt;p&gt;인스턴스 : 위에서 말했듯, 클래스를 통해 데이터 타입으로 생성되어 메모리에 적재된 것을 인스턴스라고 한다. 교재에서 새롭게 알게 된 사실로, 오브젝트가 인스턴스를 포함하는 개념이기 때문에, 같은 의미로 혼용하기도 한다고 한다.&lt;/p&gt;
+
+&lt;p&gt;추가적으로 멤버변수와 지역변수의 차이까지만 알아보자.&lt;/p&gt;
+
+&lt;h2 id=&quot;변수&quot;&gt;변수&lt;/h2&gt;
+
+&lt;p&gt;멤버변수 : 클래스 내부에서 선언되는 변수이다. 해당 클래스에 있는 생성자, 메서드에서 사용가능하다. 멤버변수는 또 2가지로 나눌 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;static 변수 : Class 변수이다. class가 로딩 시에 자동으로 메모리에 적재된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;non-static 변수 : Instance 변수, 필요시에 new 클래스이름()으로 인스턴스를 생성할 때 같이 메모리에 적재된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;앞서 클래스와 인스턴스를 구분해서 설명한 것과 이어서 생각해보자. static과 non-static의 차이에 대해 느낌이 좀 올 것이다.&lt;/p&gt;
+
+&lt;p&gt;이 이외에도 추상화, 상속, 다형성, 캡슐화 등 설명하지 못한 많은 내용이 남아있지만 유니티로 넘어가기 위해 일단 여기까지만 설명하고 넘어가도록 하겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;c-클래스&quot;&gt;C# 클래스&lt;/h2&gt;
+
+&lt;p&gt;이제 유니티에서 클래스와 오브젝트에 대한 예제를 풀어 실습해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로 프로젝트를 하나 생성했다. 프로젝트 이름은 Hello Class로 지었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;유니티의 project window에 오른쪽 클릭을 하고 Create -&amp;gt; C# Script를 하나 생성했다. 이름은 Animal로 지었다. 이제 이 스크립트를 수정해보겠다. 교재에서 주어진 요구사항은 Animal 클래스는 멤버변수로 이름과 울음소리를 가지며, 울음소리를 재생하는 메서드 PlaySound를 가진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;요구사항대로 수정한 Animal 클래스이다. 변수와 메서드의 접근제한자는 public으로 두었다. 앞서 설명했듯 이것은 객체를 생성하기 위한 틀이기 때문에 이 자체로는 아무런 일도 일어나지 않는다. 기왕 실습하는 거 생성자까지 만들어보았다. 생성자는 객체가 생성될 때 초기화 해야할 변수, 또는 수행해야되는 로직이 있다면 객체가 생성되면서 수행할 수 있게 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 Zoo C# 스크립트 파일을 새로 하나 더 생성하겠다. 해당 스크립트에서 Animal 클래스를 이용해 동물 인스턴스를 생성해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로생성한 Zoo 스크립트 파일을 수정해서 gaji라는 동물을 하나 생성해보겠다. 가지는 친구집 고양이 이름이다 ^^&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;생성자 규칙대로 객체를 하나 생성했다. 잘 동작하는지 테스트해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로젝트에 빈 오브젝트를 하나 생성해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_08.jpg&quot; alt=&quot;Unity_08&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그 후, Zoo 스크립트를 컴포넌트로 빈 오브젝트에 추가해주었다. 이제 실행 버튼을 눌러 확인해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Zoo에서 Animal 클래스를 이용해 Animal타입 gaji 라는 변수명의 객체를 생성하였고, 설정한 변수명이 제대로 입력되어있는 것과, PlaySound 기능이 잘 동작하는 것을 확인 할 수있다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 유니티에서 클래스를 만들어 테스트해보았다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Unity_초급학습_05</title>
       <link href="https://hjs101.github.io/Unity-05" rel="alternate" type="text/html" title="Unity_초급학습_05" />
       <published>2022-03-03T09:00:00+09:00</published>
       <updated>2022-03-03T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-05</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-05">&lt;p&gt;유니티 기초에 대해 공부한 내용을 포스팅 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-05">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;이번에는 C#에 대해 알아보겠다. C#은 이전에 다뤄본적도 있고, 비슷한 객체지향 언어인 자바를 공부했기 때문에, 언어 자체보다는 유니티와 연동하는 부분에 초점을 맞추도록 하겠다.&lt;/p&gt;
 
@@ -130,7 +247,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티 기초에 대해 공부한 내용을 포스팅 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.</summary>
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
       
 
       
@@ -143,7 +260,11 @@ public class getDistanceTest : MonoBehaviour
       <published>2022-03-02T09:00:00+09:00</published>
       <updated>2022-03-02T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-04</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-04">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-04">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;이번에는 유니티 엔진에서 상당히 중요한 개념으로 생각되는 컴포넌트에 대해서 알아볼 것이다.&lt;/p&gt;
 
@@ -255,7 +376,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.</summary>
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
       
 
       
@@ -268,7 +389,11 @@ public class getDistanceTest : MonoBehaviour
       <published>2022-03-01T09:00:00+09:00</published>
       <updated>2022-03-01T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-03</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-03">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-03">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
 
@@ -392,7 +517,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
       
 
       
@@ -405,7 +530,11 @@ public class getDistanceTest : MonoBehaviour
       <published>2022-02-28T09:00:00+09:00</published>
       <updated>2022-02-28T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-02</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-02">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-02">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;오늘은 프로젝트를 생성하고 간단한 컴포넌트 추가를 해보겠다.&lt;/p&gt;
 
@@ -488,7 +617,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
       
 
       
@@ -501,7 +630,11 @@ public class getDistanceTest : MonoBehaviour
       <published>2022-02-27T09:00:00+09:00</published>
       <updated>2022-02-27T09:00:00+09:00</updated>
       <id>https://hjs101.github.io/Unity-01</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-01">&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+      <content type="html" xml:base="https://hjs101.github.io/Unity-01">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;실습하기에 앞서서 교재에서 사용하는 버전에 맞는 유니티를 설치하여 준비를 끝마치려고 한다.&lt;/p&gt;
 
@@ -558,7 +691,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.</summary>
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
       
 
       
@@ -582,8 +715,12 @@ public class getDistanceTest : MonoBehaviour
   &lt;br /&gt;
   2022-03-02
   &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
   2022-03-03
   &lt;li&gt;&lt;a href=&quot;./Unity-05&quot;&gt;유니티 초급 학습_05&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-04
+  &lt;li&gt;&lt;a href=&quot;./Unity-06&quot;&gt;유니티_초급 학습_06&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -605,7 +742,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05</summary>
+        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05 2022-03-04 유니티_초급 학습_06</summary>
       
 
       

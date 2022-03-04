@@ -8,9 +8,69 @@
     
       
       <item>
+        <title>유니티_초급학습_06</title>
+        
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 04 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-06</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-06</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>자바스크립트_01</title>
+        
+          <description>&lt;h2 id=&quot;자바스크립트_01&quot;&gt;자바스크립트_01&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 04 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/FrontEnd-01</link>
+        <guid isPermaLink="true">https://hjs101.github.io/FrontEnd-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2740_행렬곱셈_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--행렬곱셈&quot;&gt;문제 : 행렬곱셈&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 04 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2740</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2740</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1780_종이의개수_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--종이의-개수&quot;&gt;문제 : 종이의 개수&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 04 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1780</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1780</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Unity_초급학습_05</title>
         
-          <description>&lt;p&gt;유니티 기초에 대해 공부한 내용을 포스팅 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
 
 </description>
         
@@ -27,8 +87,8 @@
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;FrontEnd_목차&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-  2022-03-02
-  &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
+  2022-03-04
+  &lt;li&gt;&lt;a href=&quot;./FrontEnd-01&quot;&gt;자바스크립트_01&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
@@ -60,7 +120,7 @@
       <item>
         <title>Unity_초급학습_04</title>
         
-          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다. 아직 답변이 오지는 않았지만 혹시나 문제의 소지가 있을 시 삭제하도록 하겠습니다.&lt;/p&gt;
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
 
 </description>
         
@@ -90,7 +150,7 @@
       <item>
         <title>Unity_초급학습_03</title>
         
-          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
 
 </description>
         
@@ -120,7 +180,7 @@
       <item>
         <title>Unity_초급학습_02</title>
         
-          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
 
 </description>
         
@@ -150,7 +210,7 @@
       <item>
         <title>Unity_초급학습_01</title>
         
-          <description>&lt;p&gt;유니티 기초를 공부하려고 한다. 포스팅은 최근 개정판이 나온 레트로의 유니티 게임 프로그래밍 에센스를 토대로 하려고 한다. 혹시나 저작권에 문제가 있을까 싶어서 확인차 메일을 보내두었다.&lt;/p&gt;
+          <description>&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
 
 </description>
         
@@ -191,8 +251,12 @@
   &lt;br /&gt;
   2022-03-02
   &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
   2022-03-03
   &lt;li&gt;&lt;a href=&quot;./Unity-05&quot;&gt;유니티 초급 학습_05&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-04
+  &lt;li&gt;&lt;a href=&quot;./Unity-06&quot;&gt;유니티_초급 학습_06&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -1394,6 +1458,10 @@
   &lt;br /&gt;
   2022-03-03
   &lt;li&gt;&lt;a href=&quot;./BOJ-1026&quot;&gt;  BOJ_1026_보물_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-04
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1780&quot;&gt;BOJ_1780_종이의개수_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2740&quot;&gt;BOJ_2740_행렬곱셈_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 

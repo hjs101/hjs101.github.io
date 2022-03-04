@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/frontend/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-04T02:19:43+09:00</updated>
+  <updated>2022-03-05T03:09:40+09:00</updated>
   <id>https://hjs101.github.io/tag/frontend/feed.xml</id>
 
   
@@ -32,6 +32,131 @@
 
   
     <entry>
+      <title type="html">자바스크립트_01</title>
+      <link href="https://hjs101.github.io/FrontEnd-01" rel="alternate" type="text/html" title="자바스크립트_01" />
+      <published>2022-03-04T09:00:00+09:00</published>
+      <updated>2022-03-04T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/FrontEnd-01</id>
+      <content type="html" xml:base="https://hjs101.github.io/FrontEnd-01">&lt;h2 id=&quot;자바스크립트_01&quot;&gt;자바스크립트_01&lt;/h2&gt;
+
+&lt;p&gt;FrontEnd는 3가지로 나눌 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTML : 컨텐츠의 구조를 담당한다 - 뼈대&lt;/li&gt;
+  &lt;li&gt;CSS : 컨텐츠의 표현을 담당한다 - 살&lt;/li&gt;
+  &lt;li&gt;JavaScript : 컨텐츠의 기능을 담당한다 - 관절, 신경&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이중 3번쨰, JS에 대해서 알아보겠다.&lt;/p&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+
+&lt;p&gt;자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 웹 브라우저 내에서 주로 사용된다.&lt;/p&gt;
+
+&lt;p&gt;자바스크립트는 다음과 같은 특징을 가지고 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이벤트 처리, 입력 데이터 검증, 동적 컨텐츠의 작성&lt;/li&gt;
+  &lt;li&gt;사용자 브라우저의 내장 프로시저 형태 : 브라우저에 종속적이다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;선언 형식은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;내부 파일에 생성할 때&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;외부 파일로 만들어 읽어올 때&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;../js/common.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;변수&quot;&gt;변수&lt;/h3&gt;
+
+&lt;p&gt;JS는 var 또는 let 을 이용해 변수를 생성한다. 주어진 값에 의해 데이터 타입이 자동으로 지정된다.&lt;/p&gt;
+
+&lt;p&gt;데이터의 유형은 5가지가 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;숫자형(정수, 실수) : number&lt;/li&gt;
+  &lt;li&gt;문자열 : string&lt;/li&gt;
+  &lt;li&gt;논리형 : boolean&lt;/li&gt;
+  &lt;li&gt;null(값이 없는 객체) : object&lt;/li&gt;
+  &lt;li&gt;undefined(변수만 선언되어있음) : undefined&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;논리형에서 false의 의미는 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;값이 false&lt;/li&gt;
+  &lt;li&gt;공백문자열 “”&lt;/li&gt;
+  &lt;li&gt;null&lt;/li&gt;
+  &lt;li&gt;undefined&lt;/li&gt;
+  &lt;li&gt;0&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 5가지의 경우 논리식을 사용할 때 False 처리 된다.&lt;/p&gt;
+
+&lt;p&gt;변수의 선언 방법은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;var 변수명;&lt;/li&gt;
+  &lt;li&gt;변수명 = 값;&lt;/li&gt;
+  &lt;li&gt;var 변수명 = 값;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;JS에서 변수는 전역변수와 지역변수로 나뉠 수 있는데, function 외부에 선언하거나 var을 붙이지 않고 선언한 변수는 모두 전역변수이다. function 내부에 var을 붙이고 선언한 변수는 지역변수이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;function&quot;&gt;function&lt;/h3&gt;
+
+&lt;p&gt;함수는 자바의 메서드와 비슷하게 동작한다. 선언 방법은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;function 함수명 (arg1, …){
+	return 값
+}&lt;/p&gt;
+
+&lt;p&gt;함수 호출 방식은 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;함수명();&lt;/li&gt;
+  &lt;li&gt;함수명(params);&lt;/li&gt;
+  &lt;li&gt;var 변수명 = 함수명();&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="FrontEnd" />
+      
+
+      
+        <summary type="html">자바스크립트_01</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">FrontEnd_목차</title>
       <link href="https://hjs101.github.io/FrontEnd-menu" rel="alternate" type="text/html" title="FrontEnd_목차" />
       <published>2022-03-03T09:00:00+09:00</published>
@@ -39,8 +164,8 @@
       <id>https://hjs101.github.io/FrontEnd-menu</id>
       <content type="html" xml:base="https://hjs101.github.io/FrontEnd-menu">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;FrontEnd_목차&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-  2022-03-02
-  &lt;li&gt;&lt;a href=&quot;./Unity-04&quot;&gt;유니티 초급 학습_04&lt;/a&gt;&lt;/li&gt;
+  2022-03-04
+  &lt;li&gt;&lt;a href=&quot;./FrontEnd-01&quot;&gt;자바스크립트_01&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;</content>
 
@@ -63,7 +188,7 @@
       
 
       
-        <summary type="html">FrontEnd_목차 2022-03-02 유니티 초급 학습_04</summary>
+        <summary type="html">FrontEnd_목차 2022-03-04 자바스크립트_01</summary>
       
 
       
