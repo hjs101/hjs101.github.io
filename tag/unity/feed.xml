@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-05T03:09:40+09:00</updated>
+  <updated>2022-03-06T04:01:39+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,138 @@
   
   
 
+  
+    <entry>
+      <title type="html">유니티_초급학습_07</title>
+      <link href="https://hjs101.github.io/Unity-07" rel="alternate" type="text/html" title="유니티_초급학습_07" />
+      <published>2022-03-05T09:00:00+09:00</published>
+      <updated>2022-03-05T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-07</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-07">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘은 이전 챕터에 이어서 클래스를 조금 더 만져보겠다.&lt;/p&gt;
+
+&lt;h3 id=&quot;기본형과-참조형&quot;&gt;기본형과 참조형&lt;/h3&gt;
+
+&lt;p&gt;변수의 타입은 기본형과 참조형으로 구분할 수 있다. 자바에서는 이를 Primitive Type과 References Type으로 나누는데, C#에서 명칭이 조금 다른 듯 하다. C#에서는 기본형을 Primitive Type이 아닌 Value 타입이라 부른다.&lt;/p&gt;
+
+&lt;p&gt;기본형 : 변수에 주소가 아닌 값을 할당하는 타입, int, bool, float … 등의 기본형이 있다.&lt;/p&gt;
+
+&lt;p&gt;※ 자바와 C#의 차이점&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;자바는 String 타입 변수가 참조형이지만 C#은 string 타입으로 기본형이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;C#에서는 C에서 사용하던 struct, 구조체라는 것이 있는데, 이 구조체 타입의 변수는 기본형에 해당한다.
+  ex) Vector3, Vector2, Color …&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;참조형 : 변수에 할당하는 것이 주소값으로, 해당 주소를 통해서 메모리의 객체에 접근하는 변수. 자바와 의미가 같으며, 유니티에서 사용하는 모든 컴포넌트, 스크립트는 참조형에 해당한다.&lt;/p&gt;
+
+&lt;p&gt;자 그럼, 이제 이 참조형 변수를 통해 오브젝트를 제어해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 오브젝트 큐브를 하나 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그 후, RigidBody 컴포넌트를 큐브에 추가한다. 예전에, RigidBody는 오브젝트를 물리제어로 동작하게 하는 컴포넌트라고 설명했었다. 이 RigidBody 컴포넌트를 변수로 읽어와 코드를 통해 작동하게 해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로 C# 스크립트를 하나 생성했다. 스크립트의 이름은 Jumper로 한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Jumper : MonoBehaviour
+{
+    // RigidBody 타입의 변수 선언
+    public Rigidbody myRigidbody;
+
+    void Start()
+    {
+      // RigidBody 타입의 메서드 AddForce 지정한 방향(x,y,z)으로 입력한 값만큼 힘을 부여한다.
+        myRigidbody.AddForce(0, 500, 0);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jumper 스크립트에는 다음과 같이 적는다. 코드의 내용은 주석을 참고하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제, 큐브 오브젝트에 Jumper 스크립트를 컴포넌트로 추가한다. 위 사진처럼 검색해서 추가해도 되고, 그냥 스크립트 파일을 드래그해서 놓아도 된다.&lt;/p&gt;
+
+&lt;p&gt;이제 Zoo C# 스크립트 파일을 새로 하나 더 생성하겠다. 해당 스크립트에서 Animal 클래스를 이용해 동물 인스턴스를 생성해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;현재 컴포넌트의 상태이다. Public으로 변수를 선언해두었기 때문에 Inspector Window에 할당 할 수 있게 칸이 생겼다. 현재 상태는 내용물 없이 그릇만 준비되어있는 상태라고 생각하면 된다. 이제 아무것도 가리키고 있지 않은 이 참조형 변수 myRigidbody에 Rigidbody를 할당해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Inspector Window에서, RigidBody 컴포넌트를 드래그해서 사진의 위치에 드롭한다. 이 상태가 변수에 컴포넌트의 주소가 할당되어 실제 cube Object의 RigidBody 컴포넌트와 연결된 상태이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;실행시켜보면 다음과 같이 큐브가 위로 한 번 튀어오르는 것을 볼 수 있다. 위 과정을 글로 써보면 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Jumper 스크립트의 Start() 메서드 실행&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;myRigidbody.AddForce(0,500,0)이 실행.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위의 과정에서, 2번은 myRigidbody 변수에 연결된 컴포넌트에 있는 메서드를 실행하는 것이다. Jumper 스크립트에서 해당 메서드를 수행하는 것이 아닌, myRigidbody에 연결된 컴포넌트에서 수행한다는 점을 기억하자.&lt;/p&gt;
+
+&lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티_초급학습_06</title>
@@ -721,6 +853,9 @@ public class getDistanceTest : MonoBehaviour
   &lt;br /&gt;
   2022-03-04
   &lt;li&gt;&lt;a href=&quot;./Unity-06&quot;&gt;유니티_초급 학습_06&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-05
+  &lt;li&gt;&lt;a href=&quot;./Unity-07&quot;&gt;유니티_초급 학습_07&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -742,7 +877,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05 2022-03-04 유니티_초급 학습_06</summary>
+        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05 2022-03-04 유니티_초급 학습_06 2022-03-05 유니티_초급 학습_07</summary>
       
 
       
