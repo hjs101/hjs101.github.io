@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-06T04:01:39+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_10830_행렬제곱_JAVA</title><link href="https://hjs101.github.io/BOJ-10830" rel="alternate" type="text/html" title="BOJ_10830_행렬제곱_JAVA" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-10830</id><content type="html" xml:base="https://hjs101.github.io/BOJ-10830">&lt;h2 id=&quot;문제--행렬-제곱&quot;&gt;문제 : 행렬 제곱&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-06T18:08:05+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_10830_행렬제곱_JAVA</title><link href="https://hjs101.github.io/BOJ-10830" rel="alternate" type="text/html" title="BOJ_10830_행렬제곱_JAVA" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-10830</id><content type="html" xml:base="https://hjs101.github.io/BOJ-10830">&lt;h2 id=&quot;문제--행렬-제곱&quot;&gt;문제 : 행렬 제곱&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/10830&quot;&gt;BOJ_10830_행렬제곱&lt;/a&gt;&lt;/p&gt;
 
@@ -188,7 +188,7 @@ public class Jumper : MonoBehaviour
 
 &lt;p&gt;Inspector Window에서, RigidBody 컴포넌트를 드래그해서 사진의 위치에 드롭한다. 이 상태가 변수에 컴포넌트의 주소가 할당되어 실제 cube Object의 RigidBody 컴포넌트와 연결된 상태이다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_06_07.gif&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;실행시켜보면 다음과 같이 큐브가 위로 한 번 튀어오르는 것을 볼 수 있다. 위 과정을 글로 써보면 다음과 같다.&lt;/p&gt;
 
@@ -203,7 +203,9 @@ public class Jumper : MonoBehaviour
 
 &lt;p&gt;위의 과정에서, 2번은 myRigidbody 변수에 연결된 컴포넌트에 있는 메서드를 실행하는 것이다. Jumper 스크립트에서 해당 메서드를 수행하는 것이 아닌, myRigidbody에 연결된 컴포넌트에서 수행한다는 점을 기억하자.&lt;/p&gt;
 
-&lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary></entry><entry><title type="html">자바스크립트_02</title><link href="https://hjs101.github.io/FrontEnd-02" rel="alternate" type="text/html" title="자바스크립트_02" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/FrontEnd-02</id><content type="html" xml:base="https://hjs101.github.io/FrontEnd-02">&lt;h2 id=&quot;자바스크립트_02&quot;&gt;자바스크립트_02&lt;/h2&gt;
+&lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;
+
+&lt;p&gt;메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로는, 교재를 토대로 실습을 진행하고 완성본 스샷만 포스팅 하도록 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary></entry><entry><title type="html">자바스크립트_02</title><link href="https://hjs101.github.io/FrontEnd-02" rel="alternate" type="text/html" title="자바스크립트_02" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/FrontEnd-02</id><content type="html" xml:base="https://hjs101.github.io/FrontEnd-02">&lt;h2 id=&quot;자바스크립트_02&quot;&gt;자바스크립트_02&lt;/h2&gt;
 
 &lt;h3 id=&quot;연산자&quot;&gt;연산자&lt;/h3&gt;
 
