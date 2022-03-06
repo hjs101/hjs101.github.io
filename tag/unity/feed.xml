@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-06T18:08:05+09:00</updated>
+  <updated>2022-03-07T02:10:24+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -137,7 +137,7 @@ public class Jumper : MonoBehaviour
 
 &lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;
 
-&lt;p&gt;메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로는, 교재를 토대로 실습을 진행하고 완성본 스샷만 포스팅 하도록 하겠다.&lt;/p&gt;</content>
+&lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로는, 교재를 토대로 실습을 진행하고 완성본 스샷만 포스팅 하도록 하겠다.&lt;/p&gt;</content>
 
       
       
