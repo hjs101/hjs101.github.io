@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-07T02:10:24+09:00</updated>
+  <updated>2022-03-08T02:54:33+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,84 @@
   
   
 
+  
+    <entry>
+      <title type="html">유니티 토막 지식_01</title>
+      <link href="https://hjs101.github.io/Unity-08" rel="alternate" type="text/html" title="유니티 토막 지식_01" />
+      <published>2022-03-07T09:00:00+09:00</published>
+      <updated>2022-03-07T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-08</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-08">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;어제와 오늘에 걸쳐서, 닷지 게임 제작의 2/3을 완료했다. 내일은 닷지 게임 완성에 들어갈 듯 하다.&lt;/p&gt;
+
+&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/530/ScriptReference/Transform.html&quot;&gt;Transform&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 Transform 컴포넌트에 대한 것이다.&lt;/p&gt;
+
+&lt;p&gt;Transform 컴포넌트는 씬에 존재하는 모든 오브젝트가 가지고 있는 컴포넌트이다. 이는 각각의 오브젝트의 위치, 회전, 크기를 저장해두고 다루기 위해 사용한다.&lt;/p&gt;
+
+&lt;p&gt;또한 Transform 컴포넌트는 계층적으로 위치, 회전 스케일을 적용할 수 있는 부모 Transform을 가질 수 있는데, 이를 이해하기 위해 계층에 대한 내용을 먼저 알아보겠다.&lt;/p&gt;
+
+&lt;p&gt;유니티의 Hierarchy Window 가 직역하면 계층 창이다. 유니티에서는 상속과 비슷하게 Parenting이라는 개념을 사용할 수 있는데, 특정 게임오브젝트를 다른 오브젝트의 자식으로 둘 수 있는 개념을 말한다. 이 때, 자식 오브젝트는 부모의 이동, 회전을 계승한다.&lt;/p&gt;
+
+&lt;p&gt;여기서 이동, 회전을 계승한다는 의미가 앞서 설명한 Transform의 계층적으로 부모 Transform을 가지는 것을 말한다. 이 말은 자식 오브젝트의 Transform이 부모오브젝트의 Transform에 종속된다는 뜻이다. 실제 화면으로 한 번 확인해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기 Plane의 자식 오브젝트인 Cube가 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_02.gif&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 화면처럼, 부모 오브젝트 Plane의 위치를 움직이면 그 자식 오브젝트인 cube는 부모오브젝트가 이동하는 만큼 함께 이동한다. 부모 오브젝트의 Scale를 변경하면 자식 오브젝트의 Scale도 부모의 변동 폭에 맞춰서 같은 비율로 변경될 것이다.&lt;/p&gt;
+
+&lt;p&gt;이것을 응용하는 간단한 사례중 하나는 플레이어를 따라다니는 카메라이다. 이것도 한 번 구현해보자. 아주 간단하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_03.gif&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;적당한 바닥에 움직이는 큐브를 구현해두었다. 카메라가 Cube와 독립적으로 존재할 때는 Cube가 움직인다고 해도 카메라는 요지부동이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 카메라를 큐브에 드래그&amp;amp;드롭 하여 Cube의 자식으로 만든다. 이렇게 하면 카메라의 Transform의 좌표가 Cube를 기준으로 변경되는데 해당하는 좌표를 적당히 Cube의 중앙에 오게끔 해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/imagesUnity_07_05.gif&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;실행 후 테스트를 한 장면이다. 큐브가 움직임에 따라 메인 카메라가 큐브와 같은 방향으로 이동하는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;Transform은 또한 enumerator를 지원하기 때문에 foreach문에 적용이 가능하다고 한다.&lt;/p&gt;
+
+&lt;p&gt;Transform의 변수 중 forward는 3D기준 파란색 축, z축을 나타내고, right는 x축, up은 y축을 나타낸다. position 변수는 vector3으로 선언되어 있으며 Transform의 현재 위치를 나낸다.&lt;/p&gt;
+
+&lt;p&gt;Transform 컴포넌트의 변수, 메서드는 API 문서 링크에 설명이 잘 되어 있으니 한 번쯤 찾아보면 좋을 것 같다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티_초급학습_07</title>
@@ -137,7 +215,7 @@ public class Jumper : MonoBehaviour
 
 &lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;
 
-&lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로는, 교재를 토대로 실습을 진행하고 완성본 스샷만 포스팅 하도록 하겠다.&lt;/p&gt;</content>
+&lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로 교재를 통해서 실습을 진행하겠지만, 해당 내용은 포스팅 되지 않을 것이다. 다음부터는 다른 내용의 실습으로 포스팅을 하겠다.&lt;/p&gt;</content>
 
       
       
@@ -854,10 +932,12 @@ public class getDistanceTest : MonoBehaviour
   &lt;li&gt;&lt;a href=&quot;./Unity-05&quot;&gt;유니티 초급 학습_05&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
   2022-03-04
-  &lt;li&gt;&lt;a href=&quot;./Unity-06&quot;&gt;유니티_초급 학습_06&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./Unity-06&quot;&gt;유니티 초급 학습_06&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
   2022-03-05
-  &lt;li&gt;&lt;a href=&quot;./Unity-07&quot;&gt;유니티_초급 학습_07&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./Unity-07&quot;&gt;유니티 초급 학습_07&lt;/a&gt;&lt;/li&gt;
+  2022-03-07
+  &lt;li&gt;&lt;a href=&quot;./Unity-08&quot;&gt;유니티 토막 지식_01&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -879,7 +959,7 @@ public class getDistanceTest : MonoBehaviour
       
 
       
-        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05 2022-03-04 유니티_초급 학습_06 2022-03-05 유니티_초급 학습_07</summary>
+        <summary type="html">유니티_목차 2022-02-28 유니티 초급 학습_01 유니티 초급 학습_02 2022-03-01 유니티 초급 학습_03 2022-03-02 유니티 초급 학습_04 2022-03-03 유니티 초급 학습_05 2022-03-04 유니티 초급 학습_06 2022-03-05 유니티 초급 학습_07 2022-03-07 유니티 토막 지식_01</summary>
       
 
       
