@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>유니티 토막 지식_02</title>
+        
+          <description>&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-09</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-09</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1057_토너먼트_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--토너먼트&quot;&gt;문제 : 토너먼트&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1057</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1057</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>유니티 토막 지식_01</title>
         
           <description>&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
@@ -388,6 +418,8 @@
   &lt;li&gt;&lt;a href=&quot;./Unity-07&quot;&gt;유니티 초급 학습_07&lt;/a&gt;&lt;/li&gt;
   2022-03-07
   &lt;li&gt;&lt;a href=&quot;./Unity-08&quot;&gt;유니티 토막 지식_01&lt;/a&gt;&lt;/li&gt;
+  2022-03-08
+  &lt;li&gt;&lt;a href=&quot;./Unity-09&quot;&gt;유니티 토막 지식_02&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -1603,6 +1635,9 @@
   &lt;br /&gt;
   2022-03-07
   &lt;li&gt;&lt;a href=&quot;./BOJ-1049&quot;&gt;BOJ_1049_기타줄_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-08
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1049&quot;&gt;BOJ_1057_토너먼트_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 

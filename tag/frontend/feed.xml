@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/frontend/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-08T02:59:03+09:00</updated>
+  <updated>2022-03-09T04:19:27+09:00</updated>
   <id>https://hjs101.github.io/tag/frontend/feed.xml</id>
 
   
@@ -258,7 +258,7 @@
 
 &lt;p&gt;자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다.&lt;/p&gt;
 
-&lt;p&gt;===, !== 연산자: 값이 같은지 비교하는 것이 아닌 해당하는 값의 타입이 같은지 비교하는 연산자이다.&lt;/p&gt;
+&lt;p&gt;===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다.&lt;/p&gt;
 
 &lt;h3 id=&quot;내장-객체&quot;&gt;내장 객체&lt;/h3&gt;
 

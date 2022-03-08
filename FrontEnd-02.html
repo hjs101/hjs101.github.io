@@ -58,7 +58,7 @@
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="자바스크립트_02" />
-    <meta property="og:description" content="자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는 것이 아닌 해당하는 값의 타입이 같은지 비교하는 연산자이다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는 생략가능하다." />
+    <meta property="og:description" content="자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는" />
     <meta property="og:url" content="https://hjs101.github.io/FrontEnd-02" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/FrontEnd-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,7 +68,7 @@
     <meta property="article:tag" content="Frontend" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="자바스크립트_02" />
-    <meta name="twitter:description" content="자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는 것이 아닌 해당하는 값의 타입이 같은지 비교하는 연산자이다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는 생략가능하다." />
+    <meta name="twitter:description" content="자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/FrontEnd-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -100,7 +100,7 @@
         "@type": "WebPage",
         "@id": "https://hjs101.github.io/FrontEnd-02"
     },
-    "description": "자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는 것이 아닌 해당하는 값의 타입이 같은지 비교하는 연산자이다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는 생략가능하다."
+    "description": "자바스크립트_02 연산자 자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다. ===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다. 내장 객체 객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는"
 }
     </script>
 
@@ -203,7 +203,7 @@ into the {body} of the default.hbs template -->
 
 <p>자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다.</p>
 
-<p>===, !== 연산자: 값이 같은지 비교하는 것이 아닌 해당하는 값의 타입이 같은지 비교하는 연산자이다.</p>
+<p>===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다.</p>
 
 <h3 id="내장-객체">내장 객체</h3>
 
@@ -465,6 +465,10 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
