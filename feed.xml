@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-10T03:05:31+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_1932_정수삼각형_JAVA</title><link href="https://hjs101.github.io/BOJ-1932" rel="alternate" type="text/html" title="BOJ_1932_정수삼각형_JAVA" /><published>2022-03-09T09:00:00+09:00</published><updated>2022-03-09T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1932</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1932">&lt;h2 id=&quot;문제--정수-삼각형&quot;&gt;문제 : 정수 삼각형&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-11T03:20:14+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_2579_계단오르기_JAVA</title><link href="https://hjs101.github.io/BOJ-2579" rel="alternate" type="text/html" title="BOJ_2579_계단오르기_JAVA" /><published>2022-03-10T09:00:00+09:00</published><updated>2022-03-10T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2579</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2579">&lt;h2 id=&quot;문제--정수-삼각형&quot;&gt;문제 : 정수 삼각형&lt;/h2&gt;
+
+&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2579&quot;&gt;BOJ_2579_계단오르기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+
+&lt;p&gt;계단의 시작점부터 도착점까지 얻을 수 있는 최대의 점수를 구해야 하는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/2579_1.jpg&quot; alt=&quot;2579_1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;몇 가지 수를 통해 테스트를 했고, 그 결과 다음과 같은 점화식을 구할 수 있었다. DP를 누적된 값으로 정하고, 해당 점화식을 코드로 구현하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;계단의 개수를 읽어들여 int형 변수 &lt;strong&gt;N&lt;/strong&gt; 에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그 이후 N번만큼 반복하며 주어진 값을 읽어들여 N+1 크기의 int형 배열 arr에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;점화식 &lt;strong&gt;dp[N] = arr[N] + Max(dp[N-3]+arr[N-1], dp[N-2])&lt;/strong&gt; 는 N이 3 이상이어야 가능하기 때문에 dp[2]까지는 직접 구해서 값을 넣어준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3부터 N까지 위의 점화식을 반복하여 dp에 값을 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 반복이 끝난 후 dp[N-1]을 출력한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BOJ_2579_계단오르기&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+
+
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 정수 삼각형</summary></entry><entry><title type="html">유니티 토막 지식_03</title><link href="https://hjs101.github.io/Unity-10" rel="alternate" type="text/html" title="유니티 토막 지식_03" /><published>2022-03-10T09:00:00+09:00</published><updated>2022-03-10T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-10</id><content type="html" xml:base="https://hjs101.github.io/Unity-10">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 벡터와 회전에 대해 공부했다. 고등학교 때 배웠던 내용이 조금이나마 떠올라서 조금 그리운 느낌도 들었다.&lt;/p&gt;
+
+&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/VectorCookbook.html&quot;&gt;Vector&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 Vector이다.&lt;/p&gt;
+
+&lt;h4 id=&quot;정의&quot;&gt;정의&lt;/h4&gt;
+
+&lt;p&gt;벡터는 &lt;strong&gt;방향&lt;/strong&gt;과 &lt;strong&gt;크기&lt;/strong&gt;를 설명할 수 있는 기본적인 수학적 개념이다. 게임이나 앱에서 벡터는 종종 캐릭터의 위치, 움직이는 속도, 두 물체 사이의 거리와 같은 기본 특성들을 묘사할 때 사용된다.&lt;/p&gt;
+
+&lt;p&gt;벡터 연산은 그래픽스, 물리, 애니매이션 등과 같이 많은 요소에 핵심이 된다. Unity를 최대한 활용하기 위해서는 벡터 연산을 깊이 이해하는게 좋다고 한다.&lt;/p&gt;
+
+&lt;p&gt;벡터는 여러 차원으로 표현이 가능하다. Unity는 2D,3D,4D 벡터작업이 가능한 각각의 클래스를 제공한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;벡터의-연산&quot;&gt;벡터의 연산&lt;/h3&gt;
+
+&lt;h5 id=&quot;덧셈&quot;&gt;덧셈&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_09_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;두 벡터의 덧셈은 두 개의 벡터의 좌표를 각각 더해주는 것을 말한다. 좌표를 더하는 순서가 달라지더라도 결과는 같기 때문에 더하는 &lt;strong&gt;순서는 상관없다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;벡터가 힘을 나타내는 단위일 때 벡터를 힘의 크기인 강도와 방향으로 간주할 경우 더욱 와닿는다. 두 가지 힘의 벡터를 서로 더하면, 두 힘을 합한 값과 동일한 새로운 벡터가 생성된다. -&amp;gt; 동시에 다수의 서로 다른 컴포넌트에 힘을 가할 때 유용하다. ex) 활을 쏠 때 바람에 따라 세기와 방향이 변동할 수 있음.&lt;/p&gt;
+
+&lt;p&gt;그림은 2D Vector로 예시를 들었지만, 3D와 4D에서도 동일하게 적용된다.&lt;/p&gt;
+
+&lt;h5 id=&quot;뺄셈&quot;&gt;뺄셈&lt;/h5&gt;
+
+&lt;p&gt;벡터의 뺄셈은 특정 오브젝트에서 다른 오브젝트까지의 거리, 방향을 구할 때 주로 사용한다. 이 과정에서 &lt;strong&gt;파라미터의 순서&lt;/strong&gt;는 매우 중요하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_09_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림에서 두 벡터 a, b의 뺄셈 b-a가 의미하는 것은 무엇일까? 바로 a에서 b까지의 거리, 방향 벡터를 의미한다. 물론 반대, a-b는 b에서 a까지의 거리, 방향 벡터이다.&lt;/p&gt;
+
+&lt;p&gt;벡터는 값이 아닌 방향이 존재하기 때문에 당연하게도 a-b != b-a이다. 만약 a 위치에서 b위치까지의 거리를 알고싶다면 b의 벡터값에서 a의 벡터값을 뺄셈 해주면 해당하는 거리와 방향의 벡터를 얻을 수 있을 것이다.&lt;/p&gt;
+
+&lt;h5 id=&quot;벡터의-정규화&quot;&gt;벡터의 정규화&lt;/h5&gt;
+
+&lt;p&gt;정규화된 벡터란, 벡터의 길이가 1인 벡터를 말한다. 정규화 된 벡터를 구하는 방법은 2가지가 있다.&lt;/p&gt;
+
+&lt;p&gt;벡터 A가 있다고 할 때&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;Vector3 A = (1,1,1);
+// 벡터의 길이
+float distance = A.magnitude;
+// 정규화 벡터
+Vector3 direction = A / distance;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;Vector3 A = (1,1,1);
+// 정규화 벡터
+Vector3 direction = A.normalized;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;스칼라-곱셈과-나눗셈&quot;&gt;스칼라 곱셈과 나눗셈&lt;/h5&gt;
+
+&lt;p&gt;스칼라는 단순이 크기만을 가지고 있는 것을 말한다. 벡터는 앞서 말했듯 크기, 방향을 함께 가지고 있다.&lt;/p&gt;
+
+&lt;p&gt;벡터에 스칼라를 곱한다면 그 결과는 오리지널과 &lt;strong&gt;동일한 방향&lt;/strong&gt; 을 가리키는 벡터이다. 벡터에 스칼라를 곱하거나 나누어도 방향은 변하지 않는다. 그러나 크기는 각각의 벡터의 크기에 해당하는 스칼라를 곱하거나 나눈 값과 같다. 앞의 정규화에서 먼저 사용했는데. A라는 벡터에 A벡터의 크기만큼 스칼라 값을 나눗셈 해주었더니, 크기가 1인 정규화된 벡터가 되었다. 영어로는 normalized Vector라고 한다.&lt;/p&gt;
+
+&lt;h5 id=&quot;벡터의-내적&quot;&gt;벡터의 내적&lt;/h5&gt;
+
+&lt;p&gt;벡터의 내적은 두 벡터를 받아 스칼라를 반환한다. 이 스칼라는 두 벡터의 크기를 곱한 후, 그 결과의 두 벡터 사이의 각도에 대해 코사인값을 곱한 것과 같다. 두개의 벡터가 모두 정규화된 벡터일 경우, 코사인 값은 첫 번째 벡터에서 2번째 벡터의 방향으로 기울어진 기울기를 나타낸다. 이 경우 두 벡터의 &lt;strong&gt;순서는 상관이 없다.&lt;/strong&gt; 스칼라는 부호가 없기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_09_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;내적은 다른 벡터의 방향에 있는 한 벡터의 크기를 계산 할 때 유용하게 사용할 수 있다. 유니티에서는 내적을 간단하게 구할 수 있게 메서드를 제공한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;Vector3 vec1 = new Vector3(1,0,0);
+Vector3 vec2 = new Vector3(0,1,0);
+var dot = VecTor3.Dot(vec1, vec2);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;벡터의-외적&quot;&gt;벡터의 외적&lt;/h5&gt;
+
+&lt;p&gt;벡터의 외적은 3D 벡터에만 해당되는 개념이다. 두 개의 3D 벡터를 입력으로 사용하여, 다른 3D 벡터를 반환한다.
+반환하는 벡터는 두 입력 벡터에 대해 수직이다. 오른손 법칙을 사용하여, 입력 벡터의 순서에서 출력 벡터의 방향을 기억할 수 있다. 2개의 벡터가 있을 때 순서를 서로 다르게 하여 벡터의 외적을 구하면 만들어진 두 외적은 서로 정확히 &lt;strong&gt;반대 방향&lt;/strong&gt;을 가리킬 것이다. 벡터의 외적의 크기는, 입력 벡터들의 크기를 곱하고, 그 결과에 두 벡터 사이 각도의 Sin 값을 곱한 것과 같다.&lt;/p&gt;
+
+&lt;p&gt;벡터의 외적은 Sin, Cos 같은 함수를 써야할 상황에 외적을 이용하면 최적화에 많은 도움이 된다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary></entry><entry><title type="html">BOJ_1932_정수삼각형_JAVA</title><link href="https://hjs101.github.io/BOJ-1932" rel="alternate" type="text/html" title="BOJ_1932_정수삼각형_JAVA" /><published>2022-03-09T09:00:00+09:00</published><updated>2022-03-09T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1932</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1932">&lt;h2 id=&quot;문제--정수-삼각형&quot;&gt;문제 : 정수 삼각형&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1932&quot;&gt;BOJ_1932_정수삼각형&lt;/a&gt;&lt;/p&gt;
 
@@ -59,7 +208,53 @@
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 정수 삼각형</summary></entry><entry><title type="html">BOJ_1057_토너먼트_JAVA</title><link href="https://hjs101.github.io/BOJ-1057" rel="alternate" type="text/html" title="BOJ_1057_토너먼트_JAVA" /><published>2022-03-08T09:00:00+09:00</published><updated>2022-03-08T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1057</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1057">&lt;h2 id=&quot;문제--토너먼트&quot;&gt;문제 : 토너먼트&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 정수 삼각형</summary></entry><entry><title type="html">유니티 토막 지식_02</title><link href="https://hjs101.github.io/Unity-09" rel="alternate" type="text/html" title="유니티 토막 지식_02" /><published>2022-03-08T09:00:00+09:00</published><updated>2022-03-08T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-09</id><content type="html" xml:base="https://hjs101.github.io/Unity-09">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 닷지 게임을 완성하고 빌드하는 과정을 거쳤다.&lt;/p&gt;
+
+&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/class-GameObject.html&quot;&gt;GameObject&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 GameObject 이다.&lt;/p&gt;
+
+&lt;h4 id=&quot;정의&quot;&gt;정의&lt;/h4&gt;
+
+&lt;p&gt;GameObject는 씬 내에 존재할 수 있는 모든 요소를 나타낼 수 있는 클래스이다.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 스크립트에서 GameObject를 사용하는 목적은 대부분 다른 오브젝트를 관리하기 위함이다. 해당 스크립트를 컴포넌트로 갖는 오브젝트는 gameObject로 접근할 수 있기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;※GameObject와 gameObject의 차이&lt;/p&gt;
+
+&lt;p&gt;헷갈릴 수 있는데, 앞서 말했듯이 GameObject는 클래스이다. 실제 내용물이 아니라 틀이라고 생각하면 된다. 스크립트 내에서 GameObject 타입으로 변수를 선언할 수 있다. 즉, GameObject는 형(type)의 일종이라고 볼 수 있다. gameObject는 앞서 말한 것처럼 해당 스크립트를 컴포넌트로 갖는 오브젝트이다. gameObject는 스크립트를 컴포넌트로 게임오브젝트에 부착한 순간부터 이미 값이 할당되어 있다고 생각하면 된다. 스크립트에서 gameObject를 사용하는 경우는 자기 자신 오브젝트에 접근하는 경우이고, GameObject를 사용하는 경우는 다른 오브젝트에 접근하는 경우에 사용한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;기본-구성&quot;&gt;기본 구성&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_08_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;게임 오브젝트는 씬에서 생성하면 기본적으로 활성화된 상태이다. 체크박스를 해제하여 비활성화를 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;게임 오브젝트를 비활성화하면 게임 오브젝트에 연결된 모든 컴포넌트가 해제된다. 일반적으로 비활성화 시킨 게임 오브젝트는 화면에 보이지 않게 되고, Update, FixedUpdate 등과 같은 정규 콜백이나 이벤트를 수신하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;스크립트 내에서 GameObject.SetActive(boolean값) 을 이용하여 게임 오브젝트의 활성상태를 제어할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그 오른쪽에 있는 static 체크박스는, 게임 오브젝트가 움직일 수 있는지 가능 여부를 고를 수 있다. 해당 부분은 최적화에 쓰이는데, 예를 들어 움직이지 않는 게임 오브젝트들을 batch(배치)라는 하나의 큰 오브젝트로 결합시킴으로써 렌더링을 최적화 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;오브젝트에는 태그와 레이어가 존재하는데, 태그는 씬에서 게임 오브젝트의 타입을 표시, 식별할 수 있게 한다.
+레이어는 렌더링 또는 물리 충돌 같은 특정 빌트인 동작에 대해 게임 오브젝트를 그룹화하여 제어할 수 있게 한다.&lt;/p&gt;
+
+&lt;p&gt;게임 오브젝트에 컴포넌트를 자유롭게 부착, 제거할 수 있다. 기초 글에도 있듯이, 게임 오브젝트에 부착하는 각 컴포넌트는 독립적으로 구성된다.&lt;/p&gt;
+
+&lt;p&gt;스크립트에서 컴포넌트에 접근할 때는 GetComponent 메서드를 사용하여 접근할 수 있다. 해당 메서드는 스크립트 내에서 단독으로 사용하면 현재 게임 오브젝트의 컴포넌트를 읽어온다. 이 때, 제네릭의 개념이 사용되는데.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;RigidBody rb = GetComponent&amp;lt;RigidBody&amp;gt;();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;라고 한다면, &lt;RigidBody&gt; 부분을 제네릭이라고 생각하면 된다. 유니티의 관점에서 생각해보면, 컴포넌트는 수 없이 많다. 그런데 제네릭이 없이 그냥 GetComponent만으로 컴포넌트를 읽어온다고 생각해보자. 이 경우 조건문 같은 사후 처리를 통해 읽어온 컴포넌트가 내가 원하는 컴포넌트인지 확인하는 작업이 따로 필요해진다. 이 때 미스매치가 되는 경우 Exception이 발생할 수도 있다. 반면 제네릭을 사용하여 &quot;나는 이러한 타입의 컴포넌트를 읽어올거야&quot; 라고 미리 지정해 두면, 컴파일 과정에서 해당하는 타입의 컴포넌트를 바로 읽어올 수 있는 것이다.&lt;/RigidBody&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;부모자식-관계&quot;&gt;부모자식 관계&lt;/h4&gt;
+
+&lt;p&gt;게임 오브젝트는 Transform 컴포넌트를 기본적으로 가지고 있다. TransForm 컴포넌트는 Parenting, 부모자식관계를 사용할 수 있다. 스크립트에서 이 부모자식관계를 이용해 부모 게임 오브젝트로부터 자식 오브젝트를 검색하여 가져올 수 있다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary></entry><entry><title type="html">BOJ_1057_토너먼트_JAVA</title><link href="https://hjs101.github.io/BOJ-1057" rel="alternate" type="text/html" title="BOJ_1057_토너먼트_JAVA" /><published>2022-03-08T09:00:00+09:00</published><updated>2022-03-08T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1057</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1057">&lt;h2 id=&quot;문제--토너먼트&quot;&gt;문제 : 토너먼트&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1057&quot;&gt;BOJ_1057_토너먼트&lt;/a&gt;&lt;/p&gt;
 
@@ -122,53 +317,7 @@
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 토너먼트</summary></entry><entry><title type="html">유니티 토막 지식_02</title><link href="https://hjs101.github.io/Unity-09" rel="alternate" type="text/html" title="유니티 토막 지식_02" /><published>2022-03-08T09:00:00+09:00</published><updated>2022-03-08T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-09</id><content type="html" xml:base="https://hjs101.github.io/Unity-09">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 닷지 게임을 완성하고 빌드하는 과정을 거쳤다.&lt;/p&gt;
-
-&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/class-GameObject.html&quot;&gt;GameObject&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 GameObject 이다.&lt;/p&gt;
-
-&lt;h4 id=&quot;정의&quot;&gt;정의&lt;/h4&gt;
-
-&lt;p&gt;GameObject는 씬 내에 존재할 수 있는 모든 요소를 나타낼 수 있는 클래스이다.&lt;/p&gt;
-
-&lt;p&gt;일반적으로 스크립트에서 GameObject를 사용하는 목적은 대부분 다른 오브젝트를 관리하기 위함이다. 해당 스크립트를 컴포넌트로 갖는 오브젝트는 gameObject로 접근할 수 있기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;※GameObject와 gameObject의 차이&lt;/p&gt;
-
-&lt;p&gt;헷갈릴 수 있는데, 앞서 말했듯이 GameObject는 클래스이다. 실제 내용물이 아니라 틀이라고 생각하면 된다. 스크립트 내에서 GameObject 타입으로 변수를 선언할 수 있다. 즉, GameObject는 형(type)의 일종이라고 볼 수 있다. gameObject는 앞서 말한 것처럼 해당 스크립트를 컴포넌트로 갖는 오브젝트이다. gameObject는 스크립트를 컴포넌트로 게임오브젝트에 부착한 순간부터 이미 값이 할당되어 있다고 생각하면 된다. 스크립트에서 gameObject를 사용하는 경우는 자기 자신 오브젝트에 접근하는 경우이고, GameObject를 사용하는 경우는 다른 오브젝트에 접근하는 경우에 사용한다.&lt;/p&gt;
-
-&lt;h4 id=&quot;기본-구성&quot;&gt;기본 구성&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_08_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트는 씬에서 생성하면 기본적으로 활성화된 상태이다. 체크박스를 해제하여 비활성화를 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트를 비활성화하면 게임 오브젝트에 연결된 모든 컴포넌트가 해제된다. 일반적으로 비활성화 시킨 게임 오브젝트는 화면에 보이지 않게 되고, Update, FixedUpdate 등과 같은 정규 콜백이나 이벤트를 수신하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;스크립트 내에서 GameObject.SetActive(boolean값) 을 이용하여 게임 오브젝트의 활성상태를 제어할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;그 오른쪽에 있는 static 체크박스는, 게임 오브젝트가 움직일 수 있는지 가능 여부를 고를 수 있다. 해당 부분은 최적화에 쓰이는데, 예를 들어 움직이지 않는 게임 오브젝트들을 batch(배치)라는 하나의 큰 오브젝트로 결합시킴으로써 렌더링을 최적화 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;오브젝트에는 태그와 레이어가 존재하는데, 태그는 씬에서 게임 오브젝트의 타입을 표시, 식별할 수 있게 한다.
-레이어는 렌더링 또는 물리 충돌 같은 특정 빌트인 동작에 대해 게임 오브젝트를 그룹화하여 제어할 수 있게 한다.&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트에 컴포넌트를 자유롭게 부착, 제거할 수 있다. 기초 글에도 있듯이, 게임 오브젝트에 부착하는 각 컴포넌트는 독립적으로 구성된다.&lt;/p&gt;
-
-&lt;p&gt;스크립트에서 컴포넌트에 접근할 때는 GetComponent 메서드를 사용하여 접근할 수 있다. 해당 메서드는 스크립트 내에서 단독으로 사용하면 현재 게임 오브젝트의 컴포넌트를 읽어온다. 이 때, 제네릭의 개념이 사용되는데.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;RigidBody rb = GetComponent&amp;lt;RigidBody&amp;gt;();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;라고 한다면, &lt;RigidBody&gt; 부분을 제네릭이라고 생각하면 된다. 유니티의 관점에서 생각해보면, 컴포넌트는 수 없이 많다. 그런데 제네릭이 없이 그냥 GetComponent만으로 컴포넌트를 읽어온다고 생각해보자. 이 경우 조건문 같은 사후 처리를 통해 읽어온 컴포넌트가 내가 원하는 컴포넌트인지 확인하는 작업이 따로 필요해진다. 이 때 미스매치가 되는 경우 Exception이 발생할 수도 있다. 반면 제네릭을 사용하여 &quot;나는 이러한 타입의 컴포넌트를 읽어올거야&quot; 라고 미리 지정해 두면, 컴파일 과정에서 해당하는 타입의 컴포넌트를 바로 읽어올 수 있는 것이다.&lt;/RigidBody&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;부모자식-관계&quot;&gt;부모자식 관계&lt;/h4&gt;
-
-&lt;p&gt;게임 오브젝트는 Transform 컴포넌트를 기본적으로 가지고 있다. TransForm 컴포넌트는 Parenting, 부모자식관계를 사용할 수 있다. 스크립트에서 이 부모자식관계를 이용해 부모 게임 오브젝트로부터 자식 오브젝트를 검색하여 가져올 수 있다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary></entry><entry><title type="html">BOJ_1049_기타줄_JAVA</title><link href="https://hjs101.github.io/BOJ-1049" rel="alternate" type="text/html" title="BOJ_1049_기타줄_JAVA" /><published>2022-03-07T09:00:00+09:00</published><updated>2022-03-07T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1049</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1049">&lt;h2 id=&quot;문제--기타줄&quot;&gt;문제 : 기타줄&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 토너먼트</summary></entry><entry><title type="html">BOJ_1049_기타줄_JAVA</title><link href="https://hjs101.github.io/BOJ-1049" rel="alternate" type="text/html" title="BOJ_1049_기타줄_JAVA" /><published>2022-03-07T09:00:00+09:00</published><updated>2022-03-07T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1049</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1049">&lt;h2 id=&quot;문제--기타줄&quot;&gt;문제 : 기타줄&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1049&quot;&gt;BOJ_1049_기타줄&lt;/a&gt;&lt;/p&gt;
 
@@ -671,258 +820,4 @@ public class Jumper : MonoBehaviour
 
 &lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;
 
-&lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로 교재를 통해서 실습을 진행하겠지만, 해당 내용은 포스팅 되지 않을 것이다. 다음부터는 다른 내용의 실습으로 포스팅을 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary></entry><entry><title type="html">자바스크립트_02</title><link href="https://hjs101.github.io/FrontEnd-02" rel="alternate" type="text/html" title="자바스크립트_02" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/FrontEnd-02</id><content type="html" xml:base="https://hjs101.github.io/FrontEnd-02">&lt;h2 id=&quot;자바스크립트_02&quot;&gt;자바스크립트_02&lt;/h2&gt;
-
-&lt;h3 id=&quot;연산자&quot;&gt;연산자&lt;/h3&gt;
-
-&lt;p&gt;자바스크립트의 연산자는 자바와 거의 동일하다고 보면 된다. 자바와 다른 연산자만 살펴보도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;===, !== 연산자: 값이 같은지 비교하는데, 해당하는 값의 타입까지 포함하여 비교하는 연산자이다. 40과 “40”은 다르다.&lt;/p&gt;
-
-&lt;h3 id=&quot;내장-객체&quot;&gt;내장 객체&lt;/h3&gt;
-
-&lt;p&gt;객체를 따로 생성하지 않아도 자동으로 객체가 생성되어 제공되는 객체를 말한다. 대표적 예시로 Window 객체, Document 객체가 있다. Window 객체는 생략가능하다.&lt;/p&gt;
-
-&lt;p&gt;자바스크립트, Html 연동하여 사용에 대해 실습을 진행하였다. 전체 코드는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;UTF-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equiv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;X-UA-Compatible&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;IE=edge&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;width=device-width, initial-scale=1.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Document&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/title&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/head&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/style&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// 윈도우 로드 이벤트 처리&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;// bookOrder();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bookOrder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 도서 주문: 제어문, 내장함수 이용 실습&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매 수량을 입력하세요&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isNaN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;올바른 값을 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;값을 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0보다 큰 수를 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;confirm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;총 도서 구매금액 : &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;구매하시겠습니까?&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매가 완료되었습니다.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매가 취소되었습니다.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;show_order&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;javascript:bookOrder()&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;도서구매&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/a&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;btnBookOrder&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bookOrder()&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;BOOK_ORDER&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;도서구매&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/body&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/html&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;실행 결과는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;javascript:bookOrder()&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;도서구매&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/a&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;btnBookOrder&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bookOrder()&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;BOOK_ORDER&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;도서구매&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위 코드는 html에서 자바스크립트의 함수를 실행하는 방법이다. 링크를 통해 실행시킬 수도 있고, 버튼을 이용하여 실행시킬 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_01.jpg&quot; alt=&quot;FE_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;페이지의 버튼을 누르면 도서 구매 함수가 시작된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매 수량을 입력하세요&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;prompt 내장 함수를 이용하면, 사용자로부터 값을 읽어들일 수 있다. prompt 함수는 2가지 방법으로 사용할 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;prompt(“메시지”, 기본값)&lt;/li&gt;
-  &lt;li&gt;prompt(“메시지”) : 기본값을 지정하지 않는 경우 “”, undefind 중 브라우저에 따라 자동으로 설정&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_02.jpg&quot; alt=&quot;FE_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위와 같이 입력 칸이 나타난다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;confirm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;총 도서 구매금액 : &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;구매하시겠습니까?&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;값을 입력받고, 도서 가격에 수량을 곱하여 총 가격을 구한다. 그 후 사용자에게 최종 확인 메시지를 보낸다.&lt;/p&gt;
-
-&lt;p&gt;confirm 함수는 boolean 타입을 반환하는데, 사용자가 확인 버튼을 눌렀다면 true를, 취소 버튼을 눌렀다면 false를 반환한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_03.jpg&quot; alt=&quot;FE_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;선택 여부를 묻는 창이 나타난다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매가 완료되었습니다.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;도서 구매가 취소되었습니다.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;result 변수에 conFirm의 리턴값을 저장하고 위와 같이 분기를 나누어 처리한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_04.jpg&quot; alt=&quot;FE_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;확인 버튼을 누르자 true에 맞는 메시지가 나타난 모습이다.&lt;/p&gt;
-
-&lt;p&gt;추가로 내가 원하는 입력값이 아닌, 잘못된 값을 입력된 경우에 대한 처리를 하는 부분을 살펴보자.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isNaN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;올바른 값을 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;값을 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0보다 큰 수를 입력해주세요.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;isNaN 메서드는 해당하는 변수가 숫자형인지 체크하여 숫자형이 아니라면 true를, 숫자형이라면 false를 반환한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;값이 입력이 아무것도 되지 않았다면 해당 변수의 길이는 0이기 때문에 길이가 0일경우의 처리를 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;도서의 수량을 입력받아 구매하는 과정인데, 그 값이 음수일 수 없기 때문에 음수에 대한 처리를 한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_05.jpg&quot; alt=&quot;FE_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;숫자가 아닐 경우,&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_06.jpg&quot; alt=&quot;FE_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나타나는 메시지.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_07.jpg&quot; alt=&quot;FE_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;값이 음수일 경우,&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_08.jpg&quot; alt=&quot;FE_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나타나는 메시지.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_09.jpg&quot; alt=&quot;FE_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;값을 입력하지 않았을 경우,&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/FE_02_10.jpg&quot; alt=&quot;FE_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나타나는 메시지.&lt;/p&gt;</content><author><name>hjs</name></author><category term="FrontEnd" /><summary type="html">자바스크립트_02</summary></entry><entry><title type="html">BOJ_1629_곱셈_JAVA</title><link href="https://hjs101.github.io/BOJ-1629" rel="alternate" type="text/html" title="BOJ_1629_곱셈_JAVA" /><published>2022-03-05T09:00:00+09:00</published><updated>2022-03-05T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1629</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1629">&lt;h2 id=&quot;문제--곱셈&quot;&gt;문제 : 곱셈&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1629&quot;&gt;BOJ_1629_곱셈&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;A의 B제곱 C로 나눈 나머지를 구해야 한다. 그냥 계산하면 되잖아? 라고 생각할 수도 있는 문제이지만, A,B,C의 범위가 모두 2147483647 이하의 자연수, 즉 제곱까지 생각하면 일단 값부터 계산할 수 있는 범위를 한참 벗어나게 된다. 또한 매 계산마다 C로 나머지연산을 해준다고 해도 시간제한이 0.5초이기 때문에 시행 횟수에서도 시간초과가 날 수밖에 없다. 따라서 이 문제는 단순계산으로 풀 수 있는 문제가 아니다.&lt;/p&gt;
-
-&lt;p&gt;분할정복을 이용해서 거듭제곱을 구할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;만약 2^10 제곱이 있다고 하자. 이를 구하는 방식은 어떻게 구할 수 있을까. 먼저 2를 10번 곱해서 구하는 방식이 있을 수 있다. 또 다른 방법은 뭐가 있을 까?&lt;/p&gt;
-
-&lt;p&gt;2^5 * 2^5 와 같은 식으로도 구할 수 있다. 그렇다면 2^5는 어떻게 구할 수 있을까&lt;/p&gt;
-
-&lt;p&gt;2^2 * 2^2 * 2 와 같은 식으로 구할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;2^2는 또 2^1 * 2^1로 나누어질 수 있다.&lt;/p&gt;
-
-&lt;p&gt;이렇게 큰 문제가 작은 문제로 쪼개어 계산되는 것, 분할정복이다.&lt;/p&gt;
-
-&lt;p&gt;거듭제곱을 구하는 일반항은 다음과 같의 정의된다&lt;/p&gt;
-
-&lt;p&gt;C^n = C^(n/2) * C^(n/2) : n이 홀수일 때
-C^n =  C^(n/2) * C^(n/2) * C : n이 짝수일 때&lt;/p&gt;
-
-&lt;p&gt;위 식을 이용하여 재귀함수를 통해 구현한다면, 기존의 연산속도가 획기적으로 줄어든다. C^n을 단순연산할 때 시간복잡도를 O(N)이라면, 분할반복을 통해 거듭제곱을 구하는 시간복잡도는 O(logN)이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;각 A,B,C변수에 값을 읽어들여 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;재귀를 통해 거듭제곱을 구해준다. 기저조건은 b가 0이 되면 1을 리턴하는 것으로 잡고, 위에서 설명한 일반항 대로 로직을 구성한다. 매 계산이 이루어질 때마다 %c를 해주어 값의 범위가 C 이내에서만 돌게 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;재귀를 모두 마친 후 결과값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.StringTokenizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BOJ_1629_곱셈&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-		&lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-
-		&lt;span class=&quot;nc&quot;&gt;StringTokenizer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringTokenizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseLong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseLong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseLong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fpow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fpow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fpow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 곱셈</summary></entry></feed>
+&lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로 교재를 통해서 실습을 진행하겠지만, 해당 내용은 포스팅 되지 않을 것이다. 다음부터는 다른 내용의 실습으로 포스팅을 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary></entry></feed>
