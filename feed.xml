@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-12T03:58:03+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">유니티 토막 지식_04</title><link href="https://hjs101.github.io/Unity-11" rel="alternate" type="text/html" title="유니티 토막 지식_04" /><published>2022-03-11T09:00:00+09:00</published><updated>2022-03-11T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-11</id><content type="html" xml:base="https://hjs101.github.io/Unity-11">&lt;p&gt;오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-12T04:01:02+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">유니티 토막 지식_04</title><link href="https://hjs101.github.io/Unity-11" rel="alternate" type="text/html" title="유니티 토막 지식_04" /><published>2022-03-11T09:00:00+09:00</published><updated>2022-03-11T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-11</id><content type="html" xml:base="https://hjs101.github.io/Unity-11">&lt;p&gt;오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/PhysicsOverview.html&quot;&gt;3D 물리&lt;/a&gt;&lt;/p&gt;
 
@@ -14,7 +14,7 @@
 
 &lt;p&gt;리지드바디에는 Is Kinematic 이라는 프로퍼티가 있다. 이 프로퍼티는 물리 엔진의 제어대상에서 해당 컴포넌트를 제외한다. 키네마틱 프로퍼티가 켜져 있는 상태라면 스크립트에서 비물리적인 모션을 적용할 수 있다. 이러한 모션을 키네마틱 모션이라고 한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_01.png&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;그림과 같이 체크박스를 통해 키네마틱을 켜고 끌 수 있다. 스크립트 안에서도 Is Kinematic의 값을 변경할 수 있지만, 성능 오버헤드가 발생한다고 하니 신중하게 사용하자.&lt;/p&gt;
 
@@ -39,7 +39,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_02.png&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;정적 콜라이더 : RigidBody 컴포넌트 없이 콜라이더를 게임 오브젝트에 추가하여 바닥, 벽과 같은 고정된 오브젝트에 사용하는 콜라이더를 말한다. 반대로 RigidBody가 있는 콜라이더는 동적 콜라이더라고 부른다. 정적 콜라이더는 동적 클라이더와 상호작용이 가능하나, 충돌에 의한 물리 이동이 일어나지 않는다.&lt;/li&gt;
