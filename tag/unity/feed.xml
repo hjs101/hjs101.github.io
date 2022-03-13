@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-13T05:10:28+09:00</updated>
+  <updated>2022-03-14T03:41:30+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,119 @@
   
   
 
+  
+    <entry>
+      <title type="html">유니티 토막 지식_05</title>
+      <link href="https://hjs101.github.io/Unity-12" rel="alternate" type="text/html" title="유니티 토막 지식_05" />
+      <published>2022-03-13T09:00:00+09:00</published>
+      <updated>2022-03-13T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-12</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-12">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 공간과 움직임 파트를 공부했다. 내용이 이해하기 쉽지 않아 조금 더 살펴봐야 할 것 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2021.1/Manual/EventFunctions.html&quot;&gt;이벤트 함수&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 이벤트 함수이다.&lt;/p&gt;
+
+&lt;h5 id=&quot;정의&quot;&gt;정의&lt;/h5&gt;
+
+&lt;p&gt;유니티의 스크립트는, 전통적인 프로그램처럼 작업이 완료될 때까지 코드가 루프를 계속 실행하는 프로그램과는 개념이 다르다. 이전 게시글에 잠깐 설명한 적이 있는데, 특정한 일(event)이 일어났음을 외부의 subscriber들에게 알려준다(브로드캐스팅). 이후 해당하는 이벤트에 등록되어있는 함수들은 브로드캐스팅된 메시지를 받아 자동적으로 실행이 되는 구조이다. 이렇게 이벤트에 대응하여 코드를 실행하는 함수를 이벤트 함수라고 한다.&lt;/p&gt;
+
+&lt;p&gt;유니티는 특정 이벤트에 대해, 호출할 함수를 확인하기 위해 이름을 지정하여 사용한다. 우리가 처음 스크립트를 만들면 자동으로 생성되는 Start함수(오브젝트가 처음 활성화 될 때 호출된다.)와 Update 함수도 이벤트 함수의 일종이다. 몇 가지 중요한 이벤트 함수에 대해 알아보자.&lt;/p&gt;
+
+&lt;h5 id=&quot;정기-업데이트-이벤트&quot;&gt;정기 업데이트 이벤트&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Update
+  게임 프로그래밍의 핵심 개념 중 하나는 각 프레임이 렌더링 되기 전에 게임에서 오브젝트의 위치, 상태 및 동작을 변경하는 것이다. 이런 코드는 주로 Update 함수에 주로 추가된다. Update함수는 프레임이 렌더링 되기 이전에 호출되며, 애니메이션이 계산되기 이전에도 호출된다.
+  메뉴얼에는 어려운 말로 쓰여있지만, 실시간으로 계속 체크하고 변화해야되는 상황에 Update를 사용한다고 생각하면 될 것 같다.
+  다만 이 함수는 &lt;strong&gt;프레임&lt;/strong&gt; 단위로 수행된다는 점은 기억해두자.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;void Update() {
+    float distance = speed * Time.deltaTime * Input.GetAxis(&quot;Horizontal&quot;);
+    transform.Translate(Vector3.right * distance);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;FixedUpdate
+  이 함수는 물리의 Timestep에 설정된 값에 따라 수행된다. 이 함수는 Update 함수와 유사한 기능을 가지고 있지만 물리 Timestep에 따른 물리 업데이트 직전에 호출된다. 물리적인 이동과 관련된 코드는 Update가 아니라 FixedUpdate에 추가하면 더욱 정확한 결과를 얻을 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;void FixedUpdate() {
+    Vector3 force = transform.forward * driveForce * Input.GetAxis(&quot;Vertical&quot;);
+    rigidbody.AddForce(force);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;LateUpdate
+  이 함수는, Update 함수 또는 FixedUpdate 함수가 수행된 이후, 또는 모든 애니메이션이 계산된 이후에 수행되는 함수이다. 사용하는 예는 카메라가 타겟 오브젝트를 계속해서 따라갈 경우, 타겟이 이동 한 후에 카메라는 움직여야하기 때문에 사용합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;void LateUpdate() {
+    Camera.main.transform.LookAt(target.transform);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;초기화-이벤트&quot;&gt;초기화 이벤트&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start
+  첫 프레임이나 오브젝트의 물리 업데이트가 시작되기 이전에 최초로 한 번 수행된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Awake
+  씬이 로드될 때 씬의 각 오브젝트에 대해 호출된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;※ Start와 Awake의 차이점
+  Awake는 항상 Start보다 먼저 수행하여 완료된다. 따라서 Start는 Awake의 초기화 된 값을 사용가능하다. 수행 순서를 기억해두자. &lt;strong&gt;Awake -&amp;gt; Start&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;gui-이벤트&quot;&gt;GUI 이벤트&lt;/h5&gt;
+
+&lt;p&gt;유니티에서 GUI에 대한 이벤트는 예전에는 OnGui 함수를 통해 사용했다고 한다. 하지만 유니티의 공식 UI 시스템인 UGUI가 등장함에 따라 해당 함수는 쓰임새가 사라졌다고 한다. UGUI를 사용하 UI요소를 게임 오브젝트 &amp;amp; 컴포넌트처럼 다루고 편집할 수 있다.&lt;/p&gt;
+
+&lt;h5 id=&quot;물리-이벤트&quot;&gt;물리 이벤트&lt;/h5&gt;
+
+&lt;p&gt;물리 이벤트에 대 함수는 이전 글에 설명을 해두었다. 여기서는 물리 엔진이 오브젝트의 스크립트에 있는 이벤트 함수를 호출한다는 점만 알아두면 될 것 같다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;void OnCollisionEnter(otherObj: Collision) {
+    if (otherObj.tag == &quot;Arrow&quot;) {
+        ApplyDamage(10);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티 토막 지식_04</title>
@@ -1027,106 +1140,6 @@ public class getDistanceTest : MonoBehaviour
 &lt;p&gt;위 사진은 Scene Gizmo이다. 현재 씬이 바라보고 있는 방향을 표시하고, 카메라를 지정한 방향으로 빠르게 전환시킬 수 있다.&lt;/p&gt;
 
 &lt;p&gt;오늘은 이전 포스팅에 이어서 창의 세부적인 기능들을 조금 더 살펴보았다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Unity_초급학습_02</title>
-      <link href="https://hjs101.github.io/Unity-02" rel="alternate" type="text/html" title="Unity_초급학습_02" />
-      <published>2022-02-28T09:00:00+09:00</published>
-      <updated>2022-02-28T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-02</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-02">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘은 프로젝트를 생성하고 간단한 컴포넌트 추가를 해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;먼저 프로젝트 생성 부분이다. 위 사진에서 오른쪽 위의 New project버튼을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3D를 선택하고, Project 이름은 HelloUnity로 한다. 프로젝트 폴더를 저장할 위치는 임의로 정했다. 이후 Create project 버튼을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_10.jpg&quot; alt=&quot;Unity_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;해당 프로젝트가 생성되어 오픈된 사진이다. 간단하게만 목록만 설명하겠다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;아래에는 프로젝트 Window가 있고 이곳에서는 프로젝트에서 사용할 수 있는 에셋 라이브러리가 표시된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;중앙에 있는 공간같은 화면은 씬(Scene)뷰이다. 이 화면에서는 씬을 시작적으로 탐색하며 편집할 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;왼쪽에는 Hierachy(계층구조) Window 가 있다. 계층구조 Window 에서는 씬에 있는 모든 오브젝트를 계층구조로 표시한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;오른쪽에는 인스펙터(Inspector) Window가 있다. 인스펙터 Window 에서는 현재 선택한 오브젝트의 모든 프로퍼티를 보고 편집할 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;마지막으로, 재생, 일시정지 등의 버튼이 보이는 상단은 Tool Bar이다. 이를 통해서 가장 필수적인 작업기능에 접근할 수 있다. 왼쪽에는 씬 뷰와 그 안에 있는 오브젝트를 조작할 수 있는 기본 툴, 중앙에는 재생, 일시정지, 스텝 컨트롤이, 오른쪽에 있는 버튼을 통해 Unity 클라우드 서비스 및 Unity 계정에 접근할 수 있다. 오른쪽에 이어서 레이어 메뉴와, 레이아웃을 저장할 수 있는 에디터 레이아웃 메뉴가 있다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;유니티 작업 Window 구조를 간단하게 알아봤으니, 이제 오브젝트 하나를 생성해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_11.jpg&quot; alt=&quot;Unity_11&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hierachy Window에 커서를 대고 오른쪽 클릭을 한다. 3D Object -&amp;gt; Cube를 선택하여 Cube를 하나 생성한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_12.jpg&quot; alt=&quot;Unity_12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;큐브 하나만 달랑 있으면 아쉬우니 바닥도 생성해준다. 위와 동일한 방법으로 이번에는 Plane를 생성한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_13.jpg&quot; alt=&quot;Unity_13&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;큐브와 바닥을 생성하고 나면 두 개의 오브젝트는 겹쳐있을 것이다. 위 사진은 큐브를 선택한 후 Y축으로 끌어올려 바닥 위 공중에 큐브를 띄워놓은 상태이다. 이제 큐브에 중력을 적용하여 큐브가 바닥 위로 떨어지게 해볼 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_14.jpg&quot; alt=&quot;Unity_14&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;큐브를 선택하고, 오른쪽 인스펙터 Window를 살펴본다. 아래에 Add Component를 찾아 검색창에 Rigid를 검색하면, 다음과 같은 컴포넌트가 나타난다. 해당 컴포넌트를 추가해준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_15.jpg&quot; alt=&quot;Unity_15&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;컴포넌트를 추가하고 나면 위와 같이 RigidBody가 생성되었을 것이다. RigidBody는 선택한 게임 오브젝트가 물리제어로 동작할 수 있게 하는 컴포넌트이다. 자세한 설명은 아래 링크를 참고하면 좋겠다. 그 위에 있는 Collider은 충돌판정에 대한 컴포넌트로, 큐브는 Box형으로 충돌판정을 하는 것이 디폴트로 되어있다.&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://docs.unity3d.com/kr/2018.4/Manual/class-Rigidbody.html&quot;&gt;Unity RigidBody&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 Tool Bar의 재생 버튼을 눌러 실행해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_01_16.gif&quot; alt=&quot;Unity_16&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;바닥으로 떨어지는 큐브가 보인다.&lt;/p&gt;</content>
 
       
       
