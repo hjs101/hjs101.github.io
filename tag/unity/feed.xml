@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-14T03:41:30+09:00</updated>
+  <updated>2022-03-15T02:41:50+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -117,6 +117,138 @@
     }
 }
 &lt;/code&gt;&lt;/pre&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">유니티 토막 지식_06</title>
+      <link href="https://hjs101.github.io/Unity-13" rel="alternate" type="text/html" title="유니티 토막 지식_06" />
+      <published>2022-03-13T09:00:00+09:00</published>
+      <updated>2022-03-13T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-13</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-13">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 공간과 움직임 파트를 마쳤다. 내일부터 유니런 제작 실습을 할 예정이다.&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 디자인 패턴이다. 지금까지 제대로 유니티에 적용해본 패턴은 싱글톤 하나 뿐이지만, 다양한 디자인 패턴들을 익혀두면 게임 제작을 할 때 적용가능한 패턴이 자연스럽게 떠오를 것 같다.&lt;/p&gt;
+
+&lt;h5 id=&quot;싱글톤-패턴&quot;&gt;싱글톤 패턴&lt;/h5&gt;
+
+&lt;p&gt;유니티에서도 사용해봤고, 자바에서도 사용해봤다. 싱글톤의 핵심은 단일 인스턴스 반환이다. 객체의 인스턴스를 1개만 생성해두고 그 1개의 인스턴스에만 접근하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;유니티에서 싱글톤 패턴은 주로 게임 시스템 전체를 통괄하는 스크립트이거나,(ex. gameManager) 전역변수처럼 사용해야할 때 사용한다. 또는 씬이 변경될 때 파괴되면 안되는 오브젝트에도 싱글톤을 반영한다.&lt;/p&gt;
+
+&lt;h6 id=&quot;싱글톤-패턴의-사용&quot;&gt;싱글톤 패턴의 사용&lt;/h6&gt;
+
+&lt;p&gt;유니티에서 싱글톤 패턴을 사용하는 방법은 2가지가 있다. 첫 번째는 게임오브젝트로써 씬에 존재하게 할 수 있고(MonoBehaviour을 상속받는다.), 두 번째는 게임 오브젝트로 존재하지 않게 하는 방법이다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Singleton : MonoBehaviour
+{
+
+    private static Singleton instance = null;
+
+    // 처음 활성화 될 때 생성되고, DontDestroyOnLoad 메서드로 인해 씬이 변경된다 하더라도 파괴되지 않는다.
+    // static 변수로 선언했기 때문에 다른 클래스에서도 직접적으로 호출이 가능해진다.
+    void awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            // 만약 씬이 바뀌었는데 바뀐 씬에 동일한 오브젝트가 이미 있는 경우 그 오브젝트를 파괴해준다.
+            // 만약 이 작업을 하지 않아 2개의 인스턴스가 생성되면 단일 인스턴스가 아니게 된다.
+            Destroy(this.gameObject);
+        }
+    }
+
+    // 다른 클래스에서는 퍼블릭으로 선언되어있는 아래의 프로퍼티를 이용해 호출할 수 있다.
+    public static Singleton Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return null;
+            }
+
+            return instance;
+        }
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;간단한 사용방법이다. 위 방법은 MonoBehaviour에 상속을 받아 씬 내부에 존재할 수 있게 한다.&lt;/p&gt;
+
+&lt;p&gt;두 번째 방법은 자바에서와 같은 방식으로 생성한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Csharp&quot;&gt;using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Singleton2
+{
+    private static Singleton2 instance;
+
+    public static Singleton2 Instance
+    {
+        get
+        {
+            // 인스턴스가 존재하지 않는 경우 딱 한 번 생성하고, 그 후에는 생성한 인스턴스를 반환한다.
+            if (null == instance)
+            {
+                instance = new Singleton2();
+            }
+            return instance;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 두 가지 방법으로 싱글톤을 생성할 수 있다.&lt;/p&gt;
+
+&lt;h6 id=&quot;장단점&quot;&gt;장단점&lt;/h6&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;장점 : 고정된 영역의 인스턴스를 한 번만 생성하여 사용하기 때문에 메모리 절약이 된다. 또한 전역으로 사용할 수 있어 다른 클래스에서 접근이 용이하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단점 : 싱글톤 단일로만 사용할 경우 객체지향 원칙(SOLID)에 위배된다. OCP, Open-Closed Principle 원칙은 개방-폐쇄 원칙인데. 확장에는 개방되어야하고, 수정에는 폐쇄되어야하는 원칙이다. 싱글톤 패턴은 하나의 인스턴스와 다양한 클래스가 연결되기 때문에 결합도가 높아져 객체의 인터페이스가 제대로 분리되지 못하게 되어 객체지향적이지 않게 된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content>
 
       
       
@@ -999,147 +1131,6 @@ public class getDistanceTest : MonoBehaviour
 &lt;p&gt;유니티에는 위와 같이 이름과 철자만 똑같이 만들어두면 브로드캐스팅되는 메시지에 의해서 자동으로 실행되는 메서드들이 있다. 이러한 메서드를 유니티 이벤트 메서드라고한다.&lt;/p&gt;
 
 &lt;p&gt;오늘은 유니티에서 사용하는 컴포넌트에 대한 개념과 메시지 - 브로드캐스팅으로 이루어지는 컴포넌트의 기능 실행에 대해 알아보았다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Unity_초급학습_03</title>
-      <link href="https://hjs101.github.io/Unity-03" rel="alternate" type="text/html" title="Unity_초급학습_03" />
-      <published>2022-03-01T09:00:00+09:00</published>
-      <updated>2022-03-01T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-03</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-03">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;먼저 Retr0 교재에서 제공하는 예제 파일을 다운받아서 오픈했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;실행을 하려고 하면 해당하는 버전이 없다는 메시지가 뜬다. 아래 톱니모양의 다른 버전의 데이터를 선택한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;실습용으로 설치한 2021.2.13버전을 선택했다. 그 후 몇 가지 메시지가 뜨면 진행 하는 방향으로 클릭해주면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;에디터가 실행되면, 빨간색으로 동그라미친 파일, SampleScene 파일을 더블클릭한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그러면 위와 같은 화면으로 바뀐다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;저번 글에서 설명했던 툴바의 레이아웃을 변경하려고 한다. default로 되어있는 버튼을 눌러 2 by 3을 클릭한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그러면 에디터를 구성하는 화면이 바뀔 것이다. 바뀐 에디터를 조정하여 위와 같은 구조로 만들었다.&lt;/p&gt;
-
-&lt;p&gt;각 창에 대한 설명은 앞선 글에서 짤막하게 했기 때문에 추가적인 내용만 조금 적어 보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_08.jpg&quot; alt=&quot;Unity_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hierarchy Window에서 오브젝트를 검색할 수 있다. 위 사진의 빨간색으로 칠해져있는 버튼을 누르면&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이와 같이 상세검색을 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_10.jpg&quot; alt=&quot;Unity_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Project Window에서 빨간색을 칠해진 부분을 왼쪽으로 당기면, 아이콘으로 보이던 화면이 리스트로 바뀐다. 기본 윈도우에서 폴더 내 파일의 표기 방식을 바꾸는 것이라고 생각하면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_11.jpg&quot; alt=&quot;Unity_11&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Console Window는, 시스템 메시지가 출력되는 Window로, 로깅이나 시스템 출력이 나타나는 Window이다. 해당 위치에는 3가지의 로그가 나타날 수 있다. 일반 로그, 경고 로그, 에러 로그이다.
-경고 로그는 게임을 진행하는 데에는 문제가 없지만 수정을 권장할만한 상황에 표시된다.
-에러 로그는 게임을 진행하는 데 치명적인 문제가 있을 때 표시된다. (실행이 불가할 때)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_12.jpg&quot; alt=&quot;Unity_12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진은 씬에 존재하는 게임 오브젝트를 편집할 때 사용할 툴을 모아놓은 툴 박스의 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_13.jpg&quot; alt=&quot;Unity_13&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;드래그 앤 드롭으로 씬 Window 상단에 배치시켰다. 각 툴들은 다음과 같은 기능을 가지고 있다. 왼쪽부터 설명하겠다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Hand : 그림관련 프로그램을 사용해봤다면 많이 익숙할 것이다. 화면을 움직인다. 단축키 Q, 마우스 휠 버튼으로 조작 가능&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Translate : 오브젝트를 이동할 수 있다. 단축키 W&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rocate : 오브젝트를 회전시킬 수 있다. 단축키 E&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Scale : 오브젝트의 크기를 바꿀 수 있다. 단축키 R&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rect : UI와 2D 오브젝트의 크기를 조정한다. 단축키 T&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Transform : Translate, Rocate, Scale을 하나로 합친 기능이다. 단축키 Y&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;씬 화면을 움직이는 방법 중 마우스를 함께 이용하는 방법은 다음과 같다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;마우스 오른쪽 키를 누른 채로 WASD를 통해 움직이기. - 평행이동&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;alt + 마우스 왼쪽 키를 누른 채로 마우스 움직이기 - 회전&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;alt + 마우스 오른쪽 키를 누른 채로 마우스 움직이기 - 줌인, 줌아웃&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_14.jpg&quot; alt=&quot;Unity_14&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진에 나와있는 화살표는, 오브젝트를 이동시킬 때 사용할 수 있다. 빨간색은 X축, 초록색은 Y축, 파란색은 Z축을 의미한다.&lt;/p&gt;
-
-&lt;p&gt;내부에 있는 사각형을 이용해 각각의 2개의 축이 만들어내는 평면에 평행하게끔 평행이동을 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_02_15.jpg&quot; alt=&quot;Unity_15&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진은 Scene Gizmo이다. 현재 씬이 바라보고 있는 방향을 표시하고, 카메라를 지정한 방향으로 빠르게 전환시킬 수 있다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 이전 포스팅에 이어서 창의 세부적인 기능들을 조금 더 살펴보았다.&lt;/p&gt;</content>
 
       
       
