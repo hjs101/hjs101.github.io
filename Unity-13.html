@@ -213,76 +213,76 @@ into the {body} of the default.hbs template -->
 
 <p>유니티에서 싱글톤 패턴을 사용하는 방법은 2가지가 있다. 첫 번째는 게임오브젝트로써 씬에 존재하게 할 수 있고(MonoBehaviour을 상속받는다.), 두 번째는 게임 오브젝트로 존재하지 않게 하는 방법이다.</p>
 
-<pre><code class="language-Csharp">using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class Singleton : MonoBehaviour
-{
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Singleton</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
 
-    private static Singleton instance = null;
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Singleton</span> <span class="n">instance</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
 
-    // 처음 활성화 될 때 생성되고, DontDestroyOnLoad 메서드로 인해 씬이 변경된다 하더라도 파괴되지 않는다.
-    // static 변수로 선언했기 때문에 다른 클래스에서도 직접적으로 호출이 가능해진다.
-    void awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
+    <span class="c1">// 처음 활성화 될 때 생성되고, DontDestroyOnLoad 메서드로 인해 씬이 변경된다 하더라도 파괴되지 않는다.</span>
+    <span class="c1">// static 변수로 선언했기 때문에 다른 클래스에서도 직접적으로 호출이 가능해진다.</span>
+    <span class="k">void</span> <span class="nf">awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">instance</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>
 
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            // 만약 씬이 바뀌었는데 바뀐 씬에 동일한 오브젝트가 이미 있는 경우 그 오브젝트를 파괴해준다.
-            // 만약 이 작업을 하지 않아 2개의 인스턴스가 생성되면 단일 인스턴스가 아니게 된다.
-            Destroy(this.gameObject);
-        }
-    }
+            <span class="nf">DontDestroyOnLoad</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// 만약 씬이 바뀌었는데 바뀐 씬에 동일한 오브젝트가 이미 있는 경우 그 오브젝트를 파괴해준다.</span>
+            <span class="c1">// 만약 이 작업을 하지 않아 2개의 인스턴스가 생성되면 단일 인스턴스가 아니게 된다.</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    // 다른 클래스에서는 퍼블릭으로 선언되어있는 아래의 프로퍼티를 이용해 호출할 수 있다.
-    public static Singleton Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                return null;
-            }
+    <span class="c1">// 다른 클래스에서는 퍼블릭으로 선언되어있는 아래의 프로퍼티를 이용해 호출할 수 있다.</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">Singleton</span> <span class="n">Instance</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+            <span class="p">}</span>
 
-            return instance;
-        }
-    }
+            <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-}
-</code></pre>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>간단한 사용방법이다. 위 방법은 MonoBehaviour에 상속을 받아 씬 내부에 존재할 수 있게 한다.</p>
 
 <p>두 번째 방법은 자바에서와 같은 방식으로 생성한다.</p>
 
-<pre><code class="language-Csharp">using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class Singleton2
-{
-    private static Singleton2 instance;
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Singleton2</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Singleton2</span> <span class="n">instance</span><span class="p">;</span>
 
-    public static Singleton2 Instance
-    {
-        get
-        {
-            // 인스턴스가 존재하지 않는 경우 딱 한 번 생성하고, 그 후에는 생성한 인스턴스를 반환한다.
-            if (null == instance)
-            {
-                instance = new Singleton2();
-            }
-            return instance;
-        }
-    }
-}
-</code></pre>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">Singleton2</span> <span class="n">Instance</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+            <span class="c1">// 인스턴스가 존재하지 않는 경우 딱 한 번 생성하고, 그 후에는 생성한 인스턴스를 반환한다.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">null</span> <span class="p">==</span> <span class="n">instance</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">instance</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Singleton2</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>위 두 가지 방법으로 싱글톤을 생성할 수 있다.</p>
 

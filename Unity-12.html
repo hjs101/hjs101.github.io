@@ -220,32 +220,32 @@ into the {body} of the default.hbs template -->
   다만 이 함수는 <strong>프레임</strong> 단위로 수행된다는 점은 기억해두자.</li>
 </ol>
 
-<pre><code class="language-Csharp">void Update() {
-    float distance = speed * Time.deltaTime * Input.GetAxis("Horizontal");
-    transform.Translate(Vector3.right * distance);
-}
-</code></pre>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">Update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">distance</span> <span class="p">=</span> <span class="n">speed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span> <span class="p">*</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
+    <span class="n">transform</span><span class="p">.</span><span class="nf">Translate</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="n">right</span> <span class="p">*</span> <span class="n">distance</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <ol>
   <li>FixedUpdate
   이 함수는 물리의 Timestep에 설정된 값에 따라 수행된다. 이 함수는 Update 함수와 유사한 기능을 가지고 있지만 물리 Timestep에 따른 물리 업데이트 직전에 호출된다. 물리적인 이동과 관련된 코드는 Update가 아니라 FixedUpdate에 추가하면 더욱 정확한 결과를 얻을 수 있다.</li>
 </ol>
 
-<pre><code class="language-Csharp">void FixedUpdate() {
-    Vector3 force = transform.forward * driveForce * Input.GetAxis("Vertical");
-    rigidbody.AddForce(force);
-}
-</code></pre>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">FixedUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Vector3</span> <span class="n">force</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="n">driveForce</span> <span class="p">*</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxis</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
+    <span class="n">rigidbody</span><span class="p">.</span><span class="nf">AddForce</span><span class="p">(</span><span class="n">force</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <ol>
   <li>LateUpdate
   이 함수는, Update 함수 또는 FixedUpdate 함수가 수행된 이후, 또는 모든 애니메이션이 계산된 이후에 수행되는 함수이다. 사용하는 예는 카메라가 타겟 오브젝트를 계속해서 따라갈 경우, 타겟이 이동 한 후에 카메라는 움직여야하기 때문에 사용합니다.</li>
 </ol>
 
-<pre><code class="language-Csharp">void LateUpdate() {
-    Camera.main.transform.LookAt(target.transform);
-}
-</code></pre>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">LateUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Camera</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">LookAt</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">transform</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h5 id="초기화-이벤트">초기화 이벤트</h5>
 
@@ -271,12 +271,12 @@ into the {body} of the default.hbs template -->
 
 <p>물리 이벤트에 대 함수는 이전 글에 설명을 해두었다. 여기서는 물리 엔진이 오브젝트의 스크립트에 있는 이벤트 함수를 호출한다는 점만 알아두면 될 것 같다.</p>
 
-<pre><code class="language-Csharp">void OnCollisionEnter(otherObj: Collision) {
-    if (otherObj.tag == "Arrow") {
-        ApplyDamage(10);
-    }
-}
-</code></pre>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">OnCollisionEnter</span><span class="p">(</span><span class="n">otherObj</span><span class="p">:</span> <span class="n">Collision</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">otherObj</span><span class="p">.</span><span class="n">tag</span> <span class="p">==</span> <span class="s">"Arrow"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">ApplyDamage</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
                 </div>
             </section>

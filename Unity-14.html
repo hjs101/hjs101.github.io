@@ -247,15 +247,15 @@ into the {body} of the default.hbs template -->
 <p>먼저 옵저버의 추상 클래스를 구현한다.</p>
 
 <p>Observer.cs</p>
-<pre><code class="language-Csharp">using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public abstract class Observer : MonoBehaviour
-{
-    public abstract void colorChange();
-}
-</code></pre>
+<span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Observer</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">abstract</span> <span class="k">void</span> <span class="nf">colorChange</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>이제 위 추상클래스를 상속받을 객체 4개를 생성하겠다.</p>
 
@@ -263,65 +263,67 @@ public abstract class Observer : MonoBehaviour
 
 <p>구체를 4개 생성했다. 이제 각각의 구체가 위 추상클래스를 상속받아 정의되어있는 추상메서드를 재정의하여 구현할 것이다.</p>
 
-<pre><code class="language-Csharp">using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<p>ChangeRed.cs</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class ChangeRed : Observer
-{
-    public override void colorChange()
-    {
-        GetComponent&lt;Renderer&gt;().material.color = Color.red;
-    }
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ChangeRed</span> <span class="p">:</span> <span class="n">Observer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">colorChange</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Renderer</span><span class="p">&gt;().</span><span class="n">material</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
 
-}
-</code></pre>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>추상메서드를 Overriding 하여 내부를 구현하였다. 구체가 4개 있으니 각각 다른 색깔로 만들어보자.</p>
 
 <p>이제 옵저버를 관리할 Subject를 만들어보자. 음, 스페이스바 버튼을 누르면 각 옵저버들에 구현되어있는 colorChange 메서드를 실행시키도록 해보자.</p>
 
-<pre><code class="language-Csharp">using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<p>Subject.cs</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
 
-public class Subject : MonoBehaviour
-{
-    public List&lt;Observer&gt; observers = new List&lt;Observer&gt;();
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Subject</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Observer</span><span class="p">&gt;</span> <span class="n">observers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Observer</span><span class="p">&gt;();</span>
 
 
-    public void observerAdd(Observer obs)
-    {
-        observers.Add(obs);
-    }
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">observerAdd</span><span class="p">(</span><span class="n">Observer</span> <span class="n">obs</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">observers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">obs</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    public void observerRemove(Observer obs)
-    {
-        if (observers.IndexOf(obs) &gt; 0)
-        {
-            observers.Remove(obs);
-        }
-    }
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">observerRemove</span><span class="p">(</span><span class="n">Observer</span> <span class="n">obs</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">observers</span><span class="p">.</span><span class="nf">IndexOf</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">observers</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">obs</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    public void Notify()
-    {
-        foreach (Observer obs in observers)
-        {
-            obs.colorChange();
-        }
-    }
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Notify</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="n">Observer</span> <span class="n">obs</span> <span class="k">in</span> <span class="n">observers</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">obs</span><span class="p">.</span><span class="nf">colorChange</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Notify();
-        }
-    }
-}
+    <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="nf">GetKeyDown</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="nf">Notify</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p><img src="https://hjs101.github.io/assets/images/Unity_14_03.jpg" alt="Unity_03" /></p>
 

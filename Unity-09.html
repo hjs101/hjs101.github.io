@@ -236,8 +236,8 @@ into the {body} of the default.hbs template -->
 
 <p>스크립트에서 컴포넌트에 접근할 때는 GetComponent 메서드를 사용하여 접근할 수 있다. 해당 메서드는 스크립트 내에서 단독으로 사용하면 현재 게임 오브젝트의 컴포넌트를 읽어온다. 이 때, 제네릭의 개념이 사용되는데.</p>
 
-<pre><code class="language-Csharp">RigidBody rb = GetComponent&lt;RigidBody&gt;();
-</code></pre>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RigidBody</span> <span class="n">rb</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">RigidBody</span><span class="p">&gt;();</span>
+</code></pre></div></div>
 
 <p>라고 한다면, <RigidBody> 부분을 제네릭이라고 생각하면 된다. 유니티의 관점에서 생각해보면, 컴포넌트는 수 없이 많다. 그런데 제네릭이 없이 그냥 GetComponent만으로 컴포넌트를 읽어온다고 생각해보자. 이 경우 조건문 같은 사후 처리를 통해 읽어온 컴포넌트가 내가 원하는 컴포넌트인지 확인하는 작업이 따로 필요해진다. 이 때 미스매치가 되는 경우 Exception이 발생할 수도 있다. 반면 제네릭을 사용하여 "나는 이러한 타입의 컴포넌트를 읽어올거야" 라고 미리 지정해 두면, 컴파일 과정에서 해당하는 타입의 컴포넌트를 바로 읽어올 수 있는 것이다.</RigidBody></p>
 

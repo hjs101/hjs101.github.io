@@ -239,30 +239,30 @@ into the {body} of the default.hbs template -->
 
 <p>새로 C# 스크립트를 하나 생성했다. 스크립트의 이름은 Jumper로 한다.</p>
 
-<pre><code class="language-Csharp">
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class Jumper : MonoBehaviour
-{
-    // RigidBody 타입의 변수 선언
-    public Rigidbody myRigidbody;
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Jumper</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// RigidBody 타입의 변수 선언</span>
+    <span class="k">public</span> <span class="n">Rigidbody</span> <span class="n">myRigidbody</span><span class="p">;</span>
 
-    void Start()
-    {
-      // RigidBody 타입의 메서드 AddForce 지정한 방향(x,y,z)으로 입력한 값만큼 힘을 부여한다.
-        myRigidbody.AddForce(0, 500, 0);
-    }
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="c1">// RigidBody 타입의 메서드 AddForce 지정한 방향(x,y,z)으로 입력한 값만큼 힘을 부여한다.</span>
+        <span class="n">myRigidbody</span><span class="p">.</span><span class="nf">AddForce</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">500</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    // Update is called once per frame
-    void Update()
-    {
+    <span class="c1">// Update is called once per frame</span>
+    <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
 
-    }
-}
+    <span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p>Jumper 스크립트에는 다음과 같이 적는다. 코드의 내용은 주석을 참고하자.</p>
 

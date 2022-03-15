@@ -241,29 +241,29 @@ into the {body} of the default.hbs template -->
 
 <p>다음은 메서드 사용법인데, 교재의 예제를 구현하도록 하겠다. 두 점 사이의 거리를 구하는 메서드이다.</p>
 
-<pre><code class="language-CSharp">
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class getDistanceTest : MonoBehaviour
-{
-    void Start()
-    {
-        Debug.Log(GetDistance(0, 3, 0, 4));
-    }
+<span class="k">public</span> <span class="k">class</span> <span class="nc">getDistanceTest</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nf">GetDistance</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">4</span><span class="p">));</span>
+    <span class="p">}</span>
 
-    // 피타고라스 정리 이용 두 점 사이의 거리 구하기
-    float GetDistance(float x1, float x2, float y1, float y2)
-    {
-        float width = x2 - x1;
-        float height = y2 - y1;
+    <span class="c1">// 피타고라스 정리 이용 두 점 사이의 거리 구하기</span>
+    <span class="kt">float</span> <span class="nf">GetDistance</span><span class="p">(</span><span class="kt">float</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">float</span> <span class="n">width</span> <span class="p">=</span> <span class="n">x2</span> <span class="p">-</span> <span class="n">x1</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">height</span> <span class="p">=</span> <span class="n">y2</span> <span class="p">-</span> <span class="n">y1</span><span class="p">;</span>
 
-        return Mathf.Sqrt(width * width + height * height);
-    }
-}
+        <span class="k">return</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="n">width</span> <span class="p">*</span> <span class="n">width</span> <span class="p">+</span> <span class="n">height</span> <span class="p">*</span> <span class="n">height</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p>스크립트 전체 코드이다. 자바와 다른점은 메서드의 첫 글자를 대문자로 쓰는 것 정도? 세세한 부분이 약간씩 다르기는 하지만 C와 비슷한 면도 있어서 어느정도 익숙하다.</p>
 
