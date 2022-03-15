@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>유니티 토막 지식_07</title>
+        
+          <description>&lt;p&gt;어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 13 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-14</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-14</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>유니티 토막 지식_06</title>
         
           <description>&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
@@ -33,6 +48,36 @@
         <link>
         https://hjs101.github.io/Unity-12</link>
         <guid isPermaLink="true">https://hjs101.github.io/Unity-12</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2156_포도주시식_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--포도주시식&quot;&gt;문제 : 포도주시식&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 13 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2156</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2156</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_17070_파이프옮기기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--파이프-옮기기&quot;&gt;문제 : 파이프 옮기기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 13 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-17070</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-17070</guid>
       </item>
       
     
@@ -554,6 +599,9 @@
   &lt;br /&gt;
   2022-03-14
   &lt;li&gt;&lt;a href=&quot;./Unity-13&quot;&gt;유니티 토막 지식_06&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-15
+  &lt;li&gt;&lt;a href=&quot;./Unity-14&quot;&gt;유니티 토막 지식_07&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
@@ -1785,6 +1833,12 @@
   &lt;br /&gt;
   2022-03-12
   &lt;li&gt;&lt;a href=&quot;./BOJ-1463&quot;&gt;BOJ_1463_1로만들기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-14
+  &lt;li&gt;&lt;a href=&quot;./BOJ-17070&quot;&gt;BOJ_17070_파이프옮기기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-15
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2156&quot;&gt;BOJ_2156_포도주시식_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
