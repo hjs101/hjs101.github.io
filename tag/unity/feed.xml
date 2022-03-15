@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-16T03:57:17+09:00</updated>
+  <updated>2022-03-16T03:59:41+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -422,7 +422,7 @@
 
 &lt;p&gt;스크립트를 컴포넌트로 추가한 구 게임 오브젝트를 드래그앤 드롭하여 Subject 오브젝트의 Observer 목록에 추가시킨다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_05.gif&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_06.gif&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;SpaceBar 키를 누름과 동시에 각 구체들의 colorChange 메서드가 실행되는 화면이다.&lt;/p&gt;
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-16T03:57:17+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_17070_파이프옮기기_JAVA</title><link href="https://hjs101.github.io/BOJ-17070" rel="alternate" type="text/html" title="BOJ_17070_파이프옮기기_JAVA" /><published>2022-03-13T09:00:00+09:00</published><updated>2022-03-13T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-17070</id><content type="html" xml:base="https://hjs101.github.io/BOJ-17070">&lt;h2 id=&quot;문제--파이프-옮기기&quot;&gt;문제 : 파이프 옮기기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-16T03:59:41+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_17070_파이프옮기기_JAVA</title><link href="https://hjs101.github.io/BOJ-17070" rel="alternate" type="text/html" title="BOJ_17070_파이프옮기기_JAVA" /><published>2022-03-13T09:00:00+09:00</published><updated>2022-03-13T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-17070</id><content type="html" xml:base="https://hjs101.github.io/BOJ-17070">&lt;h2 id=&quot;문제--파이프-옮기기&quot;&gt;문제 : 파이프 옮기기&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/17070&quot;&gt;BOJ_17070_파이프옮기기&lt;/a&gt;&lt;/p&gt;
 
@@ -245,7 +245,7 @@
 
 &lt;p&gt;스크립트를 컴포넌트로 추가한 구 게임 오브젝트를 드래그앤 드롭하여 Subject 오브젝트의 Observer 목록에 추가시킨다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_05.gif&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_06.gif&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;SpaceBar 키를 누름과 동시에 각 구체들의 colorChange 메서드가 실행되는 화면이다.&lt;/p&gt;
 
