@@ -8,6 +8,81 @@
     
       
       <item>
+        <title>BOJ_1920_수찾기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--수-찾기&quot;&gt;문제 : 수 찾기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 16 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1920</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1920</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1912_연속합_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--연속합&quot;&gt;문제 : 연속합&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 16 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1912</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1912</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_2156_포도주시식_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--포도주시식&quot;&gt;문제 : 포도주시식&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 15 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2156</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2156</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>유니티 토막 지식_08</title>
+        
+          <description>&lt;p&gt;어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 14 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-15</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-15</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_17070_파이프옮기기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--파이프-옮기기&quot;&gt;문제 : 파이프 옮기기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 14 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-17070</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-17070</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>유니티 토막 지식_07</title>
         
           <description>&lt;p&gt;어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.&lt;/p&gt;
@@ -48,36 +123,6 @@
         <link>
         https://hjs101.github.io/Unity-12</link>
         <guid isPermaLink="true">https://hjs101.github.io/Unity-12</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>BOJ_2156_포도주시식_JAVA</title>
-        
-          <description>&lt;h2 id=&quot;문제--포도주시식&quot;&gt;문제 : 포도주시식&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Sun, 13 Mar 2022 09:00:00 +0900</pubDate>
-        <link>
-        https://hjs101.github.io/BOJ-2156</link>
-        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2156</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>BOJ_17070_파이프옮기기_JAVA</title>
-        
-          <description>&lt;h2 id=&quot;문제--파이프-옮기기&quot;&gt;문제 : 파이프 옮기기&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Sun, 13 Mar 2022 09:00:00 +0900</pubDate>
-        <link>
-        https://hjs101.github.io/BOJ-17070</link>
-        <guid isPermaLink="true">https://hjs101.github.io/BOJ-17070</guid>
       </item>
       
     
@@ -1839,6 +1884,10 @@
   &lt;br /&gt;
   2022-03-15
   &lt;li&gt;&lt;a href=&quot;./BOJ-2156&quot;&gt;BOJ_2156_포도주시식_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-16
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1912&quot;&gt;BOJ_1912_연속합_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1920&quot;&gt;BOJ_1920_수찾기_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 

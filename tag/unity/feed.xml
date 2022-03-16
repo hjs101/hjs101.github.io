@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-16T03:59:41+09:00</updated>
+  <updated>2022-03-17T03:19:17+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,184 @@
   
   
 
+  
+    <entry>
+      <title type="html">유니티 토막 지식_08</title>
+      <link href="https://hjs101.github.io/Unity-15" rel="alternate" type="text/html" title="유니티 토막 지식_08" />
+      <published>2022-03-14T09:00:00+09:00</published>
+      <updated>2022-03-14T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-15</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-15">&lt;p&gt;어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.&lt;/p&gt;
+
+&lt;h5 id=&quot;옵저버-패턴&quot;&gt;옵저버 패턴&lt;/h5&gt;
+
+&lt;p&gt;옵저버 패턴은 특정 객체의 상태가 변화하면, 해당 객체와 연결 되어있는 다른 객체들이 영향을 받도록 하는 패턴이다. 1 : N 의 의존성을 가진다.&lt;/p&gt;
+
+&lt;p&gt;이때, 상태 변화를 알려주는 객체를 Subject 라고 하고,  메시지를 받아 동작을 수행하는 객체를 Observer 라고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 처럼 옵저버 패턴을 이용하면 옵저버들이 주체자의 상태변화를 감지하고 각각의 동작을 개별적으로 수행할 수 있다.&lt;/p&gt;
+
+&lt;h6 id=&quot;옵저버-패턴의-장단점&quot;&gt;옵저버 패턴의 장단점&lt;/h6&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;장점 : 객체간 결합도 낮추고, 응집도를 높인다. 이는 객체지향적인 면에서 큰 이점이 있다. 또한 일대다 객체간의 상호작용에서 이벤트 단위로 처리하는 상황에 유용하게 쓰인다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단점 : 코드의 상호작용이 일어나는지 한눈에 알아보기 어려워 디버깅을 통해 확인하는 방법을 사용해야 한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;옵저버-패턴의-특징&quot;&gt;옵저버 패턴의 특징&lt;/h6&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;주체자가 옵저버 각각의 객체에 대해 정보를 가지고 있을 필요가 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;옵저버는 언제든지 새롭게 추가할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;새로운 기능을 사용하는 옵저버를 추가한다 하더라도 주체자는 바뀌는 것이 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주체자와 옵저버는 서로 독립적으로 재사용 가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주체자나 옵저버가 변경되더라도 서로에게 영향을 끼치지 않는다. (낮은 의존성)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;옵저버-패턴의-사용&quot;&gt;옵저버 패턴의 사용&lt;/h6&gt;
+
+&lt;p&gt;유니티, C#에서는 delegate, event를 이용해 옵저버 패턴을 구현할 수 있다. 하지만 델리게이트에 대해서 아직 잘 모르기 때문에, 기본 형식으로 옵저버 패턴을 구현해보도록 하겠다. 간단하게 오브젝트의 색깔을 바꾸는 기능을 구현해보겠다.&lt;/p&gt;
+
+&lt;p&gt;먼저 옵저버의 추상 클래스를 구현한다.&lt;/p&gt;
+
+&lt;p&gt;Observer.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Observer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;colorChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 위 추상클래스를 상속받을 객체 4개를 생성하겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;구체를 4개 생성했다. 이제 각각의 구체가 위 추상클래스를 상속받아 정의되어있는 추상메서드를 재정의하여 구현할 것이다.&lt;/p&gt;
+
+&lt;p&gt;ChangeRed.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChangeRed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;colorChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GetComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Renderer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;material&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추상메서드를 Overriding 하여 내부를 구현하였다. 구체가 4개 있으니 각각 다른 색깔로 만들어보자.&lt;/p&gt;
+
+&lt;p&gt;이제 옵저버를 관리할 Subject를 만들어보자. 음, 스페이스바 버튼을 누르면 각 옵저버들에 구현되어있는 colorChange 메서드를 실행시키도록 해보자.&lt;/p&gt;
+
+&lt;p&gt;Subject.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Subject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;observers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;observerAdd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;observers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;observerRemove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;observers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IndexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;observers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Notify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Observer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;observers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;obs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;colorChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetKeyDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Space&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;Notify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 스크립트를 빈 오브젝트를 생성해 이름은 Subject으로 바꿔주고 컴포넌트에 추가해주었다. Observer를 Public로 설정해두었기 때문에 위처럼 엘리멘트 추가가 가능하다. 변경한 김에 구의 이름도 바꿔주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;각 옵저버에 만들었던 스크립트들을 색깔별로 4개 구 게임오브젝트에 각각 집어넣어 주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스크립트를 컴포넌트로 추가한 구 게임 오브젝트를 드래그앤 드롭하여 Subject 오브젝트의 Observer 목록에 추가시킨다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_14_06.gif&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SpaceBar 키를 누름과 동시에 각 구체들의 colorChange 메서드가 실행되는 화면이다.&lt;/p&gt;
+
+&lt;p&gt;C#에서 제공하는 delegate와 event를 사용하는 방법은 다음에 실습해보도록 하자.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티 토막 지식_06</title>
@@ -1070,116 +1248,6 @@
 &lt;p&gt;Zoo에서 Animal 클래스를 이용해 Animal타입 gaji 라는 변수명의 객체를 생성하였고, 설정한 변수명이 제대로 입력되어있는 것과, PlaySound 기능이 잘 동작하는 것을 확인 할 수있다.&lt;/p&gt;
 
 &lt;p&gt;오늘은 유니티에서 클래스를 만들어 테스트해보았다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Unity_초급학습_05</title>
-      <link href="https://hjs101.github.io/Unity-05" rel="alternate" type="text/html" title="Unity_초급학습_05" />
-      <published>2022-03-03T09:00:00+09:00</published>
-      <updated>2022-03-03T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-05</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-05">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번에는 C#에 대해 알아보겠다. C#은 이전에 다뤄본적도 있고, 비슷한 객체지향 언어인 자바를 공부했기 때문에, 언어 자체보다는 유니티와 연동하는 부분에 초점을 맞추도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;유니티의 project window에 오른쪽 클릭을 하고 Create -&amp;gt; C# Script를 하나 생성한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;파일이 한 개 생성되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;유니티에서 기본적으로 C# 스크립트 파일을 생성하면 화면과 같은 기본 코드가 제공된다. 네임스페이스로 UnityEngine이 추가되어있고, 클래스는 MonoBehaviour를 상속받고있다.&lt;/p&gt;
-
-&lt;p&gt;start 메서드는 코드 실행이 시작되는 시작점을 제공한다. 앞 번에 설명했던 유니티 이벤트 메서드에 해당하는 메서드이다. 게임이 시작될 때 자동으로 한 번 수행되는 메서드이다. 게임 시작과 동시에 수행해야할 코드가 들어가면 된다.&lt;/p&gt;
-
-&lt;p&gt;update메서드는 1프레임 마다 한 번씩 수행되는 메서드이다. 실시간으로 계속해서 수행되어야할 코드가 있을 때 사용한다. 프레임 단위로 작동하기 때문에 프레임 상태에 따라서 호출이 불규칙하다.&lt;/p&gt;
-
-&lt;p&gt;※ FixedUpdate 와 update 의 차이 : update는 프레임을 기반으로 호출되는 메서드이고, FixedUpdate는 자체적인 Timestep에 설정된 값에 따라서 일정한 간격으로 호출된다. update의 주 사용처는 물리효과(RigidBody)가 적용되지 않는 오브젝트의 움직임, 키 입력 등에 사용된다. FixedUpdate는 물리효과가 적용된 오브젝트를 조정할 때 사용된다. 물리효과 적용된 오브젝트를 update로 조정할 경우에는 물리엔진 충돌검사 등이 제대로 이루어지지 않을 수 있다.&lt;/p&gt;
-
-&lt;p&gt;Debug 기능에 대해서 조금 실습해보자. 복잡한 코드가 아니기 때문에 소스코드는 첨부하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;문자열 변수, 정수형 변수를 선언하고 각각 Debug.log 메서드로 출력하는 코드를 작성했다.&lt;/p&gt;
-
-&lt;p&gt;유니티에서 스크립트는 독립적으로 수행될 수 없다. 스크립트를 동작시키고 싶다면, 게임에 존재하는 오브젝트로 만들어야 한다. 그 방법은 컴포넌트로 빈 껍데기인 게임 오브젝트에 추가하는 것. 기존 예제의 큐브에 작성한 스크립트를 컴포넌트로 추가해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;큐브 오브젝트를 Hierarchy Window에서 선택한다. Inspector Window의 Add Component를 누르고 검색 창에 Hello를 치니 작성한 스크립트명 HelloUnity가 보인다. 컴포넌트를 추가해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;재생버튼을 누르자 Console Window에 위와 같이 3개의 메시지가 나타난다. Debug를 통해 콘솔창에 정보를 출력할 수 있다는 점, 변수를 찍어볼 수 있다는 점은, 개발할 때 문제 파악에 많은 도움이 될 것이다.&lt;/p&gt;
-
-&lt;p&gt;다음은 메서드 사용법인데, 교재의 예제를 구현하도록 하겠다. 두 점 사이의 거리를 구하는 메서드이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;getDistanceTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// 피타고라스 정리 이용 두 점 사이의 거리 구하기&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mathf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;스크립트 전체 코드이다. 자바와 다른점은 메서드의 첫 글자를 대문자로 쓰는 것 정도? 세세한 부분이 약간씩 다르기는 하지만 C와 비슷한 면도 있어서 어느정도 익숙하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_04_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;(0,0)과 (3,4)의 거리를 구하니 5가 출력된 모습이다. 역시 게임오브젝트에 컴포넌트로 추가하여 실행시켰다. 게임을 실행시켜 테스트를 마친 후에는 꼭! 다시 플레이 버튼을 눌러 모드를 해제시켜주자. 플레이 모드에서 오브젝트가 변경된 사항은 플레이 모드를 해제하면 원래대로 돌아간다. 플레이 모드로 작업하다가 취소하고 작업물을 전부 날려먹는 안타까운 일이 없길 바란다.&lt;/p&gt;
-
-&lt;p&gt;if문, for, while문, 배열 등은 자바와 거의 같은 내용이기 때문에 넘어가겠다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 유니티에서 C# 스크립트를 사용하는 방법에 대해서 알아보았고, 기본적인 C# 예제를 테스트해보았다.&lt;/p&gt;</content>
 
       
       
