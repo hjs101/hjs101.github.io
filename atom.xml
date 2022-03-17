@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>유니티 토막 지식_09</title>
+        
+          <description>&lt;p&gt;오늘은 어제 알아봤던 스트래티지 패턴의 실습을 해보도록 하겠다. 정보를 찾아보면서 깨달았는데, SSAFY 자바 파트를 배우면서 비슷한 방식의 예제를 풀어본 적이 있었다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 17 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-16</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-16</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_9095_123더하기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--123더하기&quot;&gt;문제 : 123더하기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 17 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-9095</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-9095</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>유니티 토막 지식_08</title>
         
           <description>&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
@@ -647,6 +677,12 @@
   &lt;br /&gt;
   2022-03-15
   &lt;li&gt;&lt;a href=&quot;./Unity-14&quot;&gt;유니티 토막 지식_07&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-16
+  &lt;li&gt;&lt;a href=&quot;./Unity-15&quot;&gt;유니티 토막 지식_08&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-17
+  &lt;li&gt;&lt;a href=&quot;./Unity-16&quot;&gt;유니티 토막 지식_09&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
@@ -1889,6 +1925,8 @@
   &lt;li&gt;&lt;a href=&quot;./BOJ-1912&quot;&gt;BOJ_1912_연속합_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-1920&quot;&gt;BOJ_1920_수찾기_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
+  2022-03-17
+  &lt;li&gt;&lt;a href=&quot;./BOJ-9095&quot;&gt;BOJ_9095_123더하기_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

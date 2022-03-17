@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-17T03:32:10+09:00</updated>
+  <updated>2022-03-18T03:55:54+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,253 @@
   
   
 
+  
+    <entry>
+      <title type="html">유니티 토막 지식_09</title>
+      <link href="https://hjs101.github.io/Unity-16" rel="alternate" type="text/html" title="유니티 토막 지식_09" />
+      <published>2022-03-17T09:00:00+09:00</published>
+      <updated>2022-03-17T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-16</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-16">&lt;p&gt;오늘은 어제 알아봤던 스트래티지 패턴의 실습을 해보도록 하겠다. 정보를 찾아보면서 깨달았는데, SSAFY 자바 파트를 배우면서 비슷한 방식의 예제를 풀어본 적이 있었다.&lt;/p&gt;
+
+&lt;p&gt;스파이더맨과 거미 모두 거미줄을 쏠 수 있는데, 평범한 인간은 거미줄을 쏘지 못한다.&lt;/p&gt;
+
+&lt;p&gt;이때 스파이더맨 클래스에 거미를 has a 관계로 포함시켜줌으로써 일반적인 인간과 구별하도록 하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 함으로써 스파이더맨은 인간 클래스를 상속받으면서 거미의 특성을 사용할 수 있었다.&lt;/p&gt;
+
+&lt;h5 id=&quot;스트래티지-패턴&quot;&gt;스트래티지 패턴&lt;/h5&gt;
+
+&lt;h5 id=&quot;weaponcs&quot;&gt;Weapon.cs&lt;/h5&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Weapon&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;먼저 Weapon 인터페이스를 선언한다. 해당 인터페이스는 추상메서드로 Attack 메서드를 가지고 있다.&lt;/p&gt;
+
+&lt;h5 id=&quot;무기들&quot;&gt;무기들&lt;/h5&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gun&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Weapon&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;탕! 탕!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Sword&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Weapon&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;슈슉 슈슉. 슉.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Hammer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Weapon&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;쾅!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;검, 총, 망치 클래스를 각각 만들어주었고, 해당 클래스는 모두 Weapon 인터페이스와 구현 관계를 맺었다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 되면, 객체지향의 특성중 하나인 다형성에 의해 Weapon 타입으로 3개의 무기 모두 담을 수 있게 되었다.&lt;/p&gt;
+
+&lt;h5 id=&quot;actor&quot;&gt;Actor&lt;/h5&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Actor&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Weapon&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weapon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Weapon&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SetWeapon&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;weapon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;weapon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;무기를 바꿀 수 있도록 C#에 있는 기능인 프로퍼티를 통한 set 기능을 추가해주었다(자바를 배웠다보니 헷갈리긴 한다).&lt;/p&gt;
+
+&lt;p&gt;또, Attack 메서드를 통해 무기가 가지고있는 메서드 Attack를 실행시켜준다.&lt;/p&gt;
+
+&lt;h5 id=&quot;uicontrolcs&quot;&gt;UiControl.cs&lt;/h5&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine.UI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UiControl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Actor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Actor를 생성해주고, 초기값으로 검을 설정하도록 한다.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setWeapon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;c1&quot;&gt;// 무기를 바꾸는 함수들 설정&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;changeSword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;무기 칼로 바꾼다!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setWeapon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;changeGun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;무기 총으로 바꾼다!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setWeapon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Gun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;changeHammer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;무기 망치로 바꾼다!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setWeapon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Hammer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 공격 수행 메서드&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;actor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;line 8 : 먼저 Actor 객체 타입 변수를 선언해준다. set함수로 세팅만 할 것이고 외부에서 접근 불가능하게 private로 선언해준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;line 10 ~ 15 : start 이벤트 처리로 객체를 생성해서 할당해주고 초기값을 Sword으로 하여 초기화시켜준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;line 19 ~ 33 : 무기 변경을 위한 메서드이다. 프로퍼티 방식 이용하여 actor의 weapon을 각각의 무기로 변경시켜준다. 테스트를 위해 콘솔창에 간단히 출력했다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;line 36 ~ 39 : 공격을 수행할 메서드이다. 역시 actor의 weapon의 메서드 attack를 수행시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;게임-오브젝트-설정&quot;&gt;게임 오브젝트 설정&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hierarchy 창에 다음과 같이 오브젝트를 만들어 준다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gun, Sword, Hammer, Attack는 버튼 오브젝트이다. UI 탭에 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;빈 오브젝트를 만들어 WeaponUI 로 이름짓고 4개의 버튼을 모두 그 자식으로 두었다. 큰 의미는 없고, 버튼을 한데 묶어주고 싶었다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;버튼을 생성하면 내부에 text 오브젝트가 같이 생성된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이는 버튼에 표시되는 글자를 나타내는 객체이다. 각각의 이름에 맞게 텍스트를 설정해주자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;적당히 캔버스에 배치해주도록 하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;버튼을 한데 묶은 WeaponUI에 UIControl 스크립트 파일을 컴포넌트로 추가해주자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 각 버튼에 On Click 이벤트 처리를 해주면 된다. 처음에는 empty 상태일 텐데, 다음과 같은 과정으로 추가하자.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;+버튼을 눌러 이벤트를 추가한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;WeaponUI 오브젝트를 끌어다 오브젝트 넣는 자리에 놓는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;오른쪽 콤보박스를 눌러 스크립트이름을 찾아 메서드를 등록해준다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3번은 위와 같이 해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_16_08.gif&quot; alt=&quot;Unity_08&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;게임을 실행하고 버튼을 하나씩 눌러보며 테스트해보자.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">오늘은 어제 알아봤던 스트래티지 패턴의 실습을 해보도록 하겠다. 정보를 찾아보면서 깨달았는데, SSAFY 자바 파트를 배우면서 비슷한 방식의 예제를 풀어본 적이 있었다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티 토막 지식_08</title>
@@ -1048,119 +1295,6 @@
 &lt;p&gt;오늘은 유니티에서 클래스를 조금 더 다루어보았다. 기본형과 참조형의 차이, 참조형 변수는 주소를 가지고 있다는 것을 기억해두자.&lt;/p&gt;
 
 &lt;p&gt;출판사에 보냈던 메일에 대한 답변으로 책 내용의 30% 이상은 포스팅하면 안된다는 의견을 받아, 교재 내용을 통해 포스팅하는 것은 이 글이 마지막이다. 퍼센트로 따지면 이 글까지 범위가 25%쯤 된다. 뒷내용은 게임을 제작하는 부분이므로. 앞으로 교재를 통해서 실습을 진행하겠지만, 해당 내용은 포스팅 되지 않을 것이다. 다음부터는 다른 내용의 실습으로 포스팅을 하겠다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티_초급학습_06</title>
-      <link href="https://hjs101.github.io/Unity-06" rel="alternate" type="text/html" title="유니티_초급학습_06" />
-      <published>2022-03-04T09:00:00+09:00</published>
-      <updated>2022-03-04T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-06</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-06">&lt;p&gt;이 포스팅의 내용은 한빛미디어의 ‘레트로의 유니티 게임 프로그래밍 에센스(개정판)’을 요약 정리하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/unity.png&quot; alt=&quot;Unity&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.hanbit.co.kr/store/books/look.php?p_code=B9351446616&quot;&gt;레트로의 유니티 게임 프로그래밍 에센스(개정판)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번에는 매우 중요한 개념인 객체지향에 대해서 간단하게 알아보겠다. 언어만 다를 뿐, 자바에서의 객체지향과 의미는 같아보인다. (개념에 대한 설명은 교재에 나와있지 않은 내용이니 참고해주세요.)&lt;/p&gt;
-
-&lt;h3 id=&quot;객체&quot;&gt;객체&lt;/h3&gt;
-
-&lt;p&gt;객체 : 개발자의 관점에서 객체는, 우리 주변에 있는 모든 것으로, 프로그래밍의 대상이 될 수 있는 모든 것을 객체로 정의한다. 이는 사물, 개념, 논리가 될 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;객체지향 프로그래밍은 다음을 의미한다. 주변의 많은 객체화 할 수 있는 대상을 객체화 시켜 프로그래밍 하는 것이다. 프로그램 밖에 있는 것들을 프로그램 안으로 끌어들이는 것이라고 생각한다.&lt;/p&gt;
-
-&lt;p&gt;###클래스와 인스턴스&lt;/p&gt;
-
-&lt;p&gt;클래스 : 클래스는 객체를 정의해 놓은 것이다. 즉 객체를 생성하기 위한 설계도이다. 흔히들 붕어빵 틀에 비유하곤 한다. 붕어빵 틀은 붕어빵을 찍어내기 위한 틀이고, 틀을 이용해서 붕어빵을 만들 수 있다. 여기서 틀에 해당하는 것이 클래스, 붕어빵에 해당하는 것이 인스턴스이다.&lt;/p&gt;
-
-&lt;p&gt;인스턴스 : 위에서 말했듯, 클래스를 통해 데이터 타입으로 생성되어 메모리에 적재된 것을 인스턴스라고 한다. 교재에서 새롭게 알게 된 사실로, 오브젝트가 인스턴스를 포함하는 개념이기 때문에, 같은 의미로 혼용하기도 한다고 한다.&lt;/p&gt;
-
-&lt;p&gt;추가적으로 멤버변수와 지역변수의 차이까지만 알아보자.&lt;/p&gt;
-
-&lt;h2 id=&quot;변수&quot;&gt;변수&lt;/h2&gt;
-
-&lt;p&gt;멤버변수 : 클래스 내부에서 선언되는 변수이다. 해당 클래스에 있는 생성자, 메서드에서 사용가능하다. 멤버변수는 또 2가지로 나눌 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;static 변수 : Class 변수이다. class가 로딩 시에 자동으로 메모리에 적재된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;non-static 변수 : Instance 변수, 필요시에 new 클래스이름()으로 인스턴스를 생성할 때 같이 메모리에 적재된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;앞서 클래스와 인스턴스를 구분해서 설명한 것과 이어서 생각해보자. static과 non-static의 차이에 대해 느낌이 좀 올 것이다.&lt;/p&gt;
-
-&lt;p&gt;이 이외에도 추상화, 상속, 다형성, 캡슐화 등 설명하지 못한 많은 내용이 남아있지만 유니티로 넘어가기 위해 일단 여기까지만 설명하고 넘어가도록 하겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;c-클래스&quot;&gt;C# 클래스&lt;/h2&gt;
-
-&lt;p&gt;이제 유니티에서 클래스와 오브젝트에 대한 예제를 풀어 실습해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;새로 프로젝트를 하나 생성했다. 프로젝트 이름은 Hello Class로 지었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;유니티의 project window에 오른쪽 클릭을 하고 Create -&amp;gt; C# Script를 하나 생성했다. 이름은 Animal로 지었다. 이제 이 스크립트를 수정해보겠다. 교재에서 주어진 요구사항은 Animal 클래스는 멤버변수로 이름과 울음소리를 가지며, 울음소리를 재생하는 메서드 PlaySound를 가진다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_03.jpg&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;요구사항대로 수정한 Animal 클래스이다. 변수와 메서드의 접근제한자는 public으로 두었다. 앞서 설명했듯 이것은 객체를 생성하기 위한 틀이기 때문에 이 자체로는 아무런 일도 일어나지 않는다. 기왕 실습하는 거 생성자까지 만들어보았다. 생성자는 객체가 생성될 때 초기화 해야할 변수, 또는 수행해야되는 로직이 있다면 객체가 생성되면서 수행할 수 있게 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 Zoo C# 스크립트 파일을 새로 하나 더 생성하겠다. 해당 스크립트에서 Animal 클래스를 이용해 동물 인스턴스를 생성해볼 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_05.jpg&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;새로생성한 Zoo 스크립트 파일을 수정해서 gaji라는 동물을 하나 생성해보겠다. 가지는 친구집 고양이 이름이다 ^^&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_06.jpg&quot; alt=&quot;Unity_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;생성자 규칙대로 객체를 하나 생성했다. 잘 동작하는지 테스트해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_07.jpg&quot; alt=&quot;Unity_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;프로젝트에 빈 오브젝트를 하나 생성해준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_08.jpg&quot; alt=&quot;Unity_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그 후, Zoo 스크립트를 컴포넌트로 빈 오브젝트에 추가해주었다. 이제 실행 버튼을 눌러 확인해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_05_09.jpg&quot; alt=&quot;Unity_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Zoo에서 Animal 클래스를 이용해 Animal타입 gaji 라는 변수명의 객체를 생성하였고, 설정한 변수명이 제대로 입력되어있는 것과, PlaySound 기능이 잘 동작하는 것을 확인 할 수있다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 유니티에서 클래스를 만들어 테스트해보았다.&lt;/p&gt;</content>
 
       
       
