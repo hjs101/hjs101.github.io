@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>BOJ_2193_이친수_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--이친수&quot;&gt;문제 : 이친수&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 19 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2193</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2193</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_11726_2xN타일링_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--2xn-타일링&quot;&gt;문제 : 2xN 타일링&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 18 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-11726</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-11726</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>유니티 토막 지식_09</title>
         
           <description>&lt;p&gt;오늘은 어제 알아봤던 스트래티지 패턴의 실습을 해보도록 하겠다. 정보를 찾아보면서 깨달았는데, SSAFY 자바 파트를 배우면서 비슷한 방식의 예제를 풀어본 적이 있었다.&lt;/p&gt;
@@ -1927,6 +1957,12 @@
   &lt;br /&gt;
   2022-03-17
   &lt;li&gt;&lt;a href=&quot;./BOJ-9095&quot;&gt;BOJ_9095_123더하기_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-18
+  &lt;li&gt;&lt;a href=&quot;./BOJ-11726&quot;&gt;BOJ_11726_2xN타일링_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-19
+  &lt;li&gt;&lt;a href=&quot;./BOJ-11726&quot;&gt;BOJ_11726_2xN타일링_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
