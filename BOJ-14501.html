@@ -11,7 +11,7 @@
 
 
 
-    <title>유니티 토막 지식_04</title>
+    <title>BOJ_14501_퇴사_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -51,30 +51,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/Unity-11" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-14501" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="유니티 토막 지식_04" />
-    <meta property="og:description" content="오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다. 3D 물리 오늘 알아볼 것은 유니티에서 사용하는 물리에 관한 컴포넌트들을 살펴보겠다. RigidBody 리지드바디(RigidBody)는, 앞서서도 여러 번 설명한 적이 있는 컴포넌트이다. 게임 오브젝트가 물리적 동작을 가능하게 하는 주요 컴포넌트이다. 리지드바디는 연결된 게임 오브젝트의 이동을 제어한다. 따라서 스크립트에서 포지션이나 회전처럼 TransForm의" />
-    <meta property="og:url" content="https://hjs101.github.io/Unity-11" />
-    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
+    <meta property="og:title" content="BOJ_14501_퇴사_JAVA" />
+    <meta property="og:description" content="문제 : 퇴사 링크 : BOJ_14501_퇴사 접근 방식 1~N일 까지의 각각의 상담 일정이 주어지고, N일까지 가장 큰 수익을 얻을 수 있는 경우의 수를 찾아야 한다. 1일부터 시작하여 값은 계속해서 증가할 수밖에 없다. 따라서 특정 날짜의 일을 선택하는지 선택하지 않는지에 따라 누적비용을 다르게 하여 경우의 수를 따져볼 수 있다. 나는 DFS를" />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-14501" />
+    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-03-11T09:00:00+09:00" />
-    <meta property="article:modified_time" content="2022-03-11T09:00:00+09:00" />
-    <meta property="article:tag" content="Unity" />
+    <meta property="article:published_time" content="2022-03-23T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-03-23T09:00:00+09:00" />
+    <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="유니티 토막 지식_04" />
-    <meta name="twitter:description" content="오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다. 3D 물리 오늘 알아볼 것은 유니티에서 사용하는 물리에 관한 컴포넌트들을 살펴보겠다. RigidBody 리지드바디(RigidBody)는, 앞서서도 여러 번 설명한 적이 있는 컴포넌트이다. 게임 오브젝트가 물리적 동작을 가능하게 하는 주요 컴포넌트이다. 리지드바디는 연결된 게임 오브젝트의 이동을 제어한다. 따라서 스크립트에서 포지션이나 회전처럼 TransForm의" />
+    <meta name="twitter:title" content="BOJ_14501_퇴사_JAVA" />
+    <meta name="twitter:description" content="문제 : 퇴사 링크 : BOJ_14501_퇴사 접근 방식 1~N일 까지의 각각의 상담 일정이 주어지고, N일까지 가장 큰 수익을 얻을 수 있는 경우의 수를 찾아야 한다. 1일부터 시작하여 값은 계속해서 증가할 수밖에 없다. 따라서 특정 날짜의 일을 선택하는지 선택하지 않는지에 따라 누적비용을 다르게 하여 경우의 수를 따져볼 수 있다. 나는 DFS를" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
-    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
+    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="hjs's Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Unity" />
+    <meta name="twitter:data2" content="Boj" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -89,18 +89,18 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/Unity-11",
+    "url": "https://hjs101.github.io/BOJ-14501",
     "image": {
         "@type": "ImageObject",
-        "url": "https://hjs101.github.io/assets/built/images/Unity-logo.png",
+        "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/Unity-11"
+        "@id": "https://hjs101.github.io/BOJ-14501"
     },
-    "description": "오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다. 3D 물리 오늘 알아볼 것은 유니티에서 사용하는 물리에 관한 컴포넌트들을 살펴보겠다. RigidBody 리지드바디(RigidBody)는, 앞서서도 여러 번 설명한 적이 있는 컴포넌트이다. 게임 오브젝트가 물리적 동작을 가능하게 하는 주요 컴포넌트이다. 리지드바디는 연결된 게임 오브젝트의 이동을 제어한다. 따라서 스크립트에서 포지션이나 회전처럼 TransForm의"
+    "description": "문제 : 퇴사 링크 : BOJ_14501_퇴사 접근 방식 1~N일 까지의 각각의 상담 일정이 주어지고, N일까지 가장 큰 수익을 얻을 수 있는 경우의 수를 찾아야 한다. 1일부터 시작하여 값은 계속해서 증가할 수밖에 없다. 따라서 특정 날짜의 일을 선택하는지 선택하지 않는지에 따라 누적비용을 다르게 하여 경우의 수를 따져볼 수 있다. 나는 DFS를"
 }
     </script>
 
@@ -113,7 +113,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="유니티 토막 지식_04" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_14501_퇴사_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -173,119 +173,121 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-unity post tag-Unity ">
+        <article class="post-full  tag-boj post tag-BOJ ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="11 March 2022">11 March 2022</time>
+                    <time class="post-full-meta-date" datetime="23 March 2022">23 March 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/unity/'>UNITY</a>
+                               <a href='/tag/boj/'>BOJ</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">유니티 토막 지식_04</h1>
+                <h1 class="post-full-title">BOJ_14501_퇴사_JAVA</h1>
             </header>
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/Unity-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/Boj-logo.png)">
             </figure>
              !-->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다.</p>
+                    <h2 id="문제--퇴사">문제 : 퇴사</h2>
 
-<p><a href="https://docs.unity3d.com/kr/2022.1/Manual/PhysicsOverview.html">3D 물리</a></p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/14501">BOJ_14501_퇴사</a></p>
 
-<p>오늘 알아볼 것은 유니티에서 사용하는 물리에 관한 컴포넌트들을 살펴보겠다.</p>
+<h2 id="접근-방식">접근 방식</h2>
 
-<h5 id="rigidbody">RigidBody</h5>
+<p>1~N일 까지의 각각의 상담 일정이 주어지고, N일까지 가장 큰 수익을 얻을 수 있는 경우의 수를 찾아야 한다.</p>
 
-<p>리지드바디(RigidBody)는, 앞서서도 여러 번 설명한 적이 있는 컴포넌트이다. 게임 오브젝트가 물리적 동작을 가능하게 하는 주요 컴포넌트이다.</p>
+<p>1일부터 시작하여 값은 계속해서 증가할 수밖에 없다. 따라서 특정 날짜의 일을 선택하는지 선택하지 않는지에 따라 누적비용을 다르게 하여 경우의 수를 따져볼 수 있다. 나는 DFS를 이용한 완전탐색을 사용하면 풀 수 있을 것이라고 생각했다.</p>
 
-<p>리지드바디는 연결된 게임 오브젝트의 이동을 제어한다. 따라서 스크립트에서 포지션이나 회전처럼 TransForm의 프로퍼티를 변경시켜 오브젝트를 이동하려고 하면 안된다. 값을 변경하는 대신 Forces. 즉 오브젝트에 <strong>힘을 가하고, 그 힘에 대해 물리 엔진이 결과를 계산</strong>할 수 있도록 해야한다.</p>
-
-<p>경우에 따라서 특정 게임 오브젝트에 리지드바디를 추가하되, 물리 엔진의 제어를 받는 것이 싫을 때가 있다. 예를 들면 스크립트 코드로 캐릭터를 직접 제어하면서도, 캐릭터가 트리거에 의해 감지되게 하려고 할 때가 있다.</p>
-
-<p>리지드바디에는 Is Kinematic 이라는 프로퍼티가 있다. 이 프로퍼티는 물리 엔진의 제어대상에서 해당 컴포넌트를 제외한다. 키네마틱 프로퍼티가 켜져 있는 상태라면 스크립트에서 비물리적인 모션을 적용할 수 있다. 이러한 모션을 키네마틱 모션이라고 한다.</p>
-
-<p><img src="https://hjs101.github.io/assets/images/Unity_10_01.jpg" alt="Unity_01" /></p>
-
-<p>그림과 같이 체크박스를 통해 키네마틱을 켜고 끌 수 있다. 스크립트 안에서도 Is Kinematic의 값을 변경할 수 있지만, 성능 오버헤드가 발생한다고 하니 신중하게 사용하자.</p>
-
-<p>※ 리지드바디의 휴면 : 리지드바디가 정의된 최소 선형, 또는 회전 속도보다도 더 느리게 이동하면 물리 엔진에서는 정지했다고 간주한다. 움직이지 않는 리지드바디는 다시 힘이 가해지거나 충돌하기 전 까지는 움직이지 않기 때문에 이때 유니티에서는 리지드바디를 “휴면” 모드로 설정한다. 이러한 최적화는, 리지드바디가 다음번에 <em>WakeUp</em> 할 때까지 프로세서의 자원이 사용되지 않는다.</p>
-
-<h5 id="collider">Collider</h5>
-
-<p>콜라이더 컴포넌트는 물리적 충돌을 위한 게임 오브젝트의 모양을 정의한다. 흔히들 많이 이야기하는 충돌판정에 대한 컴포넌트이다.</p>
-
-<p>콜라이더는 기본 콜라이더, 복합 콜라이더, 메시 콜라이더, 정적 콜라이더 등 많은 종류가 있다.</p>
+<h2 id="풀이-방법">풀이 방법</h2>
 
 <ol>
   <li>
-    <p>기본 콜라이더 : 가장 간단하고, 자원을 적게 먹는 콜라이더다. 3D에선 박스 콜라이더, 스피어 콜라이더, 캡슐 콜라이더가 이에 해당한다. 2D에서는 박스 콜라이더2D, 써클 콜라이더2D를 사용할 수있다. 기본 콜라이더를 여러 개 중첩해 복합 콜라이더를 만들 수 있다.</p>
+    <p>남은 날짜의 값을 읽어와 N 변수에 저장하고, 각 날짜별 상담의 일정과 비용을 2차원 배열로 저장한다.</p>
   </li>
   <li>
-    <p>복합 콜라이더 : 자원을 적게 먹으면서도 게임 오브젝트의 대략적인 모양을 만들 수 있다.</p>
+    <p>dfs를 돌린다. 인자값으로는 날짜를 체크할 int 값과, 누적된 비용을 저장할 int 값을 받는다.</p>
   </li>
   <li>
-    <p>메시 콜라이더 : 복합 콜라이더를 통해서도 게임 오브젝트의 모양을 표현하기 힘들고, 더 정확한 콜라이더 표현이 필요한 경우 사용하는 콜라이더이다. 이 콜라이더는 게임 오브젝트의 메시 모양에 정확히 맞출 수 있지만, <strong>프로세서에 큰 부담</strong>을 주기 때문에 꼭 필요한 경우에만 사용해야 한다. 또한 메시 콜라이더와 메시 콜라이더, 즉 메시 콜라이더끼리는 충돌이 일어나지 않는 문제가 있다. 이 문제를 해결하기 위해서 메시 콜라이더는 인스펙터 창에서 Convex로 설정해 “볼록 다각형” 모양의 콜라이더로 생성할 수 있다. (파인 부분이 사라짐)
- 일반적으로 메시 콜라이더는 씬 지오메트리에 사용한다. 2D에서는 폴리곤 콜라이더 2D를 통해 세부 조절이 가능하다.</p>
+    <p>dfs 내부에서의 기저조건은 날짜가 N에 도달했을 때 멈추도록 한다. 추가적인 가지치기로, 날짜가 N을 넘어섰을 때도 return 시켜준다.</p>
+  </li>
+  <li>
+    <p>이제 재귀호출을 하는데, 현재 날짜의 상담을 받아들이지 않는 경우, 기존 날짜에는 1을 더해주고 일을 받지 않았으므로 누적된 비용은 그대로 넘겨서 재귀호출 해준다.</p>
+  </li>
+  <li>
+    <p>반대로 현재 날짜의 상담 일정을 받아들이는 경우, 상담 일정만큼은 다른 일을 할 수 없기 때문에 현재 날짜에서 상담 기간만큼 날짜를 더해주고, 비용 또한 누적시켜 재귀호출시켜준다.</p>
+  </li>
+  <li>
+    <p>날짜가 N에 도달한 기저조건에서, 비용의 최댓값을 저장하도록 한다.</p>
+  </li>
+  <li>
+    <p>dfs 탐색이 모두 끝난 후 비용의 최댓값을 출력한다.</p>
   </li>
 </ol>
 
-<p><img src="https://hjs101.github.io/assets/images/Unity_10_02.jpg" alt="Unity_02" /></p>
+<h2 id="소스-코드">소스 코드</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-<ol>
-  <li>정적 콜라이더 : RigidBody 컴포넌트 없이 콜라이더를 게임 오브젝트에 추가하여 바닥, 벽과 같은 고정된 오브젝트에 사용하는 콜라이더를 말한다. 반대로 RigidBody가 있는 콜라이더는 동적 콜라이더라고 부른다. 정적 콜라이더는 동적 클라이더와 상호작용이 가능하나, 충돌에 의한 물리 이동이 일어나지 않는다.</li>
-</ol>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_14501_퇴사</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="no">N</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">arr</span><span class="o">[][];</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
-<h5 id="트리거">트리거</h5>
+		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
 
-<p>콜라이더에 트리거를 사용하면 해당 콜라이더는 솔리드 오브젝트로 동작하지 않는다. 간단히 말해 부딛히지 않는 다는 뜻이다. 하지만 스크립트 내부에서 OnTriggerEnter 함수를 이용하여 해당 콜라이더가 다른 콜라이더와 부딛혔을 때(겹쳤을 때)의 로직 처리를 할 수 있다.</p>
+		<span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-<p>※ 충돌에 대한 콜백 함수</p>
+		<span class="nc">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="no">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">dfs</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
 
-<ol>
-  <li>
-    <p>OnCollisionEnter : 충돌이 감지되었을 때 가장 먼저 일어난다.</p>
-  </li>
-  <li>
-    <p>OnCollisionStay : 충돌 -&gt; 접촉이 지속되는 상황동안 계속 호출 접촉이 해제될 때 OnCollisionExit가 호출된다.</p>
-  </li>
-  <li>
-    <p>트리거의 경우 위에서 Collision을 Trigger으로 바꾼다. (OnTriggerEnter, OnTriggerStay, OnTriggerExit)</p>
-  </li>
-  <li>
-    <p>2D에서는 함수명 끝에 2D 첨자가 붙는다. ex) OnCollisionEnter2D</p>
-  </li>
-</ol>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+	<span class="o">}</span>
 
-<h5 id="콜라이더-사이의-상호작용">콜라이더 사이의 상호작용</h5>
 
-<p>콜라이더는 크게 정적 콜라이더, 동적 콜라이더로 나눌 수 있다. 이는 리지드바디의 유무에 따라서 구분하며, 추가적으로 키네마틱이 활성화된 리지드바디 콜라이더까지 추가하여 각각의 상호작용에 대해 알아보자.</p>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">)</span> <span class="o">{</span>
 
-<ol>
-  <li>
-    <p>정적 콜라이더 : 정적콜라이더는 앞에서 설명했듯 리지드바디가 없다. 따라서 항상 같은 위치에 절대 움직이지 않는 것에 주로 사용된다. 다른 동적 콜라이더를 가진 객체와 충돌해도 정적콜라이더는 움직이지 않는다.</p>
-  </li>
-  <li>
-    <p>리지드바디 콜라이더 : 일반적인 비키네마틱 리지드바디와 콜라이더를 가진 오브젝트가 동적 콜라이더이다. 물리엔진에 의해 제어되며 충돌, 힘 모두에 반응하여 움직일 수 있다. 가장 흔하게 사용되는 콜라이더이다.</p>
-  </li>
-  <li>
-    <p>키네마틱 리지드바디 콜라이더 : 리지드바디와 콜라이더를 함께 가졌지만 해당 리지드바디에 Iskinematic이 활성화되어있는 콜라이더를 말한다. 키네마틱 리지드바디 콜라이더는 정적 콜라이더처럼 힘과 충돌에 반응하지 않지만, 스크립트에 의한 TransForm 컴포넌트 수정을 통해서는 움직일 수 있다.</p>
-  </li>
-</ol>
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">answer</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span><span class="n">sum</span><span class="o">);</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
-<p>이 콜라이더는 상황에 따라 움직일 수 있지만 그 외 상황에서는 정적 콜라이더처럼 작용한다. 예를 들면 평소에는 움직이지 않는 장애물처럼 동작하지만, 필요할 때는 열 수 있는 문과 같은 경우이다. 정적 콜라이더는 다른 오브젝트에 마찰이 작용할 수 있으며, 접촉이 일어난 경우 다른 리지드바디를 <strong>WakeUp</strong> 시킬 수 있다.</p>
+		<span class="c1">// 가지치기 1</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">&gt;=</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 
-<p>※ 리지드바디 컴포넌트는 Iskinematic 프로퍼티를 사용하여 언제는 키네마틱, 일반 리지드바티로 전환할 수 있다. 이를 이용하는 좋은 예로 래그돌 효과가 있다. 래그돌 효과는 사망 애니매이션을 고정된 애니메이션으로 사용하는 것이 아니라 물리적인 터리를 통해 다양한 사망 모션을 연출하기 위한 기법이다.</p>
+		<span class="c1">// 현재 위치를 선택하지 않는 경우</span>
+		<span class="n">dfs</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
 
-<p>이는 키네마틱 리지드바디를 이용하여 구현할 수 있다. 사망 직전까지는 키네마틱 리지드바디를 이용하여 애니메이션에 의해 일반적으로 움직이다가, 비활성화되는 순간 키네마틱을 비활성화시켜 물리오브젝트로 동작하게 하는 것이다. 폭발에 의해 날아가는 시체가 흐느적거리며 날아가는 장면 등이 이런 효과를 이용한 것이다.</p>
+		<span class="c1">// 현재 위치를 선택하는 경우</span>
+		<span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="n">cnt</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+		<span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="n">cnt</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+
+		<span class="n">dfs</span><span class="o">(</span><span class="n">cnt</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
                 </div>
             </section>
@@ -341,9 +343,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/Unity-11';
-                            var this_page_identifier = '/Unity-11';
-                            var this_page_title = '유니티 토막 지식_04';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-14501';
+                            var this_page_identifier = '/BOJ-14501';
+                            var this_page_title = 'BOJ_14501_퇴사_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -377,7 +379,7 @@ into the {body} of the default.hbs template -->
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; hjs's Blog &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/unity/">Unity</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/boj/">Boj</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -387,29 +389,23 @@ into the {body} of the default.hbs template -->
                                 
                                 
                                   
-                                
-                                  
-                                
+                                    
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/Unity-17">유니티 토막 지식_10</a></li>
+                                            <li><a href="/BOJ-2805">BOJ_2805_나무자르기_JAVA</a></li>
                                         
                                     
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/Unity-16">유니티 토막 지식_09</a></li>
+                                            <li><a href="/BOJ-11727">BOJ_11727_2xN타일링2_JAVA</a></li>
                                         
                                     
                                   
@@ -420,29 +416,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/Unity-15">유니티 토막 지식_08</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/BOJ-2193">BOJ_2193_이친수_JAVA</a></li>
                                         
                                     
                                   
@@ -452,23 +426,6 @@ into the {body} of the default.hbs template -->
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
                                   
                                 
                                   
@@ -490,12 +447,6 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
@@ -505,20 +456,10 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   
@@ -539,6 +480,22 @@ into the {body} of the default.hbs template -->
                                     
                                   
                                 
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -580,93 +537,388 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -676,51 +928,131 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/unity/">
+                            <a href="/tag/boj/">
                                 
-                                    See all 17 posts  →
+                                    See all 83 posts  →
                                 
                             </a>
                         </footer>
@@ -730,57 +1062,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/BOJ-1463">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-1463">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Boj</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">BOJ_1463_1로만들기_JAVA</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>문제 : 1로 만들기
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/hjs/">hjs</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      2 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -788,12 +1069,12 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-10844">
+            <a class="post-card-image-link" href="/BOJ-2805">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-10844">
+            <a class="post-card-content-link" href="/BOJ-2805">
                 <header class="post-card-header">
                     
                         
@@ -803,11 +1084,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">BOJ_10844_쉬운계단수_JAVA</h2>
+                    <h2 class="post-card-title">BOJ_2805_나무자르기_JAVA</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 쉬운 계단수
+                        <p>문제 : 나무자르기
 
 </p>
                     
@@ -849,18 +1130,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">유니티 토막 지식_04</div>
+    <div class="floating-header-title">BOJ_14501_퇴사_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%9C%A0%EB%8B%88%ED%8B%B0+%ED%86%A0%EB%A7%89+%EC%A7%80%EC%8B%9D_04&amp;url=https://hjs101.github.ioUnity-11"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_14501_%ED%87%B4%EC%82%AC_JAVA&amp;url=https://hjs101.github.ioBOJ-14501"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioUnity-11"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-14501"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
