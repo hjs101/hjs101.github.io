@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-24T02:55:24+09:00</updated>
+  <updated>2022-03-25T04:25:06+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,104 @@
   
   
 
+  
+    <entry>
+      <title type="html">미니게임 제작 01</title>
+      <link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" />
+      <published>2022-03-24T09:00:00+09:00</published>
+      <updated>2022-03-24T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-18</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
+
+&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">유니티 토막 지식_10</title>
@@ -625,6 +723,119 @@
     </entry>
   
     <entry>
+      <title type="html">유니티 토막 지식_05</title>
+      <link href="https://hjs101.github.io/Unity-12" rel="alternate" type="text/html" title="유니티 토막 지식_05" />
+      <published>2022-03-13T09:00:00+09:00</published>
+      <updated>2022-03-13T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-12</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-12">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 공간과 움직임 파트를 공부했다. 내용이 이해하기 쉽지 않아 조금 더 살펴봐야 할 것 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2021.1/Manual/EventFunctions.html&quot;&gt;이벤트 함수&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘 알아볼 것은 이벤트 함수이다.&lt;/p&gt;
+
+&lt;h5 id=&quot;정의&quot;&gt;정의&lt;/h5&gt;
+
+&lt;p&gt;유니티의 스크립트는, 전통적인 프로그램처럼 작업이 완료될 때까지 코드가 루프를 계속 실행하는 프로그램과는 개념이 다르다. 이전 게시글에 잠깐 설명한 적이 있는데, 특정한 일(event)이 일어났음을 외부의 subscriber들에게 알려준다(브로드캐스팅). 이후 해당하는 이벤트에 등록되어있는 함수들은 브로드캐스팅된 메시지를 받아 자동적으로 실행이 되는 구조이다. 이렇게 이벤트에 대응하여 코드를 실행하는 함수를 이벤트 함수라고 한다.&lt;/p&gt;
+
+&lt;p&gt;유니티는 특정 이벤트에 대해, 호출할 함수를 확인하기 위해 이름을 지정하여 사용한다. 우리가 처음 스크립트를 만들면 자동으로 생성되는 Start함수(오브젝트가 처음 활성화 될 때 호출된다.)와 Update 함수도 이벤트 함수의 일종이다. 몇 가지 중요한 이벤트 함수에 대해 알아보자.&lt;/p&gt;
+
+&lt;h5 id=&quot;정기-업데이트-이벤트&quot;&gt;정기 업데이트 이벤트&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Update
+  게임 프로그래밍의 핵심 개념 중 하나는 각 프레임이 렌더링 되기 전에 게임에서 오브젝트의 위치, 상태 및 동작을 변경하는 것이다. 이런 코드는 주로 Update 함수에 주로 추가된다. Update함수는 프레임이 렌더링 되기 이전에 호출되며, 애니메이션이 계산되기 이전에도 호출된다.
+  메뉴얼에는 어려운 말로 쓰여있지만, 실시간으로 계속 체크하고 변화해야되는 상황에 Update를 사용한다고 생각하면 될 것 같다.
+  다만 이 함수는 &lt;strong&gt;프레임&lt;/strong&gt; 단위로 수행된다는 점은 기억해두자.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaTime&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Horizontal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;FixedUpdate
+  이 함수는 물리의 Timestep에 설정된 값에 따라 수행된다. 이 함수는 Update 함수와 유사한 기능을 가지고 있지만 물리 Timestep에 따른 물리 업데이트 직전에 호출된다. 물리적인 이동과 관련된 코드는 Update가 아니라 FixedUpdate에 추가하면 더욱 정확한 결과를 얻을 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;FixedUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driveForce&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vertical&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rigidbody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddForce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;force&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;LateUpdate
+  이 함수는, Update 함수 또는 FixedUpdate 함수가 수행된 이후, 또는 모든 애니메이션이 계산된 이후에 수행되는 함수이다. 사용하는 예는 카메라가 타겟 오브젝트를 계속해서 따라갈 경우, 타겟이 이동 한 후에 카메라는 움직여야하기 때문에 사용합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LateUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LookAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;초기화-이벤트&quot;&gt;초기화 이벤트&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start
+  첫 프레임이나 오브젝트의 물리 업데이트가 시작되기 이전에 최초로 한 번 수행된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Awake
+  씬이 로드될 때 씬의 각 오브젝트에 대해 호출된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;※ Start와 Awake의 차이점
+  Awake는 항상 Start보다 먼저 수행하여 완료된다. 따라서 Start는 Awake의 초기화 된 값을 사용가능하다. 수행 순서를 기억해두자. &lt;strong&gt;Awake -&amp;gt; Start&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;gui-이벤트&quot;&gt;GUI 이벤트&lt;/h5&gt;
+
+&lt;p&gt;유니티에서 GUI에 대한 이벤트는 예전에는 OnGui 함수를 통해 사용했다고 한다. 하지만 유니티의 공식 UI 시스템인 UGUI가 등장함에 따라 해당 함수는 쓰임새가 사라졌다고 한다. UGUI를 사용하 UI요소를 게임 오브젝트 &amp;amp; 컴포넌트처럼 다루고 편집할 수 있다.&lt;/p&gt;
+
+&lt;h5 id=&quot;물리-이벤트&quot;&gt;물리 이벤트&lt;/h5&gt;
+
+&lt;p&gt;물리 이벤트에 대 함수는 이전 글에 설명을 해두었다. 여기서는 물리 엔진이 오브젝트의 스크립트에 있는 이벤트 함수를 호출한다는 점만 알아두면 될 것 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnCollisionEnter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Collision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Arrow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;ApplyDamage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">유니티 토막 지식_06</title>
       <link href="https://hjs101.github.io/Unity-13" rel="alternate" type="text/html" title="유니티 토막 지식_06" />
       <published>2022-03-13T09:00:00+09:00</published>
@@ -729,119 +940,6 @@
     &lt;p&gt;단점 : 싱글톤 단일로만 사용할 경우 객체지향 원칙(SOLID)에 위배된다. OCP, Open-Closed Principle 원칙은 개방-폐쇄 원칙인데. 확장에는 개방되어야하고, 수정에는 폐쇄되어야하는 원칙이다. 싱글톤 패턴은 하나의 인스턴스와 다양한 클래스가 연결되기 때문에 결합도가 높아져 객체의 인터페이스가 제대로 분리되지 못하게 되어 객체지향적이지 않게 된다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티 토막 지식_05</title>
-      <link href="https://hjs101.github.io/Unity-12" rel="alternate" type="text/html" title="유니티 토막 지식_05" />
-      <published>2022-03-13T09:00:00+09:00</published>
-      <updated>2022-03-13T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-12</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-12">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 공간과 움직임 파트를 공부했다. 내용이 이해하기 쉽지 않아 조금 더 살펴봐야 할 것 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2021.1/Manual/EventFunctions.html&quot;&gt;이벤트 함수&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 이벤트 함수이다.&lt;/p&gt;
-
-&lt;h5 id=&quot;정의&quot;&gt;정의&lt;/h5&gt;
-
-&lt;p&gt;유니티의 스크립트는, 전통적인 프로그램처럼 작업이 완료될 때까지 코드가 루프를 계속 실행하는 프로그램과는 개념이 다르다. 이전 게시글에 잠깐 설명한 적이 있는데, 특정한 일(event)이 일어났음을 외부의 subscriber들에게 알려준다(브로드캐스팅). 이후 해당하는 이벤트에 등록되어있는 함수들은 브로드캐스팅된 메시지를 받아 자동적으로 실행이 되는 구조이다. 이렇게 이벤트에 대응하여 코드를 실행하는 함수를 이벤트 함수라고 한다.&lt;/p&gt;
-
-&lt;p&gt;유니티는 특정 이벤트에 대해, 호출할 함수를 확인하기 위해 이름을 지정하여 사용한다. 우리가 처음 스크립트를 만들면 자동으로 생성되는 Start함수(오브젝트가 처음 활성화 될 때 호출된다.)와 Update 함수도 이벤트 함수의 일종이다. 몇 가지 중요한 이벤트 함수에 대해 알아보자.&lt;/p&gt;
-
-&lt;h5 id=&quot;정기-업데이트-이벤트&quot;&gt;정기 업데이트 이벤트&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Update
-  게임 프로그래밍의 핵심 개념 중 하나는 각 프레임이 렌더링 되기 전에 게임에서 오브젝트의 위치, 상태 및 동작을 변경하는 것이다. 이런 코드는 주로 Update 함수에 주로 추가된다. Update함수는 프레임이 렌더링 되기 이전에 호출되며, 애니메이션이 계산되기 이전에도 호출된다.
-  메뉴얼에는 어려운 말로 쓰여있지만, 실시간으로 계속 체크하고 변화해야되는 상황에 Update를 사용한다고 생각하면 될 것 같다.
-  다만 이 함수는 &lt;strong&gt;프레임&lt;/strong&gt; 단위로 수행된다는 점은 기억해두자.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaTime&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Horizontal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;FixedUpdate
-  이 함수는 물리의 Timestep에 설정된 값에 따라 수행된다. 이 함수는 Update 함수와 유사한 기능을 가지고 있지만 물리 Timestep에 따른 물리 업데이트 직전에 호출된다. 물리적인 이동과 관련된 코드는 Update가 아니라 FixedUpdate에 추가하면 더욱 정확한 결과를 얻을 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;FixedUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driveForce&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vertical&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rigidbody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddForce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;force&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;LateUpdate
-  이 함수는, Update 함수 또는 FixedUpdate 함수가 수행된 이후, 또는 모든 애니메이션이 계산된 이후에 수행되는 함수이다. 사용하는 예는 카메라가 타겟 오브젝트를 계속해서 따라갈 경우, 타겟이 이동 한 후에 카메라는 움직여야하기 때문에 사용합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LateUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LookAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;초기화-이벤트&quot;&gt;초기화 이벤트&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Start
-  첫 프레임이나 오브젝트의 물리 업데이트가 시작되기 이전에 최초로 한 번 수행된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Awake
-  씬이 로드될 때 씬의 각 오브젝트에 대해 호출된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;※ Start와 Awake의 차이점
-  Awake는 항상 Start보다 먼저 수행하여 완료된다. 따라서 Start는 Awake의 초기화 된 값을 사용가능하다. 수행 순서를 기억해두자. &lt;strong&gt;Awake -&amp;gt; Start&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;gui-이벤트&quot;&gt;GUI 이벤트&lt;/h5&gt;
-
-&lt;p&gt;유니티에서 GUI에 대한 이벤트는 예전에는 OnGui 함수를 통해 사용했다고 한다. 하지만 유니티의 공식 UI 시스템인 UGUI가 등장함에 따라 해당 함수는 쓰임새가 사라졌다고 한다. UGUI를 사용하 UI요소를 게임 오브젝트 &amp;amp; 컴포넌트처럼 다루고 편집할 수 있다.&lt;/p&gt;
-
-&lt;h5 id=&quot;물리-이벤트&quot;&gt;물리 이벤트&lt;/h5&gt;
-
-&lt;p&gt;물리 이벤트에 대 함수는 이전 글에 설명을 해두었다. 여기서는 물리 엔진이 오브젝트의 스크립트에 있는 이벤트 함수를 호출한다는 점만 알아두면 될 것 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnCollisionEnter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Collision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Arrow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;ApplyDamage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
 
       
       
@@ -1160,84 +1258,6 @@
 &lt;h4 id=&quot;부모자식-관계&quot;&gt;부모자식 관계&lt;/h4&gt;
 
 &lt;p&gt;게임 오브젝트는 Transform 컴포넌트를 기본적으로 가지고 있다. TransForm 컴포넌트는 Parenting, 부모자식관계를 사용할 수 있다. 스크립트에서 이 부모자식관계를 이용해 부모 게임 오브젝트로부터 자식 오브젝트를 검색하여 가져올 수 있다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티 토막 지식_01</title>
-      <link href="https://hjs101.github.io/Unity-08" rel="alternate" type="text/html" title="유니티 토막 지식_01" />
-      <published>2022-03-07T09:00:00+09:00</published>
-      <updated>2022-03-07T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-08</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-08">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;어제와 오늘에 걸쳐서, 닷지 게임 제작의 2/3을 완료했다. 내일은 닷지 게임 완성에 들어갈 듯 하다.&lt;/p&gt;
-
-&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/530/ScriptReference/Transform.html&quot;&gt;Transform&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 Transform 컴포넌트에 대한 것이다.&lt;/p&gt;
-
-&lt;p&gt;Transform 컴포넌트는 씬에 존재하는 모든 오브젝트가 가지고 있는 컴포넌트이다. 이는 각각의 오브젝트의 위치, 회전, 크기를 저장해두고 다루기 위해 사용한다.&lt;/p&gt;
-
-&lt;p&gt;또한 Transform 컴포넌트는 계층적으로 위치, 회전 스케일을 적용할 수 있는 부모 Transform을 가질 수 있는데, 이를 이해하기 위해 계층에 대한 내용을 먼저 알아보겠다.&lt;/p&gt;
-
-&lt;p&gt;유니티의 Hierarchy Window 가 직역하면 계층 창이다. 유니티에서는 상속과 비슷하게 Parenting이라는 개념을 사용할 수 있는데, 특정 게임오브젝트를 다른 오브젝트의 자식으로 둘 수 있는 개념을 말한다. 이 때, 자식 오브젝트는 부모의 이동, 회전을 계승한다.&lt;/p&gt;
-
-&lt;p&gt;여기서 이동, 회전을 계승한다는 의미가 앞서 설명한 Transform의 계층적으로 부모 Transform을 가지는 것을 말한다. 이 말은 자식 오브젝트의 Transform이 부모오브젝트의 Transform에 종속된다는 뜻이다. 실제 화면으로 한 번 확인해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;여기 Plane의 자식 오브젝트인 Cube가 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_02.gif&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 화면처럼, 부모 오브젝트 Plane의 위치를 움직이면 그 자식 오브젝트인 cube는 부모오브젝트가 이동하는 만큼 함께 이동한다. 부모 오브젝트의 Scale를 변경하면 자식 오브젝트의 Scale도 부모의 변동 폭에 맞춰서 같은 비율로 변경될 것이다.&lt;/p&gt;
-
-&lt;p&gt;이것을 응용하는 간단한 사례중 하나는 플레이어를 따라다니는 카메라이다. 이것도 한 번 구현해보자. 아주 간단하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_03.gif&quot; alt=&quot;Unity_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;적당한 바닥에 움직이는 큐브를 구현해두었다. 카메라가 Cube와 독립적으로 존재할 때는 Cube가 움직인다고 해도 카메라는 요지부동이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_04.jpg&quot; alt=&quot;Unity_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 카메라를 큐브에 드래그&amp;amp;드롭 하여 Cube의 자식으로 만든다. 이렇게 하면 카메라의 Transform의 좌표가 Cube를 기준으로 변경되는데 해당하는 좌표를 적당히 Cube의 중앙에 오게끔 해준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_07_05.gif&quot; alt=&quot;Unity_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;실행 후 테스트를 한 장면이다. 큐브가 움직임에 따라 메인 카메라가 큐브와 같은 방향으로 이동하는 모습이다.&lt;/p&gt;
-
-&lt;p&gt;Transform은 또한 enumerator를 지원하기 때문에 foreach문에 적용이 가능하다고 한다.&lt;/p&gt;
-
-&lt;p&gt;Transform의 변수 중 forward는 3D기준 파란색 축, z축을 나타내고, right는 x축, up은 y축을 나타낸다. position 변수는 vector3으로 선언되어 있으며 Transform의 현재 위치를 나낸다.&lt;/p&gt;
-
-&lt;p&gt;Transform 컴포넌트의 변수, 메서드는 API 문서 링크에 설명이 잘 되어 있으니 한 번쯤 찾아보면 좋을 것 같다.&lt;/p&gt;</content>
 
       
       
