@@ -11,7 +11,7 @@
 
 
 
-    <title>BOJ_9184_신나는함수실행_JAVA</title>
+    <title>BOJ_1010_다리놓기_JAVA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -51,24 +51,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/BOJ-9184" />
+    <link rel="canonical" href="https://hjs101.github.io/BOJ-1010" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BOJ_9184_신나는함수실행_JAVA" />
-    <meta property="og:description" content="문제 : 신나는함수실행 링크 : BOJ_9184_신나는함수실행 접근 방식 인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다. 풀이 방법 DP란 무엇일까? 동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다. DP의 조건은 3가지가 있다. 먼저 큰 문제가 작은 문제로 쪼개질 수 있는가." />
-    <meta property="og:url" content="https://hjs101.github.io/BOJ-9184" />
+    <meta property="og:title" content="BOJ_1010_다리놓기_JAVA" />
+    <meta property="og:description" content="문제 : 다리놓기 링크 : BOJ_1010_다리놓기 접근 방식 그림과 사례로 설명을 장황하게 했지만 핵심은 조합의 경우의 수를 모두 구하는 문제이다. 하지만 시간복잡도를 따졌을 때 조합 로직을 구현하여 카운트하는 방식으로 하면 시간초과가 난다. 나는 점화식을 통한 DP로 풀었다. 점화식은 다음과 같다. 위의 점화식이 나온 배경은 다음과 같다. 어떤 특정 원소를 포함시키고" />
+    <meta property="og:url" content="https://hjs101.github.io/BOJ-1010" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-17T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-17T01:40:00+09:00" />
+    <meta property="article:published_time" content="2022-03-25T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-03-25T09:00:00+09:00" />
     <meta property="article:tag" content="Boj" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BOJ_9184_신나는함수실행_JAVA" />
-    <meta name="twitter:description" content="문제 : 신나는함수실행 링크 : BOJ_9184_신나는함수실행 접근 방식 인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다. 풀이 방법 DP란 무엇일까? 동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다. DP의 조건은 3가지가 있다. 먼저 큰 문제가 작은 문제로 쪼개질 수 있는가." />
+    <meta name="twitter:title" content="BOJ_1010_다리놓기_JAVA" />
+    <meta name="twitter:description" content="문제 : 다리놓기 링크 : BOJ_1010_다리놓기 접근 방식 그림과 사례로 설명을 장황하게 했지만 핵심은 조합의 경우의 수를 모두 구하는 문제이다. 하지만 시간복잡도를 따졌을 때 조합 로직을 구현하여 카운트하는 방식으로 하면 시간초과가 난다. 나는 점화식을 통한 DP로 풀었다. 점화식은 다음과 같다. 위의 점화식이 나온 배경은 다음과 같다. 어떤 특정 원소를 포함시키고" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -89,7 +89,7 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/BOJ-9184",
+    "url": "https://hjs101.github.io/BOJ-1010",
     "image": {
         "@type": "ImageObject",
         "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
@@ -98,9 +98,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/BOJ-9184"
+        "@id": "https://hjs101.github.io/BOJ-1010"
     },
-    "description": "문제 : 신나는함수실행 링크 : BOJ_9184_신나는함수실행 접근 방식 인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다. 풀이 방법 DP란 무엇일까? 동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다. DP의 조건은 3가지가 있다. 먼저 큰 문제가 작은 문제로 쪼개질 수 있는가."
+    "description": "문제 : 다리놓기 링크 : BOJ_1010_다리놓기 접근 방식 그림과 사례로 설명을 장황하게 했지만 핵심은 조합의 경우의 수를 모두 구하는 문제이다. 하지만 시간복잡도를 따졌을 때 조합 로직을 구현하여 카운트하는 방식으로 하면 시간초과가 난다. 나는 점화식을 통한 DP로 풀었다. 점화식은 다음과 같다. 위의 점화식이 나온 배경은 다음과 같다. 어떤 특정 원소를 포함시키고"
 }
     </script>
 
@@ -113,7 +113,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="BOJ_9184_신나는함수실행_JAVA" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="BOJ_1010_다리놓기_JAVA" href="/feed.xml" />
 
 
 </head>
@@ -177,7 +177,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="17 February 2022">17 February 2022</time>
+                    <time class="post-full-meta-date" datetime="25 March 2022">25 March 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -187,7 +187,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">BOJ_9184_신나는함수실행_JAVA</h1>
+                <h1 class="post-full-title">BOJ_1010_다리놓기_JAVA</h1>
             </header>
             <!--
             
@@ -197,103 +197,87 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="문제--신나는함수실행">문제 : 신나는함수실행</h2>
+                    <h2 id="문제--다리놓기">문제 : 다리놓기</h2>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/9184">BOJ_9184_신나는함수실행</a></p>
+<p>링크 : <a href="https://www.acmicpc.net/problem/1010">BOJ_1010_다리놓기</a></p>
 
 <h2 id="접근-방식">접근 방식</h2>
 
-<p>인자값을 3개를 사용하는 재귀함수의 수행속도를 줄이기 위해, DP, 메모이제이션 기법을 사용해야 하는 문제이다.</p>
+<p>그림과 사례로 설명을 장황하게 했지만 핵심은 조합의 경우의 수를 모두 구하는 문제이다. 하지만 시간복잡도를 따졌을 때 조합 로직을 구현하여 카운트하는 방식으로 하면 시간초과가 난다.</p>
 
-<h2 id="풀이-방법">풀이 방법</h2>
+<p>나는 점화식을 통한 DP로 풀었다. 점화식은 다음과 같다.</p>
 
-<p>DP란 무엇일까?</p>
+<p><img src="https://hjs101.github.io/assets/images/1010_1.jpg" alt="1010_1" /></p>
 
-<p>동적계획법이라고도 부른다. 하지만 이 글을 쓰는 지금도 DP에 개념에 대해 제대로 알지 못하겠다.</p>
-
-<p>DP의 조건은 3가지가 있다.</p>
+<p>위의 점화식이 나온 배경은 다음과 같다.</p>
 
 <ol>
-  <li>먼저 큰 문제가 작은 문제로 쪼개질 수 있는가.</li>
-  <li>작은문제들의 해로 큰 문제의 해를 구할 수 있는가.</li>
-  <li>그리고, 이 해들이 중복되는가.</li>
+  <li>어떤 특정 원소를 포함시키고 뽑았을 때의 경우의 수</li>
+  <li>특정 원소를 포함시키지 않고 뽑았을 때의 경우의 수</li>
 </ol>
 
-<p>이 3가지 조건이 충족되면 DP를 적용할 수 있다고 한다.</p>
-
-<p>하지만 이러한 내용은 내게 너무 낮설고 적용하기도 어려웠다.</p>
-
-<p>나는 이 문제를 풀면서 어떻게 DP를 사용하는 지에만 집중했다.</p>
-
-<p>결론은 이것이다. 재귀를 통해 호출되는 함수의 결과를 기억해두고, 재귀를 통해 호출하는 함수가 기억되어있는 함수와 같다면, 재귀를 호출하지 않고 기억되어있는 함수의 값을 리턴한다.</p>
-
-<p>메모이제이션은 이것을 말하는 것이다. ‘기억’하는 것.</p>
-
-<p>그렇기 때문에, 3개의 인자값을 받는 이 재귀함수의 파라미터 a,b,c. 이 값을 배열로 선언해 0으로 초기화 해두고, 호출된 함수의 위치에 결과값을 저장했다. 그 후 같은 인자값을 사용하는 함수가 재귀호출될 경우, 그 함수는 추가적인 작업 없이 저장되어있는 결과값을 리턴하고 종료된다.</p>
-
-<p>이번 문제에서는 DP에 대해 이정도까지밖에 이해하지 못했다. 몇몇 문제를 더 풀어보며 이해력을 늘려야 한다.</p>
+<p>이 두 가지 경우의 수를 합치면 nCr의 경우의 수가 된다.</p>
 
 <h2 id="소스-코드">소스 코드</h2>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_9184_신나는함수실행</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_1010_다리놓기</span> <span class="o">{</span>
 
-	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][][]</span> <span class="n">dp</span><span class="o">;</span>
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 
 		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-		<span class="nc">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
-		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-		<span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">21</span><span class="o">][</span><span class="mi">21</span><span class="o">][</span><span class="mi">21</span><span class="o">];</span>
-		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span><span class="s">" "</span><span class="o">);</span>
 
-			<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-			<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-			<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 
-			<span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">==-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">b</span><span class="o">==-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">c</span><span class="o">==-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-				<span class="k">break</span><span class="o">;</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">31</span><span class="o">][</span><span class="mi">31</span><span class="o">];</span>
+		<span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+			<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
 			<span class="o">}</span>
-			<span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">,</span><span class="n">c</span><span class="o">);</span>
-
-			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"w(%d, %d, %d) = %d\n"</span><span class="o">,</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">,</span><span class="n">c</span><span class="o">,</span> <span class="n">n</span><span class="o">));</span>
 		<span class="o">}</span>
-		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
-	<span class="o">}</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">tc</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">tc</span> <span class="o">&lt;</span> <span class="no">T</span><span class="o">;</span> <span class="n">tc</span><span class="o">++)</span> <span class="o">{</span>
 
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">w</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">(),</span> <span class="s">" "</span><span class="o">);</span>
+			<span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
 
-		<span class="k">if</span><span class="o">((</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&lt;=</span><span class="mi">20</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">20</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-			<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">];</span>
+			<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+
+			<span class="c1">// nCm = N! / M! * N-M!;</span>
+
+			<span class="c1">// nCr = n-1Cr-1 + n-1Cr</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">]);</span>
+
 		<span class="o">}</span>
-
-		<span class="k">if</span><span class="o">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-			<span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-		<span class="o">}</span>
-
-		<span class="k">if</span><span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="o">||</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
-			<span class="n">dp</span><span class="o">[</span><span class="mi">20</span><span class="o">][</span><span class="mi">20</span><span class="o">][</span><span class="mi">20</span><span class="o">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
-			<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="mi">20</span><span class="o">][</span><span class="mi">20</span><span class="o">][</span><span class="mi">20</span><span class="o">];</span>
-		<span class="o">}</span>
-
-		<span class="k">if</span><span class="o">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-			<span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span><span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">,</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="o">)+</span><span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">c</span><span class="o">);</span>
-			<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">];</span>
-		<span class="o">}</span>
-		<span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">b</span><span class="o">,</span><span class="n">c</span><span class="o">)</span> <span class="o">+</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">c</span><span class="o">)</span> <span class="o">+</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">b</span><span class="o">,</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="n">w</span><span class="o">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-		<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">][</span><span class="n">c</span><span class="o">];</span>
-
 	<span class="o">}</span>
 
 <span class="o">}</span>
-
 </code></pre></div></div>
+
+<h2 id="풀이-방법">풀이 방법</h2>
+
+<ol>
+  <li>
+    <p>line 11 ~ 13 : 테스트 케이스 수를 읽어들여 변수에 저장</p>
+  </li>
+  <li>
+    <p>line 15 ~ 18 : dp 배열을 생성하는데, N과 R의 범위가 30이 최대이므로, 31까지의 배열을 선언해둔다. 이후 초기 설정값을 할당해준다.</p>
+  </li>
+  <li>
+    <p>line 19 ~ 24 : 반복을 돌려 경우의 수를 누적시킨다. 위에 설명한 점화식대로 만드는데, 혹시 몰라서 20, 21라인의 2가지 경우에는 같은 규칙으로 값이 저장되므로 추가해주었다.</p>
+  </li>
+  <li>
+    <p>line 26 ~ 36 : dp배열이 모두 구해졌다면 테스트케이스만큼 반복하여 n, m 값을 읽어들인 후 dp배열의 n,m 번째 값을 출력한다.</p>
+  </li>
+</ol>
 
                 </div>
             </section>
@@ -349,9 +333,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/BOJ-9184';
-                            var this_page_identifier = '/BOJ-9184';
-                            var this_page_title = 'BOJ_9184_신나는함수실행_JAVA';
+                            var this_page_url = 'https://hjs101.github.io/BOJ-1010';
+                            var this_page_identifier = '/BOJ-1010';
+                            var this_page_title = 'BOJ_1010_다리놓기_JAVA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -396,11 +380,6 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/BOJ-1010">BOJ_1010_다리놓기_JAVA</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -427,6 +406,8 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
+                                            <li><a href="/BOJ-2805">BOJ_2805_나무자르기_JAVA</a></li>
+                                        
                                     
                                   
                                 
@@ -819,6 +800,9 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -1084,57 +1068,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/SWEA-5644">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/SWEA-logo.jpg)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/SWEA-5644">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Swea</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">SWEA_5644_무선충전_JAVA</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>문제 : 무선충전
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/hjs/">hjs</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      2 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -1142,26 +1075,26 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-2980">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
+            <a class="post-card-image-link" href="/Unity-18">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/Unity-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-2980">
+            <a class="post-card-content-link" href="/Unity-18">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Boj</span>
+                                <span class="post-card-tags">Unity</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">BOJ_2980_도로와신호등_JAVA</h2>
+                    <h2 class="post-card-title">미니게임 제작 01</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 도로와 신호등
+                        <p>앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.
 
 </p>
                     
@@ -1203,18 +1136,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">BOJ_9184_신나는함수실행_JAVA</div>
+    <div class="floating-header-title">BOJ_1010_다리놓기_JAVA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_9184_%EC%8B%A0%EB%82%98%EB%8A%94%ED%95%A8%EC%88%98%EC%8B%A4%ED%96%89_JAVA&amp;url=https://hjs101.github.ioBOJ-9184"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_1010_%EB%8B%A4%EB%A6%AC%EB%86%93%EA%B8%B0_JAVA&amp;url=https://hjs101.github.ioBOJ-1010"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-9184"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-1010"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
