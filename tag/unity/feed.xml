@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-26T02:47:17+09:00</updated>
+  <updated>2022-03-27T04:42:50+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,128 @@
   
   
 
+  
+    <entry>
+      <title type="html">미니게임 제작 02</title>
+      <link href="https://hjs101.github.io/Unity-19" rel="alternate" type="text/html" title="미니게임 제작 02" />
+      <published>2022-03-26T09:00:00+09:00</published>
+      <updated>2022-03-26T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-19</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-19">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;이전 포스팅에 이어서 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 완성해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_16.jpg&quot; alt=&quot;game_16&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C# 스크립트를 생성한다. 이름은 PlayerControl으로 한다.&lt;/p&gt;
+
+&lt;p&gt;플레이어 이동은 방향키를 통해 이동할 수 있게 할 것이며, 방향키를 뗀 즉시 멈추도록 할 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MoveSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxisRaw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Horizontal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxisRaw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vertical&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dirVec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;playeRigidbody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;velocity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dirVec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;playeRigidbody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;velocity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dirVec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.8f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;플레이어 이동에 관한 스크립트이다. MoveSet 메서드는 Update에, Move는 FixedUpdate에 넣을 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_23.gif&quot; alt=&quot;game_23&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;테스트 해봤을 때, 대각선으로 이동할 때 속도가 너무 빨라지므로 적당히 조절해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_17.jpg&quot; alt=&quot;game_17&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;작성한 스크립트를 컴포넌트로 플레이어에 추가해주었다. 이제 애니메이션을 추가해보자. 먼저, 제자리에 멈춰있을 때의 애니메이션이다.&lt;/p&gt;
+
+&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_18.jpg&quot; alt=&quot;game_18&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진처럼 애니메이션으로 사용할 스프라이트(여러 개)를 플레이어 게임 오브젝트에 드래그 &amp;amp; 드롭한다. 해당 에셋은 기존 로봇 스프라이트 에셋을 구매하여 약간 튜닝하여 4방향 걷기 모션을 만들었다. 구매한 에셋이기 때문에 공유는 불가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_19.jpg&quot; alt=&quot;game_19&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 위와 같이 애니메이션을 생성할 수 있는데, PlayerFrontIdle이라는 파일 명으로 에셋 폴더 아래에 Animation 폴더를 새로 만들어서 저장하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_20.jpg&quot; alt=&quot;game_20&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 폴더로 이동해보면 Player라는 Animator이 추가로 저장되어있을 것이다. 더블클릭 해서 열어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_21.jpg&quot; alt=&quot;game_21&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그러면 위와 같은 창이 나타난다. PlayerFrontIdle을 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_22.jpg&quot; alt=&quot;game_22&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션에 대한 설정 부분인데, Speed가 기본 값인 1로 되어있을 것이다. 0.3으로 바꿔준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_24.gif&quot; alt=&quot;game_24&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션이 적용된 모습이다. 당연하지만 저 행동밖에 하지 못한다. 일단 모든 애니메이션을 저장한 후 조절해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_25.jpg&quot; alt=&quot;game_25&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;모든 애니메이션을 생성하면 다음과 같다. 이제 각각의 애니메이션에 대해 파라미터를 설정해줄 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_26.jpg&quot; alt=&quot;game_26&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;파라미터 3개를 생성한다. 위 사진의 + 버튼을 누르면 만들 수 있다. 2개는 int 형으로, 1개는 boolean 형으로 생성해준다. hAxisRaw는 수평이동의 값을, vAxisRaw는 수직이동의 값을 저장한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_27.jpg&quot; alt=&quot;game_27&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 아래로 이동할 때의 파라미터 먼저 설정해보자. AnyState를 오른쪽 클릭하고 Make Transition을 누르고 PlayerFrontRun에 화살표를 연결해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_28.jpg&quot; alt=&quot;game_28&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 화살표를 클릭하면 인스펙터 창이 뜰텐데, 다음과 같이 설정해주자. 아래로 내려가는 것은 수직이동하는 값이 0보다 작을 때이므로 Less 0 을 해주고, IsChange는 True일 경우에 애니메이션이 바뀌도록 한다. 이후에, PlayerFrontRun을 오른쪽 클릭하여 같은 방법으로 PlayerFrontIdle에 선을 연결해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_29.jpg&quot; alt=&quot;game_29&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 화살표에는 hAxisRaw가 0일 경우를 설정해준다. 아래로 이동중에 속도가 0이 되면 아래를 보고있는 상태의 idle 애니메이션이 나타나야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_30.jpg&quot; alt=&quot;game_30&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;모두 완성하면 다음과 같은 구조가 된다. 위,아래,왼,오른쪽으로 이동할 때 체크하여 해당 이동 방향에 맞는 이동 애니메이션으로 바꿔주고, 해당 방향으로 이동중에 멈추면 이동하던 방향에서의 대기 애니메이션으로 바꿔준다.&lt;/p&gt;
+
+&lt;p&gt;플레이어 애니메이션을 적용하는 스크립트는 다음에 포스팅하도록 하겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">미니게임 제작 01</title>
@@ -1178,86 +1300,6 @@
 반환하는 벡터는 두 입력 벡터에 대해 수직이다. 오른손 법칙을 사용하여, 입력 벡터의 순서에서 출력 벡터의 방향을 기억할 수 있다. 2개의 벡터가 있을 때 순서를 서로 다르게 하여 벡터의 외적을 구하면 만들어진 두 외적은 서로 정확히 &lt;strong&gt;반대 방향&lt;/strong&gt;을 가리킬 것이다. 벡터의 외적의 크기는, 입력 벡터들의 크기를 곱하고, 그 결과에 두 벡터 사이 각도의 Sin 값을 곱한 것과 같다.&lt;/p&gt;
 
 &lt;p&gt;벡터의 외적은 Sin, Cos 같은 함수를 써야할 상황에 외적을 이용하면 최적화에 많은 도움이 된다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티 토막 지식_02</title>
-      <link href="https://hjs101.github.io/Unity-09" rel="alternate" type="text/html" title="유니티 토막 지식_02" />
-      <published>2022-03-08T09:00:00+09:00</published>
-      <updated>2022-03-08T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-09</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-09">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 닷지 게임을 완성하고 빌드하는 과정을 거쳤다.&lt;/p&gt;
-
-&lt;p&gt;그렇다고 매 포스팅을 한 줄짜리 일기로 끝낼 수 없기 때문에, 유니티 API 문서를 토대로 유니티를 사용하는데 도움이 되는 지식을 공부하고, 포스팅하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/class-GameObject.html&quot;&gt;GameObject&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 GameObject 이다.&lt;/p&gt;
-
-&lt;h4 id=&quot;정의&quot;&gt;정의&lt;/h4&gt;
-
-&lt;p&gt;GameObject는 씬 내에 존재할 수 있는 모든 요소를 나타낼 수 있는 클래스이다.&lt;/p&gt;
-
-&lt;p&gt;일반적으로 스크립트에서 GameObject를 사용하는 목적은 대부분 다른 오브젝트를 관리하기 위함이다. 해당 스크립트를 컴포넌트로 갖는 오브젝트는 gameObject로 접근할 수 있기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;※GameObject와 gameObject의 차이&lt;/p&gt;
-
-&lt;p&gt;헷갈릴 수 있는데, 앞서 말했듯이 GameObject는 클래스이다. 실제 내용물이 아니라 틀이라고 생각하면 된다. 스크립트 내에서 GameObject 타입으로 변수를 선언할 수 있다. 즉, GameObject는 형(type)의 일종이라고 볼 수 있다. gameObject는 앞서 말한 것처럼 해당 스크립트를 컴포넌트로 갖는 오브젝트이다. gameObject는 스크립트를 컴포넌트로 게임오브젝트에 부착한 순간부터 이미 값이 할당되어 있다고 생각하면 된다. 스크립트에서 gameObject를 사용하는 경우는 자기 자신 오브젝트에 접근하는 경우이고, GameObject를 사용하는 경우는 다른 오브젝트에 접근하는 경우에 사용한다.&lt;/p&gt;
-
-&lt;h4 id=&quot;기본-구성&quot;&gt;기본 구성&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_08_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트는 씬에서 생성하면 기본적으로 활성화된 상태이다. 체크박스를 해제하여 비활성화를 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트를 비활성화하면 게임 오브젝트에 연결된 모든 컴포넌트가 해제된다. 일반적으로 비활성화 시킨 게임 오브젝트는 화면에 보이지 않게 되고, Update, FixedUpdate 등과 같은 정규 콜백이나 이벤트를 수신하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;스크립트 내에서 GameObject.SetActive(boolean값) 을 이용하여 게임 오브젝트의 활성상태를 제어할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;그 오른쪽에 있는 static 체크박스는, 게임 오브젝트가 움직일 수 있는지 가능 여부를 고를 수 있다. 해당 부분은 최적화에 쓰이는데, 예를 들어 움직이지 않는 게임 오브젝트들을 batch(배치)라는 하나의 큰 오브젝트로 결합시킴으로써 렌더링을 최적화 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;오브젝트에는 태그와 레이어가 존재하는데, 태그는 씬에서 게임 오브젝트의 타입을 표시, 식별할 수 있게 한다.
-레이어는 렌더링 또는 물리 충돌 같은 특정 빌트인 동작에 대해 게임 오브젝트를 그룹화하여 제어할 수 있게 한다.&lt;/p&gt;
-
-&lt;p&gt;게임 오브젝트에 컴포넌트를 자유롭게 부착, 제거할 수 있다. 기초 글에도 있듯이, 게임 오브젝트에 부착하는 각 컴포넌트는 독립적으로 구성된다.&lt;/p&gt;
-
-&lt;p&gt;스크립트에서 컴포넌트에 접근할 때는 GetComponent 메서드를 사용하여 접근할 수 있다. 해당 메서드는 스크립트 내에서 단독으로 사용하면 현재 게임 오브젝트의 컴포넌트를 읽어온다. 이 때, 제네릭의 개념이 사용되는데.&lt;/p&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;RigidBody&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GetComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RigidBody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;라고 한다면, &lt;RigidBody&gt; 부분을 제네릭이라고 생각하면 된다. 유니티의 관점에서 생각해보면, 컴포넌트는 수 없이 많다. 그런데 제네릭이 없이 그냥 GetComponent만으로 컴포넌트를 읽어온다고 생각해보자. 이 경우 조건문 같은 사후 처리를 통해 읽어온 컴포넌트가 내가 원하는 컴포넌트인지 확인하는 작업이 따로 필요해진다. 이 때 미스매치가 되는 경우 Exception이 발생할 수도 있다. 반면 제네릭을 사용하여 &quot;나는 이러한 타입의 컴포넌트를 읽어올거야&quot; 라고 미리 지정해 두면, 컴파일 과정에서 해당하는 타입의 컴포넌트를 바로 읽어올 수 있는 것이다.&lt;/RigidBody&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;부모자식-관계&quot;&gt;부모자식 관계&lt;/h4&gt;
-
-&lt;p&gt;게임 오브젝트는 Transform 컴포넌트를 기본적으로 가지고 있다. TransForm 컴포넌트는 Parenting, 부모자식관계를 사용할 수 있다. 스크립트에서 이 부모자식관계를 이용해 부모 게임 오브젝트로부터 자식 오브젝트를 검색하여 가져올 수 있다.&lt;/p&gt;</content>
 
       
       
