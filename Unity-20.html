@@ -11,7 +11,7 @@
 
 
 
-    <title>BOJ_9461_파도반수열_JAVA</title>
+    <title>미니게임 제작 03</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -51,30 +51,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="기술 블로그 알고리즘 공부 및 프로젝트" />
     <link rel="shortcut icon" href="https://hjs101.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://hjs101.github.io/BOJ-9461" />
+    <link rel="canonical" href="https://hjs101.github.io/Unity-20" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BOJ_9461_파도반수열_JAVA" />
-    <meta property="og:description" content="문제 : 파도반수열 링크 : BOJ_9461_파도반수열 접근 방식 삼각형이 나선으로 놓여져있고 변의 과정이고 어쩌고 규칙이 있기는 한데, 그림과 설명을 이용해서 수열을 이해하는것 보다 나열되어있는 숫자를 보고 알아채는 게 더 쉬웠다. 1, 1, 1, 2, 2, 3, 4, 5, 7, 9 이게 파도반 수열 P(1)부터 P(10)까지이다. 기본값으로 P(1),P(2),P(3)은 1,1,1이다. P(4) =" />
-    <meta property="og:url" content="https://hjs101.github.io/BOJ-9461" />
-    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
+    <meta property="og:title" content="미니게임 제작 03" />
+    <meta property="og:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 이전 포스팅에 이어서 애니메이션을 적용하는 스크립트를 짜보겠다. C# 스크립트를 생성한다. 이름은 PlayerControl으로 한다. 플레이어 이동은 방향키를 통해 이동할 수 있게" />
+    <meta property="og:url" content="https://hjs101.github.io/Unity-20" />
+    <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-02-21T01:40:00+09:00" />
-    <meta property="article:modified_time" content="2022-02-21T01:40:00+09:00" />
-    <meta property="article:tag" content="Boj" />
+    <meta property="article:published_time" content="2022-03-27T09:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-03-27T09:00:00+09:00" />
+    <meta property="article:tag" content="Unity" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BOJ_9461_파도반수열_JAVA" />
-    <meta name="twitter:description" content="문제 : 파도반수열 링크 : BOJ_9461_파도반수열 접근 방식 삼각형이 나선으로 놓여져있고 변의 과정이고 어쩌고 규칙이 있기는 한데, 그림과 설명을 이용해서 수열을 이해하는것 보다 나열되어있는 숫자를 보고 알아채는 게 더 쉬웠다. 1, 1, 1, 2, 2, 3, 4, 5, 7, 9 이게 파도반 수열 P(1)부터 P(10)까지이다. 기본값으로 P(1),P(2),P(3)은 1,1,1이다. P(4) =" />
+    <meta name="twitter:title" content="미니게임 제작 03" />
+    <meta name="twitter:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 이전 포스팅에 이어서 애니메이션을 적용하는 스크립트를 짜보겠다. C# 스크립트를 생성한다. 이름은 PlayerControl으로 한다. 플레이어 이동은 방향키를 통해 이동할 수 있게" />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
-    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Boj-logo.png" />
+    <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="hjs's Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Boj" />
+    <meta name="twitter:data2" content="Unity" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -89,18 +89,18 @@
         "name": "hjs's Blog",
         "logo": "https://hjs101.github.io/"
     },
-    "url": "https://hjs101.github.io/BOJ-9461",
+    "url": "https://hjs101.github.io/Unity-20",
     "image": {
         "@type": "ImageObject",
-        "url": "https://hjs101.github.io/assets/built/images/Boj-logo.png",
+        "url": "https://hjs101.github.io/assets/built/images/Unity-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hjs101.github.io/BOJ-9461"
+        "@id": "https://hjs101.github.io/Unity-20"
     },
-    "description": "문제 : 파도반수열 링크 : BOJ_9461_파도반수열 접근 방식 삼각형이 나선으로 놓여져있고 변의 과정이고 어쩌고 규칙이 있기는 한데, 그림과 설명을 이용해서 수열을 이해하는것 보다 나열되어있는 숫자를 보고 알아채는 게 더 쉬웠다. 1, 1, 1, 2, 2, 3, 4, 5, 7, 9 이게 파도반 수열 P(1)부터 P(10)까지이다. 기본값으로 P(1),P(2),P(3)은 1,1,1이다. P(4) ="
+    "description": "앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 이전 포스팅에 이어서 애니메이션을 적용하는 스크립트를 짜보겠다. C# 스크립트를 생성한다. 이름은 PlayerControl으로 한다. 플레이어 이동은 방향키를 통해 이동할 수 있게"
 }
     </script>
 
@@ -113,7 +113,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="BOJ_9461_파도반수열_JAVA" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="미니게임 제작 03" href="/feed.xml" />
 
 
 </head>
@@ -173,111 +173,187 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-boj post tag-BOJ ">
+        <article class="post-full  tag-unity post tag-Unity ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="21 February 2022">21 February 2022</time>
+                    <time class="post-full-meta-date" datetime="27 March 2022">27 March 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/boj/'>BOJ</a>
+                               <a href='/tag/unity/'>UNITY</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">BOJ_9461_파도반수열_JAVA</h1>
+                <h1 class="post-full-title">미니게임 제작 03</h1>
             </header>
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/Boj-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/Unity-logo.png)">
             </figure>
              !-->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="문제--파도반수열">문제 : 파도반수열</h2>
+                    <p>앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</p>
 
-<p>링크 : <a href="https://www.acmicpc.net/problem/9461">BOJ_9461_파도반수열</a></p>
+<p>이전 포스팅에 이어서 애니메이션을 적용하는 스크립트를 짜보겠다.</p>
 
-<h2 id="접근-방식">접근 방식</h2>
+<p>C# 스크립트를 생성한다. 이름은 PlayerControl으로 한다.</p>
 
-<p>삼각형이 나선으로 놓여져있고 변의 과정이고 어쩌고 규칙이 있기는 한데, 그림과 설명을 이용해서 수열을 이해하는것 보다 나열되어있는 숫자를 보고 알아채는 게 더 쉬웠다.</p>
+<p>플레이어 이동은 방향키를 통해 이동할 수 있게 할 것이며, 방향키를 뗀 즉시 멈추도록 할 것이다.</p>
 
-<p>1, 1, 1, 2, 2, 3, 4, 5, 7, 9</p>
-
-<p>이게 파도반 수열 P(1)부터 P(10)까지이다.</p>
-
-<p>기본값으로 P(1),P(2),P(3)은 1,1,1이다.</p>
-
-<p>P(4) =  P(4-3) + P(4-2) = P(1) + P(2) = 1+1 = 2<br />
-P(5) = P(5-3) + P(5-2) = P(2) + P(3) = 1+1 = 2<br />
-P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
-
-<p>위의 세 식을 보면 알겠듯이 해당 수열 P(N) = P(N-3) + P(N-2)의 규칙을 가진다.</p>
-
-<p>피보나치와 유사하게 DP로 위 점화식을 풀어나가면 된다.</p>
-
-<h2 id="풀이-방법">풀이 방법</h2>
-
-<ol>
-  <li>
-    <p>테스트 케이스 수를 읽어와 테스트 케이스 수 만큼 반복한다.</p>
-  </li>
-  <li>
-    <p>변수 N에 주어지는 입력값을 저장한다.</p>
-  </li>
-  <li>
-    <p>dp용 배열을 N+2개만큼 선언한다. +2를 하는 이유는, N에 3 미만의 수가 주어졌을 때 배열의 값을 벗어나지 않게 하기 위함이다.</p>
-  </li>
-  <li>
-    <p>시작값을 3부터 N까지 반복하는데, 위의 점화식대로 계산하여 배열에 순차적으로 추가한다.</p>
-  </li>
-  <li>
-    <p>모든 반복이 종료된 후 dp배열의 N-1번째 값을 출력한다.</p>
-  </li>
-</ol>
-
-<h2 id="소스-코드">소스 코드</h2>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BOJ_9461_파도반수열</span> <span class="o">{</span>
-
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">NumberFormatException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
-
-		<span class="c1">// 버퍼드리더로 값 읽어오기</span>
-		<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-
-		<span class="kt">int</span> <span class="no">T</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">T</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-
-			<span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-
-			<span class="kt">long</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="no">N</span><span class="o">+</span><span class="mi">2</span><span class="o">];</span>
-
-			<span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-			<span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-			<span class="n">dp</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-				<span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">3</span><span class="o">];</span>
-			<span class="o">}</span>
-
-			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="no">N</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span>
-
-		<span class="o">}</span>
-
-	<span class="o">}</span>
-
-<span class="o">}</span>
-
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Animator</span> <span class="n">anim</span><span class="p">;</span>
+    <span class="n">anim</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;();</span>
 </code></pre></div></div>
+
+<p>애니메이터 컴포넌트를 스크립트로 제어하기 위해 변수를 선언해주고, Start 메서드 안에 GetComponent를 통해 불러와준다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Animation</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">V</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">V</span><span class="p">);</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">H</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">H</span><span class="p">);</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>MoveSet 메서드 안에 위와 같은 코드를 추가한다. 수직, 수평 값을 애니메이터의 파라미터에 적용시킨다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_31.gif" alt="game_31" /></p>
+
+<p>애니메이션 적용된 모습을 테스트 해보았다.</p>
+
+<p>약간의 문제가 있는데, 대각선 이동에 대한 애니메이션이 없고, 그 애니메이션 적용에 대해 뒤죽박죽으로 적용된다.</p>
+
+<p>위, 아래로 이동하던 중에 좌, 우이동을 추가하여 대각선 이동하면 좌,우 이동 애니메이션이 나오고,</p>
+
+<p>좌,우로 이동하던중에 위, 아래로 이동하면 위, 아래 애니메이션이 나온다.</p>
+
+<p>이 부분을 대각선으로 이동할 때는 무조건 좌,우 애니메이션만 나타나게끔 수정 해보려고 한다</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Animation</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">V</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">H</span><span class="p">);</span>
+        <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">V</span><span class="p">);</span>
+        <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">H</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">H</span><span class="p">);</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>애니메이션 변동이, 각각의 애니메이터 파라미터 값이 변동될 때마다 바뀌기 때문에, 수직에 대한 파라미터가 변경될 때, 수평 이동 중이었는지, 아니었는지를 구분하여 각각의 파라미터를 조절해주면 될 거라고 생각했다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_32.gif" alt="game_32" /></p>
+
+<p>수정후 적용된 화면이다. 대각선으로 이동할 때는 무조건 좌우 이동 애니메이션이 적용되는 모습이다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">PlayerControl</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// rigidbody 선언</span>
+    <span class="n">Rigidbody2D</span> <span class="n">playerRigidbody</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">H</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">V</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+
+    <span class="n">Animator</span> <span class="n">anim</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+
+    <span class="p">{</span>
+        <span class="c1">// rigidbody 컴포넌트 가져와 할당하기</span>
+        <span class="n">playerRigidbody</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody2D</span><span class="p">&gt;();</span>
+        <span class="c1">// Animator 컴포넌트 가져와 할당하기</span>
+        <span class="n">anim</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">MoveSet</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">FixedUpdate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">Move</span><span class="p">();</span>
+    <span class="p">}</span>
+
+
+
+    <span class="k">void</span> <span class="nf">MoveSet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">H</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxisRaw</span><span class="p">(</span><span class="s">"Horizontal"</span><span class="p">);</span>
+        <span class="n">V</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="nf">GetAxisRaw</span><span class="p">(</span><span class="s">"Vertical"</span><span class="p">);</span>
+
+        <span class="c1">//Animation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">V</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">H</span><span class="p">);</span>
+                <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"vAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">V</span><span class="p">);</span>
+                <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">anim</span><span class="p">.</span><span class="nf">GetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">)</span> <span class="p">!=</span> <span class="n">H</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">anim</span><span class="p">.</span><span class="nf">SetInteger</span><span class="p">(</span><span class="s">"hAxisRaw"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">H</span><span class="p">);</span>
+            <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">anim</span><span class="p">.</span><span class="nf">SetBool</span><span class="p">(</span><span class="s">"isChange"</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+
+    <span class="k">void</span> <span class="nf">Move</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Vector2</span> <span class="n">dirVec</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span>
+
+        <span class="n">playerRigidbody</span><span class="p">.</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">dirVec</span> <span class="p">*</span> <span class="n">speed</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>전체 소스코드는 다음과 같다.</p>
+
+<p>다음에는 적 유닛을 랜덤하게 생성해보도록 하자.</p>
 
                 </div>
             </section>
@@ -333,9 +409,9 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://hjs101.github.io/BOJ-9461';
-                            var this_page_identifier = '/BOJ-9461';
-                            var this_page_title = 'BOJ_9461_파도반수열_JAVA';
+                            var this_page_url = 'https://hjs101.github.io/Unity-20';
+                            var this_page_identifier = '/Unity-20';
+                            var this_page_title = '미니게임 제작 03';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -369,7 +445,7 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; hjs's Blog &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/boj/">Boj</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/unity/">Unity</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -379,14 +455,14 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                 
                                   
-                                
+                                    
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/BOJ-1010">BOJ_1010_다리놓기_JAVA</a></li>
+                                            <li><a href="/Unity-19">미니게임 제작 02</a></li>
                                         
                                     
                                   
@@ -397,41 +473,30 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                     
                                         
                                         
-                                            <li><a href="/BOJ-11724">BOJ_11724_연결요소의개수_JAVA</a></li>
+                                            <li><a href="/Unity-18">미니게임 제작 01</a></li>
                                         
                                     
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                            <li><a href="/BOJ-14501">BOJ_14501_퇴사_JAVA</a></li>
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
                                     
                                         
                                         
+                                            <li><a href="/Unity-17">유니티 토막 지식_10</a></li>
+                                        
                                     
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -452,11 +517,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -464,6 +524,8 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                         
                                         
                                     
+                                  
+                                
                                   
                                 
                                   
@@ -485,8 +547,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                   
                                 
                                   
-                                
-                                  
                                     
                                         
                                         
@@ -504,11 +564,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -529,11 +584,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -549,11 +599,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -567,11 +612,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -626,310 +666,101 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                         
                                         
                                     
-                                  
-                                
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
                                 
@@ -937,132 +768,52 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/boj/">
+                            <a href="/tag/unity/">
                                 
-                                    See all 85 posts  →
+                                    See all 20 posts  →
                                 
                             </a>
                         </footer>
@@ -1072,57 +823,6 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/BOJ-1260">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-1260">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Boj</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">BOJ_1260_DFS와BFS_JAVA</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>문제 : DFS와BFS
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="hjs" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/hjs/">hjs</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -1130,26 +830,26 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/BOJ-2840">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/Boj-logo.png)"></div>
+            <a class="post-card-image-link" href="/Unity-19">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/Unity-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/BOJ-2840">
+            <a class="post-card-content-link" href="/Unity-19">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Boj</span>
+                                <span class="post-card-tags">Unity</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">BOJ_2840_행운의바퀴_JAVA</h2>
+                    <h2 class="post-card-title">미니게임 제작 02</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 : 행운의바퀴
+                        <p>앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.
 
 </p>
                     
@@ -1191,18 +891,18 @@ P(6) = P(6-3) + P(6-2) = P(3) + P(4) = 1 + 2 = 3</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">BOJ_9461_파도반수열_JAVA</div>
+    <div class="floating-header-title">미니게임 제작 03</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=BOJ_9461_%ED%8C%8C%EB%8F%84%EB%B0%98%EC%88%98%EC%97%B4_JAVA&amp;url=https://hjs101.github.ioBOJ-9461"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84+%EC%A0%9C%EC%9E%91+03&amp;url=https://hjs101.github.ioUnity-20"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioBOJ-9461"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://hjs101.github.ioUnity-20"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
