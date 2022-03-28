@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-28T01:29:36+09:00</updated>
+  <updated>2022-03-29T04:19:18+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,173 @@
   
   
 
+  
+    <entry>
+      <title type="html">미니게임 제작 04</title>
+      <link href="https://hjs101.github.io/Unity-21" rel="alternate" type="text/html" title="미니게임 제작 04" />
+      <published>2022-03-28T09:00:00+09:00</published>
+      <updated>2022-03-28T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-21</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-21">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//Animation&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;애니메이션 대각선 이동 적용에 관련하여, 문제점을 하나 더 발견하여 위 코드와 같이 바꾸어주었다. 3번 라인에 조건을 하나 더 추가했다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 적 유닛을 랜덤하게 생성해보도록 하자.&lt;/p&gt;
+
+&lt;p&gt;전체 스크립트는 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;EnemySpawner.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine.AI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EnemySpawner&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 몬스터&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 플레이어 위치&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Transform&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;playerTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 최대거리&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 최소거리&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최대 주기&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최소 주기&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 가장 최근 생성&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 생성 주기 최소와 최대 사이에서 랜덤하게 초기화&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 최근 생성 시간 갱신&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 생성주기 랜덤 변경&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;nf&quot;&gt;Spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetRandomPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;playerTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxDist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selectedEnemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Instantiate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selectedEnemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Quaternion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetRandomPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 중아을 중심으로 반지름이 maxDist인 원 안에서 랜덤 위치 저장&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Random.insideUnitCircle은 반지름이 distance에서&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randomPos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insideUnitCircle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randomPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;line 9 ~ 19 : 변수 생성 부분
+    &lt;ul&gt;
+      &lt;li&gt;9 : 몬스터 프리팹을 저장할 배열 변수&lt;/li&gt;
+      &lt;li&gt;11 : 주변에 몬스터를 생성할 수 있도록 하기 위한 플레이어 위치 정보를 담을 변수&lt;/li&gt;
+      &lt;li&gt;13, 15 : 최대 거리와 최소 거리, 이 사이에서 랜덤하게 생성 거리가 정해진다.&lt;/li&gt;
+      &lt;li&gt;16, 17 : 생성하는 최대 주기와 최소 주기 이 사이에서 랜덤하게 생성하는 주기가 정해진다.&lt;/li&gt;
+      &lt;li&gt;19 : 가장 최근에 생성된 시간&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 20 ~ 25 : 초기화 부분
+    &lt;ul&gt;
+      &lt;li&gt;생성 주기를 최소와 최대 사이에서 랜덤하게 초기화&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 26 ~ 37 : 일정 주기마다(주기는 랜덤하게 바뀜) 몬스터 생성
+    &lt;ul&gt;
+      &lt;li&gt;28 ~ 26 : 마지막 생성 시점으로부터 생성 주기만큼 시간이 지났다면, 최근 생성시간을 갱신하고, 생성주기를 다시 랜덤하게 바꾼다. 그 후 몬스터를 생성한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 38~44 : 몹 생성하는 메서드
+    &lt;ul&gt;
+      &lt;li&gt;GetRandomPoint 메서드로 랜덤 위치를 받아온 뒤, 해당 위치에 Enemy 생성, 배열에서 랜덤하게 몬스터를 선택하고, Instantiate메서드로 클론 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 45 ~ 51 : 랜덤 위치 반환 함수
+    &lt;ul&gt;
+      &lt;li&gt;insideUnitCircle : 일정 반지름을 기준으로 한 원 내부에서 랜덤한 위치를 반환&lt;/li&gt;
+      &lt;li&gt;distance를 곱해준 값을 center에서 더하여 플레이어를 기준으로 일정 거리 이내에서 몬스터 생성할 위치 반환.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_33.gif&quot; alt=&quot;game_33&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;잘 적용된 모습이다. 적용 과정은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_34.jpg&quot; alt=&quot;game_34&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;빈 오브젝트를 만들어서 이름을 Enemy Spawner으로 바꿔준다.&lt;/p&gt;
+
+&lt;p&gt;그 이후 위의 스크립트를 컴포넌트로써 추가해준다. 최대거리, 최소거리는 상황에 맞게 설정해주고, PlayerTransform에 플레이어 트랜스폼을 넣어주었다.&lt;/p&gt;
+
+&lt;p&gt;Enemy 변수에는 일단은 빨간색 원의 오브젝트를 프리팹(prefab)화 시켜서 추가해주었다.&lt;/p&gt;
+
+&lt;p&gt;다음에는 몹 스프라이트 적용과, 플레이어를 추적하여 이동하도록 해보겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">미니게임 제작 03</title>
@@ -1275,128 +1442,6 @@
 
       
         <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티 토막 지식_04</title>
-      <link href="https://hjs101.github.io/Unity-11" rel="alternate" type="text/html" title="유니티 토막 지식_04" />
-      <published>2022-03-11T09:00:00+09:00</published>
-      <updated>2022-03-11T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-11</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-11">&lt;p&gt;오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2022.1/Manual/PhysicsOverview.html&quot;&gt;3D 물리&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 유니티에서 사용하는 물리에 관한 컴포넌트들을 살펴보겠다.&lt;/p&gt;
-
-&lt;h5 id=&quot;rigidbody&quot;&gt;RigidBody&lt;/h5&gt;
-
-&lt;p&gt;리지드바디(RigidBody)는, 앞서서도 여러 번 설명한 적이 있는 컴포넌트이다. 게임 오브젝트가 물리적 동작을 가능하게 하는 주요 컴포넌트이다.&lt;/p&gt;
-
-&lt;p&gt;리지드바디는 연결된 게임 오브젝트의 이동을 제어한다. 따라서 스크립트에서 포지션이나 회전처럼 TransForm의 프로퍼티를 변경시켜 오브젝트를 이동하려고 하면 안된다. 값을 변경하는 대신 Forces. 즉 오브젝트에 &lt;strong&gt;힘을 가하고, 그 힘에 대해 물리 엔진이 결과를 계산&lt;/strong&gt;할 수 있도록 해야한다.&lt;/p&gt;
-
-&lt;p&gt;경우에 따라서 특정 게임 오브젝트에 리지드바디를 추가하되, 물리 엔진의 제어를 받는 것이 싫을 때가 있다. 예를 들면 스크립트 코드로 캐릭터를 직접 제어하면서도, 캐릭터가 트리거에 의해 감지되게 하려고 할 때가 있다.&lt;/p&gt;
-
-&lt;p&gt;리지드바디에는 Is Kinematic 이라는 프로퍼티가 있다. 이 프로퍼티는 물리 엔진의 제어대상에서 해당 컴포넌트를 제외한다. 키네마틱 프로퍼티가 켜져 있는 상태라면 스크립트에서 비물리적인 모션을 적용할 수 있다. 이러한 모션을 키네마틱 모션이라고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_01.jpg&quot; alt=&quot;Unity_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그림과 같이 체크박스를 통해 키네마틱을 켜고 끌 수 있다. 스크립트 안에서도 Is Kinematic의 값을 변경할 수 있지만, 성능 오버헤드가 발생한다고 하니 신중하게 사용하자.&lt;/p&gt;
-
-&lt;p&gt;※ 리지드바디의 휴면 : 리지드바디가 정의된 최소 선형, 또는 회전 속도보다도 더 느리게 이동하면 물리 엔진에서는 정지했다고 간주한다. 움직이지 않는 리지드바디는 다시 힘이 가해지거나 충돌하기 전 까지는 움직이지 않기 때문에 이때 유니티에서는 리지드바디를 “휴면” 모드로 설정한다. 이러한 최적화는, 리지드바디가 다음번에 &lt;em&gt;WakeUp&lt;/em&gt; 할 때까지 프로세서의 자원이 사용되지 않는다.&lt;/p&gt;
-
-&lt;h5 id=&quot;collider&quot;&gt;Collider&lt;/h5&gt;
-
-&lt;p&gt;콜라이더 컴포넌트는 물리적 충돌을 위한 게임 오브젝트의 모양을 정의한다. 흔히들 많이 이야기하는 충돌판정에 대한 컴포넌트이다.&lt;/p&gt;
-
-&lt;p&gt;콜라이더는 기본 콜라이더, 복합 콜라이더, 메시 콜라이더, 정적 콜라이더 등 많은 종류가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;기본 콜라이더 : 가장 간단하고, 자원을 적게 먹는 콜라이더다. 3D에선 박스 콜라이더, 스피어 콜라이더, 캡슐 콜라이더가 이에 해당한다. 2D에서는 박스 콜라이더2D, 써클 콜라이더2D를 사용할 수있다. 기본 콜라이더를 여러 개 중첩해 복합 콜라이더를 만들 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;복합 콜라이더 : 자원을 적게 먹으면서도 게임 오브젝트의 대략적인 모양을 만들 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;메시 콜라이더 : 복합 콜라이더를 통해서도 게임 오브젝트의 모양을 표현하기 힘들고, 더 정확한 콜라이더 표현이 필요한 경우 사용하는 콜라이더이다. 이 콜라이더는 게임 오브젝트의 메시 모양에 정확히 맞출 수 있지만, &lt;strong&gt;프로세서에 큰 부담&lt;/strong&gt;을 주기 때문에 꼭 필요한 경우에만 사용해야 한다. 또한 메시 콜라이더와 메시 콜라이더, 즉 메시 콜라이더끼리는 충돌이 일어나지 않는 문제가 있다. 이 문제를 해결하기 위해서 메시 콜라이더는 인스펙터 창에서 Convex로 설정해 “볼록 다각형” 모양의 콜라이더로 생성할 수 있다. (파인 부분이 사라짐)
- 일반적으로 메시 콜라이더는 씬 지오메트리에 사용한다. 2D에서는 폴리곤 콜라이더 2D를 통해 세부 조절이 가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/Unity_10_02.jpg&quot; alt=&quot;Unity_02&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;정적 콜라이더 : RigidBody 컴포넌트 없이 콜라이더를 게임 오브젝트에 추가하여 바닥, 벽과 같은 고정된 오브젝트에 사용하는 콜라이더를 말한다. 반대로 RigidBody가 있는 콜라이더는 동적 콜라이더라고 부른다. 정적 콜라이더는 동적 클라이더와 상호작용이 가능하나, 충돌에 의한 물리 이동이 일어나지 않는다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;트리거&quot;&gt;트리거&lt;/h5&gt;
-
-&lt;p&gt;콜라이더에 트리거를 사용하면 해당 콜라이더는 솔리드 오브젝트로 동작하지 않는다. 간단히 말해 부딛히지 않는 다는 뜻이다. 하지만 스크립트 내부에서 OnTriggerEnter 함수를 이용하여 해당 콜라이더가 다른 콜라이더와 부딛혔을 때(겹쳤을 때)의 로직 처리를 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;※ 충돌에 대한 콜백 함수&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;OnCollisionEnter : 충돌이 감지되었을 때 가장 먼저 일어난다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;OnCollisionStay : 충돌 -&amp;gt; 접촉이 지속되는 상황동안 계속 호출 접촉이 해제될 때 OnCollisionExit가 호출된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;트리거의 경우 위에서 Collision을 Trigger으로 바꾼다. (OnTriggerEnter, OnTriggerStay, OnTriggerExit)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2D에서는 함수명 끝에 2D 첨자가 붙는다. ex) OnCollisionEnter2D&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;콜라이더-사이의-상호작용&quot;&gt;콜라이더 사이의 상호작용&lt;/h5&gt;
-
-&lt;p&gt;콜라이더는 크게 정적 콜라이더, 동적 콜라이더로 나눌 수 있다. 이는 리지드바디의 유무에 따라서 구분하며, 추가적으로 키네마틱이 활성화된 리지드바디 콜라이더까지 추가하여 각각의 상호작용에 대해 알아보자.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;정적 콜라이더 : 정적콜라이더는 앞에서 설명했듯 리지드바디가 없다. 따라서 항상 같은 위치에 절대 움직이지 않는 것에 주로 사용된다. 다른 동적 콜라이더를 가진 객체와 충돌해도 정적콜라이더는 움직이지 않는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;리지드바디 콜라이더 : 일반적인 비키네마틱 리지드바디와 콜라이더를 가진 오브젝트가 동적 콜라이더이다. 물리엔진에 의해 제어되며 충돌, 힘 모두에 반응하여 움직일 수 있다. 가장 흔하게 사용되는 콜라이더이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;키네마틱 리지드바디 콜라이더 : 리지드바디와 콜라이더를 함께 가졌지만 해당 리지드바디에 Iskinematic이 활성화되어있는 콜라이더를 말한다. 키네마틱 리지드바디 콜라이더는 정적 콜라이더처럼 힘과 충돌에 반응하지 않지만, 스크립트에 의한 TransForm 컴포넌트 수정을 통해서는 움직일 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 콜라이더는 상황에 따라 움직일 수 있지만 그 외 상황에서는 정적 콜라이더처럼 작용한다. 예를 들면 평소에는 움직이지 않는 장애물처럼 동작하지만, 필요할 때는 열 수 있는 문과 같은 경우이다. 정적 콜라이더는 다른 오브젝트에 마찰이 작용할 수 있으며, 접촉이 일어난 경우 다른 리지드바디를 &lt;strong&gt;WakeUp&lt;/strong&gt; 시킬 수 있다.&lt;/p&gt;
-
-&lt;p&gt;※ 리지드바디 컴포넌트는 Iskinematic 프로퍼티를 사용하여 언제는 키네마틱, 일반 리지드바티로 전환할 수 있다. 이를 이용하는 좋은 예로 래그돌 효과가 있다. 래그돌 효과는 사망 애니매이션을 고정된 애니메이션으로 사용하는 것이 아니라 물리적인 터리를 통해 다양한 사망 모션을 연출하기 위한 기법이다.&lt;/p&gt;
-
-&lt;p&gt;이는 키네마틱 리지드바디를 이용하여 구현할 수 있다. 사망 직전까지는 키네마틱 리지드바디를 이용하여 애니메이션에 의해 일반적으로 움직이다가, 비활성화되는 순간 키네마틱을 비활성화시켜 물리오브젝트로 동작하게 하는 것이다. 폭발에 의해 날아가는 시체가 흐느적거리며 날아가는 장면 등이 이런 효과를 이용한 것이다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">오늘은 상당히 진빠지는 시험을 보게 되어 추가적인 유니티 공부는 하지 못했다.</summary>
       
 
       

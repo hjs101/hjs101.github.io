@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-28T01:29:36+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">미니게임 제작 03</title><link href="https://hjs101.github.io/Unity-20" rel="alternate" type="text/html" title="미니게임 제작 03" /><published>2022-03-27T09:00:00+09:00</published><updated>2022-03-27T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-20</id><content type="html" xml:base="https://hjs101.github.io/Unity-20">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-29T04:19:18+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">미니게임 제작 04</title><link href="https://hjs101.github.io/Unity-21" rel="alternate" type="text/html" title="미니게임 제작 04" /><published>2022-03-28T09:00:00+09:00</published><updated>2022-03-28T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-21</id><content type="html" xml:base="https://hjs101.github.io/Unity-21">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//Animation&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetInteger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hAxisRaw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;anim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetBool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;isChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;애니메이션 대각선 이동 적용에 관련하여, 문제점을 하나 더 발견하여 위 코드와 같이 바꾸어주었다. 3번 라인에 조건을 하나 더 추가했다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 적 유닛을 랜덤하게 생성해보도록 하자.&lt;/p&gt;
+
+&lt;p&gt;전체 스크립트는 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;EnemySpawner.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine.AI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EnemySpawner&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 몬스터&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 플레이어 위치&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Transform&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;playerTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 최대거리&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 최소거리&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최대 주기&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최소 주기&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 가장 최근 생성&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 생성 주기 최소와 최대 사이에서 랜덤하게 초기화&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 최근 생성 시간 갱신&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;lastSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 생성주기 랜덤 변경&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;timeSpawn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeSpawnMin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeSpawnMax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;nf&quot;&gt;Spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetRandomPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;playerTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxDist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selectedEnemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Instantiate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selectedEnemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Quaternion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetRandomPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 중아을 중심으로 반지름이 maxDist인 원 안에서 랜덤 위치 저장&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Random.insideUnitCircle은 반지름이 distance에서&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randomPos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insideUnitCircle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randomPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;line 9 ~ 19 : 변수 생성 부분
+    &lt;ul&gt;
+      &lt;li&gt;9 : 몬스터 프리팹을 저장할 배열 변수&lt;/li&gt;
+      &lt;li&gt;11 : 주변에 몬스터를 생성할 수 있도록 하기 위한 플레이어 위치 정보를 담을 변수&lt;/li&gt;
+      &lt;li&gt;13, 15 : 최대 거리와 최소 거리, 이 사이에서 랜덤하게 생성 거리가 정해진다.&lt;/li&gt;
+      &lt;li&gt;16, 17 : 생성하는 최대 주기와 최소 주기 이 사이에서 랜덤하게 생성하는 주기가 정해진다.&lt;/li&gt;
+      &lt;li&gt;19 : 가장 최근에 생성된 시간&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 20 ~ 25 : 초기화 부분
+    &lt;ul&gt;
+      &lt;li&gt;생성 주기를 최소와 최대 사이에서 랜덤하게 초기화&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 26 ~ 37 : 일정 주기마다(주기는 랜덤하게 바뀜) 몬스터 생성
+    &lt;ul&gt;
+      &lt;li&gt;28 ~ 26 : 마지막 생성 시점으로부터 생성 주기만큼 시간이 지났다면, 최근 생성시간을 갱신하고, 생성주기를 다시 랜덤하게 바꾼다. 그 후 몬스터를 생성한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 38~44 : 몹 생성하는 메서드
+    &lt;ul&gt;
+      &lt;li&gt;GetRandomPoint 메서드로 랜덤 위치를 받아온 뒤, 해당 위치에 Enemy 생성, 배열에서 랜덤하게 몬스터를 선택하고, Instantiate메서드로 클론 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;line 45 ~ 51 : 랜덤 위치 반환 함수
+    &lt;ul&gt;
+      &lt;li&gt;insideUnitCircle : 일정 반지름을 기준으로 한 원 내부에서 랜덤한 위치를 반환&lt;/li&gt;
+      &lt;li&gt;distance를 곱해준 값을 center에서 더하여 플레이어를 기준으로 일정 거리 이내에서 몬스터 생성할 위치 반환.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_33.gif&quot; alt=&quot;game_33&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;잘 적용된 모습이다. 적용 과정은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_34.jpg&quot; alt=&quot;game_34&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;빈 오브젝트를 만들어서 이름을 Enemy Spawner으로 바꿔준다.&lt;/p&gt;
+
+&lt;p&gt;그 이후 위의 스크립트를 컴포넌트로써 추가해준다. 최대거리, 최소거리는 상황에 맞게 설정해주고, PlayerTransform에 플레이어 트랜스폼을 넣어주었다.&lt;/p&gt;
+
+&lt;p&gt;Enemy 변수에는 일단은 빨간색 원의 오브젝트를 프리팹(prefab)화 시켜서 추가해주었다.&lt;/p&gt;
+
+&lt;p&gt;다음에는 몹 스프라이트 적용과, 플레이어를 추적하여 이동하도록 해보겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry><entry><title type="html">미니게임 제작 03</title><link href="https://hjs101.github.io/Unity-20" rel="alternate" type="text/html" title="미니게임 제작 03" /><published>2022-03-27T09:00:00+09:00</published><updated>2022-03-27T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-20</id><content type="html" xml:base="https://hjs101.github.io/Unity-20">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
 
 &lt;p&gt;이전 포스팅에 이어서 애니메이션을 적용하는 스크립트를 짜보겠다.&lt;/p&gt;
 
@@ -322,7 +455,73 @@
   &lt;li&gt;
     &lt;p&gt;line 26 ~ 36 : dp배열이 모두 구해졌다면 테스트케이스만큼 반복하여 n, m 값을 읽어들인 후 dp배열의 n,m 번째 값을 출력한다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 다리놓기</summary></entry><entry><title type="html">BOJ_11724_연결요소의개수_JAVA</title><link href="https://hjs101.github.io/BOJ-11724" rel="alternate" type="text/html" title="BOJ_11724_연결요소의개수_JAVA" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-11724</id><content type="html" xml:base="https://hjs101.github.io/BOJ-11724">&lt;h2 id=&quot;문제--연결요소의개수&quot;&gt;문제 : 연결요소의개수&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 다리놓기</summary></entry><entry><title type="html">미니게임 제작 01</title><link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-18</id><content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;컨셉트는 탑뷰로 진행되는 간단한 슈팅게임이다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
+
+&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry><entry><title type="html">BOJ_11724_연결요소의개수_JAVA</title><link href="https://hjs101.github.io/BOJ-11724" rel="alternate" type="text/html" title="BOJ_11724_연결요소의개수_JAVA" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-11724</id><content type="html" xml:base="https://hjs101.github.io/BOJ-11724">&lt;h2 id=&quot;문제--연결요소의개수&quot;&gt;문제 : 연결요소의개수&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/11724&quot;&gt;BOJ_11724_연결요소의개수&lt;/a&gt;&lt;/p&gt;
 
@@ -438,73 +637,7 @@
   &lt;li&gt;
     &lt;p&gt;line 64 ~ 74 : dfs 수행부분, 배열을 방문처리 해가며 계속 반복한다. 내부에 count라는 변수를 두고, 탐색이 일어날 때마다 count를 증가시키고 최종적으로 count를 리턴한다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연결요소의개수</summary></entry><entry><title type="html">미니게임 제작 01</title><link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-18</id><content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
-
-&lt;p&gt;컨셉트는 탑뷰로 진행되는 간단한 슈팅게임이다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
-
-&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry><entry><title type="html">BOJ_14501_퇴사_JAVA</title><link href="https://hjs101.github.io/BOJ-14501" rel="alternate" type="text/html" title="BOJ_14501_퇴사_JAVA" /><published>2022-03-23T09:00:00+09:00</published><updated>2022-03-23T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-14501</id><content type="html" xml:base="https://hjs101.github.io/BOJ-14501">&lt;h2 id=&quot;문제--퇴사&quot;&gt;문제 : 퇴사&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연결요소의개수</summary></entry><entry><title type="html">BOJ_14501_퇴사_JAVA</title><link href="https://hjs101.github.io/BOJ-14501" rel="alternate" type="text/html" title="BOJ_14501_퇴사_JAVA" /><published>2022-03-23T09:00:00+09:00</published><updated>2022-03-23T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-14501</id><content type="html" xml:base="https://hjs101.github.io/BOJ-14501">&lt;h2 id=&quot;문제--퇴사&quot;&gt;문제 : 퇴사&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/14501&quot;&gt;BOJ_14501_퇴사&lt;/a&gt;&lt;/p&gt;
 
@@ -753,54 +886,4 @@
 
 &lt;p&gt;2D 비디오 게임은 3차원 지오메트리가 없다. 또한 평면 이미지로 드로우되며, 카메라에는 원근법이 적용되지 않는다. 유니티를 이용한 2D게임의 대표작으로 할로우나이트가 있고, 국내 작품중에는 많은 인기를 끌었던 스컬도 유니티 2D를 이용하여 만들었다.&lt;/p&gt;
 
-&lt;p&gt;3D 비디오 게임은 일반적으로 3차원 지오메트리를 + 머티리얼, 텍스쳐와 함께 게임 월드를 솔리드환경, 캐릭터, 오브젝트로 표시되게 한다. 3D에서는 일반저긍로 원근법을 적용시킨다. 유니티 3D를 통해 만든 게임으로, ‘개비스콘 게임’으로 많이들 불리는 라스트 맨 스탠딩이라는 게임과, 5명이서 만들어낸 인디게임이지만 발매 5주만에 500만 다운로드를 기록한 발헤임도 유니티3D를 이용하여 만들었다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary></entry><entry><title type="html">BOJ_2193_이친수_JAVA</title><link href="https://hjs101.github.io/BOJ-2193" rel="alternate" type="text/html" title="BOJ_2193_이친수_JAVA" /><published>2022-03-19T09:00:00+09:00</published><updated>2022-03-19T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2193</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2193">&lt;h2 id=&quot;문제--이친수&quot;&gt;문제 : 이친수&lt;/h2&gt;
-
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2193&quot;&gt;BOJ_2193_이친수&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
-
-&lt;p&gt;경우의 수를 하나하나 다 따져봤더니, 결국 이 문제도 피보나치 수열 문제였다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;1일 때 1으로 1개&lt;/li&gt;
-  &lt;li&gt;2일 때 10으로 1개&lt;/li&gt;
-  &lt;li&gt;3일 때 100, 101으로 2개&lt;/li&gt;
-  &lt;li&gt;4일 때 1000, 1001, 1010으로 3개&lt;/li&gt;
-  &lt;li&gt;5일 때 10000, 10001, 10010, 10100, 10101 5개
-…&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;벌써 익숙하다. 피보나치수열이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BOJ_2193_이친수&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-		&lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-		&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-
-		&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 이친수</summary></entry></feed>
+&lt;p&gt;3D 비디오 게임은 일반적으로 3차원 지오메트리를 + 머티리얼, 텍스쳐와 함께 게임 월드를 솔리드환경, 캐릭터, 오브젝트로 표시되게 한다. 3D에서는 일반저긍로 원근법을 적용시킨다. 유니티 3D를 통해 만든 게임으로, ‘개비스콘 게임’으로 많이들 불리는 라스트 맨 스탠딩이라는 게임과, 5명이서 만들어낸 인디게임이지만 발매 5주만에 500만 다운로드를 기록한 발헤임도 유니티3D를 이용하여 만들었다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary></entry></feed>
