@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>미니게임 제작 06</title>
+        
+          <description>&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 31 Mar 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/Unity-23</link>
+        <guid isPermaLink="true">https://hjs101.github.io/Unity-23</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>미니게임 제작 05</title>
         
           <description>&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
@@ -924,8 +939,11 @@
   2022-03-28
   &lt;li&gt;&lt;a href=&quot;./Unity-21&quot;&gt;미니게임 제작 04&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
-  2022-03-28
+  2022-03-30
   &lt;li&gt;&lt;a href=&quot;./Unity-22&quot;&gt;미니게임 제작 05&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-03-31
+  &lt;li&gt;&lt;a href=&quot;./Unity-23&quot;&gt;미니게임 제작 06&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 

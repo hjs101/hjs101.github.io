@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-31T10:37:13+09:00</updated>
+  <updated>2022-04-01T03:50:29+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,115 @@
   
   
 
+  
+    <entry>
+      <title type="html">미니게임 제작 06</title>
+      <link href="https://hjs101.github.io/Unity-23" rel="alternate" type="text/html" title="미니게임 제작 06" />
+      <published>2022-03-31T09:00:00+09:00</published>
+      <updated>2022-03-31T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-23</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-23">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 Enemy 오브젝트에 간단한 애니메이션을 추가하고, 플레이어와 부딛혔을 때의 처리를 해보려고 한다. 일단은 Enemy가 플레이어 오브젝트에 부딪힐 경우 부딪힌 Enemy 오브젝트가 사라지게 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_41.jpg&quot; alt=&quot;game_41&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이전 글에서 몬스터의 포지션이 겹치는 현상이 발생했는데, 이 문제는 Enemy의 RigidBody에 대해 테스트 해보다가 되돌려 놓지 않은 키네마틱 리지드바디에 대한 설정 때문이었다. 이전 글의 본문에서는 다이나믹 설정에 무게를 300으로 해두었다고 설명했기 때문에 이 부분을 다시 설정대로 돌려놓겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_42.jpg&quot; alt=&quot;game_42&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Rigidbody2D의 BodyType를 Kinematic에서 Dynamic으로 바꿔주고 mass값을 300으로 바꿔주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_43.gif&quot; alt=&quot;game_43&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;몬스터끼리도 콜라이더가 제대로 작용하여 겹처지지 않는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;이제, 해당 Enemy에 간단한 애니메이션을 추가하고, 플레이어와 부딛혔을 때의 로직 처리를 해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_44.gif&quot; alt=&quot;game_44&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 Enemy가 이동할 때의 간단한 애니메이션으로, 기존의 스프라이트에 살짝만 변형을 준 스프라이트를 새로 만들었다. 위의 그림처럼 움직일 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_45.jpg&quot; alt=&quot;game_45&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 생성된 2개의 스프라이트를 Enemy Prefab 오브젝트에 드래그 &amp;amp; 드롭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_46.jpg&quot; alt=&quot;game_46&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션 파일은 에셋 폴더 아래에 Animation 폴더에 저장한다. 앞으로 Enemy의 종류가 추가될 수 있기 때문에 애니메이션 이름은 Enemy01Idle으로 지었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_47.jpg&quot; alt=&quot;game_47&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션을 유니티에서 오픈하여 속도를 0.5로 바꿔주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_48.jpg&quot; alt=&quot;game_48&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존에 프로젝트 창의 Enemy Prefab은 지우고, Enemy 게임 오브젝트의 이름을 Enemy01으로 바꾸고 프로젝트 창에 드래그 &amp;amp; 드롭하여 저장한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_49.jpg&quot; alt=&quot;game_49&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;EnemySpawner 게임 오브젝트의 스크립트에 위와 같이 기존에 있던 Prefab이 사라져 Missing으로 바뀌어 있을 테니, 새로운 Enemy01 Prefab을 할당해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_50.gif&quot; alt=&quot;game_50&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션이 적용된 모습이다.&lt;/p&gt;
+
+&lt;p&gt;이제, 플레이어가 Enemy에 충돌 시에 Enemy를 삭제하도록 해보자.&lt;/p&gt;
+
+&lt;p&gt;플레이어가 적 개체와 충돌했을 때, 적 개체가 사라지게 하기 위해서는 먼저 충돌한 게임 오브젝트가 적 개체인지 확인을 해야한다. 다시 Enemy01 Prefab를 열어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_51.jpg&quot; alt=&quot;game_51&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진과 같이 태그를 설정할 수 있다. Add Tag를 누른 뒤 Enemy 태그를 추가해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_52.jpg&quot; alt=&quot;game_52&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;태그를 추가했고, Enemy01 오브젝트에 태그 설정까지 해주었다.&lt;/p&gt;
+
+&lt;p&gt;PlayerControl.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnCollisionEnter2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Collision2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Enemy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;적 개체 제거!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;Destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OnCollisionEnter 콜백 함수는, 충돌이 일어난 시작점에 호출되는 함수이다. 위 코드를 PlayerControl 스크립트에 추가했다. 부딪힌 게임 오브젝트의 Tag가 “Enemy”라면, 해당 객체를 제거하도록 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_53.gif&quot; alt=&quot;game_53&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enemy가 생성되어 플레이어에게 다가오고, 부딪히면 콘솔창에 메시지가 나타나고 해당 게임오브젝트가 삭제되는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 랜덤하게 생성되는 Enemy에 간단한 애니메이션을 추가하고, 플레이어와 충돌했을 때의 처리를 구현해보았다. 다음에는 이 충돌에 대해 어떤 처리를 할 지 구상하고 게임에 적용시켜 볼 것이다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">미니게임 제작 05</title>
@@ -1508,119 +1617,6 @@
 
       
         <summary type="html">어제는 싱글톤 패턴을 알아보았다. 오늘 알아볼 것은 옵저버 패턴이다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">유니티 토막 지식_05</title>
-      <link href="https://hjs101.github.io/Unity-12" rel="alternate" type="text/html" title="유니티 토막 지식_05" />
-      <published>2022-03-13T09:00:00+09:00</published>
-      <updated>2022-03-13T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-12</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-12">&lt;p&gt;Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 공간과 움직임 파트를 공부했다. 내용이 이해하기 쉽지 않아 조금 더 살펴봐야 할 것 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.unity3d.com/kr/2021.1/Manual/EventFunctions.html&quot;&gt;이벤트 함수&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;오늘 알아볼 것은 이벤트 함수이다.&lt;/p&gt;
-
-&lt;h5 id=&quot;정의&quot;&gt;정의&lt;/h5&gt;
-
-&lt;p&gt;유니티의 스크립트는, 전통적인 프로그램처럼 작업이 완료될 때까지 코드가 루프를 계속 실행하는 프로그램과는 개념이 다르다. 이전 게시글에 잠깐 설명한 적이 있는데, 특정한 일(event)이 일어났음을 외부의 subscriber들에게 알려준다(브로드캐스팅). 이후 해당하는 이벤트에 등록되어있는 함수들은 브로드캐스팅된 메시지를 받아 자동적으로 실행이 되는 구조이다. 이렇게 이벤트에 대응하여 코드를 실행하는 함수를 이벤트 함수라고 한다.&lt;/p&gt;
-
-&lt;p&gt;유니티는 특정 이벤트에 대해, 호출할 함수를 확인하기 위해 이름을 지정하여 사용한다. 우리가 처음 스크립트를 만들면 자동으로 생성되는 Start함수(오브젝트가 처음 활성화 될 때 호출된다.)와 Update 함수도 이벤트 함수의 일종이다. 몇 가지 중요한 이벤트 함수에 대해 알아보자.&lt;/p&gt;
-
-&lt;h5 id=&quot;정기-업데이트-이벤트&quot;&gt;정기 업데이트 이벤트&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Update
-  게임 프로그래밍의 핵심 개념 중 하나는 각 프레임이 렌더링 되기 전에 게임에서 오브젝트의 위치, 상태 및 동작을 변경하는 것이다. 이런 코드는 주로 Update 함수에 주로 추가된다. Update함수는 프레임이 렌더링 되기 이전에 호출되며, 애니메이션이 계산되기 이전에도 호출된다.
-  메뉴얼에는 어려운 말로 쓰여있지만, 실시간으로 계속 체크하고 변화해야되는 상황에 Update를 사용한다고 생각하면 될 것 같다.
-  다만 이 함수는 &lt;strong&gt;프레임&lt;/strong&gt; 단위로 수행된다는 점은 기억해두자.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaTime&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Horizontal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;FixedUpdate
-  이 함수는 물리의 Timestep에 설정된 값에 따라 수행된다. 이 함수는 Update 함수와 유사한 기능을 가지고 있지만 물리 Timestep에 따른 물리 업데이트 직전에 호출된다. 물리적인 이동과 관련된 코드는 Update가 아니라 FixedUpdate에 추가하면 더욱 정확한 결과를 얻을 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;FixedUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driveForce&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vertical&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rigidbody&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddForce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;force&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;LateUpdate
-  이 함수는, Update 함수 또는 FixedUpdate 함수가 수행된 이후, 또는 모든 애니메이션이 계산된 이후에 수행되는 함수이다. 사용하는 예는 카메라가 타겟 오브젝트를 계속해서 따라갈 경우, 타겟이 이동 한 후에 카메라는 움직여야하기 때문에 사용합니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LateUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LookAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;초기화-이벤트&quot;&gt;초기화 이벤트&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Start
-  첫 프레임이나 오브젝트의 물리 업데이트가 시작되기 이전에 최초로 한 번 수행된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Awake
-  씬이 로드될 때 씬의 각 오브젝트에 대해 호출된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;※ Start와 Awake의 차이점
-  Awake는 항상 Start보다 먼저 수행하여 완료된다. 따라서 Start는 Awake의 초기화 된 값을 사용가능하다. 수행 순서를 기억해두자. &lt;strong&gt;Awake -&amp;gt; Start&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;gui-이벤트&quot;&gt;GUI 이벤트&lt;/h5&gt;
-
-&lt;p&gt;유니티에서 GUI에 대한 이벤트는 예전에는 OnGui 함수를 통해 사용했다고 한다. 하지만 유니티의 공식 UI 시스템인 UGUI가 등장함에 따라 해당 함수는 쓰임새가 사라졌다고 한다. UGUI를 사용하 UI요소를 게임 오브젝트 &amp;amp; 컴포넌트처럼 다루고 편집할 수 있다.&lt;/p&gt;
-
-&lt;h5 id=&quot;물리-이벤트&quot;&gt;물리 이벤트&lt;/h5&gt;
-
-&lt;p&gt;물리 이벤트에 대 함수는 이전 글에 설명을 해두었다. 여기서는 물리 엔진이 오브젝트의 스크립트에 있는 이벤트 함수를 호출한다는 점만 알아두면 될 것 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnCollisionEnter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Collision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;otherObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Arrow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;ApplyDamage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">Retr0의 교재를 따르는 실습은 저작권상 앞으로는 짤막하게 한 줄씩만 적도록 하겠다.</summary>
       
 
       

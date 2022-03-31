@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-03-31T10:37:13+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_1600_말이되고픈원숭이_JAVA</title><link href="https://hjs101.github.io/BOJ-1600" rel="alternate" type="text/html" title="BOJ_1600_말이되고픈원숭이_JAVA" /><published>2022-03-30T09:00:00+09:00</published><updated>2022-03-30T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1600</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1600">&lt;h2 id=&quot;문제--말이되고픈원숭이&quot;&gt;문제 : 말이되고픈원숭이&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-04-01T03:50:29+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">미니게임 제작 06</title><link href="https://hjs101.github.io/Unity-23" rel="alternate" type="text/html" title="미니게임 제작 06" /><published>2022-03-31T09:00:00+09:00</published><updated>2022-03-31T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-23</id><content type="html" xml:base="https://hjs101.github.io/Unity-23">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 Enemy 오브젝트에 간단한 애니메이션을 추가하고, 플레이어와 부딛혔을 때의 처리를 해보려고 한다. 일단은 Enemy가 플레이어 오브젝트에 부딪힐 경우 부딪힌 Enemy 오브젝트가 사라지게 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_41.jpg&quot; alt=&quot;game_41&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이전 글에서 몬스터의 포지션이 겹치는 현상이 발생했는데, 이 문제는 Enemy의 RigidBody에 대해 테스트 해보다가 되돌려 놓지 않은 키네마틱 리지드바디에 대한 설정 때문이었다. 이전 글의 본문에서는 다이나믹 설정에 무게를 300으로 해두었다고 설명했기 때문에 이 부분을 다시 설정대로 돌려놓겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_42.jpg&quot; alt=&quot;game_42&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Rigidbody2D의 BodyType를 Kinematic에서 Dynamic으로 바꿔주고 mass값을 300으로 바꿔주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_43.gif&quot; alt=&quot;game_43&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;몬스터끼리도 콜라이더가 제대로 작용하여 겹처지지 않는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;이제, 해당 Enemy에 간단한 애니메이션을 추가하고, 플레이어와 부딛혔을 때의 로직 처리를 해볼 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_44.gif&quot; alt=&quot;game_44&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 Enemy가 이동할 때의 간단한 애니메이션으로, 기존의 스프라이트에 살짝만 변형을 준 스프라이트를 새로 만들었다. 위의 그림처럼 움직일 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_45.jpg&quot; alt=&quot;game_45&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 생성된 2개의 스프라이트를 Enemy Prefab 오브젝트에 드래그 &amp;amp; 드롭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_46.jpg&quot; alt=&quot;game_46&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션 파일은 에셋 폴더 아래에 Animation 폴더에 저장한다. 앞으로 Enemy의 종류가 추가될 수 있기 때문에 애니메이션 이름은 Enemy01Idle으로 지었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_47.jpg&quot; alt=&quot;game_47&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션을 유니티에서 오픈하여 속도를 0.5로 바꿔주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_48.jpg&quot; alt=&quot;game_48&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존에 프로젝트 창의 Enemy Prefab은 지우고, Enemy 게임 오브젝트의 이름을 Enemy01으로 바꾸고 프로젝트 창에 드래그 &amp;amp; 드롭하여 저장한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_49.jpg&quot; alt=&quot;game_49&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;EnemySpawner 게임 오브젝트의 스크립트에 위와 같이 기존에 있던 Prefab이 사라져 Missing으로 바뀌어 있을 테니, 새로운 Enemy01 Prefab을 할당해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_50.gif&quot; alt=&quot;game_50&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션이 적용된 모습이다.&lt;/p&gt;
+
+&lt;p&gt;이제, 플레이어가 Enemy에 충돌 시에 Enemy를 삭제하도록 해보자.&lt;/p&gt;
+
+&lt;p&gt;플레이어가 적 개체와 충돌했을 때, 적 개체가 사라지게 하기 위해서는 먼저 충돌한 게임 오브젝트가 적 개체인지 확인을 해야한다. 다시 Enemy01 Prefab를 열어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_51.jpg&quot; alt=&quot;game_51&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진과 같이 태그를 설정할 수 있다. Add Tag를 누른 뒤 Enemy 태그를 추가해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_52.jpg&quot; alt=&quot;game_52&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;태그를 추가했고, Enemy01 오브젝트에 태그 설정까지 해주었다.&lt;/p&gt;
+
+&lt;p&gt;PlayerControl.cs&lt;/p&gt;
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnCollisionEnter2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Collision2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Enemy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;적 개체 제거!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;Destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OnCollisionEnter 콜백 함수는, 충돌이 일어난 시작점에 호출되는 함수이다. 위 코드를 PlayerControl 스크립트에 추가했다. 부딪힌 게임 오브젝트의 Tag가 “Enemy”라면, 해당 객체를 제거하도록 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_53.gif&quot; alt=&quot;game_53&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enemy가 생성되어 플레이어에게 다가오고, 부딪히면 콘솔창에 메시지가 나타나고 해당 게임오브젝트가 삭제되는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 랜덤하게 생성되는 Enemy에 간단한 애니메이션을 추가하고, 플레이어와 충돌했을 때의 처리를 구현해보았다. 다음에는 이 충돌에 대해 어떤 처리를 할 지 구상하고 게임에 적용시켜 볼 것이다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry><entry><title type="html">BOJ_1600_말이되고픈원숭이_JAVA</title><link href="https://hjs101.github.io/BOJ-1600" rel="alternate" type="text/html" title="BOJ_1600_말이되고픈원숭이_JAVA" /><published>2022-03-30T09:00:00+09:00</published><updated>2022-03-30T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1600</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1600">&lt;h2 id=&quot;문제--말이되고픈원숭이&quot;&gt;문제 : 말이되고픈원숭이&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1600&quot;&gt;BOJ_1600_말이되고픈원숭이&lt;/a&gt;&lt;/p&gt;
 
@@ -1058,73 +1133,7 @@
   &lt;li&gt;
     &lt;p&gt;line 26 ~ 36 : dp배열이 모두 구해졌다면 테스트케이스만큼 반복하여 n, m 값을 읽어들인 후 dp배열의 n,m 번째 값을 출력한다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 다리놓기</summary></entry><entry><title type="html">미니게임 제작 01</title><link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-18</id><content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
-
-&lt;p&gt;컨셉트는 탑뷰로 진행되는 간단한 슈팅게임이다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
-
-&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry><entry><title type="html">BOJ_11724_연결요소의개수_JAVA</title><link href="https://hjs101.github.io/BOJ-11724" rel="alternate" type="text/html" title="BOJ_11724_연결요소의개수_JAVA" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-11724</id><content type="html" xml:base="https://hjs101.github.io/BOJ-11724">&lt;h2 id=&quot;문제--연결요소의개수&quot;&gt;문제 : 연결요소의개수&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 다리놓기</summary></entry><entry><title type="html">BOJ_11724_연결요소의개수_JAVA</title><link href="https://hjs101.github.io/BOJ-11724" rel="alternate" type="text/html" title="BOJ_11724_연결요소의개수_JAVA" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-11724</id><content type="html" xml:base="https://hjs101.github.io/BOJ-11724">&lt;h2 id=&quot;문제--연결요소의개수&quot;&gt;문제 : 연결요소의개수&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/11724&quot;&gt;BOJ_11724_연결요소의개수&lt;/a&gt;&lt;/p&gt;
 
@@ -1240,94 +1249,70 @@
   &lt;li&gt;
     &lt;p&gt;line 64 ~ 74 : dfs 수행부분, 배열을 방문처리 해가며 계속 반복한다. 내부에 count라는 변수를 두고, 탐색이 일어날 때마다 count를 증가시키고 최종적으로 count를 리턴한다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연결요소의개수</summary></entry><entry><title type="html">BOJ_14501_퇴사_JAVA</title><link href="https://hjs101.github.io/BOJ-14501" rel="alternate" type="text/html" title="BOJ_14501_퇴사_JAVA" /><published>2022-03-23T09:00:00+09:00</published><updated>2022-03-23T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-14501</id><content type="html" xml:base="https://hjs101.github.io/BOJ-14501">&lt;h2 id=&quot;문제--퇴사&quot;&gt;문제 : 퇴사&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 연결요소의개수</summary></entry><entry><title type="html">미니게임 제작 01</title><link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" /><published>2022-03-24T09:00:00+09:00</published><updated>2022-03-24T09:00:00+09:00</updated><id>https://hjs101.github.io/Unity-18</id><content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
 
-&lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/14501&quot;&gt;BOJ_14501_퇴사&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;컨셉트는 탑뷰로 진행되는 간단한 슈팅게임이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;접근-방식&quot;&gt;접근 방식&lt;/h2&gt;
+&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
 
-&lt;p&gt;1~N일 까지의 각각의 상담 일정이 주어지고, N일까지 가장 큰 수익을 얻을 수 있는 경우의 수를 찾아야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;1일부터 시작하여 값은 계속해서 증가할 수밖에 없다. 따라서 특정 날짜의 일을 선택하는지 선택하지 않는지에 따라 누적비용을 다르게 하여 경우의 수를 따져볼 수 있다. 나는 DFS를 이용한 완전탐색을 사용하면 풀 수 있을 것이라고 생각했다.&lt;/p&gt;
+&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이-방법&quot;&gt;풀이 방법&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;남은 날짜의 값을 읽어와 N 변수에 저장하고, 각 날짜별 상담의 일정과 비용을 2차원 배열로 저장한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;dfs를 돌린다. 인자값으로는 날짜를 체크할 int 값과, 누적된 비용을 저장할 int 값을 받는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;dfs 내부에서의 기저조건은 날짜가 N에 도달했을 때 멈추도록 한다. 추가적인 가지치기로, 날짜가 N을 넘어섰을 때도 return 시켜준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이제 재귀호출을 하는데, 현재 날짜의 상담을 받아들이지 않는 경우, 기존 날짜에는 1을 더해주고 일을 받지 않았으므로 누적된 비용은 그대로 넘겨서 재귀호출 해준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;반대로 현재 날짜의 상담 일정을 받아들이는 경우, 상담 일정만큼은 다른 일을 할 수 없기 때문에 현재 날짜에서 상담 기간만큼 날짜를 더해주고, 비용 또한 누적시켜 재귀호출시켜준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;날짜가 N에 도달한 기저조건에서, 비용의 최댓값을 저장하도록 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;dfs 탐색이 모두 끝난 후 비용의 최댓값을 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
 
-&lt;h2 id=&quot;소스-코드&quot;&gt;소스 코드&lt;/h2&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.StringTokenizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
 
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BOJ_14501_퇴사&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[][];&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
 
-		&lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
 
-		&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
 
-		&lt;span class=&quot;nc&quot;&gt;StringTokenizer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;st&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringTokenizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
 
-		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
 
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
 
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
 
-		&lt;span class=&quot;c1&quot;&gt;// 가지치기 1&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
 
-		&lt;span class=&quot;c1&quot;&gt;// 현재 위치를 선택하지 않는 경우&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
 
-		&lt;span class=&quot;c1&quot;&gt;// 현재 위치를 선택하는 경우&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
 
-		&lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
 
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
 
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 퇴사</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
+
+&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="Unity" /><summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary></entry></feed>
