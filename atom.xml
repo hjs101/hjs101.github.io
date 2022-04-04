@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_14503_로봇청소기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--로봇청소기&quot;&gt;문제 : 로봇청소기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-14503</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-14503</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_4963_섬의개수_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--섬의-개수&quot;&gt;문제 : 섬의 개수&lt;/h2&gt;
@@ -2277,6 +2292,8 @@
   &lt;li&gt;&lt;a href=&quot;./BOJ-1976&quot;&gt;BOJ_1976_여행가자_JAVA&lt;/a&gt;&lt;/li&gt;
   2022-04-03
   &lt;li&gt;&lt;a href=&quot;./BOJ-4963&quot;&gt;BOJ_4963_섬의개수_JAVA&lt;/a&gt;&lt;/li&gt;
+  2022-04-04
+  &lt;li&gt;&lt;a href=&quot;./BOJ-14503&quot;&gt;BOJ_14503_로봇청소기_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
