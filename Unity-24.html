@@ -58,7 +58,7 @@
     <meta property="og:site_name" content="hjs's Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="미니게임 제작 07" />
-    <meta property="og:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리를 다시 해보겠다." />
+    <meta property="og:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리의 디테일을 늘려보겠다." />
     <meta property="og:url" content="https://hjs101.github.io/Unity-24" />
     <meta property="og:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,7 +68,7 @@
     <meta property="article:tag" content="Unity" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="미니게임 제작 07" />
-    <meta name="twitter:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리를 다시 해보겠다." />
+    <meta name="twitter:description" content="앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리의 디테일을 늘려보겠다." />
     <meta name="twitter:url" content="https://hjs101.github.io/" />
     <meta name="twitter:image" content="https://hjs101.github.io/assets/built/images/Unity-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -100,7 +100,7 @@
         "@type": "WebPage",
         "@id": "https://hjs101.github.io/Unity-24"
     },
-    "description": "앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리를 다시 해보겠다."
+    "description": "앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다. 저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리의 디테일을 늘려보겠다."
 }
     </script>
 
@@ -199,9 +199,104 @@ into the {body} of the default.hbs template -->
                 <div class="kg-card-markdown">
                     <p>앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</p>
 
-<p>저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리를 다시 해보겠다.</p>
+<p>저번에는 적 개체와 플레이어가 충돌했을 때의 처리를 적 개체를 삭제함으로써 테스트해보았다. 오늘은 적 개체와 플레이어가 부딪혔을 때의 처리의 디테일을 늘려보겠다.</p>
 
-<p>작성중인 포스트입니다.</p>
+<p>현재 구상 하고 있는 것은 예전에 잠깐 화제가 되었던 모바일 게임 <strong><em>매직 서바이벌</em></strong> 과 스팀에서 최근 붐이 일었던 게임 <strong><em>뱀파이어 서바이벌</em></strong> 의 장르를 본딴 생존 서바이벌 슈팅 게임이다.</p>
+
+<p>따라서 플레이어 객체와 몹이 부딪히면 플레이어의 HP가 줄어들고, HP가 0이 되면 사망하는 방식으로 변경하려고 한다.</p>
+
+<p>그러기 위해서는 우선 HP를 표시해야 한다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_54.jpg" alt="game_54" /></p>
+
+<p>UI에서 이미지를 생성해준다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_55.jpg" alt="game_55" /></p>
+
+<p>이름은 HpbarBg로, 스프라이트는 패키지 안에 있는 사각형 스프라이트를 넣어준다. 컬러는 약간 짙은 회색으로 해주도록 하겠다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_56.jpg" alt="game_56" /></p>
+
+<p>위치는 UI 화면의 정중앙에서 약간 아래로 내려 플레이어의 발 밑에 보이게끔 한다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_57.jpg" alt="game_57" /></p>
+
+<p>이제, HpbarBg의 자식으로 Hpbar 이미지를 하나 더 생성해준다. 기존의 HpbarBg를 복사하여 사용한다. 인스펙터 창은 위 그림과 같다. Bg와 다르게 앵커를 설정해주고, Image 타입도 사진에 표시된 것 처럼 바꿔준다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_58.gif" alt="game_57" /></p>
+
+<p>위 사진의 FillAmount를 움직이면 마치 HP가 바뀌는 것처럼 HpBar가 변하는 것을 볼 수 있다. 이 값을 수정하여 HP를 나타낼 것이다.</p>
+
+<p>이제 피격시 Hp가 줄어들도록 스크립트를 작성해보도록 하겠다.</p>
+
+<p>먼저 플레이어 스크립트 중 변경한 부분이다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hp Bar 객체</span>
+<span class="k">public</span> <span class="n">HpBar</span> <span class="n">hpBar</span><span class="p">;</span>
+<span class="c1">// HP 변수 추가</span>
+<span class="kt">int</span> <span class="n">hp</span> <span class="p">=</span> <span class="m">4</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>먼저 나중에 설명할 HpBar 스크립트를 할당하도록 public으로 변수를 선언했다. 또한 Hp변수를 만들고 기본값을 4로 두었다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">void</span> <span class="nf">OnCollisionEnter2D</span><span class="p">(</span><span class="n">Collision2D</span> <span class="n">other</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">tag</span> <span class="p">==</span> <span class="s">"Enemy"</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Hp 1 감소!"</span><span class="p">);</span>
+            <span class="n">hp</span><span class="p">--;</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+
+            <span class="n">hpBar</span><span class="p">.</span><span class="nf">setHp</span><span class="p">(</span><span class="n">hp</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">hp</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"사망!"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>적 개체와 부딛혔을 경우 Hp가 감소되고 콘솔창에 출력되도록 했다. Hp가 모두 줄어들어 0이 되었을 경우 사망 메시지를 출력하도록 했다.</p>
+
+<p>또한, 위에서 선언한 hpbar객체의 setHp 메서드를 수행시켰다. 그럼 이제 HpBar를 변동시킬 스크립트를 살펴보자.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.UI</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">HpBar</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Image</span> <span class="n">hpBar</span><span class="p">;</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">hpBar</span> <span class="p">=</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Image</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">setHp</span><span class="p">(</span><span class="kt">int</span> <span class="n">hp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">hpBar</span><span class="p">.</span><span class="n">fillAmount</span> <span class="p">=</span> <span class="n">hp</span> <span class="p">/</span> <span class="m">4f</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>몇 줄 되지 않는 코드이다. Image 컴포넌트를 읽어들여 할당하고, 해당 컴포넌트의 fillAmount값을 변동시키는 메서드인 setHp가 있다. 위에서 사진으로 보았듯, fillAmount값을 변동시킴으로써 Hp가 줄어드는 연출을 표현할 수 있다. 따라서 피격시 이 값을 변화시킴으로써 Hp가 줄어드는 것을 표시하였다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_59.jpg" alt="game_59" /></p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_60.jpg" alt="game_60" /></p>
+
+<p>생성/변경된 스크립트에 알맞게 할당해주었다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_61.jpg" alt="game_61" /></p>
+
+<p>테스트 결과 잘 되는 것으로 확인된다.</p>
+
+<p>그렇지만 HpBar는 UI의 영역인데, Player 객체가 해당 오브젝트를 가지고 있는 것은 약간 문제가 될 수도 있는 부분이라고 생각한다.</p>
+
+<p>다음에는 게임 매니저를 이용하여 PlayerControl 스크립트에 있는 기능을 분리시킬것이다.</p>
 
                 </div>
             </section>
