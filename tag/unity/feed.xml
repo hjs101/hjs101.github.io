@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-09T04:27:39+09:00</updated>
+  <updated>2022-04-10T05:15:33+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -30,6 +30,44 @@
   
   
 
+  
+    <entry>
+      <title type="html">미니게임 제작 11</title>
+      <link href="https://hjs101.github.io/Unity-28" rel="alternate" type="text/html" title="미니게임 제작 11" />
+      <published>2022-04-09T09:00:00+09:00</published>
+      <updated>2022-04-09T09:00:00+09:00</updated>
+      <id>https://hjs101.github.io/Unity-28</id>
+      <content type="html" xml:base="https://hjs101.github.io/Unity-28">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
+
+&lt;p&gt;현재 구상 하고 있는 것은 예전에 잠깐 화제가 되었던 모바일 게임 &lt;strong&gt;&lt;em&gt;매직 서바이벌&lt;/em&gt;&lt;/strong&gt; 과 스팀에서 최근 붐이 일었던 게임 &lt;strong&gt;&lt;em&gt;뱀파이어 서바이벌&lt;/em&gt;&lt;/strong&gt; 의 장르를 본딴 생존 서바이벌 슈팅 게임이다.&lt;/p&gt;
+
+&lt;p&gt;아직 작성중입니다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>hjs</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Unity" />
+      
+
+      
+        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">미니게임 제작 10</title>
@@ -307,7 +345,7 @@
 
 &lt;p&gt;최고기록 저장과, 실시간 스코어 변동, 다시시작시 초기화가 잘 이루어지는 모습이다.&lt;/p&gt;
 
-&lt;p&gt;현재는 그냥 텍스트만 띄운 상태이지만, 다음에 UI 스프라이트를 이용하여 꾸며보도록하겠다.&lt;/p&gt;</content>
+&lt;p&gt;현재는 그냥 텍스트만 띄운 상태이지만, 후반부에 UI 스프라이트를 이용하여 꾸며보도록하겠다.&lt;/p&gt;</content>
 
       
       
@@ -2113,106 +2151,6 @@
 &lt;p&gt;모두 완성하면 다음과 같은 구조가 된다. 위,아래,왼,오른쪽으로 이동할 때 체크하여 해당 이동 방향에 맞는 이동 애니메이션으로 바꿔주고, 해당 방향으로 이동중에 멈추면 이동하던 방향에서의 대기 애니메이션으로 바꿔준다.&lt;/p&gt;
 
 &lt;p&gt;플레이어 애니메이션을 적용하는 스크립트는 다음에 포스팅하도록 하겠다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>hjs</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Unity" />
-      
-
-      
-        <summary type="html">앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">미니게임 제작 01</title>
-      <link href="https://hjs101.github.io/Unity-18" rel="alternate" type="text/html" title="미니게임 제작 01" />
-      <published>2022-03-24T09:00:00+09:00</published>
-      <updated>2022-03-24T09:00:00+09:00</updated>
-      <id>https://hjs101.github.io/Unity-18</id>
-      <content type="html" xml:base="https://hjs101.github.io/Unity-18">&lt;p&gt;앞으로는 간단한 게임들을 만들어보며 추가적인 기능에 대해 공부를 해보려한다. 간단한 것부터 만들기 시작하여 만든 결과물을 레퍼런스 하여 덩치를 조금씩 키워나가는 과정을 밟아보자. 지식이 많지 않아 부족할 수 있지만, 하는데까지 해보겠다.&lt;/p&gt;
-
-&lt;p&gt;현재 구상 하고 있는 것은 예전에 잠깐 화제가 되었던 모바일 게임 &lt;strong&gt;&lt;em&gt;매직 서바이벌&lt;/em&gt;&lt;/strong&gt; 과 스팀에서 최근 붐이 일었던 게임 &lt;strong&gt;&lt;em&gt;뱀파이어 서바이벌&lt;/em&gt;&lt;/strong&gt; 의 장르를 본딴 생존 서바이벌 슈팅 게임이다.&lt;/p&gt;
-
-&lt;p&gt;오늘은 탑뷰에서 움직이는 플레이어의 로직과 애니매이션을 구현해보겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_01.jpg&quot; alt=&quot;game_01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 플레이어가 움직일 적당한 바닥을 만들기 위해 타일맵을 하나 생성해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_02.jpg&quot; alt=&quot;game_02&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Window에서 팔레트 창을 열었다. 나는 이전에 구매했던 2D용 맵 에셋을 사용하여 간단하게 타일 바닥을 만들려 한다. 바닥에 사용될만한 어떤 스프라이트를 사용해도 괜찮을 듯 싶다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_03.jpg&quot; alt=&quot;game_03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트를 하나 새로 생성해주었다. 저장 경로는 프로젝트 폴더 밑에 TileMap 폴더를 생성하여 저장해주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_04.jpg&quot; alt=&quot;game_04&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진처럼 배경 스프라이트를 타일맵에 드래그 &amp;amp; 드롭하여 추가한다. 저장 위치는 팔레트 폴더 아래에 새로 폴더를 하나 생성해 주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_05.jpg&quot; alt=&quot;game_05&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;팔레트에 추가가 완료되었다. 나는 빨갛게 동그라미친 부분을 사용하여 바닥을 만들 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_06.jpg&quot; alt=&quot;game_06&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 그려봤는데, 칸이 잘 맞지 않는다. 해결 방법을 찾아보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_07.jpg&quot; alt=&quot;game_07&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;타일맵의 Orientation 을 Custom으로 바꿔주고 크기를 0.7으로 해주니 비율이 딱 맞게 되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_08.jpg&quot; alt=&quot;game_08&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;칸에 맞게 잘 수정된 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_09.jpg&quot; alt=&quot;game_09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;나는 내부에 반복되는 타일을 그리고 싶었기 때문에, 편하게 작업하기 위해 타일맵의 안의 작은 사각형을 꺼내어 복사하여 큰 타일을 만들었다. 타일맵 Window를 수정하려면 빨간색 사각형, Edit 버튼을 클릭 한 채로 수정할 수 있다는 점 기억해두자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_10.jpg&quot; alt=&quot;game_10&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;귀찮은 반복작업이 될 뻔 했지만 타일맵 창을 수정함으로써 클릭 9번으로 위와 같이 바닥을 만들어냈다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_11.jpg&quot; alt=&quot;game_11&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이번에 사용할 플레이어 캐릭터의 스프라이트이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_12.jpg&quot; alt=&quot;game_12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;스프라이트 오브젝트를 생성하고, 태그를 설정해주었다. 크기가 작게 보여서 스케일을 4로 키워주었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_13.jpg&quot; alt=&quot;game_13&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그냥 두니 평면같은 느낌이 나서, 적당한 원 모양 스프라이트를 조절해 그림자를 만들어주었다. 이 스프라이트 게임 오브젝트는 플레이어의 자식으로 넣어주었다. 이렇게 하면 해당 오브젝트의 Transform이 플레이어 오브젝트에 종속되어 움직이게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_14.jpg&quot; alt=&quot;game_14&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그림자를 적용한 플레이어의 모습이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_15.jpg&quot; alt=&quot;game_15&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 플레이어의 이동을 구현하기 위해, 컴포넌트를 먼저 삽입하겠다. RigidBody2D와 CapsuleCollider2D를 플레이어 게임 오브젝트에 컴포넌트로 추가한다.&lt;/p&gt;
-
-&lt;p&gt;플레이어 이동 스크립트와 애니메이션 적용은 다음에 이어가도록 하겠다.&lt;/p&gt;</content>
 
       
       
