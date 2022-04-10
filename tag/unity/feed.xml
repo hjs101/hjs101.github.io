@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://hjs101.github.io/tag/unity/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hjs101.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-10T05:15:33+09:00</updated>
+  <updated>2022-04-11T04:53:05+09:00</updated>
   <id>https://hjs101.github.io/tag/unity/feed.xml</id>
 
   
@@ -41,7 +41,167 @@
 
 &lt;p&gt;현재 구상 하고 있는 것은 예전에 잠깐 화제가 되었던 모바일 게임 &lt;strong&gt;&lt;em&gt;매직 서바이벌&lt;/em&gt;&lt;/strong&gt; 과 스팀에서 최근 붐이 일었던 게임 &lt;strong&gt;&lt;em&gt;뱀파이어 서바이벌&lt;/em&gt;&lt;/strong&gt; 의 장르를 본딴 생존 서바이벌 슈팅 게임이다.&lt;/p&gt;
 
-&lt;p&gt;아직 작성중입니다.&lt;/p&gt;</content>
+&lt;p&gt;오늘은 플레이어에게 공격 기능을 부여해보겠다. 일정 주기로 플레이어로부터 공격이 이루어지고, 공격에 적 개체가 맞으면 적이 제거되는 방식으로 구현해보겠다.&lt;/p&gt;
+
+&lt;p&gt;먼저 총알을 만들어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_84.jpg&quot; alt=&quot;game_84&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bullet 이름으로 오브젝트를 하나 생성하고, 총알 스프라이트 4개를 애니메이션으로 만들기 위해 드래그 &amp;amp; 드롭해주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_85.jpg&quot; alt=&quot;game_85&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션의 속도는 0.5로 줄여주었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_86.jpg&quot; alt=&quot;game_86&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;인스펙터창에서 크기와 위치는 위 사진과 같이 설정해두었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_87.jpg&quot; alt=&quot;game_87&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 이 오브젝트를 Prefab화 시켜 저장했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_88.gif&quot; alt=&quot;game_88&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;애니메이션은 다음과 같이 표시된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_89.jpg&quot; alt=&quot;game_89&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;추가적으로 Bullet 프리팹에 Rigidbody2D 컴포넌트를 추가해준다. 값은 사진과 같이 설정한다.&lt;/p&gt;
+
+&lt;p&gt;이제 C# 스크립트를 하나 만들었다. 이름은 BulletSpanwer으로 지었다.&lt;/p&gt;
+
+&lt;h5 id=&quot;bulletspanwer&quot;&gt;BulletSpanwer&lt;/h5&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UnityEngine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BulletSpanwer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tagName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Enemy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 코루틴 시작&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;StartCoroutine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;attack&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;IEnumerator&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 1초에 한번씩 수행&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;attackBullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;WaitForSeconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attackBullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FindGameObjectsWithTag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Enemy가 있을 경우에만 수행&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+
+            &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// 현재 오브젝트의 위치와 적 개체의 위치를 통해 거리를 얻어오기&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// 현재 저장된 최소 거리보다 지금 거리가 더 작다면&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// 최소 거리 저장 및 최소 거리 객체 저장&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foundEnemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;minDist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 플레이어로부터 적 까지의 벡터 구하기&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enemy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 벡터를 단위벡터화&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 벡터로 각도 구하기&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;angle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SignedAngle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 소환 포지션 정하기&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gameObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 생성하기&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;GameObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attBullet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Instantiate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spawnPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Quaternion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;attBullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;angle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;attBullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Rigidbody2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;velocity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;코드 설명&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;변수선언 : line 7 ~ 13
+    &lt;ul&gt;
+      &lt;li&gt;line 7 : 적 개체를 찾아 저장할 리스트&lt;/li&gt;
+      &lt;li&gt;line 8 : 가장 거리가 짧은 적 개체를 가져와 저장할 변수&lt;/li&gt;
+      &lt;li&gt;line 9 : Bullet Prefab을 저장할 변수&lt;/li&gt;
+      &lt;li&gt;line 10 : 태그명을 저장하여 해당 태그에 해당하는 오브젝트를 찾는다.&lt;/li&gt;
+      &lt;li&gt;line 11 : 최단거리 저장할 변수&lt;/li&gt;
+      &lt;li&gt;line 12 : Bullet이  날아가는 속도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;코루틴 : line 15 ~ 30
+    &lt;ul&gt;
+      &lt;li&gt;line 18 : 코루틴 시작&lt;/li&gt;
+      &lt;li&gt;line 21 : 코루틴 함수&lt;/li&gt;
+      &lt;li&gt;line 23 ~ 28 : 무한반복&lt;/li&gt;
+      &lt;li&gt;line 26 : Bullet 생성함수 실행&lt;/li&gt;
+      &lt;li&gt;line 27 : 1초 딜레이 하도록 설정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bullet 생성 함수
+    &lt;ul&gt;
+      &lt;li&gt;line 34 : FindGameObjectsWithTag 메서드를 이용해 태그명으로 Enemy 게임 오브젝트 리스트 가져오기&lt;/li&gt;
+      &lt;li&gt;line 38 ~ 54 : 플레이어로부터 최단 거리인 Enemy 객체 구하기&lt;/li&gt;
+      &lt;li&gt;line 56 : 플레이어로부터 적 까지의 벡터 구하기&lt;/li&gt;
+      &lt;li&gt;line 59 : 벡터를 단위벡터로 만들기&lt;/li&gt;
+      &lt;li&gt;line 62 : 벡터로 각도 구하기 (Vector3.SignedAngle 사용)&lt;/li&gt;
+      &lt;li&gt;line 65 ~ 66 : Bullet 생성 위치 정하기 (플레이어 포지션, z축은 1칸 당겼다.)&lt;/li&gt;
+      &lt;li&gt;line 68 : Instantiate 메서드로 Bullet 객체 생성&lt;/li&gt;
+      &lt;li&gt;line 69 ~ 72 : Bullet 적 방향에 맞게 회전시켜주고, 속력 부여하기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;코드는 다음과 같이 이루어져있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_90.jpg&quot; alt=&quot;game_90&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 이 스크립트를 Player 게임 오브젝트에 컴포넌트로 추가해주고 Bullet 변수에 Bullet Prefab를 할당해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://hjs101.github.io/assets/images/game01_91.gif&quot; alt=&quot;game_91&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 가까운 Enemy 방향에 맞게 총알이 날아가는 모습이다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 적 개체 중 가장 가까운 개체를 찾아서 해당 개체의 방향으로 총알을 생성해 날리는 부분을 구현해보았다.&lt;/p&gt;
+
+&lt;p&gt;다음에는 총알이 적 개체와 부딪혔을 때 적 개체를 제거하는 부분을 구현하겠다.&lt;/p&gt;</content>
 
       
       

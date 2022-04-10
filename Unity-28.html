@@ -201,7 +201,167 @@ into the {body} of the default.hbs template -->
 
 <p>현재 구상 하고 있는 것은 예전에 잠깐 화제가 되었던 모바일 게임 <strong><em>매직 서바이벌</em></strong> 과 스팀에서 최근 붐이 일었던 게임 <strong><em>뱀파이어 서바이벌</em></strong> 의 장르를 본딴 생존 서바이벌 슈팅 게임이다.</p>
 
-<p>아직 작성중입니다.</p>
+<p>오늘은 플레이어에게 공격 기능을 부여해보겠다. 일정 주기로 플레이어로부터 공격이 이루어지고, 공격에 적 개체가 맞으면 적이 제거되는 방식으로 구현해보겠다.</p>
+
+<p>먼저 총알을 만들어보자.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_84.jpg" alt="game_84" /></p>
+
+<p>Bullet 이름으로 오브젝트를 하나 생성하고, 총알 스프라이트 4개를 애니메이션으로 만들기 위해 드래그 &amp; 드롭해주었다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_85.jpg" alt="game_85" /></p>
+
+<p>애니메이션의 속도는 0.5로 줄여주었다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_86.jpg" alt="game_86" /></p>
+
+<p>인스펙터창에서 크기와 위치는 위 사진과 같이 설정해두었다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_87.jpg" alt="game_87" /></p>
+
+<p>그리고 이 오브젝트를 Prefab화 시켜 저장했다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_88.gif" alt="game_88" /></p>
+
+<p>애니메이션은 다음과 같이 표시된다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_89.jpg" alt="game_89" /></p>
+
+<p>추가적으로 Bullet 프리팹에 Rigidbody2D 컴포넌트를 추가해준다. 값은 사진과 같이 설정한다.</p>
+
+<p>이제 C# 스크립트를 하나 만들었다. 이름은 BulletSpanwer으로 지었다.</p>
+
+<h5 id="bulletspanwer">BulletSpanwer</h5>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">BulletSpanwer</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">foundEnemys</span><span class="p">;</span>
+    <span class="n">GameObject</span> <span class="n">enemy</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">bullet</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">tagName</span> <span class="p">=</span> <span class="s">"Enemy"</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">minDist</span><span class="p">;</span>
+
+    <span class="kt">float</span> <span class="n">speed</span> <span class="p">=</span> <span class="m">3f</span><span class="p">;</span>
+
+
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 코루틴 시작</span>
+        <span class="nf">StartCoroutine</span><span class="p">(</span><span class="s">"attack"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">attack</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// 1초에 한번씩 수행</span>
+            <span class="nf">attackBullet</span><span class="p">();</span>
+            <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitForSeconds</span><span class="p">(</span><span class="m">1.0f</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">attackBullet</span><span class="p">()</span>
+    <span class="p">{</span>
+
+        <span class="n">foundEnemys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;(</span><span class="n">GameObject</span><span class="p">.</span><span class="nf">FindGameObjectsWithTag</span><span class="p">(</span><span class="n">tagName</span><span class="p">));</span>
+        <span class="c1">// Enemy가 있을 경우에만 수행</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">foundEnemys</span><span class="p">.</span><span class="n">Count</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">minDist</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="nf">Distance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">foundEnemys</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+
+            <span class="n">enemy</span> <span class="p">=</span> <span class="n">foundEnemys</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">GameObject</span> <span class="n">foundEnemy</span> <span class="k">in</span> <span class="n">foundEnemys</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// 현재 오브젝트의 위치와 적 개체의 위치를 통해 거리를 얻어오기</span>
+                <span class="kt">float</span> <span class="n">dist</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="nf">Distance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">foundEnemy</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+                <span class="c1">// 현재 저장된 최소 거리보다 지금 거리가 더 작다면</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">dist</span> <span class="p">&lt;</span> <span class="n">minDist</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="c1">// 최소 거리 저장 및 최소 거리 객체 저장</span>
+                    <span class="n">enemy</span> <span class="p">=</span> <span class="n">foundEnemy</span><span class="p">;</span>
+                    <span class="n">minDist</span> <span class="p">=</span> <span class="n">dist</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// 플레이어로부터 적 까지의 벡터 구하기</span>
+            <span class="n">Vector2</span> <span class="n">vec</span> <span class="p">=</span> <span class="n">enemy</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">-</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+
+            <span class="c1">// 벡터를 단위벡터화</span>
+            <span class="n">vec</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">();</span>
+
+            <span class="c1">// 벡터로 각도 구하기</span>
+            <span class="kt">float</span> <span class="n">angle</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="nf">SignedAngle</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">up</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">forward</span><span class="p">);</span>
+
+            <span class="c1">// 소환 포지션 정하기</span>
+            <span class="n">Vector3</span> <span class="n">spawnPos</span> <span class="p">=</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+            <span class="n">spawnPos</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="p">-</span><span class="m">4</span><span class="p">;</span>
+            <span class="c1">// 생성하기</span>
+            <span class="n">GameObject</span> <span class="n">attBullet</span> <span class="p">=</span> <span class="nf">Instantiate</span><span class="p">(</span><span class="n">bullet</span><span class="p">,</span> <span class="n">spawnPos</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">);</span>
+
+            <span class="n">attBullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">Rotate</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">angle</span> <span class="p">+</span> <span class="m">90</span><span class="p">);</span>
+
+            <span class="n">attBullet</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody2D</span><span class="p">&gt;().</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">vec</span> <span class="p">*</span> <span class="n">speed</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>코드 설명</strong></p>
+
+<ol>
+  <li>변수선언 : line 7 ~ 13
+    <ul>
+      <li>line 7 : 적 개체를 찾아 저장할 리스트</li>
+      <li>line 8 : 가장 거리가 짧은 적 개체를 가져와 저장할 변수</li>
+      <li>line 9 : Bullet Prefab을 저장할 변수</li>
+      <li>line 10 : 태그명을 저장하여 해당 태그에 해당하는 오브젝트를 찾는다.</li>
+      <li>line 11 : 최단거리 저장할 변수</li>
+      <li>line 12 : Bullet이  날아가는 속도</li>
+    </ul>
+  </li>
+  <li>코루틴 : line 15 ~ 30
+    <ul>
+      <li>line 18 : 코루틴 시작</li>
+      <li>line 21 : 코루틴 함수</li>
+      <li>line 23 ~ 28 : 무한반복</li>
+      <li>line 26 : Bullet 생성함수 실행</li>
+      <li>line 27 : 1초 딜레이 하도록 설정</li>
+    </ul>
+  </li>
+  <li>Bullet 생성 함수
+    <ul>
+      <li>line 34 : FindGameObjectsWithTag 메서드를 이용해 태그명으로 Enemy 게임 오브젝트 리스트 가져오기</li>
+      <li>line 38 ~ 54 : 플레이어로부터 최단 거리인 Enemy 객체 구하기</li>
+      <li>line 56 : 플레이어로부터 적 까지의 벡터 구하기</li>
+      <li>line 59 : 벡터를 단위벡터로 만들기</li>
+      <li>line 62 : 벡터로 각도 구하기 (Vector3.SignedAngle 사용)</li>
+      <li>line 65 ~ 66 : Bullet 생성 위치 정하기 (플레이어 포지션, z축은 1칸 당겼다.)</li>
+      <li>line 68 : Instantiate 메서드로 Bullet 객체 생성</li>
+      <li>line 69 ~ 72 : Bullet 적 방향에 맞게 회전시켜주고, 속력 부여하기</li>
+    </ul>
+  </li>
+</ol>
+
+<p>코드는 다음과 같이 이루어져있다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_90.jpg" alt="game_90" /></p>
+
+<p>이제 이 스크립트를 Player 게임 오브젝트에 컴포넌트로 추가해주고 Bullet 변수에 Bullet Prefab를 할당해주면 된다.</p>
+
+<p><img src="https://hjs101.github.io/assets/images/game01_91.gif" alt="game_91" /></p>
+
+<p>가장 가까운 Enemy 방향에 맞게 총알이 날아가는 모습이다.</p>
+
+<p>오늘은 적 개체 중 가장 가까운 개체를 찾아서 해당 개체의 방향으로 총알을 생성해 날리는 부분을 구현해보았다.</p>
+
+<p>다음에는 총알이 적 개체와 부딪혔을 때 적 개체를 제거하는 부분을 구현하겠다.</p>
 
                 </div>
             </section>
