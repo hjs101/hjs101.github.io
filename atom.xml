@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_15685_드래곤커브_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--드래곤커브&quot;&gt;문제 : 드래곤커브&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 18 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-15685</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-15685</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1708_이진검색트리_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--이진검색트리&quot;&gt;문제 : 이진검색트리&lt;/h2&gt;
@@ -2517,6 +2532,9 @@
   &lt;br /&gt;
   2022-04-17
   &lt;li&gt;&lt;a href=&quot;./BOJ-1708&quot;&gt;BOJ_1708_이진검색트리_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-04-18
+  &lt;li&gt;&lt;a href=&quot;./BOJ-15685&quot;&gt;BOJ_15685_드래곤커브_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
