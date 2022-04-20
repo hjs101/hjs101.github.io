@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_2573_빙산_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--빙산&quot;&gt;문제 : 빙산&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 20 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2573</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2573</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_10422_괄호_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--괄호&quot;&gt;문제 : 괄호&lt;/h2&gt;
@@ -2553,6 +2568,9 @@
   &lt;br /&gt;
   2022-04-19
   &lt;li&gt;&lt;a href=&quot;./BOJ-10422&quot;&gt;BOJ_10422_괄호_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-04-20
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2573&quot;&gt;BOJ_2573_빙산_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
