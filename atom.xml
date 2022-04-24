@@ -8,13 +8,28 @@
     
       
       <item>
+        <title>BOJ_2239_스도쿠_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--스도쿠&quot;&gt;문제 : 스도쿠&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 23 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2239</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2239</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_14502_연구소_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--연구소&quot;&gt;문제 : 연구소&lt;/h2&gt;
 
 </description>
         
-        <pubDate>Thu, 21 Apr 2022 09:00:00 +0900</pubDate>
+        <pubDate>Fri, 22 Apr 2022 09:00:00 +0900</pubDate>
         <link>
         https://hjs101.github.io/BOJ-14502</link>
         <guid isPermaLink="true">https://hjs101.github.io/BOJ-14502</guid>
@@ -2607,6 +2622,9 @@
   &lt;br /&gt;
   2022-04-22
   &lt;li&gt;&lt;a href=&quot;./BOJ-14502&quot;&gt;BOJ_14502_연구소_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-04-23
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2239&quot;&gt;BOJ_2239_스도쿠_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
