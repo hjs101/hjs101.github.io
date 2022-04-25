@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_1389_케빈베이컨의6단계법칙_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--케빈-베이컨의-6단계-법칙&quot;&gt;문제 : 케빈 베이컨의 6단계 법칙&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 25 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-22390</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-22390</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2239_스도쿠_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--스도쿠&quot;&gt;문제 : 스도쿠&lt;/h2&gt;
@@ -2625,6 +2640,9 @@
   &lt;br /&gt;
   2022-04-23
   &lt;li&gt;&lt;a href=&quot;./BOJ-2239&quot;&gt;BOJ_2239_스도쿠_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-04-25
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1389&quot;&gt;BOJ_1389_케빈베이컨의6단계법칙_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
