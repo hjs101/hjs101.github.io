@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>BOJ_11404_플로이드_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--플로이드&quot;&gt;문제 : 플로이드&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 26 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-11404</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-11404</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_10973_이전순열_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--이전순열&quot;&gt;문제 : 이전순열&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Tue, 26 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-10973</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-10973</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1389_케빈베이컨의6단계법칙_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--케빈-베이컨의-6단계-법칙&quot;&gt;문제 : 케빈 베이컨의 6단계 법칙&lt;/h2&gt;
@@ -2644,6 +2674,12 @@
   2022-04-25
   &lt;li&gt;&lt;a href=&quot;./BOJ-1389&quot;&gt;BOJ_1389_케빈베이컨의6단계법칙_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
+  2022-04-26
+  &lt;li&gt;&lt;a href=&quot;./BOJ-10973&quot;&gt;BOJ_10973_이전순열_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-11404&quot;&gt;BOJ_11404_플로이드_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+
+
 &lt;/ul&gt;
 
 </description>
