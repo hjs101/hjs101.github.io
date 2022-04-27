@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_1755_숫자놀이_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--숫자놀이&quot;&gt;문제 : 숫자놀이&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 27 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1755</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1755</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_11404_플로이드_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--플로이드&quot;&gt;문제 : 플로이드&lt;/h2&gt;
@@ -2678,7 +2693,9 @@
   &lt;li&gt;&lt;a href=&quot;./BOJ-10973&quot;&gt;BOJ_10973_이전순열_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-11404&quot;&gt;BOJ_11404_플로이드_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
-
+  2022-04-27
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1755&quot;&gt;BOJ_1755_숫자놀이_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
 
 &lt;/ul&gt;
 
