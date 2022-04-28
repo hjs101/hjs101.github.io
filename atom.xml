@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_1051_숫자정사각형_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--숫자정사각형&quot;&gt;문제 : 숫자정사각형&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1051</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1051</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1755_숫자놀이_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--숫자놀이&quot;&gt;문제 : 숫자놀이&lt;/h2&gt;
@@ -2696,7 +2711,9 @@
   2022-04-27
   &lt;li&gt;&lt;a href=&quot;./BOJ-1755&quot;&gt;BOJ_1755_숫자놀이_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
-
+  2022-04-28
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1051&quot;&gt;BOJ_1051_숫자정사각형_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
 &lt;/ul&gt;
 
 </description>
