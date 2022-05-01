@@ -8,6 +8,51 @@
     
       
       <item>
+        <title>SWEA_1953_탈주범검거_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--탈주범-검거&quot;&gt;문제 : 탈주범 검거&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 01 May 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/SWEA-1953</link>
+        <guid isPermaLink="true">https://hjs101.github.io/SWEA-1953</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>SWEA_1240_보급로_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--보급로&quot;&gt;문제 : 보급로&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 30 Apr 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/SWEA-1240</link>
+        <guid isPermaLink="true">https://hjs101.github.io/SWEA-1240</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_3079_입국심사_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--입국심사&quot;&gt;문제 : 입국심사&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Apr 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-3079</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-3079</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1051_숫자정사각형_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--숫자정사각형&quot;&gt;문제 : 숫자정사각형&lt;/h2&gt;
@@ -2441,6 +2486,12 @@
 	2022-02-22
 	&lt;li&gt;&lt;a href=&quot;./SWEA-3289&quot;&gt;SWEA_3289_서로소집합_JAVA&lt;/a&gt;&lt;/li&gt;
 	&lt;br /&gt;
+	2022-04-30
+	&lt;li&gt;&lt;a href=&quot;./SWEA-1240&quot;&gt;SWEA_1240_보급로_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
+	2022-05-01
+	&lt;li&gt;&lt;a href=&quot;./SWEA-1953&quot;&gt;SWEA_1953_탈주범검거_JAVA&lt;/a&gt;&lt;/li&gt;
+	&lt;br /&gt;
 &lt;/ul&gt;
 
 </description>
@@ -2713,6 +2764,9 @@
   &lt;br /&gt;
   2022-04-28
   &lt;li&gt;&lt;a href=&quot;./BOJ-1051&quot;&gt;BOJ_1051_숫자정사각형_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-04-29
+  &lt;li&gt;&lt;a href=&quot;./BOJ-3079&quot;&gt;BOJ_3079_입국심사_JAVA&lt;/a&gt;&lt;/li&gt;
   &lt;br /&gt;
 &lt;/ul&gt;
 
