@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_1783_병든나이트_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--병든나이트&quot;&gt;문제 : 병든나이트&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 26 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1783</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1783</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2638_치즈_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--치즈&quot;&gt;문제 : 치즈&lt;/h2&gt;
@@ -2931,7 +2946,9 @@
   &lt;br /&gt;
   2022-05-25
   &lt;li&gt;&lt;a href=&quot;./BOJ-2638&quot;&gt;BOJ_2638_치즈_JAVA&lt;/a&gt;&lt;/li&gt;
-
+  &lt;br /&gt;
+  2022-05-26
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1783&quot;&gt;BOJ_1783_병든나이트_JAVA&lt;/a&gt;&lt;/li&gt;
 
 &lt;/ul&gt;
 
