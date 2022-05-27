@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>BOJ_2621_카드게임_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--카드게임&quot;&gt;문제 : 카드게임&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 27 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2621</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2621</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_1783_병든나이트_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--병든나이트&quot;&gt;문제 : 병든나이트&lt;/h2&gt;
@@ -2949,7 +2964,9 @@
   &lt;br /&gt;
   2022-05-26
   &lt;li&gt;&lt;a href=&quot;./BOJ-1783&quot;&gt;BOJ_1783_병든나이트_JAVA&lt;/a&gt;&lt;/li&gt;
-
+  &lt;br /&gt;
+  2022-05-27
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2621&quot;&gt;BOJ_2621_카드게임_JAVA&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
