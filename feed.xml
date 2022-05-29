@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-05-30T00:58:18+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_1748_수이어쓰기_JAVA</title><link href="https://hjs101.github.io/BOJ-1748" rel="alternate" type="text/html" title="BOJ_1748_수이어쓰기_JAVA" /><published>2022-05-29T09:00:00+09:00</published><updated>2022-05-29T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1748</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1748">&lt;h2 id=&quot;문제--수이어쓰기&quot;&gt;문제 : 수이어쓰기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://hjs101.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hjs101.github.io/" rel="alternate" type="text/html" /><updated>2022-05-30T01:00:44+09:00</updated><id>https://hjs101.github.io/feed.xml</id><title type="html">hjs’s Blog</title><subtitle>기술 블로그 알고리즘 공부 및 프로젝트</subtitle><entry><title type="html">BOJ_1748_수이어쓰기_JAVA</title><link href="https://hjs101.github.io/BOJ-1748" rel="alternate" type="text/html" title="BOJ_1748_수이어쓰기_JAVA" /><published>2022-05-29T09:00:00+09:00</published><updated>2022-05-29T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-1748</id><content type="html" xml:base="https://hjs101.github.io/BOJ-1748">&lt;h2 id=&quot;문제--수이어쓰기&quot;&gt;문제 : 수이어쓰기&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/1748&quot;&gt;BOJ_1748_수이어쓰기&lt;/a&gt;&lt;/p&gt;
 
@@ -72,7 +72,7 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;자릿수를 구하는 과정에서 은근히 생각해야할 점이 많았던 것 같다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 수이어쓰기</summary></entry><entry><title type="html">BOJ_2960_에라토스테네스의체_JAVA</title><link href="https://hjs101.github.io/BOJ-2960" rel="alternate" type="text/html" title="BOJ_2960_에라토스테네스의체_JAVA" /><published>2022-05-29T09:00:00+09:00</published><updated>2022-05-29T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2960</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2960">&lt;h2 id=&quot;문제--에라토스테네스의-체&quot;&gt;문제 : 에라토스테네스의 체&lt;/h2&gt;
+&lt;p&gt;자릿수를 구하는 과정에서 은근히 생각해야할 점이 많았다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 수이어쓰기</summary></entry><entry><title type="html">BOJ_2960_에라토스테네스의체_JAVA</title><link href="https://hjs101.github.io/BOJ-2960" rel="alternate" type="text/html" title="BOJ_2960_에라토스테네스의체_JAVA" /><published>2022-05-29T09:00:00+09:00</published><updated>2022-05-29T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2960</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2960">&lt;h2 id=&quot;문제--에라토스테네스의-체&quot;&gt;문제 : 에라토스테네스의 체&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2960&quot;&gt;BOJ_2960_에라토스테네스의체&lt;/a&gt;&lt;/p&gt;
 
@@ -354,9 +354,7 @@ M이 7보다 작을 때에는, M에 따라서 4개의 이동방식을 모두 사
 	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이전에 풀었던 치즈문제와 비슷하면서도 다른 점이 있어 신선했다.&lt;/p&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 병든나이트</summary></entry><entry><title type="html">BOJ_2638_치즈_JAVA</title><link href="https://hjs101.github.io/BOJ-2638" rel="alternate" type="text/html" title="BOJ_2638_치즈_JAVA" /><published>2022-05-25T09:00:00+09:00</published><updated>2022-05-25T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2638</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2638">&lt;h2 id=&quot;문제--치즈&quot;&gt;문제 : 치즈&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>hjs</name></author><category term="BOJ" /><summary type="html">문제 : 병든나이트</summary></entry><entry><title type="html">BOJ_2638_치즈_JAVA</title><link href="https://hjs101.github.io/BOJ-2638" rel="alternate" type="text/html" title="BOJ_2638_치즈_JAVA" /><published>2022-05-25T09:00:00+09:00</published><updated>2022-05-25T09:00:00+09:00</updated><id>https://hjs101.github.io/BOJ-2638</id><content type="html" xml:base="https://hjs101.github.io/BOJ-2638">&lt;h2 id=&quot;문제--치즈&quot;&gt;문제 : 치즈&lt;/h2&gt;
 
 &lt;p&gt;링크 : &lt;a href=&quot;https://www.acmicpc.net/problem/2638&quot;&gt;BOJ_2638_치즈&lt;/a&gt;&lt;/p&gt;
 
