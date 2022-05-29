@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>BOJ_2960_에라토스테네스의체_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--에라토스테네스의-체&quot;&gt;문제 : 에라토스테네스의 체&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 29 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-2960</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-2960</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1748_수이어쓰기_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--수이어쓰기&quot;&gt;문제 : 수이어쓰기&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 29 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1748</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1748</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2621_카드게임_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--카드게임&quot;&gt;문제 : 카드게임&lt;/h2&gt;
@@ -2967,6 +2997,10 @@
   &lt;br /&gt;
   2022-05-27
   &lt;li&gt;&lt;a href=&quot;./BOJ-2621&quot;&gt;BOJ_2621_카드게임_JAVA&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-05-29
+  &lt;li&gt;&lt;a href=&quot;./BOJ-2960&quot;&gt;BOJ_2960_에라토스테네스의체&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1748&quot;&gt;BOJ_1748_수이어쓰기1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
