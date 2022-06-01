@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>BOJ_17779_게리맨더링2_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--게리맨더링2&quot;&gt;문제 : 게리맨더링2&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 30 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-17779</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-17779</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>BOJ_1120_문자열_JAVA</title>
+        
+          <description>&lt;h2 id=&quot;문제--문자열&quot;&gt;문제 : 문자열&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 30 May 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://hjs101.github.io/BOJ-1120</link>
+        <guid isPermaLink="true">https://hjs101.github.io/BOJ-1120</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>BOJ_2960_에라토스테네스의체_JAVA</title>
         
           <description>&lt;h2 id=&quot;문제--에라토스테네스의-체&quot;&gt;문제 : 에라토스테네스의 체&lt;/h2&gt;
@@ -3001,6 +3031,13 @@
   2022-05-29
   &lt;li&gt;&lt;a href=&quot;./BOJ-2960&quot;&gt;BOJ_2960_에라토스테네스의체&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./BOJ-1748&quot;&gt;BOJ_1748_수이어쓰기1&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-05-30
+  &lt;li&gt;&lt;a href=&quot;./BOJ-1120&quot;&gt;문자열&lt;/a&gt;&lt;/li&gt;
+  &lt;br /&gt;
+  2022-05-31
+  &lt;li&gt;&lt;a href=&quot;./BOJ-17779&quot;&gt;BOJ_17779_게리맨더링2_JAVA&lt;/a&gt;&lt;/li&gt;
+
 &lt;/ul&gt;
 
 </description>
